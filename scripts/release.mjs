@@ -103,15 +103,12 @@ async function main() {
   await validateManifest(chromeOut, "chrome");
   await validateManifest(firefoxOut, "firefox");
 
-  // 3. web-ext lint (firefox), if available
+  // 3. web-ext lint (firefox), via the guarded wrapper so a mis-targeted
+  //    chrome manifest fails with a clear message instead of cryptic errors.
   try {
-    await run(
-      "npx",
-      ["web-ext", "lint", "--source-dir", firefoxOut, "--no-input"],
-      {
-        cwd: rootDir,
-      },
-    );
+    await run("node", ["scripts/web-ext-lint.mjs", firefoxOut], {
+      cwd: rootDir,
+    });
   } catch {
     console.warn(
       "! web-ext not available; skipped web-ext lint (verify does this)",

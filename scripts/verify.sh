@@ -30,7 +30,7 @@ step "Brand check"
 pnpm brand:check
 
 step "web-ext lint (Firefox output)"
-npx --yes web-ext lint --source-dir packages/extension/.output/firefox-mv3
+node scripts/web-ext-lint.mjs packages/extension/.output/firefox-mv3
 
 if ls packages/extension/e2e/*.spec.ts >/dev/null 2>&1; then
   step "e2e"
