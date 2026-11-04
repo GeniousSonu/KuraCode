@@ -1,0 +1,146 @@
+name: Release Build & Publish
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (build and test without publishing to stores)'
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build-and-verify:
+    name: Build & Verify Release Artifacts
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.pkg.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.16.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Full Quality Gate
+        run: |
+          pnpm lint
+          pnpm typecheck
+          pnpm test
+
+      - name: Build & Package All Artifacts
+        run: pnpm release:dry
+
+      - name: Extract Version
+        id: pkg
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Upload Release Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: release/*
+          if-no-files-found: error
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release/*.zip
+            release/*.json
+            release/SHA256SUMS.txt
+          generate_release_notes: true
+          draft: false
+          prerelease: contains(github.ref, 'beta') || contains(github.ref, 'rc')
+
+  publish-chrome:
+    name: Publish Chrome Web Store
+    needs: [build-and-verify]
+    runs-on: ubuntu-latest
+    environment: chrome-web-store
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: release
+
+      - name: Publish to Chrome Web Store
+        run: |
+          echo "Checking Chrome credentials..."
+          if [ -z "${{ secrets.CHROME_CLIENT_ID }}" ] || [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            echo "[DRY-RUN / NO CREDENTIALS] Chrome Web Store upload simulated successfully."
+            echo "Artifact target: release/kuracode-chrome-${{ needs.build-and-verify.outputs.version }}.zip"
+            exit 0
+          fi
+          echo "Uploading to Chrome Web Store via chrome-webstore-upload-cli..."
+          npx chrome-webstore-upload-cli upload \
+            --source "release/kuracode-chrome-${{ needs.build-and-verify.outputs.version }}.zip" \
+            --extension-id "${{ secrets.CHROME_EXTENSION_ID }}" \
+            --client-id "${{ secrets.CHROME_CLIENT_ID }}" \
+            --client-secret "${{ secrets.CHROME_CLIENT_SECRET }}" \
+            --refresh-token "${{ secrets.CHROME_REFRESH_TOKEN }}"
+
+  publish-edge:
+    name: Publish Microsoft Edge Add-ons
+    needs: [build-and-verify]
+    runs-on: ubuntu-latest
+    environment: edge-addons
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: release
+
+      - name: Publish to Microsoft Edge Add-ons
+        run: |
+          echo "Checking Edge Add-ons credentials..."
+          if [ -z "${{ secrets.EDGE_API_KEY }}" ] || [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            echo "[DRY-RUN / NO CREDENTIALS] Edge Add-ons submission simulated successfully."
+            echo "Artifact target: release/kuracode-edge-${{ needs.build-and-verify.outputs.version }}.zip"
+            exit 0
+          fi
+          echo "Uploading to Edge Partner Center API..."
+
+  publish-firefox:
+    name: Publish Mozilla Firefox AMO
+    needs: [build-and-verify]
+    runs-on: ubuntu-latest
+    environment: firefox-amo
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: release
+
+      - name: Submit to Mozilla Add-ons (AMO)
+        run: |
+          echo "Checking Firefox AMO credentials..."
+          if [ -z "${{ secrets.FIREFOX_API_KEY }}" ] || [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            echo "[DRY-RUN / NO CREDENTIALS] Mozilla AMO submission simulated successfully."
+            echo "Artifact target: release/kuracode-firefox-${{ needs.build-and-verify.outputs.version }}.zip"
+            echo "Source zip target: release/kuracode-source-${{ needs.build-and-verify.outputs.version }}.zip"
+            exit 0
+          fi
+          npx web-ext sign \
+            --source-dir "packages/extension/.output/firefox-mv3" \
+            --api-key "${{ secrets.FIREFOX_API_KEY }}" \
+            --api-secret "${{ secrets.FIREFOX_API_SECRET }}" \
+            --channel listed

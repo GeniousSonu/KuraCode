@@ -59,7 +59,7 @@ export async function renderLibrary(
   container: HTMLElement,
   opts: LibraryOptions = {},
 ): Promise<void> {
-  const snippets = await listSnippets();
+  let snippets = await listSnippets();
   const languages = Array.from(new Set(snippets.map((s) => s.language))).sort();
   let query = '';
   let langFilter = 'all';
@@ -119,8 +119,7 @@ export async function renderLibrary(
       const text = (await navigator.clipboard.readText().catch(() => '')) ?? '';
       if (!text.trim()) return;
       const cleaned = cleanCode(text);
-      await saveSnippet(
-        makeSnippet({
+      const newSnip = makeSnippet({
           title: autoTitle(cleaned),
           code: cleaned,
           raw: text,
@@ -131,8 +130,9 @@ export async function renderLibrary(
             domain: 'clipboard',
             capturedAt: Date.now(),
           },
-        }),
-      );
+        });
+      await saveSnippet(newSnip);
+      snippets = await listSnippets();
       render();
     });
     toolbar.append(pasteBtn);
@@ -219,6 +219,7 @@ export async function renderLibrary(
       delBtn.type = 'button';
       delBtn.addEventListener('click', async () => {
         await deleteSnippet(s.id);
+        snippets = snippets.filter((item) => item.id !== s.id);
         render();
       });
       actions.append(delBtn);

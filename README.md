@@ -124,7 +124,7 @@ pnpm verify
 pnpm doctor
 
 # build release zips
-pnpm package        # release/sniphub-chrome-*.zip, sniphub-firefox-*.zip
+pnpm package        # release/kuracode-chrome-*.zip, kuracode-firefox-*.zip
 
 # type-check everything
 pnpm typecheck

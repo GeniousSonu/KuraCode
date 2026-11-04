@@ -3,28 +3,41 @@ node_modules/
 .pnp
 .pnp.js
 
-# builds
+# builds & outputs
 dist/
 out/
 coverage/
 *.tsbuildinfo
 .output/
 release/
+store/generated/
 
-# env
+# test results & playwright
+test-results/
+playwright-report/
+blob-report/
+
+# env & secrets (CRITICAL: NEVER COMMIT)
 .env
 .env.*
 !.env.example
+*.pem
+*.key
+*.pfx
 
 # logs
 *.log
 npm-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # editor / os
 .DS_Store
+Thumbs.db
 .idea/
+.vscode/
 *.swp
+*.swo
 
 # vite / esbuild
 .vite/

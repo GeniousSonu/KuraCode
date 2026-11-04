@@ -1,0 +1,2365 @@
+├─ @babel/code-frame@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\code-frame
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\code-frame\LICENSE
+├─ @babel/compat-data@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\@babel\compat-data
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\@babel\compat-data\LICENSE
+├─ @babel/core@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\core
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\core\LICENSE
+├─ @babel/generator@7.29.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\generator
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\generator\LICENSE
+├─ @babel/helper-compilation-targets@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\helper-compilation-targets
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\helper-compilation-targets\LICENSE
+├─ @babel/helper-globals@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+traverse@7.29.12_supports-color@7.2.0\node_modules\@babel\helper-globals
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+traverse@7.29.12_supports-color@7.2.0\node_modules\@babel\helper-globals\LICENSE
+├─ @babel/helper-module-imports@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-module-transf_ca3daa5572729cf9e58956e439cfaf01\node_modules\@babel\helper-module-imports
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-module-transf_ca3daa5572729cf9e58956e439cfaf01\node_modules\@babel\helper-module-imports\LICENSE
+├─ @babel/helper-module-transforms@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\helper-module-transforms
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\helper-module-transforms\LICENSE
+├─ @babel/helper-plugin-utils@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\helper-plugin-utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\helper-plugin-utils\LICENSE
+├─ @babel/helper-string-parser@7.29.11
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+types@7.29.11\node_modules\@babel\helper-string-parser
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+types@7.29.11\node_modules\@babel\helper-string-parser\LICENSE
+├─ @babel/helper-validator-identifier@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+types@7.29.11\node_modules\@babel\helper-validator-identifier
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+types@7.29.11\node_modules\@babel\helper-validator-identifier\LICENSE
+├─ @babel/helper-validator-option@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\@babel\helper-validator-option
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\@babel\helper-validator-option\LICENSE
+├─ @babel/helpers@7.29.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\helpers
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@babel\helpers\LICENSE
+├─ @babel/parser@7.29.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\parser
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@babel\parser\LICENSE
+├─ @babel/template@7.29.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+traverse@7.29.12_supports-color@7.2.0\node_modules\@babel\template
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+traverse@7.29.12_supports-color@7.2.0\node_modules\@babel\template\LICENSE
+├─ @babel/traverse@7.29.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-module-imports@7.29.7_supports-color@7.2.0\node_modules\@babel\traverse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-module-imports@7.29.7_supports-color@7.2.0\node_modules\@babel\traverse\LICENSE
+├─ @babel/types@7.29.11
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/babel/babel
+│  ├─ publisher: The Babel Team
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+parser@7.29.12\node_modules\@babel\types
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+parser@7.29.12\node_modules\@babel\types\LICENSE
+├─ @cacheable/memory@2.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/cacheable
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacheable@2.5.0\node_modules\@cacheable\memory
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacheable@2.5.0\node_modules\@cacheable\memory\LICENSE
+├─ @cacheable/utils@2.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/cacheable
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@cacheable+memory@2.2.0\node_modules\@cacheable\utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@cacheable+memory@2.2.0\node_modules\@cacheable\utils\LICENSE
+├─ @commitlint/cli@21.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\@commitlint\cli
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\@commitlint\cli\license.md
+├─ @commitlint/config-conventional@21.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\config-conventional
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\config-conventional\license.md
+├─ @commitlint/config-validator@21.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\@commitlint\config-validator
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\@commitlint\config-validator\license.md
+├─ @commitlint/ensure@21.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+rules@21.2.4\node_modules\@commitlint\ensure
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+rules@21.2.4\node_modules\@commitlint\ensure\license.md
+├─ @commitlint/execute-rule@21.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\@commitlint\execute-rule
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\@commitlint\execute-rule\license.md
+├─ @commitlint/format@21.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\format
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\format\license.md
+├─ @commitlint/is-ignored@21.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+lint@21.2.4\node_modules\@commitlint\is-ignored
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+lint@21.2.4\node_modules\@commitlint\is-ignored\license.md
+├─ @commitlint/lint@21.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@commitlint\lint
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@commitlint\lint\license.md
+├─ @commitlint/load@21.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\load
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\load\license.md
+├─ @commitlint/message@21.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+rules@21.2.4\node_modules\@commitlint\message
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+rules@21.2.4\node_modules\@commitlint\message\license.md
+├─ @commitlint/parse@21.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@commitlint\parse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@commitlint\parse\license.md
+├─ @commitlint/read@21.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\read
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\@commitlint\read\license.md
+├─ @commitlint/resolve-extends@21.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\@commitlint\resolve-extends
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\@commitlint\resolve-extends\license.md
+├─ @commitlint/rules@21.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+lint@21.2.4\node_modules\@commitlint\rules
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+lint@21.2.4\node_modules\@commitlint\rules\license.md
+├─ @commitlint/to-lines@21.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+rules@21.2.4\node_modules\@commitlint\to-lines
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+rules@21.2.4\node_modules\@commitlint\to-lines\license.md
+├─ @commitlint/top-level@21.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+read@21.2.3_conventional-commits-parser@7.1.4\node_modules\@commitlint\top-level
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+read@21.2.3_conventional-commits-parser@7.1.4\node_modules\@commitlint\top-level\license.md
+├─ @commitlint/types@21.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/commitlint
+│  ├─ publisher: Mario Nebl
+│  ├─ email: hello@herebecode.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+config-conventional@21.2.4\node_modules\@commitlint\types
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+config-conventional@21.2.4\node_modules\@commitlint\types\license.md
+├─ @conventional-changelog/git-client@3.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/conventional-changelog
+│  ├─ publisher: Dan Onoshko
+│  ├─ email: danon0404@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+read@21.2.3_conventional-commits-parser@7.1.4\node_modules\@conventional-changelog\git-client
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+read@21.2.3_conventional-commits-parser@7.1.4\node_modules\@conventional-changelog\git-client\LICENSE.md
+├─ @conventional-changelog/template@1.4.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/conventional-changelog
+│  ├─ publisher: Dan Onoshko
+│  ├─ email: danon0404@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\conventional-changelog-conventionalcommits@10.4.1\node_modules\@conventional-changelog\template
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\conventional-changelog-conventionalcommits@10.4.1\node_modules\@conventional-changelog\template\LICENSE.md
+├─ @eslint-community/eslint-utils@4.10.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint-community/eslint-utils
+│  ├─ publisher: Toru Nagashima
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint-community\eslint-utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint-community\eslint-utils\LICENSE
+├─ @eslint-community/regexpp@4.12.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint-community/regexpp
+│  ├─ publisher: Toru Nagashima
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\@eslint-community\regexpp
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\@eslint-community\regexpp\LICENSE
+├─ @eslint/config-array@0.23.5
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint\config-array
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint\config-array\LICENSE
+├─ @eslint/config-helpers@0.7.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint\config-helpers
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint\config-helpers\LICENSE
+├─ @eslint/core@1.2.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint+config-helpers@0.7.0\node_modules\@eslint\core
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint+config-helpers@0.7.0\node_modules\@eslint\core\LICENSE
+├─ @eslint/js@10.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint/eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\@eslint\js
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\@eslint\js\LICENSE
+├─ @eslint/object-schema@3.0.5
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint+config-array@0.23.5_supports-color@7.2.0\node_modules\@eslint\object-schema
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint+config-array@0.23.5_supports-color@7.2.0\node_modules\@eslint\object-schema\LICENSE
+├─ @eslint/plugin-kit@0.7.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/rewrite
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint\plugin-kit
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@eslint\plugin-kit\LICENSE
+├─ @gar/promise-retry@1.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/wraithgar/node-promise-retry
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@gar\promise-retry
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@gar\promise-retry\LICENSE
+├─ @humanfs/core@0.19.2
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/humanfs
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@humanfs+node@0.16.8\node_modules\@humanfs\core
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@humanfs+node@0.16.8\node_modules\@humanfs\core\LICENSE
+├─ @humanfs/node@0.16.8
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/humanfs
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@humanfs\node
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@humanfs\node\LICENSE
+├─ @humanfs/types@0.15.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/humanfs
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@humanfs+core@0.19.2\node_modules\@humanfs\types
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@humanfs+core@0.19.2\node_modules\@humanfs\types\README.md
+├─ @humanwhocodes/module-importer@1.0.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/module-importer
+│  ├─ publisher: Nicholas C. Zaks
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@humanwhocodes\module-importer
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\@humanwhocodes\module-importer\LICENSE
+├─ @humanwhocodes/retry@0.4.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/humanwhocodes/retry
+│  ├─ publisher: Nicholas C. Zaks
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@humanfs+node@0.16.8\node_modules\@humanwhocodes\retry
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@humanfs+node@0.16.8\node_modules\@humanwhocodes\retry\LICENSE
+├─ @img/colour@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lovell/colour
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\sharp@0.35.5\node_modules\@img\colour
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\sharp@0.35.5\node_modules\@img\colour\LICENSE.md
+├─ @isaacs/fs-minipass@4.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/fs-minipass
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\@isaacs\fs-minipass
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\@isaacs\fs-minipass\LICENSE
+├─ @isaacs/string-locale-compare@1.1.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/string-locale-compare
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@isaacs\string-locale-compare
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@isaacs\string-locale-compare\LICENSE
+├─ @jridgewell/gen-mapping@0.3.13
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+generator@7.29.12\node_modules\@jridgewell\gen-mapping
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+generator@7.29.12\node_modules\@jridgewell\gen-mapping\LICENSE
+├─ @jridgewell/remapping@2.3.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@jridgewell\remapping
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\@jridgewell\remapping\LICENSE
+├─ @jridgewell/resolve-uri@3.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/resolve-uri
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@jridgewell+trace-mapping@0.3.31\node_modules\@jridgewell\resolve-uri
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@jridgewell+trace-mapping@0.3.31\node_modules\@jridgewell\resolve-uri\LICENSE
+├─ @jridgewell/sourcemap-codec@1.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@jridgewell\sourcemap-codec
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@jridgewell\sourcemap-codec\LICENSE
+├─ @jridgewell/trace-mapping@0.3.31
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jridgewell/sourcemaps
+│  ├─ publisher: Justin Ridgewell
+│  ├─ email: justin@ridgewell.name
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@jridgewell+gen-mapping@0.3.13\node_modules\@jridgewell\trace-mapping
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@jridgewell+gen-mapping@0.3.13\node_modules\@jridgewell\trace-mapping\LICENSE
+├─ @keyv/bigmap@1.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/keyv
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@cacheable+memory@2.2.0\node_modules\@keyv\bigmap
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@cacheable+memory@2.2.0\node_modules\@keyv\bigmap\LICENSE
+├─ @keyv/serialize@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/keyv
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\keyv@5.6.0\node_modules\@keyv\serialize
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\keyv@5.6.0\node_modules\@keyv\serialize\LICENSE
+├─ @npmcli/agent@4.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/agent
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\make-fetch-happen@15.0.6_supports-color@7.2.0\node_modules\@npmcli\agent
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\make-fetch-happen@15.0.6_supports-color@7.2.0\node_modules\@npmcli\agent\README.md
+├─ @npmcli/arborist@9.6.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/cli
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\@npmcli\arborist
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\@npmcli\arborist\LICENSE.md
+├─ @npmcli/fs@5.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/fs
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\fs
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\fs\LICENSE.md
+├─ @npmcli/git@7.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/git
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+package-json@7.0.5\node_modules\@npmcli\git
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+package-json@7.0.5\node_modules\@npmcli\git\LICENSE
+├─ @npmcli/installed-package-contents@4.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/installed-package-contents
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\installed-package-contents
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\installed-package-contents\LICENSE
+├─ @npmcli/map-workspaces@5.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/map-workspaces
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\map-workspaces
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\map-workspaces\LICENSE.md
+├─ @npmcli/metavuln-calculator@9.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/metavuln-calculator
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\metavuln-calculator
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\metavuln-calculator\LICENSE
+├─ @npmcli/name-from-folder@4.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/name-from-folder
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+map-workspaces@5.0.3\node_modules\@npmcli\name-from-folder
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+map-workspaces@5.0.3\node_modules\@npmcli\name-from-folder\LICENSE
+├─ @npmcli/node-gyp@5.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-gyp
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+run-script@10.0.4\node_modules\@npmcli\node-gyp
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+run-script@10.0.4\node_modules\@npmcli\node-gyp\LICENSE
+├─ @npmcli/package-json@7.0.5
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/package-json
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+map-workspaces@5.0.3\node_modules\@npmcli\package-json
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+map-workspaces@5.0.3\node_modules\@npmcli\package-json\LICENSE
+├─ @npmcli/promise-spawn@9.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/promise-spawn
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+git@7.0.2\node_modules\@npmcli\promise-spawn
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+git@7.0.2\node_modules\@npmcli\promise-spawn\LICENSE
+├─ @npmcli/query@5.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/query
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\query
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\@npmcli\query\LICENSE
+├─ @npmcli/redact@4.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/redact
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-registry-fetch@19.1.1_supports-color@7.2.0\node_modules\@npmcli\redact
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-registry-fetch@19.1.1_supports-color@7.2.0\node_modules\@npmcli\redact\LICENSE
+├─ @npmcli/run-script@10.0.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/run-script
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\@npmcli\run-script
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\@npmcli\run-script\LICENSE
+├─ @sigstore/bundle@4.0.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/sigstore/sigstore-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\bundle
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\bundle\LICENSE
+├─ @sigstore/core@3.2.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/sigstore/sigstore-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\core
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\core\LICENSE
+├─ @sigstore/protobuf-specs@0.5.2
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/sigstore/protobuf-specs
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@sigstore+bundle@4.0.0\node_modules\@sigstore\protobuf-specs
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@sigstore+bundle@4.0.0\node_modules\@sigstore\protobuf-specs\LICENSE
+├─ @sigstore/sign@4.1.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/sigstore/sigstore-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\sign
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\sign\LICENSE
+├─ @sigstore/tuf@4.0.2
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/sigstore/sigstore-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\tuf
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\tuf\LICENSE
+├─ @sigstore/verify@3.1.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/sigstore/sigstore-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\verify
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\sigstore@4.1.1_supports-color@7.2.0\node_modules\@sigstore\verify\README.md
+├─ @simple-libs/child-process-utils@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TrigenSoftware/simple-libs
+│  ├─ publisher: Dan Onoshko
+│  ├─ email: danon0404@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@conventional-changelog+git_697fe847271ee37bc5c1079ccac83031\node_modules\@simple-libs\child-process-utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@conventional-changelog+git_697fe847271ee37bc5c1079ccac83031\node_modules\@simple-libs\child-process-utils\LICENSE
+├─ @simple-libs/stream-utils@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TrigenSoftware/simple-libs
+│  ├─ publisher: Dan Onoshko
+│  ├─ email: danon0404@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\conventional-commits-parser@7.1.4\node_modules\@simple-libs\stream-utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\conventional-commits-parser@7.1.4\node_modules\@simple-libs\stream-utils\LICENSE
+├─ @tufjs/canonical-json@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/theupdateframework/tuf-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@tufjs+models@4.1.0\node_modules\@tufjs\canonical-json
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@tufjs+models@4.1.0\node_modules\@tufjs\canonical-json\LICENSE
+├─ @tufjs/models@4.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/theupdateframework/tuf-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\tuf-js@4.1.0_supports-color@7.2.0\node_modules\@tufjs\models
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\tuf-js@4.1.0_supports-color@7.2.0\node_modules\@tufjs\models\LICENSE
+├─ @types/babel__core@7.20.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\babel__core
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\babel__core\LICENSE
+├─ @types/babel__generator@7.27.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+babel__core@7.20.5\node_modules\@types\babel__generator
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+babel__core@7.20.5\node_modules\@types\babel__generator\LICENSE
+├─ @types/babel__template@7.4.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+babel__core@7.20.5\node_modules\@types\babel__template
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+babel__core@7.20.5\node_modules\@types\babel__template\LICENSE
+├─ @types/babel__traverse@7.28.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+babel__core@7.20.5\node_modules\@types\babel__traverse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+babel__core@7.20.5\node_modules\@types\babel__traverse\LICENSE
+├─ @types/esrecurse@4.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint-scope@9.1.2\node_modules\@types\esrecurse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint-scope@9.1.2\node_modules\@types\esrecurse\LICENSE
+├─ @types/estree@1.0.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\estree
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\estree\LICENSE
+├─ @types/json-schema@7.0.15
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\json-schema
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\json-schema\LICENSE
+├─ @types/prop-types@15.7.15
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+react@18.3.31\node_modules\@types\prop-types
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+react@18.3.31\node_modules\@types\prop-types\LICENSE
+├─ @types/react@18.3.31
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/DefinitelyTyped/DefinitelyTyped
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\react
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@types\react\LICENSE
+├─ @typescript-eslint/eslint-plugin@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\typescript-eslint@8.72.1_es_9319aa3a8503f0798d2f63cb0e3cbc58\node_modules\@typescript-eslint\eslint-plugin
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\typescript-eslint@8.72.1_es_9319aa3a8503f0798d2f63cb0e3cbc58\node_modules\@typescript-eslint\eslint-plugin\LICENSE
+├─ @typescript-eslint/parser@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@typescript-eslint\parser
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@typescript-eslint\parser\LICENSE
+├─ @typescript-eslint/project-service@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+typescri_a3415c40f88736f866e13c1b88406cce\node_modules\@typescript-eslint\project-service
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+typescri_a3415c40f88736f866e13c1b88406cce\node_modules\@typescript-eslint\project-service\LICENSE
+├─ @typescript-eslint/scope-manager@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+parser@8_f33722cb56556d31464126f754f1814b\node_modules\@typescript-eslint\scope-manager
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+parser@8_f33722cb56556d31464126f754f1814b\node_modules\@typescript-eslint\scope-manager\LICENSE
+├─ @typescript-eslint/tsconfig-utils@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+project-_062c5dd90a9fe5e67fd33332ce993ab8\node_modules\@typescript-eslint\tsconfig-utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+project-_062c5dd90a9fe5e67fd33332ce993ab8\node_modules\@typescript-eslint\tsconfig-utils\LICENSE
+├─ @typescript-eslint/type-utils@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@typescript-eslint\type-utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@typescript-eslint\type-utils\LICENSE
+├─ @typescript-eslint/types@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+scope-manager@8.72.1\node_modules\@typescript-eslint\types
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+scope-manager@8.72.1\node_modules\@typescript-eslint\types\LICENSE
+├─ @typescript-eslint/typescript-estree@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+type-uti_94de868c8ab34eaaa3833d689b983e3a\node_modules\@typescript-eslint\typescript-estree
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+type-uti_94de868c8ab34eaaa3833d689b983e3a\node_modules\@typescript-eslint\typescript-estree\LICENSE
+├─ @typescript-eslint/utils@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\@typescript-eslint\utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\@typescript-eslint\utils\LICENSE
+├─ @typescript-eslint/visitor-keys@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\@typescript-eslint\visitor-keys
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\@typescript-eslint\visitor-keys\LICENSE
+├─ @vitest/expect@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\@vitest\expect
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\@vitest\expect\LICENSE
+├─ @vitest/mocker@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\@vitest\mocker
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\@vitest\mocker\LICENSE
+├─ @vitest/pretty-format@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+utils@2.1.9\node_modules\@vitest\pretty-format
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+utils@2.1.9\node_modules\@vitest\pretty-format\LICENSE
+├─ @vitest/runner@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@vitest\runner
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\@vitest\runner\LICENSE
+├─ @vitest/snapshot@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\@vitest\snapshot
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\@vitest\snapshot\LICENSE
+├─ @vitest/spy@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+expect@2.1.9\node_modules\@vitest\spy
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+expect@2.1.9\node_modules\@vitest\spy\LICENSE
+├─ @vitest/utils@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+expect@2.1.9\node_modules\@vitest\utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+expect@2.1.9\node_modules\@vitest\utils\LICENSE
+├─ abbrev@2.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/abbrev-js
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\nopt@7.2.1\node_modules\abbrev
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\nopt@7.2.1\node_modules\abbrev\LICENSE
+├─ abbrev@4.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/abbrev-js
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\nopt@9.0.0\node_modules\abbrev
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\nopt@9.0.0\node_modules\abbrev\LICENSE
+├─ acorn-jsx@5.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/acornjs/acorn-jsx
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\acorn-jsx
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\acorn-jsx\LICENSE
+├─ acorn@8.19.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/acornjs/acorn
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\acorn
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\acorn\LICENSE
+├─ agent-base@7.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/proxy-agents
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\agent-base
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\agent-base\LICENSE
+├─ ajv@6.15.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ajv-validator/ajv
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\ajv
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\ajv\LICENSE
+├─ ajv@8.20.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ajv-validator/ajv
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+config-validator@21.2.3\node_modules\ajv
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+config-validator@21.2.3\node_modules\ajv\LICENSE
+├─ ansi-regex@6.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/ansi-regex
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\strip-ansi@7.2.0\node_modules\ansi-regex
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\strip-ansi@7.2.0\node_modules\ansi-regex\license
+├─ ansi-styles@4.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/ansi-styles
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\chalk@4.1.2\node_modules\ansi-styles
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\chalk@4.1.2\node_modules\ansi-styles\license
+├─ ansi-styles@6.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/ansi-styles
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\wrap-ansi@9.0.2\node_modules\ansi-styles
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\wrap-ansi@9.0.2\node_modules\ansi-styles\license
+├─ argparse@2.0.1
+│  ├─ licenses: Python-2.0
+│  ├─ repository: https://github.com/nodeca/argparse
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\js-yaml@4.3.2\node_modules\argparse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\js-yaml@4.3.2\node_modules\argparse\LICENSE
+├─ argue-cli@3.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TrigenSoftware/Argue
+│  ├─ publisher: dangreen
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\conventional-commits-parser@7.1.4\node_modules\argue-cli
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\conventional-commits-parser@7.1.4\node_modules\argue-cli\LICENSE
+├─ array-find-index@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/array-find-index
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-compare@1.0.0\node_modules\array-find-index
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-compare@1.0.0\node_modules\array-find-index\license
+├─ assertion-error@2.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/assertion-error
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@qualiancy.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\assertion-error
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\assertion-error\LICENSE
+├─ balanced-match@4.0.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/balanced-match
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\brace-expansion@5.0.12\node_modules\balanced-match
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\brace-expansion@5.0.12\node_modules\balanced-match\LICENSE.md
+├─ baseline-browser-mapping@2.11.35
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/web-platform-dx/baseline-browser-mapping
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\baseline-browser-mapping
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\baseline-browser-mapping\LICENSE.txt
+├─ bin-links@6.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/bin-links
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\bin-links
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\bin-links\LICENSE
+├─ brace-expansion@5.0.12
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/juliangruber/brace-expansion
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\minimatch@10.2.6\node_modules\brace-expansion
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\minimatch@10.2.6\node_modules\brace-expansion\LICENSE
+├─ browserslist@4.29.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/browserslist/browserslist
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.es
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\browserslist
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\browserslist\LICENSE
+├─ cac@6.7.14
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/egoist/cac
+│  ├─ publisher: egoist
+│  ├─ email: 0x142857@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\cac
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\cac\LICENSE
+├─ cacache@20.0.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/cacache
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+metavuln-calculator@9.0.3_supports-color@7.2.0\node_modules\cacache
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+metavuln-calculator@9.0.3_supports-color@7.2.0\node_modules\cacache\LICENSE.md
+├─ cacheable@2.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/cacheable
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\flat-cache@6.1.23\node_modules\cacheable
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\flat-cache@6.1.23\node_modules\cacheable\LICENSE
+├─ callsites@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/callsites
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\parent-module@1.0.1\node_modules\callsites
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\parent-module@1.0.1\node_modules\callsites\license
+├─ caniuse-lite@1.0.30001820
+│  ├─ licenses: CC-BY-4.0
+│  ├─ repository: https://github.com/browserslist/caniuse-lite
+│  ├─ publisher: Ben Briggs
+│  ├─ email: beneb.info@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\caniuse-lite
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\caniuse-lite\LICENSE
+├─ chai@5.3.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/chai
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@alogicalparadox.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\chai
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\chai\LICENSE
+├─ chalk@4.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/chalk
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\chalk
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\chalk\license
+├─ check-error@2.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/check-error
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@alogicalparadox.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\check-error
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\check-error\LICENSE
+├─ chownr@3.0.0
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/chownr
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\chownr
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\chownr\LICENSE.md
+├─ cliui@9.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/yargs/cliui
+│  ├─ publisher: Ben Coe
+│  ├─ email: ben@npmjs.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\cliui
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\cliui\LICENSE.txt
+├─ cmd-shim@8.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/cmd-shim
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\bin-links@6.0.3\node_modules\cmd-shim
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\bin-links@6.0.3\node_modules\cmd-shim\LICENSE
+├─ color-convert@2.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Qix-/color-convert
+│  ├─ publisher: Heather Arthur
+│  ├─ email: fayearthur@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ansi-styles@4.3.0\node_modules\color-convert
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ansi-styles@4.3.0\node_modules\color-convert\LICENSE
+├─ color-name@1.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/colorjs/color-name
+│  ├─ publisher: DY
+│  ├─ email: dfcreative@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\color-convert@2.0.1\node_modules\color-name
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\color-convert@2.0.1\node_modules\color-name\LICENSE
+├─ common-ancestor-path@2.0.0
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/common-ancestor-path
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\common-ancestor-path
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\common-ancestor-path\LICENSE.md
+├─ content-type@2.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jshttp/content-type
+│  ├─ publisher: Douglas Christopher Wilson
+│  ├─ email: doug@somethingdoug.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\negotiator@1.1.0\node_modules\content-type
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\negotiator@1.1.0\node_modules\content-type\LICENSE
+├─ conventional-changelog-angular@9.4.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/conventional-changelog/conventional-changelog
+│  ├─ publisher: Steve Mao
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+parse@21.2.3\node_modules\conventional-changelog-angular
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+parse@21.2.3\node_modules\conventional-changelog-angular\LICENSE.md
+├─ conventional-changelog-conventionalcommits@10.4.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/conventional-changelog/conventional-changelog
+│  ├─ publisher: Ben Coe
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+config-conventional@21.2.4\node_modules\conventional-changelog-conventionalcommits
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+config-conventional@21.2.4\node_modules\conventional-changelog-conventionalcommits\LICENSE.md
+├─ conventional-commits-parser@7.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/conventional-changelog/conventional-changelog
+│  ├─ publisher: Steve Mao
+│  ├─ email: maochenyan@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+types@21.2.3\node_modules\conventional-commits-parser
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+types@21.2.3\node_modules\conventional-commits-parser\LICENSE.md
+├─ convert-source-map@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/thlorenz/convert-source-map
+│  ├─ publisher: Thorsten Lorenz
+│  ├─ email: thlorenz@gmx.de
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\convert-source-map
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\convert-source-map\LICENSE
+├─ cosmiconfig@9.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/cosmiconfig/cosmiconfig
+│  ├─ publisher: Daniel Fischer
+│  ├─ email: daniel@d-fischer.dev
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\cosmiconfig
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\cosmiconfig\LICENSE
+├─ cross-spawn@7.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/moxystudio/node-cross-spawn
+│  ├─ publisher: André Cruz
+│  ├─ email: andre@moxy.studio
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\cross-spawn
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\cross-spawn\LICENSE
+├─ cssesc@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/cssesc
+│  ├─ publisher: Mathias Bynens
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\postcss-selector-parser@7.1.7\node_modules\cssesc
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\postcss-selector-parser@7.1.7\node_modules\cssesc\LICENSE-MIT.txt
+├─ csstype@3.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/frenic/csstype
+│  ├─ publisher: Fredrik Nicol
+│  ├─ email: fredrik.nicol@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+react@18.3.31\node_modules\csstype
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@types+react@18.3.31\node_modules\csstype\LICENSE
+├─ debug@4.4.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/debug-js/debug
+│  ├─ publisher: Josh Junon
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\debug
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\debug\LICENSE
+├─ deep-eql@5.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/deep-eql
+│  ├─ publisher: Jake Luer
+│  ├─ email: jake@alogicalparadox.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\deep-eql
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\deep-eql\LICENSE
+├─ deep-is@0.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/thlorenz/deep-is
+│  ├─ publisher: Thorsten Lorenz
+│  ├─ email: thlorenz@gmx.de
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\optionator@0.9.4\node_modules\deep-is
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\optionator@0.9.4\node_modules\deep-is\LICENSE
+├─ detect-libc@2.1.2
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/lovell/detect-libc
+│  ├─ publisher: Lovell Fuller
+│  ├─ email: npm@lovell.info
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\sharp@0.35.5\node_modules\detect-libc
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\sharp@0.35.5\node_modules\detect-libc\LICENSE
+├─ electron-to-chromium@1.5.473
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/Kilian/electron-to-chromium
+│  ├─ publisher: Kilian Valkhof
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\electron-to-chromium
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\electron-to-chromium\LICENSE
+├─ emoji-regex@10.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/emoji-regex
+│  ├─ publisher: Mathias Bynens
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\string-width@7.2.0\node_modules\emoji-regex
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\string-width@7.2.0\node_modules\emoji-regex\LICENSE-MIT.txt
+├─ env-paths@2.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/env-paths
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\env-paths
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\env-paths\license
+├─ error-ex@1.3.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/qix-/node-error-ex
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-json@5.2.0\node_modules\error-ex
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-json@5.2.0\node_modules\error-ex\LICENSE
+├─ es-module-lexer@1.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/guybedford/es-module-lexer
+│  ├─ publisher: Guy Bedford
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\es-module-lexer
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\es-module-lexer\LICENSE
+├─ es-toolkit@1.53.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/toss/es-toolkit
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+ensure@21.2.4\node_modules\es-toolkit
+│  ├─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+ensure@21.2.4\node_modules\es-toolkit\LICENSE
+│  └─ noticeFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+ensure@21.2.4\node_modules\es-toolkit\NOTICE
+├─ esbuild@0.21.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/evanw/esbuild
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vite@5.4.21\node_modules\esbuild
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vite@5.4.21\node_modules\esbuild\LICENSE.md
+├─ esbuild@0.24.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/evanw/esbuild
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\esbuild
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\esbuild\LICENSE.md
+├─ escalade@3.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lukeed/escalade
+│  ├─ publisher: Luke Edwards
+│  ├─ email: luke.edwards05@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\update-browserslist-db@1.3.4_browserslist@4.29.5\node_modules\escalade
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\update-browserslist-db@1.3.4_browserslist@4.29.5\node_modules\escalade\license
+├─ escape-string-regexp@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/escape-string-regexp
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\escape-string-regexp
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\escape-string-regexp\license
+├─ eslint-scope@9.1.2
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/eslint/js
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\eslint-scope
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\eslint-scope\LICENSE
+├─ eslint-visitor-keys@3.4.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/eslint-visitor-keys
+│  ├─ publisher: Toru Nagashima
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint-community+eslint-ut_465a7bfa403b44909f08b8d095a2cfb1\node_modules\eslint-visitor-keys
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint-community+eslint-ut_465a7bfa403b44909f08b8d095a2cfb1\node_modules\eslint-visitor-keys\LICENSE
+├─ eslint-visitor-keys@5.0.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/eslint/js
+│  ├─ publisher: Toru Nagashima
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+visitor-keys@8.72.1\node_modules\eslint-visitor-keys
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+visitor-keys@8.72.1\node_modules\eslint-visitor-keys\LICENSE
+├─ eslint@10.14.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eslint/eslint
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ email: nicholas+npm@nczconsulting.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\eslint
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\eslint\LICENSE
+├─ espree@11.2.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/eslint/js
+│  ├─ publisher: Nicholas C. Zakas
+│  ├─ email: nicholas+npm@nczconsulting.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\espree
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\espree\LICENSE
+├─ esquery@1.7.0
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/estools/esquery
+│  ├─ publisher: Joel Feenstra
+│  ├─ email: jrfeenst+esquery@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\esquery
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\esquery\license.txt
+├─ esrecurse@4.3.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/estools/esrecurse
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint-scope@9.1.2\node_modules\esrecurse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint-scope@9.1.2\node_modules\esrecurse\README.md
+├─ estraverse@5.3.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/estools/estraverse
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\esquery@1.7.0\node_modules\estraverse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\esquery@1.7.0\node_modules\estraverse\LICENSE.BSD
+├─ estree-walker@3.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Rich-Harris/estree-walker
+│  ├─ publisher: Rich Harris
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\estree-walker
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\estree-walker\LICENSE
+├─ esutils@2.0.3
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/estools/esutils
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\esutils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\esutils\LICENSE.BSD
+├─ expect-type@1.4.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/mmkal/expect-type
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\expect-type
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\expect-type\LICENSE
+├─ exponential-backoff@3.1.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/coveooss/exponential-backoff
+│  ├─ publisher: Sami Sayegh
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\exponential-backoff
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\exponential-backoff\LICENSE
+├─ fast-deep-equal@3.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/epoberezkin/fast-deep-equal
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\fast-deep-equal
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\fast-deep-equal\LICENSE
+├─ fast-json-stable-stringify@2.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/epoberezkin/fast-json-stable-stringify
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@6.15.0\node_modules\fast-json-stable-stringify
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@6.15.0\node_modules\fast-json-stable-stringify\LICENSE
+├─ fast-levenshtein@2.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/hiddentao/fast-levenshtein
+│  ├─ publisher: Ramesh Nair
+│  ├─ email: ram@hiddentao.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\optionator@0.9.4\node_modules\fast-levenshtein
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\optionator@0.9.4\node_modules\fast-levenshtein\LICENSE.md
+├─ fast-uri@3.1.9
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/fastify/fast-uri
+│  ├─ publisher: Vincent Le Goff
+│  ├─ email: vince.legoff@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\fast-uri
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\fast-uri\LICENSE
+├─ fdir@6.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/thecodrr/fdir
+│  ├─ publisher: thecodrr
+│  ├─ email: thecodrr@protonmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\tinyglobby@0.2.17\node_modules\fdir
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\tinyglobby@0.2.17\node_modules\fdir\LICENSE
+├─ file-entry-cache@11.1.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/cacheable
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\file-entry-cache
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\file-entry-cache\LICENSE
+├─ find-up@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/find-up
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\find-up
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\find-up\license
+├─ flat-cache@6.1.23
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/cacheable
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\file-entry-cache@11.1.5\node_modules\flat-cache
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\file-entry-cache@11.1.5\node_modules\flat-cache\LICENSE
+├─ flatted@3.4.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/WebReflection/flatted
+│  ├─ publisher: Andrea Giammarchi
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\flatted
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\flatted\LICENSE
+├─ fs-minipass@3.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/fs-minipass
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\fs-minipass
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\fs-minipass\LICENSE
+├─ gensync@1.0.0-beta.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/loganfsmyth/gensync
+│  ├─ publisher: Logan Smyth
+│  ├─ email: loganfsmyth@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\gensync
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\gensync\LICENSE
+├─ get-caller-file@2.0.5
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/stefanpenner/get-caller-file
+│  ├─ publisher: Stefan Penner
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\get-caller-file
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\get-caller-file\LICENSE.md
+├─ get-east-asian-width@1.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/get-east-asian-width
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\string-width@7.2.0\node_modules\get-east-asian-width
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\string-width@7.2.0\node_modules\get-east-asian-width\license
+├─ glob-parent@6.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/gulpjs/glob-parent
+│  ├─ publisher: Gulp Team
+│  ├─ email: team@gulpjs.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\glob-parent
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\glob-parent\LICENSE
+├─ glob@13.0.6
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/node-glob
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\glob
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\glob\LICENSE.md
+├─ global-directory@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/global-directory
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+resolve-extends@21.2.3\node_modules\global-directory
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+resolve-extends@21.2.3\node_modules\global-directory\license
+├─ globals@17.14.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/globals
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\globals
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\globals\license
+├─ graceful-fs@4.2.11
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-graceful-fs
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\graceful-fs
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\graceful-fs\LICENSE
+├─ has-flag@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/has-flag
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\supports-color@7.2.0\node_modules\has-flag
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\supports-color@7.2.0\node_modules\has-flag\license
+├─ hashery@1.5.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/hashery
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@keyv+bigmap@1.3.1_keyv@5.6.0\node_modules\hashery
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@keyv+bigmap@1.3.1_keyv@5.6.0\node_modules\hashery\LICENSE
+├─ hookified@1.15.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/hookified
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\flat-cache@6.1.23\node_modules\hookified
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\flat-cache@6.1.23\node_modules\hookified\LICENSE
+├─ hookified@2.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/hookified
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\qified@0.10.1\node_modules\hookified
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\qified@0.10.1\node_modules\hookified\LICENSE
+├─ hosted-git-info@9.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/hosted-git-info
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-package-arg@13.0.2\node_modules\hosted-git-info
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-package-arg@13.0.2\node_modules\hosted-git-info\LICENSE
+├─ http-cache-semantics@4.3.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/kornelski/http-cache-semantics
+│  ├─ publisher: Kornel Lesiński
+│  ├─ email: kornel@geekhood.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\make-fetch-happen@15.0.6_supports-color@7.2.0\node_modules\http-cache-semantics
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\make-fetch-happen@15.0.6_supports-color@7.2.0\node_modules\http-cache-semantics\LICENSE
+├─ http-proxy-agent@7.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/proxy-agents
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\http-proxy-agent
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\http-proxy-agent\LICENSE
+├─ https-proxy-agent@7.0.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/proxy-agents
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\https-proxy-agent
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\https-proxy-agent\LICENSE
+├─ husky@9.1.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typicode/husky
+│  ├─ publisher: typicode
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\husky
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\husky\LICENSE
+├─ iconv-lite@0.7.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/pillarjs/iconv-lite
+│  ├─ publisher: Alexander Shtuchkin
+│  ├─ email: ashtuchkin@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass-fetch@5.0.2\node_modules\iconv-lite
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass-fetch@5.0.2\node_modules\iconv-lite\LICENSE
+├─ ignore-walk@8.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/ignore-walk
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-packlist@10.0.4\node_modules\ignore-walk
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-packlist@10.0.4\node_modules\ignore-walk\LICENSE
+├─ ignore@5.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kaelzhang/node-ignore
+│  ├─ publisher: kael
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\ignore
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\ignore\LICENSE-MIT
+├─ ignore@7.0.14
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kaelzhang/node-ignore
+│  ├─ publisher: kael
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\ignore
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\ignore\LICENSE-MIT
+├─ import-fresh@3.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/import-fresh
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\import-fresh
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\import-fresh\license
+├─ imurmurhash@0.1.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jensyt/imurmurhash-js
+│  ├─ publisher: Jens Taylor
+│  ├─ email: jensyt@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\imurmurhash
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\imurmurhash\README.md
+├─ ini@6.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/ini
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\global-directory@5.0.0\node_modules\ini
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\global-directory@5.0.0\node_modules\ini\LICENSE
+├─ ip-address@10.7.6
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/beaugunderson/ip-address
+│  ├─ publisher: Beau Gunderson
+│  ├─ email: beau@beaugunderson.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\socks@2.8.10\node_modules\ip-address
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\socks@2.8.10\node_modules\ip-address\LICENSE
+├─ is-arrayish@0.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/qix-/node-is-arrayish
+│  ├─ publisher: Qix
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\error-ex@1.3.4\node_modules\is-arrayish
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\error-ex@1.3.4\node_modules\is-arrayish\LICENSE
+├─ is-extglob@2.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jonschlinkert/is-extglob
+│  ├─ publisher: Jon Schlinkert
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\is-glob@4.0.3\node_modules\is-extglob
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\is-glob@4.0.3\node_modules\is-extglob\LICENSE
+├─ is-glob@4.0.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/micromatch/is-glob
+│  ├─ publisher: Jon Schlinkert
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\glob-parent@6.0.2\node_modules\is-glob
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\glob-parent@6.0.2\node_modules\is-glob\LICENSE
+├─ is-plain-obj@4.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/is-plain-obj
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\is-plain-obj
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\is-plain-obj\license
+├─ isexe@2.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/isexe
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\which@2.0.2\node_modules\isexe
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\which@2.0.2\node_modules\isexe\LICENSE
+├─ isexe@4.0.0
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/isexe
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\which@6.0.1\node_modules\isexe
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\which@6.0.1\node_modules\isexe\LICENSE.md
+├─ jiti@2.7.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/unjs/jiti
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\jiti
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+load@21.2.4_typescript@5.9.3\node_modules\jiti\LICENSE
+├─ js-tokens@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lydell/js-tokens
+│  ├─ publisher: Simon Lydell
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\js-tokens
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\js-tokens\LICENSE
+├─ js-yaml@4.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodeca/js-yaml
+│  ├─ publisher: Vladimir Zapparov
+│  ├─ email: dervus.grim@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\js-yaml
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\js-yaml\LICENSE
+├─ jsesc@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/jsesc
+│  ├─ publisher: Mathias Bynens
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+generator@7.29.12\node_modules\jsesc
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+generator@7.29.12\node_modules\jsesc\LICENSE-MIT.txt
+├─ json-parse-even-better-errors@2.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/npm/json-parse-even-better-errors
+│  ├─ publisher: Kat Marchán
+│  ├─ email: kzm@zkat.tech
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-json@5.2.0\node_modules\json-parse-even-better-errors
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-json@5.2.0\node_modules\json-parse-even-better-errors\LICENSE.md
+├─ json-parse-even-better-errors@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/npm/json-parse-even-better-errors
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+package-json@7.0.5\node_modules\json-parse-even-better-errors
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+package-json@7.0.5\node_modules\json-parse-even-better-errors\LICENSE.md
+├─ json-schema-traverse@0.4.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/epoberezkin/json-schema-traverse
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@6.15.0\node_modules\json-schema-traverse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@6.15.0\node_modules\json-schema-traverse\LICENSE
+├─ json-schema-traverse@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/epoberezkin/json-schema-traverse
+│  ├─ publisher: Evgeny Poberezkin
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\json-schema-traverse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\json-schema-traverse\LICENSE
+├─ json-stable-stringify-without-jsonify@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/samn/json-stable-stringify
+│  ├─ publisher: James Halliday
+│  ├─ email: mail@substack.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\json-stable-stringify-without-jsonify
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\json-stable-stringify-without-jsonify\LICENSE
+├─ json-stringify-nice@1.1.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/json-stringify-nice
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\json-stringify-nice
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\json-stringify-nice\LICENSE
+├─ json5@2.2.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/json5/json5
+│  ├─ publisher: Aseem Kishore
+│  ├─ email: aseem.kishore@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\json5
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+core@7.29.7_supports-color@7.2.0\node_modules\json5\LICENSE.md
+├─ jsonparse@1.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/creationix/jsonparse
+│  ├─ publisher: Tim Caswell
+│  ├─ email: tim@creationix.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-registry-fetch@19.1.1_supports-color@7.2.0\node_modules\jsonparse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-registry-fetch@19.1.1_supports-color@7.2.0\node_modules\jsonparse\LICENSE
+├─ just-diff-apply@5.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/angus-c/just
+│  ├─ publisher: Angus Croll
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-conflict-json@5.0.1\node_modules\just-diff-apply
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-conflict-json@5.0.1\node_modules\just-diff-apply\LICENSE
+├─ just-diff@6.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/angus-c/just
+│  ├─ publisher: Angus Croll
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-conflict-json@5.0.1\node_modules\just-diff
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-conflict-json@5.0.1\node_modules\just-diff\LICENSE
+├─ keyv@5.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/keyv
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacheable@2.5.0\node_modules\keyv
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacheable@2.5.0\node_modules\keyv\LICENSE
+├─ kuracode@0.1.0
+│  ├─ licenses: UNLICENSED
+│  ├─ private: true
+│  ├─ path: G:\Code-Works\KuraCode
+│  └─ licenseFile: G:\Code-Works\KuraCode\LICENSE
+├─ levn@0.4.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/levn
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint+plugin-kit@0.7.3\node_modules\levn
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@eslint+plugin-kit@0.7.3\node_modules\levn\LICENSE
+├─ license-checker-rseidelsohn@5.0.1
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/RSeidelsohn/license-checker-rseidelsohn
+│  ├─ publisher: Roman Seidelsohn
+│  ├─ email: rseidelsohn@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\license-checker-rseidelsohn
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\license-checker-rseidelsohn\LICENSE
+├─ lines-and-columns@1.2.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/eventualbuddha/lines-and-columns
+│  ├─ publisher: Brian Donovan
+│  ├─ email: brian@donovans.cc
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-json@5.2.0\node_modules\lines-and-columns
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\parse-json@5.2.0\node_modules\lines-and-columns\LICENSE
+├─ lint-staged@17.6.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lint-staged/lint-staged
+│  ├─ publisher: Andrey Okonetchnikov
+│  ├─ email: andrey@okonet.ru
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\lint-staged
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\lint-staged\LICENSE
+├─ locate-path@6.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/locate-path
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\find-up@5.0.0\node_modules\locate-path
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\find-up@5.0.0\node_modules\locate-path\license
+├─ lodash.clonedeep@4.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/lodash/lodash
+│  ├─ publisher: John-David Dalton
+│  ├─ email: john.david.dalton@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\lodash.clonedeep
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\lodash.clonedeep\LICENSE
+├─ loose-envify@1.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/zertosh/loose-envify
+│  ├─ publisher: Andres Suarez
+│  ├─ email: zertosh@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\react@18.3.1\node_modules\loose-envify
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\react@18.3.1\node_modules\loose-envify\LICENSE
+├─ loupe@3.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/loupe
+│  ├─ publisher: Veselin Todorov
+│  ├─ email: hi@vesln.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\loupe
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\loupe\LICENSE
+├─ lru-cache@11.5.3
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/node-lru-cache
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\path-scurry@2.0.2\node_modules\lru-cache
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\path-scurry@2.0.2\node_modules\lru-cache\LICENSE.md
+├─ lru-cache@5.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-lru-cache
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\lru-cache
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\lru-cache\LICENSE
+├─ magic-string@0.30.21
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/Rich-Harris/magic-string
+│  ├─ publisher: Rich Harris
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\magic-string
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\magic-string\LICENSE
+├─ make-fetch-happen@15.0.6
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/make-fetch-happen
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-registry-fetch@19.1.1_supports-color@7.2.0\node_modules\make-fetch-happen
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-registry-fetch@19.1.1_supports-color@7.2.0\node_modules\make-fetch-happen\LICENSE
+├─ minimatch@10.2.6
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/minimatch
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\glob@13.0.6\node_modules\minimatch
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\glob@13.0.6\node_modules\minimatch\LICENSE.md
+├─ minipass-collect@2.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/minipass-collect
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\minipass-collect
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\minipass-collect\LICENSE
+├─ minipass-fetch@5.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/npm/minipass-fetch
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\minipass-fetch
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\minipass-fetch\LICENSE
+├─ minipass-flush@1.0.7
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/minipass-flush
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\minipass-flush
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\minipass-flush\LICENSE.md
+├─ minipass-pipeline@1.2.4
+│  ├─ licenses: ISC
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\minipass-pipeline
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\minipass-pipeline\LICENSE
+├─ minipass-sized@2.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/minipass-sized
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass-fetch@5.0.2\node_modules\minipass-sized
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass-fetch@5.0.2\node_modules\minipass-sized\LICENSE
+├─ minipass@3.3.6
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/minipass
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass-flush@1.0.7\node_modules\minipass
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass-flush@1.0.7\node_modules\minipass\LICENSE
+├─ minipass@7.1.3
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/minipass
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@isaacs+fs-minipass@4.0.1\node_modules\minipass
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@isaacs+fs-minipass@4.0.1\node_modules\minipass\LICENSE.md
+├─ minizlib@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/isaacs/minizlib
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\minizlib
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\minizlib\LICENSE
+├─ mkdirp@1.0.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/isaacs/node-mkdirp
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\mkdirp
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\mkdirp\LICENSE
+├─ ms@2.1.3
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vercel/ms
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\debug@4.4.3_supports-color@7.2.0\node_modules\ms
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\debug@4.4.3_supports-color@7.2.0\node_modules\ms\license.md
+├─ nanoid@3.3.20
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ai/nanoid
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.ru
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\postcss@8.5.32\node_modules\nanoid
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\postcss@8.5.32\node_modules\nanoid\LICENSE
+├─ natural-compare@1.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/litejs/natural-compare-lite
+│  ├─ publisher: Lauri Rooden
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\natural-compare
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\natural-compare\README.md
+├─ negotiator@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jshttp/negotiator
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\make-fetch-happen@15.0.6_supports-color@7.2.0\node_modules\negotiator
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\make-fetch-happen@15.0.6_supports-color@7.2.0\node_modules\negotiator\LICENSE
+├─ node-gyp@12.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodejs/node-gyp
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\node-gyp
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\node-gyp\LICENSE
+├─ node-releases@2.0.63
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chicoxyzzy/node-releases
+│  ├─ publisher: Sergey Rubanov
+│  ├─ email: chi187@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\node-releases
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\node-releases\LICENSE
+├─ nopt@7.2.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/nopt
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\nopt
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\nopt\LICENSE
+├─ nopt@9.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/nopt
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\nopt
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\nopt\LICENSE
+├─ npm-bundled@5.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/npm-bundled
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+installed-package-contents@4.0.0\node_modules\npm-bundled
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+installed-package-contents@4.0.0\node_modules\npm-bundled\LICENSE
+├─ npm-install-checks@8.0.0
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/npm/npm-install-checks
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-pick-manifest@11.0.3\node_modules\npm-install-checks
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-pick-manifest@11.0.3\node_modules\npm-install-checks\LICENSE
+├─ npm-normalize-package-bin@5.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/npm-normalize-package-bin
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-bundled@5.0.0\node_modules\npm-normalize-package-bin
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-bundled@5.0.0\node_modules\npm-normalize-package-bin\LICENSE
+├─ npm-package-arg@13.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/npm-package-arg
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-pick-manifest@11.0.3\node_modules\npm-package-arg
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-pick-manifest@11.0.3\node_modules\npm-package-arg\LICENSE
+├─ npm-packlist@10.0.4
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/npm-packlist
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\npm-packlist
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\npm-packlist\LICENSE
+├─ npm-pick-manifest@11.0.3
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/npm-pick-manifest
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+git@7.0.2\node_modules\npm-pick-manifest
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+git@7.0.2\node_modules\npm-pick-manifest\LICENSE.md
+├─ npm-registry-fetch@19.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/npm-registry-fetch
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\npm-registry-fetch
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\npm-registry-fetch\LICENSE.md
+├─ optionator@0.9.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/optionator
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\optionator
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\eslint@10.14.0_jiti@2.7.0_supports-color@7.2.0\node_modules\optionator\LICENSE
+├─ p-limit@3.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/p-limit
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\p-locate@5.0.0\node_modules\p-limit
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\p-locate@5.0.0\node_modules\p-limit\license
+├─ p-locate@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/p-locate
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\locate-path@6.0.0\node_modules\p-locate
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\locate-path@6.0.0\node_modules\p-locate\license
+├─ p-map@7.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/p-map
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\p-map
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\p-map\license
+├─ pacote@21.5.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/pacote
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+metavuln-calculator@9.0.3_supports-color@7.2.0\node_modules\pacote
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+metavuln-calculator@9.0.3_supports-color@7.2.0\node_modules\pacote\LICENSE
+├─ parent-module@1.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/parent-module
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\import-fresh@3.3.1\node_modules\parent-module
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\import-fresh@3.3.1\node_modules\parent-module\license
+├─ parse-conflict-json@5.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/parse-conflict-json
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\parse-conflict-json
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\parse-conflict-json\LICENSE.md
+├─ parse-json@5.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/parse-json
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\parse-json
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cosmiconfig@9.0.2_typescript@5.9.3\node_modules\parse-json\license
+├─ path-exists@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/path-exists
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\find-up@5.0.0\node_modules\path-exists
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\find-up@5.0.0\node_modules\path-exists\license
+├─ path-key@3.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/path-key
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cross-spawn@7.0.6\node_modules\path-key
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cross-spawn@7.0.6\node_modules\path-key\license
+├─ path-scurry@2.0.2
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/path-scurry
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\glob@13.0.6\node_modules\path-scurry
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\glob@13.0.6\node_modules\path-scurry\LICENSE.md
+├─ pathe@1.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/unjs/pathe
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\pathe
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\pathe\LICENSE
+├─ pathval@2.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chaijs/pathval
+│  ├─ publisher: Veselin Todorov
+│  ├─ email: hi@vesln.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\pathval
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\chai@5.3.3\node_modules\pathval\LICENSE
+├─ picocolors@1.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/alexeyraspopov/picocolors
+│  ├─ publisher: Alexey Raspopov
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\picocolors
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\picocolors\LICENSE
+├─ picomatch@4.0.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/micromatch/picomatch
+│  ├─ publisher: Jon Schlinkert
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\lint-staged@17.6.0\node_modules\picomatch
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\lint-staged@17.6.0\node_modules\picomatch\LICENSE
+├─ playwright-core@1.64.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/microsoft/playwright
+│  ├─ publisher: Microsoft Corporation
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\playwright@1.64.1\node_modules\playwright-core
+│  ├─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\playwright@1.64.1\node_modules\playwright-core\LICENSE
+│  └─ noticeFile: G:\Code-Works\KuraCode\node_modules\.pnpm\playwright@1.64.1\node_modules\playwright-core\NOTICE
+├─ playwright@1.64.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/microsoft/playwright
+│  ├─ publisher: Microsoft Corporation
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\playwright
+│  ├─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\playwright\LICENSE
+│  └─ noticeFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\playwright\NOTICE
+├─ postcss-selector-parser@7.1.7
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/postcss/postcss-selector-parser
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+query@5.0.0\node_modules\postcss-selector-parser
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+query@5.0.0\node_modules\postcss-selector-parser\LICENSE-MIT
+├─ postcss@8.5.32
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/postcss/postcss
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.es
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vite@5.4.21\node_modules\postcss
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vite@5.4.21\node_modules\postcss\LICENSE
+├─ prelude-ls@1.2.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/prelude-ls
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\levn@0.4.1\node_modules\prelude-ls
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\levn@0.4.1\node_modules\prelude-ls\LICENSE
+├─ proc-log@6.1.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/proc-log
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\proc-log
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\proc-log\LICENSE
+├─ proggy@4.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/proggy
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\proggy
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\proggy\LICENSE
+├─ promise-all-reject-late@1.0.1
+│  ├─ licenses: ISC
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\promise-all-reject-late
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\promise-all-reject-late\LICENSE
+├─ promise-call-limit@3.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/promise-call-limit
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\promise-call-limit
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\promise-call-limit\LICENSE
+├─ punycode@2.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mathiasbynens/punycode.js
+│  ├─ publisher: Mathias Bynens
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\uri-js@4.4.1\node_modules\punycode
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\uri-js@4.4.1\node_modules\punycode\LICENSE-MIT.txt
+├─ qified@0.10.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jaredwray/qified
+│  ├─ publisher: Jared Wray
+│  ├─ email: me@jaredwray.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacheable@2.5.0\node_modules\qified
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacheable@2.5.0\node_modules\qified\LICENSE
+├─ react-dom@18.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\react-dom
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\react-dom\LICENSE
+├─ react@18.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\react
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\react\LICENSE
+├─ read-cmd-shim@6.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/read-cmd-shim
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\bin-links@6.0.3\node_modules\read-cmd-shim
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\bin-links@6.0.3\node_modules\read-cmd-shim\LICENSE
+├─ require-from-string@2.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/floatdrop/require-from-string
+│  ├─ publisher: Vsevolod Strukchinsky
+│  ├─ email: floatdrop@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\require-from-string
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@8.20.0\node_modules\require-from-string\license
+├─ resolve-from@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/resolve-from
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\import-fresh@3.3.1\node_modules\resolve-from
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\import-fresh@3.3.1\node_modules\resolve-from\license
+├─ resolve-from@5.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/resolve-from
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+resolve-extends@21.2.3\node_modules\resolve-from
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+resolve-extends@21.2.3\node_modules\resolve-from\license
+├─ rollup@4.67.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/rollup/rollup
+│  ├─ publisher: Rich Harris
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\rollup
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\rollup\LICENSE.md
+├─ safer-buffer@2.1.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/ChALkeR/safer-buffer
+│  ├─ publisher: Nikita Skovoroda
+│  ├─ email: chalkerx@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\iconv-lite@0.7.3\node_modules\safer-buffer
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\iconv-lite@0.7.3\node_modules\safer-buffer\LICENSE
+├─ scheduler@0.23.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/facebook/react
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\react-dom@18.3.1_react@18.3.1\node_modules\scheduler
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\react-dom@18.3.1_react@18.3.1\node_modules\scheduler\LICENSE
+├─ semver@6.3.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-semver
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\semver
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@babel+helper-compilation-targets@7.29.7\node_modules\semver\LICENSE
+├─ semver@7.8.6
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-semver
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\semver
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\semver\LICENSE
+├─ sharp@0.35.5
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/lovell/sharp
+│  ├─ publisher: Lovell Fuller
+│  ├─ email: npm@lovell.info
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\sharp
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\sharp\LICENSE
+├─ shebang-command@2.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kevva/shebang-command
+│  ├─ publisher: Kevin Mårtensson
+│  ├─ email: kevinmartensson@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cross-spawn@7.0.6\node_modules\shebang-command
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cross-spawn@7.0.6\node_modules\shebang-command\license
+├─ shebang-regex@3.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/shebang-regex
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\shebang-command@2.0.0\node_modules\shebang-regex
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\shebang-command@2.0.0\node_modules\shebang-regex\license
+├─ siginfo@2.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/emilbayes/siginfo
+│  ├─ publisher: Emil Bay
+│  ├─ email: github@tixz.dk
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\why-is-node-running@2.3.0\node_modules\siginfo
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\why-is-node-running@2.3.0\node_modules\siginfo\LICENSE
+├─ signal-exit@4.1.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/tapjs/signal-exit
+│  ├─ publisher: Ben Coe
+│  ├─ email: ben@npmjs.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\signal-exit
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\signal-exit\LICENSE.txt
+├─ sigstore@4.1.1
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/sigstore/sigstore-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\sigstore
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\pacote@21.5.2_supports-color@7.2.0\node_modules\sigstore\LICENSE
+├─ smart-buffer@4.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/JoshGlazebrook/smart-buffer
+│  ├─ publisher: Josh Glazebrook
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\socks@2.8.10\node_modules\smart-buffer
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\socks@2.8.10\node_modules\smart-buffer\LICENSE
+├─ socks-proxy-agent@8.0.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/proxy-agents
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\socks-proxy-agent
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+agent@4.0.2_supports-color@7.2.0\node_modules\socks-proxy-agent\LICENSE
+├─ socks@2.8.10
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/JoshGlazebrook/socks
+│  ├─ publisher: Josh Glazebrook
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\socks-proxy-agent@8.0.5_supports-color@7.2.0\node_modules\socks
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\socks-proxy-agent@8.0.5_supports-color@7.2.0\node_modules\socks\LICENSE
+├─ source-map-js@1.2.2
+│  ├─ licenses: BSD-3-Clause
+│  ├─ repository: https://github.com/7rulnik/source-map-js
+│  ├─ publisher: Valentin 7rulnik Semirulnik
+│  ├─ email: v7rulnik@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\source-map-js
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\source-map-js\LICENSE
+├─ spdx-compare@1.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kemitchell/spdx-compare.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-satisfies@6.0.0\node_modules\spdx-compare
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-satisfies@6.0.0\node_modules\spdx-compare\LICENSE.md
+├─ spdx-correct@3.2.0
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/jslicense/spdx-correct.js
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\spdx-correct
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\spdx-correct\LICENSE
+├─ spdx-exceptions@2.5.0
+│  ├─ licenses: CC-BY-3.0
+│  ├─ repository: https://github.com/kemitchell/spdx-exceptions.json
+│  ├─ publisher: The Linux Foundation
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-expression-parse@4.0.0\node_modules\spdx-exceptions
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-expression-parse@4.0.0\node_modules\spdx-exceptions\README.md
+├─ spdx-expression-parse@3.0.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jslicense/spdx-expression-parse.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-correct@3.2.0\node_modules\spdx-expression-parse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-correct@3.2.0\node_modules\spdx-expression-parse\LICENSE
+├─ spdx-expression-parse@4.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jslicense/spdx-expression-parse.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+package-json@7.0.5\node_modules\spdx-expression-parse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+package-json@7.0.5\node_modules\spdx-expression-parse\LICENSE
+├─ spdx-license-ids@3.0.24
+│  ├─ licenses: CC0-1.0
+│  ├─ repository: https://github.com/jslicense/spdx-license-ids
+│  ├─ publisher: Shinnosuke Watanabe
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-expression-parse@4.0.0\node_modules\spdx-license-ids
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-expression-parse@4.0.0\node_modules\spdx-license-ids\README.md
+├─ spdx-ranges@2.1.1
+│  ├─ licenses: (MIT AND CC-BY-3.0)
+│  ├─ repository: https://github.com/kemitchell/spdx-ranges.js
+│  ├─ publisher: The Linux Foundation
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-compare@1.0.0\node_modules\spdx-ranges
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\spdx-compare@1.0.0\node_modules\spdx-ranges\LICENSE.md
+├─ spdx-satisfies@6.0.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/kemitchell/spdx-satisfies.js
+│  ├─ publisher: Kyle E. Mitchell
+│  ├─ email: kyle@kemitchell.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\spdx-satisfies
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\spdx-satisfies\LICENSE
+├─ ssri@13.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/ssri
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\ssri
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cacache@20.0.4\node_modules\ssri\LICENSE.md
+├─ stackback@0.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/shtylman/node-stackback
+│  ├─ publisher: Roman Shtylman
+│  ├─ email: shtylman@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\why-is-node-running@2.3.0\node_modules\stackback
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\why-is-node-running@2.3.0\node_modules\stackback\README.md
+├─ std-env@3.10.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/unjs/std-env
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\std-env
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\std-env\LICENCE
+├─ string-argv@0.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mccormicka/string-argv
+│  ├─ publisher: Anthony McCormick
+│  ├─ email: anthony.mccormick@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\lint-staged@17.6.0\node_modules\string-argv
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\lint-staged@17.6.0\node_modules\string-argv\LICENSE
+├─ string-width@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/string-width
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cliui@9.0.1\node_modules\string-width
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cliui@9.0.1\node_modules\string-width\license
+├─ string-width@8.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sindresorhus/string-width
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\string-width
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\string-width\license
+├─ strip-ansi@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/strip-ansi
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\strip-ansi
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\strip-ansi\license
+├─ supports-color@7.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/supports-color
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\chalk@4.1.2\node_modules\supports-color
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\chalk@4.1.2\node_modules\supports-color\license
+├─ tar@7.5.22
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/node-tar
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\tar
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\tar\LICENSE.md
+├─ tinybench@2.9.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinybench
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\tinybench
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\tinybench\LICENSE
+├─ tinyexec@0.3.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinyexec
+│  ├─ publisher: James Garbutt
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\tinyexec
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\tinyexec\LICENSE
+├─ tinyexec@1.3.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinyexec
+│  ├─ publisher: James Garbutt
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\lint-staged@17.6.0\node_modules\tinyexec
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\lint-staged@17.6.0\node_modules\tinyexec\LICENSE
+├─ tinyglobby@0.2.17
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/SuperchupuDev/tinyglobby
+│  ├─ publisher: Superchupu
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+typescri_a3415c40f88736f866e13c1b88406cce\node_modules\tinyglobby
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+typescri_a3415c40f88736f866e13c1b88406cce\node_modules\tinyglobby\LICENSE
+├─ tinypool@1.1.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinypool
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\tinypool
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\tinypool\LICENSE
+├─ tinyrainbow@1.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinyrainbow
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\tinyrainbow
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\tinyrainbow\LICENCE
+├─ tinyspy@3.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/tinylibs/tinyspy
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+spy@2.1.9\node_modules\tinyspy
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@vitest+spy@2.1.9\node_modules\tinyspy\LICENCE
+├─ treeify@1.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/notatestuser/treeify
+│  ├─ publisher: Luke Plaster
+│  ├─ email: notatestuser@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\treeify
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\license-checker-rseidelsohn@5.0.1_supports-color@7.2.0\node_modules\treeify\LICENSE
+├─ treeverse@3.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/treeverse
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\treeverse
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\treeverse\LICENSE
+├─ ts-api-utils@2.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/JoshuaKGoldberg/ts-api-utils
+│  ├─ publisher: JoshuaKGoldberg
+│  ├─ email: npm@joshuakgoldberg.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\ts-api-utils
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@typescript-eslint+eslint-p_04ae364a250f1e12bf41e193c205e5a3\node_modules\ts-api-utils\LICENSE.md
+├─ tuf-js@4.1.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/theupdateframework/tuf-js
+│  ├─ publisher: bdehamer@github.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@sigstore+tuf@4.0.2_supports-color@7.2.0\node_modules\tuf-js
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@sigstore+tuf@4.0.2_supports-color@7.2.0\node_modules\tuf-js\LICENSE
+├─ type-check@0.4.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/gkz/type-check
+│  ├─ publisher: George Zahariev
+│  ├─ email: z@georgezahariev.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\levn@0.4.1\node_modules\type-check
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\levn@0.4.1\node_modules\type-check\LICENSE
+├─ typescript-eslint@8.72.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/typescript-eslint/typescript-eslint
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\typescript-eslint
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\typescript-eslint\LICENSE
+├─ typescript@5.9.3
+│  ├─ licenses: Apache-2.0
+│  ├─ repository: https://github.com/microsoft/TypeScript
+│  ├─ publisher: Microsoft Corp.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\typescript
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\typescript\LICENSE.txt
+├─ undici@6.29.1
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/nodejs/undici
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\undici
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\undici\LICENSE
+├─ update-browserslist-db@1.3.4
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/browserslist/update-db
+│  ├─ publisher: Andrey Sitnik
+│  ├─ email: andrey@sitnik.es
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\update-browserslist-db
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\browserslist@4.29.5\node_modules\update-browserslist-db\LICENSE
+├─ uri-js@4.4.1
+│  ├─ licenses: BSD-2-Clause
+│  ├─ repository: https://github.com/garycourt/uri-js
+│  ├─ publisher: Gary Court
+│  ├─ email: gary.court@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@6.15.0\node_modules\uri-js
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\ajv@6.15.0\node_modules\uri-js\LICENSE
+├─ util-deprecate@1.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/TooTallNate/util-deprecate
+│  ├─ publisher: Nathan Rajlich
+│  ├─ email: nathan@tootallnate.net
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\postcss-selector-parser@7.1.7\node_modules\util-deprecate
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\postcss-selector-parser@7.1.7\node_modules\util-deprecate\LICENSE
+├─ validate-npm-package-name@7.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/validate-npm-package-name
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-package-arg@13.0.2\node_modules\validate-npm-package-name
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\npm-package-arg@13.0.2\node_modules\validate-npm-package-name\LICENSE
+├─ verkit@0.5.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/sxzz/verkit
+│  ├─ publisher: Kevin Deng
+│  ├─ email: sxzz@sxzz.moe
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@conventional-changelog+git_697fe847271ee37bc5c1079ccac83031\node_modules\verkit
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@conventional-changelog+git_697fe847271ee37bc5c1079ccac83031\node_modules\verkit\LICENSE
+├─ vite-node@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ publisher: Anthony Fu
+│  ├─ email: anthonyfu117@hotmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\vite-node
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\vite-node\LICENSE
+├─ vite@5.4.21
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitejs/vite
+│  ├─ publisher: Evan You
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\vite
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\vite\LICENSE.md
+├─ vitest@2.1.9
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/vitest-dev/vitest
+│  ├─ publisher: Anthony Fu
+│  ├─ email: anthonyfu117@hotmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\vitest
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\vitest\LICENSE.md
+├─ walk-up-path@4.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/walk-up-path
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\walk-up-path
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@npmcli+arborist@9.6.0_supports-color@7.2.0\node_modules\walk-up-path\LICENSE
+├─ which@2.0.2
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/node-which
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cross-spawn@7.0.6\node_modules\which
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cross-spawn@7.0.6\node_modules\which\LICENSE
+├─ which@6.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/node-which
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\which
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node-gyp@12.4.0\node_modules\which\LICENSE
+├─ why-is-node-running@2.3.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/mafintosh/why-is-node-running
+│  ├─ publisher: Mathias Buus
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\why-is-node-running
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\vitest@2.1.9_supports-color@7.2.0\node_modules\why-is-node-running\LICENSE
+├─ word-wrap@1.2.5
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/jonschlinkert/word-wrap
+│  ├─ publisher: Jon Schlinkert
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\optionator@0.9.4\node_modules\word-wrap
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\optionator@0.9.4\node_modules\word-wrap\LICENSE
+├─ wrap-ansi@9.0.2
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/chalk/wrap-ansi
+│  ├─ publisher: Sindre Sorhus
+│  ├─ email: sindresorhus@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\cliui@9.0.1\node_modules\wrap-ansi
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\cliui@9.0.1\node_modules\wrap-ansi\license
+├─ write-file-atomic@7.0.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/npm/write-file-atomic
+│  ├─ publisher: GitHub Inc.
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\bin-links@6.0.3\node_modules\write-file-atomic
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\bin-links@6.0.3\node_modules\write-file-atomic\LICENSE.md
+├─ y18n@5.0.8
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/yargs/y18n
+│  ├─ publisher: Ben Coe
+│  ├─ email: bencoe@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\y18n
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\y18n\LICENSE
+├─ yallist@3.1.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/yallist
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\lru-cache@5.1.1\node_modules\yallist
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\lru-cache@5.1.1\node_modules\yallist\LICENSE
+├─ yallist@4.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/isaacs/yallist
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass@3.3.6\node_modules\yallist
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\minipass@3.3.6\node_modules\yallist\LICENSE
+├─ yallist@5.0.0
+│  ├─ licenses: BlueOak-1.0.0
+│  ├─ repository: https://github.com/isaacs/yallist
+│  ├─ publisher: Isaac Z. Schlueter
+│  ├─ email: i@izs.me
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\yallist
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\tar@7.5.22\node_modules\yallist\LICENSE.md
+├─ yaml@2.9.1
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/eemeli/yaml
+│  ├─ publisher: Eemeli Aro
+│  ├─ email: eemeli@gmail.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\yaml
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\node_modules\yaml\LICENSE
+├─ yargs-parser@22.0.0
+│  ├─ licenses: ISC
+│  ├─ repository: https://github.com/yargs/yargs-parser
+│  ├─ publisher: Ben Coe
+│  ├─ email: ben@npmjs.com
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\yargs-parser
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\yargs@18.2.0\node_modules\yargs-parser\LICENSE.txt
+├─ yargs@18.2.0
+│  ├─ licenses: MIT
+│  ├─ repository: https://github.com/yargs/yargs
+│  ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\yargs
+│  └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\@commitlint+cli@21.2.4_conv_0bc614f7c914ec7bbb378cc9594a3e15\node_modules\yargs\LICENSE
+└─ yocto-queue@0.1.0
+   ├─ licenses: MIT
+   ├─ repository: https://github.com/sindresorhus/yocto-queue
+   ├─ publisher: Sindre Sorhus
+   ├─ email: sindresorhus@gmail.com
+   ├─ path: G:\Code-Works\KuraCode\node_modules\.pnpm\p-limit@3.1.0\node_modules\yocto-queue
+   └─ licenseFile: G:\Code-Works\KuraCode\node_modules\.pnpm\p-limit@3.1.0\node_modules\yocto-queue\license

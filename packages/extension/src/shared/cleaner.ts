@@ -207,8 +207,8 @@ export function nearestHeading(el: Element | null): string | undefined {
   for (const h of headings) {
     try {
       // True when `el` follows `h` in document order, i.e. `h` comes before it.
-      if (el.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_FOLLOWING) {
-        if (best === null || headings.indexOf(h) > headings.indexOf(best)) {
+      if (el.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_PRECEDING) {
+        if (best === null || (best.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_FOLLOWING)) {
           best = h;
         }
       }

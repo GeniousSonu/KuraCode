@@ -11,26 +11,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.16.1
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
 
-      - run: npm ci
+      - run: pnpm install --frozen-lockfile
 
-      - run: npm run lint
+      - run: pnpm lint
 
-      - run: npm run typecheck
+      - run: pnpm typecheck
 
-      - run: npm test
+      - run: pnpm test
 
-      - run: npm run build
+      - run: pnpm build
 
-      - run: npm run brand:check
+      - run: pnpm brand:check
 
       # e2e needs a virtual display for the headed Chromium that loads the extension.
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
       - name: e2e
-        run: xvfb-run --auto-servernum npm run e2e --workspace @kuracode/extension
+        run: xvfb-run --auto-servernum pnpm --filter @kuracode/extension e2e

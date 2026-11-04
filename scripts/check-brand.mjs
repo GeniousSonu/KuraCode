@@ -112,7 +112,7 @@ const checkManifest = (manifestPath) => {
   }
 };
 checkManifest(
-  path.join(ROOT, "packages", "extension", "dist", "manifest.json"),
+  path.join(ROOT, "packages", "extension", ".output", "chrome-mv3", "manifest.json"),
 );
 
 const webIndex = path.join(ROOT, "packages", "web", "dist", "index.html");

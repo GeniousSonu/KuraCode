@@ -51,5 +51,5 @@ T-013 (language corpus breadth), T-014 (real-site capture fixtures).
 - Doctor: `pnpm doctor`
 - Build ext: `pnpm build:chrome` / `pnpm build:firefox`
 - e2e ext: `pnpm --filter @kuracode/extension exec playwright test`
-- Release zips: `pnpm package` → `release/sniphub-*.zip`
+- Release zips: `pnpm package` → `release/kuracode-*.zip`
 - Demo page: `pnpm demo` → http://localhost:7331/demo.html

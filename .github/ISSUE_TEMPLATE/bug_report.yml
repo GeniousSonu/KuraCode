@@ -1,0 +1,67 @@
+name: "Bug Report"
+description: "File a bug report to help us improve KuraCode"
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue! Please provide as much detail as possible.
+  - type: input
+    id: browser
+    attributes:
+      label: Browser & Version
+      description: What browser are you using (e.g. Chrome 124, Edge 123, Firefox 125, Brave)?
+      placeholder: "e.g., Chrome 124.0.6367.60"
+    validations:
+      required: true
+  - type: input
+    id: extension-version
+    attributes:
+      label: Extension Version
+      description: Check the version shown on the extension icon or options page.
+      placeholder: "e.g., 0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: What OS are you running?
+      placeholder: "e.g., Windows 11, macOS Sonoma 14.4, Ubuntu 22.04"
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Page URL where the issue occurred
+      description: If this happened on a public web page, provide the URL.
+      placeholder: "https://stackoverflow.com/..."
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: How do we reproduce this behavior?
+      value: |
+        1. Go to '...'
+        2. Select code block '...'
+        3. Press shortcut 'Ctrl+Shift+S' or click inline Save button
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true

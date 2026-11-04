@@ -1,0 +1,38 @@
+name: "Site Adapter Broken / Formatting Issue"
+description: "Report a specific site where code blocks are not detected or cleaning fails"
+title: "[Site Adapter]: "
+labels: ["site-adapter", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report broken code block detection or messy cleaning on specific websites.
+  - type: input
+    id: site-url
+    attributes:
+      label: Target URL
+      description: The exact webpage URL with the problematic code snippet.
+      placeholder: "https://docs.github.com/..."
+    validations:
+      required: true
+  - type: textarea
+    id: raw-snippet
+    attributes:
+      label: Original Code on Page
+      description: What does the code look like on the webpage?
+    validations:
+      required: true
+  - type: textarea
+    id: captured-result
+    attributes:
+      label: What KuraCode Captured
+      description: What was captured (extra line numbers, prompt symbols, bad language detection)?
+    validations:
+      required: true
+  - type: textarea
+    id: expected-cleaning
+    attributes:
+      label: Expected Cleaned Code
+      description: What should KuraCode have extracted?
+    validations:
+      required: true

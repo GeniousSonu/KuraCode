@@ -23,6 +23,6 @@ pnpm build:chrome        # → packages/extension/.output/chrome-mv3/manifest.js
 pnpm build:firefox       # → packages/extension/.output/firefox-mv3/manifest.json
 pnpm verify              # full gate
 pnpm doctor              # env health check
-pnpm package             # zips → release/sniphub-{chrome,firefox}-0.1.0.zip
+pnpm package             # zips → release/kuracode-{chrome,firefox}-0.1.0.zip
 pnpm demo                # serve test-pages/demo.html on :7331
 ```
