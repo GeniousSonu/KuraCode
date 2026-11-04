@@ -36,10 +36,13 @@ export default tseslint.config(
     },
   },
   {
-    // Build plumbing (build.mjs) runs under Node.
-    files: ["**/build.mjs"],
+    // Build plumbing and e2e tooling run under Node.
+    files: ["**/build.mjs", "**/e2e/**/*.{mjs,ts}"],
     languageOptions: {
       globals: globals.node,
+    },
+    rules: {
+      "no-empty-pattern": "off",
     },
   },
 );

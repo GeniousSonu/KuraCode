@@ -18,11 +18,16 @@ npm test
 step "Build"
 npm run build
 
-if [ -x "packages/extension/e2e" ] || ls packages/extension/e2e/*.spec.ts >/dev/null 2>&1; then
+if ls packages/extension/e2e/*.spec.ts >/dev/null 2>&1; then
   step "e2e"
-  npm run e2e --workspace @kuracode/extension
+  # Headed Chromium is required to load the extension; use xvfb when no display.
+  if [ -z "${DISPLAY:-}" ] && command -v xvfb-run >/dev/null 2>&1; then
+    xvfb-run --auto-servernum npm run e2e --workspace @kuracode/extension
+  else
+    npm run e2e --workspace @kuracode/extension
+  fi
 else
-  echo "e2e: not configured yet (KNOWN_ISSUES #1) — skipping."
+  echo "e2e: no specs found — skipping."
 fi
 
 step "All gates green ✔"

@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - run: npm run typecheck
+
+      - run: npm test
+
+      - run: npm run build
+
+      # e2e needs a virtual display for the headed Chromium that loads the extension.
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: e2e
+        run: xvfb-run --auto-servernum npm run e2e --workspace @kuracode/extension

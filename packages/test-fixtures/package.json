@@ -1,0 +1,6 @@
+{
+  "name": "@kuracode/test-fixtures",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Anonymized saved HTML fixture pages for capture/cleaner/language-detection tests."
+}

@@ -1,21 +1,21 @@
 {
-  "updated": "2025-08-18T00:30:00Z",
+  "updated": "2025-08-18T01:00:00Z",
   "milestone": "M0",
   "counts": {
-    "todo": 13,
+    "todo": 11,
     "in_progress": 1,
-    "done": 2,
-    "done_with_gaps": 0,
+    "done": 4,
+    "done_with_gaps": 1,
     "failed": 0,
     "blocked": 0
   },
-  "lastGreenCommit": "bfac5c7",
+  "lastGreenCommit": "7fa0702",
   "gates": {
     "lint": "pass",
     "types": "pass",
     "unit": "pass",
     "build": "pass",
-    "e2e": "not_configured"
+    "e2e": "pass"
   },
-  "next": ["T-002", "T-003", "T-004", "T-005", "T-006"]
+  "next": ["T-006", "T-007", "T-008", "T-009", "T-010"]
 }
