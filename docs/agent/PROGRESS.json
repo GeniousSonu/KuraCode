@@ -1,24 +1,27 @@
 {
-  "updated": "2025-11-04T19:10:00Z",
-  "milestone": "M6 brand integration complete; M0-M5 partial",
+  "updated": "2026-11-04T19:40:00Z",
+  "milestone": "M0 foundations DONE (fresh-clone verified); M1-M6 partial",
   "counts": {
-    "todo": 14,
+    "todo": 13,
     "in_progress": 1,
-    "done": 9,
+    "done": 11,
     "done_with_gaps": 1,
     "partial": 2,
     "failed": 0,
     "blocked": 0
   },
-  "lastGreenCommit": "ad9a60e",
+  "lastGreenCommit": "184f363",
   "gates": {
     "lint": "pass",
     "types": "pass",
     "unit": "pass",
-    "build": "pass",
+    "build_chrome": "pass",
+    "build_firefox": "pass",
+    "web_ext_lint": "pass",
     "e2e": "pass",
     "brand": "pass"
   },
+  "packageManager": "pnpm@12.16.1",
   "next": ["T-006", "T-007", "T-008", "T-013", "T-014"],
-  "parity": "docs/agent/PARITY.md tracks Chrome/Edge/Brave; Firefox/Safari/VS Code/backend rows pending later milestones."
+  "parity": "docs/agent/PARITY.md tracks Chrome/Edge/Brave; Firefox build target now exists (firefox-mv3); Safari/VS Code/backend rows pending later milestones."
 }

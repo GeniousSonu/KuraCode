@@ -38,3 +38,23 @@
 - Separation: the **logo** keeps its green/mint identity (never recolored); the **UI accent** stays warm gold per the KuraCode design spec. These are intentionally separate tokens (see docs/BRAND.md §3).
 - No wordmark exists yet: the master is a mark-only geometric K. `docs/logo-wordmark.svg` is intentionally omitted and logged in IMPROVEMENTS instead of inventing one.
 - Generator: `sharp` rasterizes the SVG at exact target sizes (no upscaling of small PNGs). Reverse: switch to `resvg-js` if sharp's librsvg rendering diverges on some platform.
+
+## #7 pnpm adopted (replaces npm workspaces); pnpm 12 approve-builds
+
+- Date: 2026-11-04 | Status: accepted
+- Reason: the owner's toolchain and CI are pnpm; `pnpm install` was failing with
+  `ERR_PNPM_IGNORED_BUILDS`. Root cause: invalid `allowBuilds:` field + stale
+  lockfile state. Fix: `pnpm approve-builds --all` (writes
+  `allowBuilds: {esbuild,sharp}: true` in `pnpm-workspace.yaml`) and removed the
+  legacy `pnpm` field (no longer read in pnpm 12). Root scripts rewritten to
+  `pnpm --filter …`.
+- Reverse: restore npm workspaces if only npm is ever used (not recommended).
+
+## #8 Build output moved to `.output/{chrome,firefox}-mv3/` (from `dist/`)
+
+- Date: 2026-11-04 | Status: accepted
+- Reason: a single esbuild target now emits two browser builds with distinct
+  manifests (Chrome: `service_worker`; Firefox: background `scripts` +
+  `browser_specific_settings.gecko.id`). Keeping `dist/` for one target hid the
+  Firefox gap and broke fresh clones (`e2e/extension.ts` pointed at the old
+  `dist/`).

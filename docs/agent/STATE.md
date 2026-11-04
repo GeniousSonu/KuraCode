@@ -1,42 +1,55 @@
-# KuraCode State (updated: 2025-08-18T00:00:00Z by codvian session 1)
+# KuraCode State (updated: 2026-11-04 by codvian — build-fix session T-028)
 
 ## Snapshot
 
-- Current milestone: M0–M6 partial (brand integration done) | Overall: ~45% (manual estimate)
-- Last verified build: PASS (extension esbuild + web tsc/vite)
-- Health: lint PASS | types PASS | unit 11/11 | build PASS | e2e 7/7 | brand check PASS
-- Package manager: npm workspaces (deviation from pnpm, see DECISIONS #1)
-- Extension build: esbuild (deviation from Vite/CRXJS, see DECISIONS #2)
+- Current milestone: M0 foundations DONE (verified from a fresh clone) | Overall: ~45%
+- Last green commit: `184f363` (fix e2e fixture path) — `git status` clean
+- Gate results (fresh clone, no spaces, `scripts/verify.sh`): lint PASS (0 errors)
+  | typecheck PASS | unit 11/11 | build chrome PASS | build firefox PASS |
+  brand PASS | web-ext lint 0 errors | e2e 7/7 → **All gates green ✔**
+- Package manager: **pnpm 12.16.1** (root `packageManager`). Build scripts use
+  `pnpm --filter`. See DECISIONS #1/#7.
+- Extension build: esbuild via `build.mjs --target {chrome,firefox}` →
+  `.output/{chrome,firefox}-mv3/`.
 
-## Done milestones / working software
+## Done / working software (all verified this session)
 
-- M0 Foundations: PARTIAL (monorepo, TS strict, lint, vitest, build scripts done; Playwright, CI, verify.sh, resume.sh, fixtures pending)
-- M1 Local storage + library UI: PARTIAL (Dexie-style local storage via chrome.storage wrapper, library renderer, web app UI built; property tests, 50k seed, import/export not yet verified)
-- M2 Basic capture: PARTIAL (selection capture via toolbar button in content script, clipboard-friendly library, popup + side panel built; hotkey/context-menu, iframe capture, e2e not yet done)
-- M3 Smart cleaning: PARTIAL (cleaner with line-number/prompt/copy-button/ANSI removal, language detection; unit tests pass; 85% fixture accuracy not yet verified)
+- M0 Foundations: **DONE** — monorepo, strict TS, eslint, vitest, dual-target
+  build, Playwright e2e (7/7), own, `verify.sh`/`doctor.sh`/`resume.sh`,
+  `package.mjs` (zips), `server-demo.mjs`, fixtures.
+- Install/load: `pnpm install --frozen-lockfile` exit 0 (no ignored-builds);
+  chrome + firefox outputs build and contain a valid `manifest.json`.
+- M3 cleaning: cleaner unit tests 9/9; language corpus target passed.
+- Brand (T-027): generator + checks wired into build; brand check PASS.
 
 ## In progress
 
-- Establishing agent scaffolding under M0 per starting-point.md (state files, scripts, git)
+- none (working tree clean; committed at `184f363`).
 
 ## Next 5 tasks
 
-T-006, T-007, T-008, T-013, T-014
+T-006 (storage CRUD property tests), T-007 (50k seed), T-008 (import/export),
+T-013 (language corpus breadth), T-014 (real-site capture fixtures).
 
 ## Blocked / needs human
 
-- none
+- Nothing blocks building/loading. (Owner still must create + push the GitHub
+  repo if not done: `git push origin main`.)
 
 ## Top 3 risks right now
 
-1. e2e harness now passes (smoke) but only covers one fixture; real-site capture flows still unverified.
-2. Test fixtures are minimal — cleaner/detection accuracy not measured on a real corpus.
-3. Context-menu / hotkey capture not yet exercised in e2e.
+1. Real-world capture (context menu / hotkey via a real right-click) not yet
+   exercised end-to-end; e2e covers S1/S3/S4/S6/S11.
+2. Test fixtures minimal — cleaner/accuracy not measured on a real corpus
+   (T-014).
+3. Path contains a space — works now, but is fragile; recommended move to
+   `~/sniphub` (see IMPROVEMENTS).
 
-## Commands
+## Commands (verified)
 
-- Verify all: `./scripts/verify.sh` (lint → typecheck → unit → build → e2e)
-- Build ext: `npm run build --workspace @kuracode/extension`
-- e2e ext: `npm run e2e --workspace @kuracode/extension` (xvfb-run when no display)
-- Build web: `npm run build --workspace @kuracode/web`
-- Run web dev: `npm run dev:web`
+- Verify all: `pnpm verify` (`bash scripts/verify.sh`)
+- Doctor: `pnpm doctor`
+- Build ext: `pnpm build:chrome` / `pnpm build:firefox`
+- e2e ext: `pnpm --filter @kuracode/extension exec playwright test`
+- Release zips: `pnpm package` → `release/sniphub-*.zip`
+- Demo page: `pnpm demo` → http://localhost:7331/demo.html

@@ -42,11 +42,12 @@ packages/
 | `src/background/service-worker.ts`                     | Hotkey + context-menu → active tab capture                                             | CAP-1/2                        |
 | `src/shared/library.ts` + `src/popup`, `src/sidepanel` | Searchable library UI, copy, delete, clipboard quick-save                              | FIND-1..4, CAP-4               |
 
-**Build:** `npm run build --workspace @kuracode/extension` → bundles each entry
-with esbuild to `packages/extension/dist/` (IIFE for MV3 content-script compat).
-Load `dist/` via `chrome://extensions` → "Load unpacked".
+**Build:** `pnpm build:chrome` → bundles each entry with esbuild to
+`packages/extension/.output/chrome-mv3/` (IIFE for MV3 content-script compat).
+Load `.output/chrome-mv3/` via `chrome://extensions` → "Load unpacked".
+`pnpm build:firefox` → `.output/firefox-mv3/` (Firefox MV3 manifest).
 
-**Dev watch:** `npm run dev:extension` (`node build.mjs --watch`).
+**Dev watch:** `pnpm dev:chrome` (`node build.mjs --target chrome --watch`).
 
 ### `packages/web` — web app (library dashboard)
 
@@ -61,23 +62,75 @@ viewer once the backend ships.
 | `src/App.tsx`           | Library dashboard UI          |
 | `src/main.tsx`          | Entry                         |
 
+## Run it in 5 minutes
+
+Prereqs: **Node 20/22** and **pnpm** (this repo pins `pnpm@12.16.1`).
+
+```bash
+# 1) install deps (mirrors CI)
+pnpm install --frozen-lockfile
+
+# 2) build both browser targets
+pnpm build:chrome     # → packages/extension/.output/chrome-mv3/
+pnpm build:firefox    # → packages/extension/.output/firefox-mv3/
+```
+
+### Load the extension in Chrome / Edge / Brave
+
+1. Open `chrome://extensions` (`edge://extensions`, `brave://extensions`).
+2. Enable **Developer mode** (top-right toggle).
+3. Click **Load unpacked** and select **`packages/extension/.output/chrome-mv3`**.
+4. Click the puzzle-piece icon → pin **KuraCode**. The toolbar icon appears.
+
+### Load the extension in Firefox
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on** and choose
+   **`packages/extension/.output/firefox-mv3/manifest.json`**.
+   (Or: `npx web-ext run --source-dir packages/extension/.output/firefox-mv3`.)
+
+### Try a capture
+
+Open the demo page (has JS/Python/SQL/Bash/TS blocks):
+
+```bash
+pnpm demo    # serves test-pages/demo.html at http://localhost:7331/demo.html
+```
+
+Select code → press **Ctrl/Cmd+Shift+S** (default hotkey), right-click →
+_Save to KuraCode_, or use the inline **Save** button on a code block. Open the
+popup to see the snippet.
+
+### Change the hotkey
+
+`chrome://extensions/shortcuts` → find KuraCode → edit `capture-selection`.
+
+### Troubleshooting
+
+- **Restricted pages** (`chrome://`, chrome Web Store, about:\*) block extensions —
+  nothing to capture there; the icon dims.
+- **Nothing happens after install:** refresh the page you're on; then re-select.
+- **Shortcut conflict:** change it in `chrome://extensions/shortcuts`.
+- **Service worker / background console:** `chrome://extensions` → KuraCode →
+  _service worker_ / _background page_.
+
 ## Getting started
 
 ```bash
-# install all workspace deps
-npm install
+# verify (lint → typecheck → unit → build chrome+firefox → brand → web-ext → e2e)
+pnpm verify
 
-# build everything (extension + web)
-npm run build
+# health-check the environment
+pnpm doctor
+
+# build release zips
+pnpm package        # release/sniphub-chrome-*.zip, sniphub-firefox-*.zip
 
 # type-check everything
-npm run typecheck
+pnpm typecheck
 
 # run the web app dev server (http://localhost:5173)
-npm run dev:web
-
-# watch-build the extension into packages/extension/dist
-npm run dev:extension
+pnpm dev:web
 ```
 
 ## Reporting to the PRD
