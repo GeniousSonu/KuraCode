@@ -1,33 +1,44 @@
 #!/usr/bin/env bash
-# KuraCode verification gate: lint -> typecheck -> unit -> build -> (e2e if available)
+# KuraCode verification gate:
+#   install (frozen) -> lint -> typecheck -> unit -> build:chrome ->
+#   build:firefox -> brand check -> web-ext lint -> e2e
 # Usage: ./scripts/verify.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
 step() { printf "\n\033[1;36m==> %s\033[0m\n" "$*"; }
 
+step "Install (frozen lockfile)"
+pnpm install --frozen-lockfile
+
 step "Lint"
-npm run lint
+pnpm lint
 
 step "Type-check"
-npm run typecheck
+pnpm typecheck
 
 step "Unit tests"
-npm test
+pnpm test
 
-step "Build"
-npm run build
+step "Build (Chrome)"
+pnpm build:chrome
+
+step "Build (Firefox)"
+pnpm build:firefox
 
 step "Brand check"
-npm run brand:check
+pnpm brand:check
+
+step "web-ext lint (Firefox output)"
+npx --yes web-ext lint --source-dir packages/extension/.output/firefox-mv3
 
 if ls packages/extension/e2e/*.spec.ts >/dev/null 2>&1; then
   step "e2e"
   # Headed Chromium is required to load the extension; use xvfb when no display.
   if [ -z "${DISPLAY:-}" ] && command -v xvfb-run >/dev/null 2>&1; then
-    xvfb-run --auto-servernum npm run e2e --workspace @kuracode/extension
+    xvfb-run --auto-servernum pnpm --filter @kuracode/extension exec playwright test
   else
-    npm run e2e --workspace @kuracode/extension
+    pnpm --filter @kuracode/extension exec playwright test
   fi
 else
   echo "e2e: no specs found — skipping."

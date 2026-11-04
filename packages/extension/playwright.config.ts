@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import { fileURLToPath } from "node:url";
 
-const dist = fileURLToPath(new URL("./dist", import.meta.url));
+const dist = fileURLToPath(new URL(".output/chrome-mv3", import.meta.url));
 
 export default defineConfig({
   testDir: "./e2e",

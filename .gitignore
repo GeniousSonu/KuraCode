@@ -8,6 +8,8 @@ dist/
 out/
 coverage/
 *.tsbuildinfo
+.output/
+release/
 
 # env
 .env

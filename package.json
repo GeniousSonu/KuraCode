@@ -4,22 +4,29 @@
   "private": true,
   "type": "module",
   "description": "KuraCode — code snippet capture & collaboration (Chrome extension + web app).",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "brand:build": "node --experimental-strip-types scripts/build-icons.ts",
     "brand:check": "node scripts/check-brand.mjs",
-    "build": "npm run brand:build && npm run build --workspace @kuracode/extension && npm run build --workspace @kuracode/web",
+    "build": "pnpm brand:build && pnpm --filter @kuracode/extension build && pnpm --filter @kuracode/web build",
+    "build:chrome": "pnpm --filter @kuracode/extension build:chrome",
+    "build:firefox": "pnpm --filter @kuracode/extension build:firefox",
+    "dev:chrome": "pnpm --filter @kuracode/extension dev:chrome",
+    "dev:firefox": "pnpm --filter @kuracode/extension dev:firefox",
     "lint": "eslint .",
-    "test": "npm run test --workspace @kuracode/extension",
-    "typecheck": "npm run typecheck --workspace @kuracode/extension && npm run typecheck --workspace @kuracode/web",
-    "dev:extension": "npm run dev --workspace @kuracode/extension",
-    "dev:web": "npm run dev --workspace @kuracode/web",
-    "package:extension": "npm run package --workspace @kuracode/extension"
+    "test": "pnpm --filter @kuracode/extension test",
+    "typecheck": "pnpm --filter @kuracode/extension typecheck && pnpm --filter @kuracode/web typecheck",
+    "dev:extension": "pnpm --filter @kuracode/extension dev",
+    "dev:web": "pnpm --filter @kuracode/web dev",
+    "package:extension": "pnpm --filter @kuracode/extension package",
+    "demo": "node scripts/server-demo.mjs",
+    "demo:build": "pnpm build:chrome && node scripts/server-demo.mjs",
+    "package": "pnpm build:chrome && pnpm build:firefox && node scripts/package.mjs",
+    "verify": "bash scripts/verify.sh",
+    "doctor": "bash scripts/doctor.sh"
   },
+  "packageManager": "pnpm@12.16.1",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

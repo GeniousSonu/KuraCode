@@ -5,12 +5,16 @@
   "type": "module",
   "description": "KuraCode Chrome extension (Manifest V3) — capture code with context, organized and searchable.",
   "scripts": {
-    "build": "node build.mjs",
-    "dev": "node build.mjs --watch",
+    "build": "node build.mjs --target chrome",
+    "build:chrome": "node build.mjs --target chrome",
+    "build:firefox": "node build.mjs --target firefox",
+    "dev": "node build.mjs --target chrome --watch",
+    "dev:chrome": "node build.mjs --target chrome --watch",
+    "dev:firefox": "node build.mjs --target firefox --watch",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "e2e": "npm run build && playwright test",
-    "package": "npm run build"
+    "e2e": "npm run build:chrome && playwright test",
+    "package": "npm run build:chrome"
   },
   "devDependencies": {
     "@playwright/test": "^1.64.1",
