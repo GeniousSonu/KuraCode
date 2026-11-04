@@ -119,11 +119,17 @@ async function main() {
   const chromeZip = path.join(releaseDir, `kuracode-chrome-${version}.zip`);
   await run("zip", ["-r", chromeZip, "."], { cwd: chromeOut });
   console.log(`✔ ${path.relative(rootDir, chromeZip)}`);
+  await run("node", ["scripts/validate-package.mjs", chromeZip, "chrome"], {
+    cwd: rootDir,
+  });
 
   // 5. firefox xpi (a zip with .xpi extension)
   const xpi = path.join(releaseDir, `kuracode-firefox-${version}.xpi`);
   await run("zip", ["-r", xpi, "."], { cwd: firefoxOut });
   console.log(`✔ ${path.relative(rootDir, xpi)}`);
+  await run("node", ["scripts/validate-package.mjs", xpi, "firefox"], {
+    cwd: rootDir,
+  });
 
   // 6. signed CRX3 (self-hosted chrome)
   const { crx, id } = await buildCrx3({ dir: chromeOut, keyPath, version });
