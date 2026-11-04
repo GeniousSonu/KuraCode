@@ -37,11 +37,6 @@ const BTN_CSS = `
   span.label { white-space: nowrap; }
 `;
 
-const BOOKMARK_SVG =
-  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z"/></svg>';
-const CHECK_SVG =
-  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5 1.4-1.4L9 14.2 18.6 4.6 20 6z"/></svg>';
-
 function autoTitle(code: string): string {
   const first = code
     .split("\n")
@@ -79,11 +74,33 @@ async function persistSnippet(
   );
 }
 
+function renderButtonLabel(btn: HTMLButtonElement, saved: boolean): void {
+  btn.replaceChildren();
+
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("aria-hidden", "true");
+  const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  path.setAttribute(
+    "d",
+    saved
+      ? "M20 6 9 17l-5-5 1.4-1.4L9 14.2 18.6 4.6 20 6z"
+      : "M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z",
+  );
+  svg.append(path);
+
+  const label = document.createElement("span");
+  label.className = "label";
+  label.textContent = saved ? "Saved" : "Save";
+
+  btn.append(svg, label);
+}
+
 function showSaved(btn: HTMLButtonElement): void {
-  btn.innerHTML = `${CHECK_SVG}<span class="label">Saved</span>`;
+  renderButtonLabel(btn, true);
   btn.classList.add("saved");
   window.setTimeout(() => {
-    btn.innerHTML = `${BOOKMARK_SVG}<span class="label">Save</span>`;
+    renderButtonLabel(btn, false);
     btn.classList.remove("saved");
   }, 2000);
 }
@@ -121,7 +138,7 @@ function attachInlineButton(pre: HTMLElement): void {
   const btn = document.createElement("button");
   btn.type = "button";
   btn.title = "Save this code to KuraCode";
-  btn.innerHTML = `${BOOKMARK_SVG}<span class="label">Save</span>`;
+  renderButtonLabel(btn, false);
   btn.style.pointerEvents = "auto";
 
   shadow.append(style, btn);
