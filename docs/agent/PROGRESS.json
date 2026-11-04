@@ -1,5 +1,5 @@
 {
-  "updated": "2025-11-04T18:55:00Z",
+  "updated": "2025-11-04T19:10:00Z",
   "milestone": "M6 brand integration complete; M0-M5 partial",
   "counts": {
     "todo": 14,
@@ -10,7 +10,7 @@
     "failed": 0,
     "blocked": 0
   },
-  "lastGreenCommit": "c3b9c5e",
+  "lastGreenCommit": "ad9a60e",
   "gates": {
     "lint": "pass",
     "types": "pass",
