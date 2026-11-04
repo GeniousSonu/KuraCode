@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SnipHub cold-start: print STATE, HANDOFF, and the next 5 tasks.
+# KuraCode cold-start: print STATE, HANDOFF, and the next 5 tasks.
 # Usage: ./scripts/resume.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."

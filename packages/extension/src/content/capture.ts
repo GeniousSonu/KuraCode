@@ -174,7 +174,10 @@ async function captureSelection(): Promise<void> {
   const ancestor =
     (selection?.anchorNode?.parentElement as HTMLElement | null) ?? null;
   const pre = ancestor?.closest("pre") ?? ancestor;
-  const language = detectLanguage(pre, text);
+  // Prefer the <code> element for detection so class hints like
+  // `language-python` on the code element are honored (CLEAN-4).
+  const codeEl = pre?.querySelector<HTMLElement>("code");
+  const language = detectLanguage(codeEl ?? pre, text);
   const context = buildContext(pre);
   await persistSnippet(text, language, context);
   // Toast feedback for keyboard-captured text.

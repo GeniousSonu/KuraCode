@@ -4,11 +4,8 @@ KuraCode is a browser-native snippet memory: capture code from any webpage in
 one action, keep its context (source, date, language, heading), and turn it
 into shareable team knowledge.
 
-> **Name note:** the PRD (`Product Requirements Document Code Snippet Capture &
-> Collaboration Extension.md`) uses the working name *SnipHub*; the UI/UX spec
-> (`kuracode_ui_ux_design_specification.md`) and this codebase use **KuraCode**.
-> The design spec is the more recent document (v1.0.0 vs PRD v0.1), so KuraCode
-> is the canonical name going forward.
+> **Name note:** the product is canonically named **KuraCode**. Earlier drafts
+> used the placeholder _SnipHub_; all branding, docs, and code now use KuraCode.
 
 ## Source docs
 
@@ -36,14 +33,14 @@ packages/
 
 ### `packages/extension` — Chrome MV3 extension
 
-| Path | Responsibility | PRD reqs |
-| --- | --- | --- |
-| `manifest.json` | MV3 manifest, permissions, commands (hotkey), menus | CAP-1/2, PRIV-4 |
-| `src/content/capture.ts` | Inline "Save" button on code blocks (shadow DOM), selection capture, cleaning pipeline | CAP-1..7, CTX-1..4, CLEAN-1..5 |
-| `src/shared/cleaner.ts` | Strip line numbers/prompts, preserve indentation, language detection, nearest heading | CLEAN-1..4, CTX-2 |
-| `src/shared/storage.ts` | Local-first storage via `chrome.storage.local` | PRIV-1/2, ORG-1/2 |
-| `src/background/service-worker.ts` | Hotkey + context-menu → active tab capture | CAP-1/2 |
-| `src/shared/library.ts` + `src/popup`, `src/sidepanel` | Searchable library UI, copy, delete, clipboard quick-save | FIND-1..4, CAP-4 |
+| Path                                                   | Responsibility                                                                         | PRD reqs                       |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------------------------ |
+| `manifest.json`                                        | MV3 manifest, permissions, commands (hotkey), menus                                    | CAP-1/2, PRIV-4                |
+| `src/content/capture.ts`                               | Inline "Save" button on code blocks (shadow DOM), selection capture, cleaning pipeline | CAP-1..7, CTX-1..4, CLEAN-1..5 |
+| `src/shared/cleaner.ts`                                | Strip line numbers/prompts, preserve indentation, language detection, nearest heading  | CLEAN-1..4, CTX-2              |
+| `src/shared/storage.ts`                                | Local-first storage via `chrome.storage.local`                                         | PRIV-1/2, ORG-1/2              |
+| `src/background/service-worker.ts`                     | Hotkey + context-menu → active tab capture                                             | CAP-1/2                        |
+| `src/shared/library.ts` + `src/popup`, `src/sidepanel` | Searchable library UI, copy, delete, clipboard quick-save                              | FIND-1..4, CAP-4               |
 
 **Build:** `npm run build --workspace @kuracode/extension` → bundles each entry
 with esbuild to `packages/extension/dist/` (IIFE for MV3 content-script compat).
@@ -58,11 +55,11 @@ spec (`src/styles/tokens.css`). Currently renders a demo library (search,
 language filter, cards, empty state). It will become the real library/shared
 viewer once the backend ships.
 
-| Path | Purpose |
-| --- | --- |
+| Path                    | Purpose                       |
+| ----------------------- | ----------------------------- |
 | `src/styles/tokens.css` | Design tokens (§6 of UI spec) |
-| `src/App.tsx` | Library dashboard UI |
-| `src/main.tsx` | Entry |
+| `src/App.tsx`           | Library dashboard UI          |
+| `src/main.tsx`          | Entry                         |
 
 ## Getting started
 

@@ -25,9 +25,16 @@ createServer(async (req, res) => {
   }
   try {
     const body = await readFile(path);
-    res.writeHead(200, {
+    const headers = {
       "content-type": MIME[extname(path)] ?? "application/octet-stream",
-    });
+    };
+    // Serve the CSP fixture with a strict, response-level Content-Security-Policy
+    // header so the S11 scenario exercises a real CSP, not just a <meta> tag.
+    if (url.pathname.includes("csp")) {
+      headers["content-security-policy"] =
+        "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'";
+    }
+    res.writeHead(200, headers);
     res.end(body);
   } catch {
     res.writeHead(404).end("not found");

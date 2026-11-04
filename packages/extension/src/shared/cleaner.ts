@@ -86,6 +86,99 @@ const LANGUAGE_HINTS: [RegExp, string][] = [
   [/\bdockerfile\b/i, "dockerfile"],
 ];
 
+/**
+ * Content-based heuristics, used only when no explicit page/class hint matches.
+ * Ordered roughly by how unambiguous a signal is (score, not order, wins).
+ */
+const LANGUAGE_CONTENT: [RegExp, string, number][] = [
+  // ---- Python ----
+  [/^\s*def\s+\w+\s*\(/m, "python", 95],
+  [/^\s*class\s+\w+\s*:/m, "python", 95],
+  [/^\s*(?:from\s+\w+\s+import|import\s+\w+)/m, "python", 93],
+  [/__name__\s*==/, "python", 96],
+  [/^\s*with\s+\w+\s+as\b.*:/m, "python", 94],
+  [/^\s*try\s*:[^\n]*\n\s*except\b/m, "python", 94],
+  [/@\w+\.route/, "python", 97],
+  [/\bprint\s*\(/, "python", 90],
+  [/\brange\s*\(/, "python", 88],
+  [/\bself\b/, "python", 91],
+  // ---- JavaScript ----
+  [/`[^`]*\$\{[^}]*\}/, "javascript", 93],
+  [/\bmodule\.exports\b/, "javascript", 92],
+  [/\bdocument\./, "javascript", 91],
+  [/\bconsole\.(?:log|error|warn|info)/, "javascript", 90],
+  [/\bawait\s+\w/, "javascript", 90],
+  [/\balert\s*\(/, "javascript", 89],
+  [/\saddEventListener\s*\(/, "javascript", 92],
+  [/^\s*(?:const|let|var)\s+\w+\s*=\s*[^;\n]*=>/, "javascript", 89],
+  [/=>/, "javascript", 86],
+  // ---- TypeScript ----
+  [/\binterface\s+\w+\s*\{/, "typescript", 96],
+  [/\btype\s+\w+\s*=/, "typescript", 95],
+  [/\benum\s+\w+/, "typescript", 95],
+  [/:\s*(?:string|number|boolean)\b/, "typescript", 94],
+  [/\bPromise</, "typescript", 94],
+  [/<[A-Z](?:,\s*[A-Z])*>/, "typescript", 92],
+  // ---- Java ----
+  [/public\s+static\s+void\s+main\s*\(\s*String\[\]/, "java", 99],
+  [/\bSystem\.out\.println/, "java", 98],
+  [/private\s+final\s+String/, "java", 96],
+  [/protected\s+void\s+\w+\s*\(/, "java", 95],
+  [/public\s+(?:static\s+)?(?!function)[\w<>,[\] ]+\s+\w+\s*\(/, "java", 93],
+  // ---- Go ----
+  [/^package\s+\w+\s*$/m, "go", 99],
+  [/^type\s+\w+\s+struct\s*\{/m, "go", 97],
+  [/\bfmt\./, "go", 96],
+  [/^func\s+\w+\s*\(/m, "go", 95],
+  // ---- Rust ----
+  [/println!|format!/, "rust", 98],
+  [/\bpub\s+(?:struct|fn|impl|enum)\b/, "rust", 97],
+  [/^\s*fn\s+\w+\s*\(/m, "rust", 96],
+  [/vec!/, "rust", 95],
+  [/\bVec</, "rust", 94],
+  [/\s+->\s+\w+/, "rust", 88],
+  // ---- SQL ----
+  [/^\s*(?:SELECT|INSERT|UPDATE|DELETE|CREATE|DROP|ALTER)\b/im, "sql", 98],
+  [/\bFROM\s+\w+(\s+(?:WHERE|JOIN))?/i, "sql", 95],
+  // ---- Bash ----
+  [/^\s*#!\s*\S*(?:bash|sh|zsh)/, "bash", 100],
+  [
+    /^\s*(?:sudo|apt-get|apt|yum|brew|chmod|chown|export|echo|grep|curl|wget|mkdir|rm|cat|sed|awk)\b/,
+    "bash",
+    96,
+  ],
+  [/^\s*if\s+\[/, "bash", 95],
+  [/\$[A-Z_]\w*/, "bash", 97],
+  // ---- C# ----
+  [/\bConsole\.Write(Line)?/, "csharp", 99],
+  [/namespace\s+\w+(\.\w+)+\s*\{/, "csharp", 97],
+  [/static\s+void\s+Main\s*\(/, "csharp", 97],
+  [/\{\s*get;\s*set;\s*\}/, "csharp", 96],
+  // ---- PHP ----
+  [/<\?php/, "php", 100],
+  [/public\s+function\b/, "php", 98],
+  [/\$[a-z_]\w*/, "php", 97],
+  // ---- HTML ----
+  [/<!DOCTYPE html>/i, "html", 97],
+  [/^\s*<\/?(?:div|p|ul|li|span|a|h[1-6])\b/m, "html", 92],
+  // ---- CSS ----
+  [/@media/, "css", 98],
+  [/^[ \t]*[.#]?[\w-]+\s*\{/m, "css", 97],
+];
+
+function detectContentLanguage(text: string): string | undefined {
+  let best = 0;
+  let found: string | undefined;
+  for (const [re, lang, score] of LANGUAGE_CONTENT) {
+    if (score <= best) continue;
+    if (re.test(text)) {
+      best = score;
+      found = lang;
+    }
+  }
+  return found;
+}
+
 /** Auto-detect language from element class/content hints (CLEAN-4). */
 export function detectLanguage(
   element: Element | null,
@@ -103,7 +196,7 @@ export function detectLanguage(
   for (const [re, lang] of LANGUAGE_HINTS) {
     if (re.test(source)) return lang;
   }
-  return fallback;
+  return detectContentLanguage(text) ?? fallback;
 }
 
 /** Find the nearest preceding heading on the page (used for CTX-2). */

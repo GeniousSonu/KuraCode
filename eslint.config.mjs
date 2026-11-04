@@ -45,4 +45,11 @@ export default tseslint.config(
       "no-empty-pattern": "off",
     },
   },
+  {
+    // Saved real-page fixtures are browser scripts served to the e2e harness.
+    files: ["packages/test-fixtures/**/*.js"],
+    languageOptions: {
+      globals: globals.browser,
+    },
+  },
 );

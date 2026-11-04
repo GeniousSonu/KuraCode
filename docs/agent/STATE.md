@@ -1,4 +1,4 @@
-# SnipHub State (updated: 2025-08-18T00:00:00Z by codvian session 1)
+# KuraCode State (updated: 2025-08-18T00:00:00Z by codvian session 1)
 
 ## Snapshot
 

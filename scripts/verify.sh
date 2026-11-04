@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SnipHub verification gate: lint -> typecheck -> unit -> build -> (e2e if available)
+# KuraCode verification gate: lint -> typecheck -> unit -> build -> (e2e if available)
 # Usage: ./scripts/verify.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."

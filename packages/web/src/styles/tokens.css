@@ -1,17 +1,19 @@
 /* KuraCode design tokens — see kuracode_ui_ux_design_specification.md §6. */
 :root {
   /* Typography */
-  --font-display: 'SF Pro Display', -apple-system, system-ui, sans-serif;
-  --font-ui: 'SF Pro Text', -apple-system, system-ui, sans-serif;
-  --font-code: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "SF Pro Display", -apple-system, system-ui, sans-serif;
+  --font-ui: "SF Pro Text", -apple-system, system-ui, sans-serif;
+  --font-code: "SF Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Colors */
   --kura-bg-base: #0c0d10;
   --kura-bg-elevated: #16181d;
   --kura-bg-floating: rgba(22, 24, 29, 0.75);
   --kura-border: rgba(255, 255, 255, 0.08);
-  --kura-accent: #5c6bfa;
-  --kura-accent-hover: #717efb;
+  --kura-accent: #e6b55c;
+  --kura-accent-hover: #f0c273;
+  --kura-accent-cool: #5c6bfa;
+  --kura-accent-cool-hover: #717efb;
   --kura-text-primary: #ededef;
   --kura-text-muted: #8b909a;
   --kura-success: #23c185;
@@ -19,7 +21,8 @@
   --kura-danger: #e5484d;
 
   /* Elevation */
-  --shadow-elevation-1: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--kura-border);
+  --shadow-elevation-1:
+    0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--kura-border);
 
   /* Motion */
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);

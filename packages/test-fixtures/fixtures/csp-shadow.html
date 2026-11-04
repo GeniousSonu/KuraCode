@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
+    <title>CSP + shadow DOM fixture</title>
+    <style>
+      pre {
+        border: 1px solid #ccc;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status">loaded</div>
+    <pre data-lang="javascript"><code>const a = 1;</code></pre>
+    <div class="wrapper">
+      <pre><code>const b = 2;</code></pre>
+    </div>
+    <div id="shadow-host"></div>
+    <script src="csp-shadow.js"></script>
+  </body>
+</html>
