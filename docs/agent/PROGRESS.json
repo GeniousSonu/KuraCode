@@ -1,23 +1,24 @@
 {
-  "updated": "2025-08-19T00:00:00Z",
-  "milestone": "M1 (test scaffolding)",
+  "updated": "2025-11-04T18:55:00Z",
+  "milestone": "M6 brand integration complete; M0-M5 partial",
   "counts": {
-    "todo": 13,
+    "todo": 14,
     "in_progress": 1,
-    "done": 8,
+    "done": 9,
     "done_with_gaps": 1,
     "partial": 2,
     "failed": 0,
     "blocked": 0
   },
-  "lastGreenCommit": "7fa0702",
+  "lastGreenCommit": "c3b9c5e",
   "gates": {
     "lint": "pass",
     "types": "pass",
     "unit": "pass",
     "build": "pass",
-    "e2e": "pass"
+    "e2e": "pass",
+    "brand": "pass"
   },
-  "next": ["T-006", "T-007", "T-008", "T-013", "T-016"],
-  "parity": "docs/agent/PARITY.md updated (M1): Chromium S-series covered; Firefox/Safari/VS Code/backend rows pending later milestones."
+  "next": ["T-006", "T-007", "T-008", "T-013", "T-014"],
+  "parity": "docs/agent/PARITY.md tracks Chrome/Edge/Brave; Firefox/Safari/VS Code/backend rows pending later milestones."
 }

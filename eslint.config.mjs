@@ -6,7 +6,7 @@ import globals from "globals";
 
 export default tseslint.config(
   {
-    ignores: ["**/dist/**", "**/node_modules/**", "**/*.map"],
+    ignores: ["**/dist/**", "**/node_modules/**", "**/.cache/**", "**/*.map"],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -37,7 +37,7 @@ export default tseslint.config(
   },
   {
     // Build plumbing and e2e tooling run under Node.
-    files: ["**/build.mjs", "**/e2e/**/*.{mjs,ts}"],
+    files: ["**/build.mjs", "**/scripts/**/*.{ts,mjs}", "**/e2e/**/*.{mjs,ts}"],
     languageOptions: {
       globals: globals.node,
     },

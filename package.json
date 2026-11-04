@@ -2,12 +2,15 @@
   "name": "kuracode",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "KuraCode — code snippet capture & collaboration (Chrome extension + web app).",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build --workspace @kuracode/extension && npm run build --workspace @kuracode/web",
+    "brand:build": "node --experimental-strip-types scripts/build-icons.ts",
+    "brand:check": "node scripts/check-brand.mjs",
+    "build": "npm run brand:build && npm run build --workspace @kuracode/extension && npm run build --workspace @kuracode/web",
     "lint": "eslint .",
     "test": "npm run test --workspace @kuracode/extension",
     "typecheck": "npm run typecheck --workspace @kuracode/extension && npm run typecheck --workspace @kuracode/web",
@@ -22,6 +25,7 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.14.0",
     "globals": "^17.14.0",
+    "sharp": "^0.35.5",
     "typescript-eslint": "^8.72.1"
   }
 }

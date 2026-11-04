@@ -51,3 +51,14 @@
 - Severity: low | Found: T-001 | Status: open
 - Symptom: port 5173 was occupied during development; dev server ran on 5199.
 - Workaround: `npm run dev:web -- --port 5199 --strictPort`.
+
+## #10 No wordmark or monochrome dark SVG variant exists (BRAND)
+
+- Severity: medium | Req: BRAND | Found: T-027 | Status: open
+- Symptom: the supplied master is a mark-only geometric K. `docs/logo-wordmark.svg` is intentionally omitted; `logo-dark.svg` is identical to `logo-light.svg`, so on very dark surfaces the green mark has lower contrast than an official monochrome variant would.
+- Upgrade path (see IMPROVEMENTS): supply a wordmark + a monochrome/white SVG for dark toolbars and the README header.
+
+## #11 Store/Safari/Firefox icon coverage pending those build targets (BRAND)
+
+- Severity: low | Req: BRAND | Found: T-027 | Status: open
+- Symptom: Chrome/Edge store icons (128, 300, promo, marquee) and web/PWA/social icons are generated and verified; Firefox AMO and Safari 1024×1024 opaque icons and store screenshots await those targets (see PARITY).

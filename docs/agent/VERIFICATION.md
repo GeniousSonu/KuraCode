@@ -60,3 +60,10 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
 - Context-menu UI click-through on a real right-click (S2) — bridge is covered via S1 message path.
 - Real OS-clipboard read (S4 uses a deterministic clipboard stub; headless CI clipboard is unreliable).
 - Performance budgets (10k/50k search), security/XSS suite, accessibility (axe), 50k-storage benchmark.
+
+## V-9 Brand asset generation, checks, and browser evidence (T-027)
+
+- Ran: `npm run brand:build` → `npm run brand:check` → `npm run e2e --workspace @kuracode/extension` (Playwright, headed Chromium, unpacked extension).
+- Result: PASS. 35 assets generated deterministically from the master SVG into `brand/generated/` (sizes in docs/BRAND.md). `brand:check` verified every PNG dimension via its IHDR header, SVG well-formedness (viewBox, no scripts/external), and that every icon path referenced in the built manifest/web exists.
+- Browser evidence (saved under `docs/agent/evidence/brand/`): popup-light.png, popup-dark.png, sidepanel-light.png, inline-button-light.png; all manifest icon URLs returned HTTP 200 (no 404s).
+- Not tested: Store screenshots (manual UI captures), Firefox AMO / Safari icons (no target build yet), and real per-pixel 16px edge-contrast on all devices (verified programmatically only).

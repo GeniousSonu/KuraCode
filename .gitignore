@@ -27,3 +27,8 @@ yarn-error.log*
 # vite / esbuild
 .vite/
 .esbuild/
+
+# Provided brand originals live under brand/source/; ignore root duplicates
+/KuraCode logo.png
+/Gemini_Generated_Image_rhue3grhue3grhue.png
+/kuracode-icon.svg

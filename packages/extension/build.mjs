@@ -33,8 +33,18 @@ const options = {
   legalComments: "none",
 };
 
+const brandGenerated = path.join(root, "..", "..", "brand", "generated");
+
 async function copyStatic() {
   await mkdir(out, { recursive: true });
+  await cp(path.join(brandGenerated, "extension"), path.join(out, "icons"), {
+    recursive: true,
+    force: true,
+  });
+  await cp(path.join(brandGenerated, "action"), path.join(out, "action"), {
+    recursive: true,
+    force: true,
+  });
   await cp(path.join(root, "manifest.json"), path.join(out, "manifest.json"), {
     force: true,
   });

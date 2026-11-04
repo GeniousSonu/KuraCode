@@ -2,9 +2,9 @@
 
 ## Snapshot
 
-- Current milestone: M2/M3 (Capture Engine + Cleaning partial) | Overall: ~35% (manual estimate)
+- Current milestone: M0–M6 partial (brand integration done) | Overall: ~45% (manual estimate)
 - Last verified build: PASS (extension esbuild + web tsc/vite)
-- Health: lint PASS | types PASS | unit 9/9 | e2e NOT SET UP | build PASS
+- Health: lint PASS | types PASS | unit 11/11 | build PASS | e2e 7/7 | brand check PASS
 - Package manager: npm workspaces (deviation from pnpm, see DECISIONS #1)
 - Extension build: esbuild (deviation from Vite/CRXJS, see DECISIONS #2)
 
@@ -21,7 +21,7 @@
 
 ## Next 5 tasks
 
-T-001, T-002, T-003, T-004, T-005
+T-006, T-007, T-008, T-013, T-014
 
 ## Blocked / needs human
 

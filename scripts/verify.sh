@@ -18,6 +18,9 @@ npm test
 step "Build"
 npm run build
 
+step "Brand check"
+npm run brand:check
+
 if ls packages/extension/e2e/*.spec.ts >/dev/null 2>&1; then
   step "e2e"
   # Headed Chromium is required to load the extension; use xvfb when no display.
