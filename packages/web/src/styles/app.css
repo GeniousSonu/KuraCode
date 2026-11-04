@@ -1,0 +1,231 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--kura-bg-elevated);
+  border-bottom: 1px solid var(--kura-border);
+  position: sticky;
+  top: 0;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  font-size: 17px;
+}
+
+.primary-btn {
+  background: var(--kura-accent);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  padding: 8px 14px;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+
+.primary-btn:hover {
+  background: var(--kura-accent-hover);
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.search {
+  background: var(--kura-bg-elevated);
+  border: 1px solid var(--kura-border);
+  border-radius: 10px;
+  color: var(--kura-text-primary);
+  padding: 10px 14px;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  outline: none;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.search:focus {
+  border-color: var(--kura-accent);
+}
+
+.filter-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--kura-text-muted);
+  background: transparent;
+  border: 1px solid var(--kura-border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.pill:hover {
+  color: var(--kura-text-primary);
+  border-color: var(--kura-accent);
+}
+
+.pill-active {
+  color: var(--kura-accent-hover);
+  border-color: var(--kura-accent);
+  background: rgba(92, 107, 250, 0.12);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--kura-bg-elevated);
+  border: 1px solid var(--kura-border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow-elevation-1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  color: var(--kura-text-muted);
+  font-size: 12px;
+}
+
+.code {
+  margin: 0;
+  background: var(--kura-bg-base);
+  border: 1px solid var(--kura-border);
+  border-radius: 10px;
+  padding: 12px;
+  font-family: var(--font-code);
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--kura-text-primary);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.meta {
+  display: flex;
+  gap: 6px;
+  color: var(--kura-text-muted);
+  font-size: 12px;
+}
+
+.domain {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding: 80px 24px;
+  border: 1px dashed var(--kura-border);
+  border-radius: 16px;
+}
+
+.empty-icon {
+  font-size: 44px;
+  color: var(--kura-text-muted);
+  opacity: 0.2;
+}
+
+.empty-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.empty-sub {
+  margin: 0;
+  color: var(--kura-text-muted);
+  max-width: 360px;
+}
+
+.ghost-btn {
+  background: transparent;
+  border: 1px solid var(--kura-border);
+  color: var(--kura-text-primary);
+  border-radius: 9px;
+  padding: 8px 16px;
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.ghost-btn:hover {
+  border-color: var(--kura-accent);
+  color: var(--kura-accent-hover);
+}

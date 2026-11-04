@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "KuraCode — Snippet Capture & Collaboration",
+  "version": "0.1.0",
+  "description": "Capture code from any page in one click, with its context intact — and turn it into shareable team knowledge.",
+  "minimum_chrome_version": "114",
+  "permissions": ["activeTab", "contextMenus", "clipboardWrite", "storage", "unlimitedStorage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "KuraCode"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "commands": {
+    "capture-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Capture the selected code and open the annotation panel"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "updated": "2025-08-18T00:00:00Z",
+  "milestone": "M2/M3",
+  "counts": { "todo": 14, "in_progress": 2, "done": 0, "done_with_gaps": 0, "failed": 0, "blocked": 0 },
+  "lastGreenCommit": null,
+  "gates": { "lint": "pass", "types": "pass", "unit": "pass", "build": "pass", "e2e": "not_configured" },
+  "next": ["T-002", "T-003", "T-004", "T-005", "T-006"]
+}

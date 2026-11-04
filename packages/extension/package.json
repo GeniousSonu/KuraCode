@@ -1,0 +1,20 @@
+{
+  "name": "@kuracode/extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "KuraCode Chrome extension (Manifest V3) — capture code with context, organized and searchable.",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "package": "npm run build"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.280",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  }
+}
