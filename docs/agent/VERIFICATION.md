@@ -67,3 +67,22 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
 - Result: PASS. 35 assets generated deterministically from the master SVG into `brand/generated/` (sizes in docs/BRAND.md). `brand:check` verified every PNG dimension via its IHDR header, SVG well-formedness (viewBox, no scripts/external), and that every icon path referenced in the built manifest/web exists.
 - Browser evidence (saved under `docs/agent/evidence/brand/`): popup-light.png, popup-dark.png, sidepanel-light.png, inline-button-light.png; all manifest icon URLs returned HTTP 200 (no 404s).
 - Not tested: Store screenshots (manual UI captures), Firefox AMO / Safari icons (no target build yet), and real per-pixel 16px edge-contrast on all devices (verified programmatically only).
+
+
+## V-10 UI Redesign, Core Domain Modules & Feature Registry (2026-11-05)
+
+- Ran: `pnpm verify` (lint, typecheck, vitest unit tests, dual chrome/firefox build, web-ext lint, Playwright e2e with redesign measurement).
+- Result: **All gates green ✔**
+  - Lint: 0 errors.
+  - Typecheck: 0 errors across `@kuracode/extension` and `@kuracode/web`.
+  - Unit tests: 54/54 passing across 6 test suites (`packages/extension/test/new-modules.test.ts` adds 29 tests for auth, sync, HLC, clipboard hub, secret scanner, quick code, workplaces, and auto-title).
+  - Dual build: Both Chrome MV3 (`.output/chrome-mv3`) and Firefox MV3 (`.output/firefox-mv3`) build cleanly.
+  - Web-ext lint: 0 errors on Mozilla Firefox manifest.
+  - Playwright E2E: 9/9 passing tests.
+- Visual & Metric Evidence:
+  - Baseline vs redesign recorded in `docs/agent/evidence/design/after/after-metrics.json`.
+  - Collapsed card height: **115px** (target was <= 125px; baseline was 185-227px).
+  - 4 cards fit cleanly within default 520px height without scrolling.
+  - 10 UI states captured as PNGs in `docs/agent/evidence/design/after/`.
+- Features Registry:
+  - 57 features VERIFIED or HARDENED out of 78 total tracked (`pnpm features:report`).

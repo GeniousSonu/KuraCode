@@ -66,3 +66,16 @@
 - Conflict: `packages/extension/manifest.firefox.json` conflicted between `strict_min_version: 115.0` (home, supporting Firefox ESR) with `data_collection_permissions: { required: ["none"] }` vs `140.0` with `type: "none"`.
 - Resolution: Adopted the official Mozilla AMO schema conforming format `{ required: ["none"] }` and retained `115.0` ESR compatibility, passing `web-ext lint` with 0 errors and verifying through target manifest assertions.
 
+## #10 Cloud Backend, Real-Time Sync, and Identity Architecture
+
+- Date: 2026-11-05 | Status: accepted
+- Context: Implementing cross-device accounts, real-time sync, and team collaboration.
+- Candidates Evaluated:
+  1. *Managed Supabase (Postgres + Auth + Realtime):* Free tier verified Nov 2026: 50,000 monthly active users (MAU), 500 MB database, 200 concurrent realtime connections, automated backups, built-in Row-Level Security (RLS), standard Postgres with zero proprietary locking.
+  2. *Self-hosted (Better-Auth + Neon Postgres + Custom WS server):* Excellent flexibility, but introduces server maintenance overhead and cold starts on free serverless platforms.
+- Decision: Adopt standard PostgreSQL schema with Row-Level Security and Supabase-compatible client protocol (Auth + Realtime channels). The backend schema and client SDK use standard SQL and WebSockets, ensuring zero lock-in (can point to any self-hosted Supabase or PostgREST instance at any time).
+- Conflict Strategy: Hybrid Logical Clocks (HLC) for causal ordering; field-level three-way merge; soft-delete tombstones with 30-day retention; immutable snippet version history.
+- Encryption Strategy: In-transit TLS 1.3; database AES-256 at rest; optional client-side End-to-End Encryption (E2EE) for Clipboard Hub using AES-256-GCM with PBKDF2-derived keys.
+- Quick-Share Codes: 4-digit cryptographically random codes (15-minute default TTL, single-claim default, constant-time comparison, exponential rate-limiting lockout; auto-widening to 6 digits when active pool exceeds 5,000).
+
+

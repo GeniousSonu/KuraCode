@@ -22,6 +22,7 @@
     "demo:build": "pnpm build:chrome && node scripts/server-demo.mjs",
     "package": "pnpm build:chrome && pnpm build:firefox && node scripts/package.mjs",
     "verify": "bash scripts/verify.sh",
+    "features:report": "node --experimental-strip-types scripts/features-report.ts",
     "doctor": "bash scripts/doctor.sh",
     "sync": "bash scripts/sync.sh",
     "finish": "bash scripts/finish-session.sh",

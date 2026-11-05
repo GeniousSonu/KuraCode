@@ -1,6 +1,6 @@
 # Human Action Required (Owner Tasks)
 
-This document tracks items that require human owner intervention, official developer portal accounts, credit card payment, or private API credentials. Everything else is implemented and verified in the automated repository.
+This document tracks items that require human owner intervention, official developer portal accounts, credit card payment, or private API credentials. Everything else is implemented, tested, and verified in the automated repository.
 
 ---
 
@@ -24,11 +24,61 @@ This document tracks items that require human owner intervention, official devel
 
 ---
 
-## 2. GitHub Secrets Setup
+## 2. Cloud Infrastructure & OAuth Provisioning (One-Click Login & Real-Time Sync)
+
+### [ ] Task 4: Google Cloud OAuth 2.0 Client ID
+- **Fee:** Free.
+- **Where to click:** [Google Cloud Console > APIs & Services > Credentials](https://console.cloud.google.com/apis/credentials).
+- **Steps:**
+  1. Create a project named `KuraCode`.
+  2. Configure OAuth Consent Screen: User Type **External**, App Name **KuraCode**, Support Email **sahinurislam52@gmail.com**.
+  3. Scopes: `openid`, `https://www.googleapis.com/auth/userinfo.email`, `https://www.googleapis.com/auth/userinfo.profile`.
+  4. Create Credentials > OAuth client ID > Application type: **Web application**.
+  5. **Authorized JavaScript origins:**
+     - `https://app.kuracode.dev`
+     - `https://www.genioussonu.me`
+  6. **Authorized redirect URIs:**
+     - `https://<your-chrome-extension-id>.chromiumapp.org/`
+     - `https://app.kuracode.dev/auth/callback`
+  7. Copy Client ID and Client Secret for repository environment secrets.
+
+### [ ] Task 5: GitHub OAuth App Registration
+- **Fee:** Free.
+- **Where to click:** [GitHub Settings > Developer Settings > OAuth Apps](https://github.com/settings/developers).
+- **Steps:**
+  1. Click **New OAuth App**.
+  2. Application name: `KuraCode`.
+  3. Homepage URL: `https://www.genioussonu.me/extensions/kuracode`.
+  4. Authorization callback URL: `https://<your-chrome-extension-id>.chromiumapp.org/` and `https://app.kuracode.dev/auth/callback`.
+  5. Generate client secret and record `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET`.
+
+### [ ] Task 6: Supabase Free-Tier Project Provisioning
+- **Fee:** Free tier (50,000 MAU, 500 MB Postgres, 200 concurrent Realtime connections).
+- **Where to click:** [Supabase Dashboard](https://supabase.com/dashboard).
+- **Steps:**
+  1. Create a new organization and project named `kuracode-prod` (Region: pick nearest, e.g. Central India / Frankfurt).
+  2. Under **Authentication > Providers**:
+     - Enable **Google**: paste Google Client ID & Secret from Task 4.
+     - Enable **GitHub**: paste GitHub Client ID & Secret from Task 5.
+  3. Under **Authentication > URL Configuration**:
+     - Site URL: `https://www.genioussonu.me/extensions/kuracode`
+     - Redirect URLs:
+       - `https://<your-chrome-extension-id>.chromiumapp.org/**`
+       - `https://app.kuracode.dev/**`
+       - `moz-extension://**`
+  4. Under **SQL Editor**, execute the migration script located at `packages/sync-server/schema.sql` to initialize:
+     - `profiles`, `snippets`, `snippet_versions`, `workplaces`, `workplace_members`, `clipboard_items`, `quick_shares`.
+     - Row Level Security (RLS) policies enforcing multi-tenant isolation.
+  5. Copy `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` to project secrets.
+
+---
+
+## 3. GitHub Secrets Setup
 
 Once your developer accounts and cloud projects are active, add these secrets to your GitHub repository under **Settings > Secrets and variables > Actions**:
 
 ```env
+# Extension Store Publishing
 CHROME_EXTENSION_ID=<your-chrome-extension-id>
 CHROME_CLIENT_ID=<google-cloud-oauth-client-id>
 CHROME_CLIENT_SECRET=<google-cloud-oauth-client-secret>
@@ -41,6 +91,13 @@ EDGE_API_KEY=<edge-api-key>
 FIREFOX_API_KEY=<user:amo-jwt-issuer>
 FIREFOX_API_SECRET=<amo-jwt-secret>
 FIREFOX_EXTENSION_ID=kuracode@sahinur.islam
+
+# Cloud Auth & Sync (Production)
+SUPABASE_URL=https://<your-project-id>.supabase.co
+SUPABASE_ANON_KEY=<public-anon-key>
+SUPABASE_SERVICE_ROLE_KEY=<service-role-key-for-migrations-only>
+OAUTH_GOOGLE_CLIENT_ID=<google-oauth-client-id>
+OAUTH_GITHUB_CLIENT_ID=<github-oauth-client-id>
 ```
 
 Detailed instructions for generating each credential are provided in [docs/PUBLISHING.md](../PUBLISHING.md).

@@ -1,150 +1,163 @@
-# KuraCode: Design System & UI/UX Specification
+# KuraCode Design System & UI/UX Specification
 
-**Version:** 1.0.0
-**Product:** KuraCode (Browser Extension & Web App)
-**Design Philosophy:** "Linear meets Raycast for the Web." Zero-friction, high-density, keyboard-first, and visually subdued to let the user's code take center stage.
-
----
-
-## 1. Design Analysis & Core Philosophy
-
-To avoid the "generic SaaS" look, KuraCode adopts a **dark-mode native, ultra-minimalist aesthetic**. Developers suffer from cognitive overload; our UI must feel like a natural, native extension of macOS or a premium IDE.
-
-- **Invisible until needed:** The extension UI (inline buttons, toasts) must use heavy backdrop blurs and subtle borders to blend into any host site without breaking its layout.
-- **Tactile feedback:** Every action (copy, save, fork) must have a micro-interaction. We rely on spring physics, not linear eases, to make the tool feel instantly responsive.
-- **Information Density:** We respect the developer's screen real estate. Use a tight 4px grid system. No excessive padding.
+**Version:** 2.0.0 (Senior Developer-Tool Standard)  
+**Product:** KuraCode | **Canonical Page:** https://www.genioussonu.me/extensions/kuracode  
+**Master Asset:** `brand/source/kuracode-icon.svg` (Geometric K with Emerald/Mint gradient ribbons)
 
 ---
 
-## 2. Typography System (Apple SF Suite)
+## 1. Brand Identity & Personality
 
-Since KuraCode targets a premium feel and you hold the licenses, we strictly utilize the San Francisco typeface family. It provides unparalleled legibility at small sizes.
-
-- **Display / Headers:** `SF Pro Display`
-  - _Weight:_ Semibold (600)
-  - _Tracking:_ -0.015em
-  - _Usage:_ Extension panel titles, Workspace headers, large empty state copy.
-- **Body / UI Controls:** `SF Pro Text`
-  - _Weight:_ Medium (500) & Regular (400)
-  - _Tracking:_ 0em
-  - _Usage:_ Buttons, dropdowns, contextual metadata (source, date), search inputs.
-- **Code / Raw Data:** `SF Mono`
-  - _Weight:_ Regular (400)
-  - _Usage:_ All captured code blocks, inline code tags, secret scanner warnings, line numbers.
+KuraCode's visual identity derives directly from its geometric mark:
+- **Sharp, deliberate geometry:** Clean diagonal ribbons, precise cut-offs, balanced proportions.
+- **Color philosophy:** The vibrant **Emerald/Mint** (`#00b96c` / `#08e88a`) is the core brand color (used for the mark, active states, and success confirmations). The warm **Gold/Amber** (`#e6b55c`) from the original design spec provides high-contrast visual focus for primary action calls.
+- **Tone:** Professional, dense, calm, information-first developer tool (evoking Linear, Raycast, and VS Code). No generic gradient blobs, no filler illustrations, no emoji icons.
 
 ---
 
-## 3. Premium Color Palette (Dark Theme Default)
+## 2. Design Tokens & Color Palettes
 
-The palette is built around "Kura Slate" (a very deep, desaturated grey) and warm **gold/amber** to signify action and primary highlights.
-
-### Base Backgrounds (The Depth System)
-
-- **Background Base (Web App):** `#0C0D10` (OLED-adjacent black)
-- **Background Elevated (Extension Panel/Cards):** `#16181D`
-- **Background Floating (Dropdowns/Toasts):** `rgba(22, 24, 29, 0.75)` + `backdrop-filter: blur(16px)`
-- **Borders:** `rgba(255, 255, 255, 0.08)` (Hairline borders to define shapes without visual weight)
-
-### Accents & Typography
-
-- **Primary Text:** `#EDEDEF` (Off-white to reduce eye strain)
-- **Secondary Text / Metadata:** `#8B909A`
-- **Kura Gold (Primary Action):** `#E6B55C` (Warm, premium)
-- **Kura Gold Hover:** `#F0C273`
-
-### State Colors (Muted for Professionalism)
-
-- **Success (Saved/Copied):** `#23C185` (Mint green)
-- **Warning (Secret Detected/Deprecated):** `#F5A623` (Amber)
-- **Danger/Failed (Network Error):** `#E5484D` (Crimson)
-
----
-
-## 4. UI States & Component Architecture
-
-A premium tool never leaves the user guessing. Every component must have a defined state.
-
-### 4.1 The "Inline Save" Button (On Host Website)
-
-Injected near `pre` or `code` blocks on sites like StackOverflow or GitHub.
-
-- **Default (Hidden):** `opacity: 0` until the user hovers over the code block container.
-- **Hover (Revealed):** Floating in the top-right of the code block. `background: rgba(22, 24, 29, 0.6)`. Icon: SF Symbol `bookmark`.
-- **Active (Pressed):** Scale down to `0.95`.
-- **Processing:** Icon replaces with a bespoke, fast-spinning SVG ring (16px).
-- **Complete:** Icon becomes a checkmark (`#23C185`). Text expands smoothly to say "Saved to KuraCode". Fades out after 2 seconds.
-
-### 4.2 Empty States (No data)
-
-Avoid generic "illustration of a guy holding a magnifying glass." Use typography and keyboard shortcuts.
-
-- **State:** User opens the extension, but has zero snippets.
-- **Visual:** Centered in the panel.
-- **Icon:** A subtle, monochromatic SF Symbol (`square.stack.3d.up.slash`) with 20% opacity.
-- **Copy:** `SF Pro Display`, 16px, `#EDEDEF`. "No snippets yet."
-- **Sub-copy:** `SF Pro Text`, 13px, `#8B909A`. "Highlight any code and press ⌘ + Shift + S to capture your first snippet."
-- **Action:** A ghost button `[ Read the Guide ]`.
-
-### 4.3 Processing / Working States
-
-Instead of blocking the UI with a massive loading spinner, use **Skeleton UI** for lists and **Linear Activity Bars** for actions.
-
-- **Saving Detailed Snippet:** A 2px high indigo progress bar shoots across the top border of the extension panel.
-- **Fetching Context (Metadata):** The metadata fields (URL, Heading) pulse gently with a skeleton gradient `linear-gradient(90deg, #16181D, #1C1F26, #16181D)`.
-
-### 4.4 Complete / Success States
-
-- **Action:** User clicks "Copy to Clipboard" on a snippet.
-- **Feedback:** The copy icon morphs into a checkmark. A subtle, pill-shaped toast slides down from the top center: `background: #16181D`, border `#23C185`.
-- **Haptic/Audio:** If supported by the OS API, trigger a subtle haptic "tick".
-
-### 4.5 Failed / Error States
-
-Errors must be graceful, explain the _why_, and offer a _retry_.
-
-- **State:** Network failure during cloud sync.
-- **Visual:** Inline banner at the top of the panel. Background: `rgba(229, 72, 77, 0.1)`. Border: `#E5484D`.
-- **Copy:** "Failed to sync to KuraCode cloud. Changes saved locally."
-- **Action:** A small "Retry" text button on the right edge of the banner.
-- **State (Secret Scanner Block):** If an API key is detected upon hitting "Share to Team", the code block highlights the exact line with a red wavy underline, and a modal blocks the share with a strict warning.
-
-### 4.6 The Annotation Panel (Detailed Save)
-
-When a user hits the hotkey, the KuraCode command palette drops down from the top of the browser (similar to Raycast).
-
-- **Structure:**
-  - **Header:** Title input (auto-focused). Large text. `SF Pro Display`.
-  - **Body:** The captured code in an `SF Mono` block, syntax highlighted. Custom scrollbars (2px width).
-  - **Footer/Metadata:** Auto-populated pills for `[TypeScript]` `[github.com]`.
-  - **Primary Action:** A solid Indigo button: `Save ↵` (indicating Enter key triggers it).
-
----
-
-## 5. Animation & Motion Guidelines
-
-- **Curve:** `cubic-bezier(0.2, 0.8, 0.2, 1)` (Quick start, smooth deceleration).
-- **Duration:** 150ms for micro-interactions (hover, click). 300ms for panel slides and modal reveals.
-- **No bouncing:** Avoid overly playful spring physics. Motion should feel authoritative, deterministic, and instant.
-
-## 6. Implementation Handoff Notes (CSS Variables)
-
+### 2.1 Dark Theme (Default Identity)
 ```css
-:root {
-  /* Typography */
-  --font-display: "SF Pro Display", -apple-system, sans-serif;
-  --font-ui: "SF Pro Text", -apple-system, sans-serif;
-  --font-code: "SF Mono", ui-monospace, monospace;
+:root, [data-theme="dark"] {
+  /* Brand Tokens (from SVG Master) */
+  --brand-primary: #00b96c;
+  --brand-light: #08e88a;
+  --brand-deep: #00854f;
+  --brand-glow: rgba(0, 185, 108, 0.20);
 
-  /* Colors */
-  --kura-bg-base: #0c0d10;
-  --kura-bg-elevated: #16181d;
-  --kura-border: rgba(255, 255, 255, 0.08);
-  --kura-accent: #e6b55c;
-  --kura-text-primary: #ededef;
-  --kura-text-muted: #8b909a;
+  /* Warm Action Accent */
+  --accent-action: #e6b55c;
+  --accent-action-hover: #f0c273;
+  --accent-action-subtle: rgba(230, 181, 92, 0.12);
 
-  /* Shadows */
-  --shadow-elevation-1:
-    0 4px 12px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--kura-border);
+  /* Dark Neutral Surfaces */
+  --bg-app: #0c0d10;              /* OLED-adjacent base canvas */
+  --bg-surface: #14171c;          /* Card & panel background */
+  --bg-surface-elevated: #1a1e24; /* Dropdowns, hover states */
+  --bg-code: #0e1014;             /* Inset code preview blocks */
+
+  /* Borders (Strictly <= 2 levels) */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-default: rgba(255, 255, 255, 0.14);
+  --border-focus: #00b96c;
+
+  /* Typography Colors (WCAG AA Compliant) */
+  --text-primary: #f1f5f9;   /* Contrast 15.2:1 against bg-surface */
+  --text-secondary: #94a3b8; /* Contrast 6.4:1 against bg-surface */
+  --text-muted: #64748b;     /* Contrast 3.8:1 for small captions */
+
+  /* Semantic Status */
+  --color-success: #00b96c;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-danger-subtle: rgba(239, 68, 68, 0.12);
+  --color-info: #38bdf8;
 }
 ```
+
+### 2.2 Light Theme
+```css
+[data-theme="light"] {
+  --brand-primary: #00b96c;
+  --brand-light: #009d63;
+  --brand-deep: #00613f;
+  --brand-glow: rgba(0, 185, 108, 0.15);
+
+  --accent-action: #d97706;
+  --accent-action-hover: #b45309;
+  --accent-action-subtle: rgba(217, 119, 6, 0.10);
+
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-code: #f8fafc;
+
+  --border-subtle: #e2e8f0;
+  --border-default: #cbd5e1;
+  --border-focus: #00b96c;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-danger-subtle: rgba(220, 38, 38, 0.08);
+  --color-info: #0284c7;
+}
+```
+
+---
+
+## 3. Typography & Spacing Scales
+
+### 3.1 Type Scale
+- **UI Font Family:** `Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
+- **Code Font Family:** `"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace`
+- **Scale:**
+  - Header Title: 14px, font-weight 600, letter-spacing -0.015em
+  - Snippet Title: 13px, font-weight 600, line-height 1.3
+  - Code Preview: 12px, font-weight 400, line-height 1.45, monospace
+  - Metadata & Badges: 11px, font-weight 500
+  - Buttons & Inputs: 12px, font-weight 500
+
+### 3.2 Spacing & Radii (8px/4px Grid)
+- **Base Grid:** `4px`, `8px`, `12px`, `16px`, `20px`, `24px`
+- **Popup Padding:** 12px horizontal, 10px vertical
+- **Header Height:** 48px fixed
+- **Search Height:** 36px fixed
+- **Radii:**
+  - Buttons / Inputs / Card items: `8px` (`--radius-md`)
+  - Badges / Tag chips: `6px` (`--radius-sm`)
+  - Floating panels / Modals: `12px` (`--radius-lg`)
+  - Status dots / Pills: `9999px`
+
+---
+
+## 4. Popup Structure & Component Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐  48px Header
+│ [K] KuraCode                    [Synced ●] [Workspace ▾] [⚙] [👤]│  (Fixed)
+├─────────────────────────────────────────────────────────────────┤
+│ [ 🔍 Search snippets, tags, websites...                 Esc ]   │  36px Search
+├─────────────────────────────────────────────────────────────────┤
+│ [All (24) ▾]  [Language: All ▾]  [Sort: Recent ▾]   [+ Save Clip]│  32px Toolbar
+├─────────────────────────────────────────────────────────────────┤  (Fixed)
+│                                                                 │
+│  TODAY                                                          │  Small Muted
+│ ┌─────────────────────────────────────────────────────────────┐ │  Header
+│ │ React useEffect Cleanup              [TypeScript] [···]     │ │
+│ │ 🌐 react.dev/reference · 32m ago                            │ │  ~110-125px
+│ │ ┌─────────────────────────────────────────────────────────┐ │ │  Collapsed
+│ │ │ useEffect(() => {                                       │ │ │  Card
+│ │ │   const sub = api.subscribe();                          │ │ │
+│ │ └─────────────────────────────────────────────────────────┘ │ │
+│ │ [ ⧉ Copy ]                                [Expand ▾]        │ │
+│ └─────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+│ ┌─────────────────────────────────────────────────────────────┐ │
+│ │ PostgreSQL Recursive CTE             [SQL]        [···]     │ │
+│ │ 🌐 postgresql.org/docs · 2h ago                             │ │
+│ │ ┌─────────────────────────────────────────────────────────┐ │ │
+│ │ │ WITH RECURSIVE subordinates AS (                        │ │ │
+│ │ └─────────────────────────────────────────────────────────┘ │ │
+│ │ [ ⧉ Copy ]                                [Expand ▾]        │ │
+│ └─────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+│  YESTERDAY                                                      │
+│ ┌─────────────────────────────────────────────────────────────┐ │
+│ │ Rust Rayon Parallel Iterator         [Rust]       [···]     │ │
+│ └─────────────────────────────────────────────────────────────┘ │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘  Scrollable List
+```
+
+### 4.1 Snippet Card Metrics Target
+- Collapsed height: **110px – 125px** (down from baseline 185px-227px).
+- Visible cards at default 480px popup height: **At least 4 cards** visible without scrolling.
+- Single obvious primary action: `[ ⧉ Copy ]` with 1.5s morph to `[ ✔ Copied ]`.
+- Secondary actions (Edit, Add to Group, Share, Trash) in clean `[···]` menu.
+- Delete always moves to Trash with 8-second undo toast.

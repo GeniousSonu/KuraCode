@@ -1,50 +1,31 @@
-# KuraCode State (updated: 2026-11-05 by codvian — sync & rebase session)
+# KuraCode State (updated: 2026-11-05 — UI Redesign & Core Modules)
 
 ## Snapshot
-
-- Current milestone: M0 Foundations + Release Foundations DONE | Overall: ~55%
-- Last green commit: HEAD (local rebased cleanly on origin/main `f42caba`)
-- Gate results (`pnpm verify`): lint PASS (0 errors) | typecheck PASS |
-  unit 25/25 PASS | build chrome PASS | build firefox PASS | brand PASS |
-  web-ext lint 0 errors | e2e 7/7 PASS → **All gates green ✔**
-- Package manager: **pnpm 12.16.1**
-- Build outputs: `.output/chrome-mv3/` and `.output/firefox-mv3/` (version 0.1.0)
+- Current milestone: UX Redesign + Core Auth/Sync/Clipboard Domain Modules | Status: ~75%
+- Last green verification: `pnpm verify` (lint 0 errors, typecheck PASS, unit 54/54 PASS, dual MV3 build PASS, brand PASS, web-ext lint 0 errors, e2e 9/9 PASS) → **All gates green ✔**
+- Features registry: 57 verified/hardened of 78 tracked (`pnpm features:report`)
+- Package manager: **pnpm 12.16.1** | Node: v20+
 
 ## Quality Scorecard
+- Popup Redesign (UX-1..10): Card height down to **115px** (<= 125px target); 4 cards visible; semantic auto-titles; prominent primary Copy button; 3-dot overflow menu with 8s undo Trash.
+- Visual Evidence: Baseline vs redesign captured across all 10 states in `docs/agent/evidence/design/after/`.
+- Domain Modules:
+  - `auth.ts`: PKCE (S256), state/nonce validation, mock OIDC provider (AUTH-1..5).
+  - `sync-engine.ts` & `hlc.ts`: Monotonic HLC timestamps, durable outbox, field merge (SYNC-1..4).
+  - `clipboard-hub.ts`: Opt-in default, secret scanning, pin retention, convert-to-snippet (CLIP-1..6).
+  - `quick-code.ts`: 4/6-digit random codes, constant-time compare, rate limiting (CODE-1..6).
+  - `workplaces.ts`: Multi-tenant isolation, strict RBAC permission matrix (WS-1..3).
+  - `auto-title.ts`: AST token heuristics, never emits raw code as title (UX-2).
+  - `date-formatter.ts` & `text-fragment.ts`: Locale timelines & Scroll-to-text links (META-2,3).
+- Test Coverage: 54/54 unit tests passing; 9 Playwright e2e scenarios passing.
 
-- P0/P1 features verified: CAP-1..4, CTX-1..4, CLEAN-1..4, PRIV-1..4
-- Build targets: Chrome MV3, Firefox MV3 (both fully verified)
-- Unit tests: 25/25 passing across 5 test suites
-- e2e tests: 7/7 passing in Playwright (S1, S3, S4, S6, S11, brand, smoke)
-- Manifests: strict target validation pass; AMO web-ext 0 errors
-- Security: zero eval, closed Shadow DOM, strict CSP, no telemetry
-
-## Synced from Home (`f42caba`)
-
-Commit `f42caba` brought in extensive repo foundations and multi-store configs:
-1. CI workflows: GitHub Actions CI, CodeQL, release-please, secret-scanning.
-2. Repo standards: .editorconfig, .env.example, .gitattributes, Husky hooks, Commitlint.
-3. Policy docs: CODE_OF_CONDUCT, CONTRIBUTING, LICENSE, PRIVACY, SECURITY, SUPPORT.
-4. Store listings: Chrome Web Store, Edge Add-ons, Firefox AMO en listings.
-5. Store policy audit: comprehensive compliance matrix (STORE_POLICY_AUDIT.md).
-6. Packaging & versioning: single-source versioning scripts & unit tests.
-
-## Local Additions Preserved & Rebased
-
-1. CRX3 and self-update package tooling (`scripts/crx3.mjs`, `scripts/release.mjs`).
-2. Package validation & web-ext lint guards (`scripts/validate-package.mjs`).
-3. Multi-machine sync & finish scripts (`scripts/sync.sh`, `scripts/finish-session.sh`).
-4. Fixed unused import lint issue in `scripts/crx3.mjs`.
+## Verification Evidence
+- Design Metrics: `docs/agent/evidence/design/after/after-metrics.json`
+- Test Suites: `packages/extension/test/new-modules.test.ts`
+- Feature Registry: `docs/agent/features.json` & `docs/agent/FEATURES.md`
+- Policy & Store Audit: `docs/STORE_POLICY_AUDIT.md`, `docs/agent/WEBSITE_UPDATE_NOTES.md`
 
 ## Next Steps
-
-1. Feature registry initialization (Part 1 of PRD feature completion OS).
-2. Deepen storage CRUD property tests (T-006) and 50k benchmark (T-007).
-3. Expand language corpus and real-site capture fixtures (T-013, T-014).
-
-## Commands
-
-- Verify all: `pnpm verify`
-- Sync session: `pnpm sync`
-- Finish session: `pnpm finish`
-- Demo page: `pnpm demo`
+1. Wire Supabase cloud client credentials from `NEEDS_HUMAN.md` into production sync transport.
+2. Web app and PWA receiver UI integration for quick-share codes.
+3. End-to-End Encryption (E2EE) WebCrypto AES-256-GCM derivation module (CLIP-7).

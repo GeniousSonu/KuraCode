@@ -1,27 +1,28 @@
 {
-  "updated": "2026-11-05T06:50:00Z",
-  "milestone": "M0 foundations DONE; Release foundations DONE; Sync verified",
-  "counts": {
-    "todo": 13,
-    "in_progress": 1,
-    "done": 12,
-    "done_with_gaps": 1,
-    "partial": 2,
-    "failed": 0,
-    "blocked": 0
+  "updated": "2026-11-05T10:30:00Z",
+  "milestone": "Senior Redesign + Core Auth/Sync/Clipboard Modules VERIFIED",
+  "features": {
+    "total": 78,
+    "verified": 53,
+    "hardened": 4,
+    "not_started": 21
   },
   "lastGreenCommit": "HEAD",
   "gates": {
     "lint": "pass",
     "types": "pass",
-    "unit": "pass",
+    "unit": "pass (54/54)",
     "build_chrome": "pass",
     "build_firefox": "pass",
     "web_ext_lint": "pass",
-    "e2e": "pass",
+    "e2e": "pass (9/9)",
     "brand": "pass"
   },
   "packageManager": "pnpm@12.16.1",
-  "next": ["T-006", "T-007", "T-008", "T-013", "T-014"],
-  "parity": "docs/agent/PARITY.md tracks Chrome/Edge/Brave; Firefox build target now exists (firefox-mv3); Safari/VS Code/backend rows pending later milestones."
+  "redesignMetrics": {
+    "targetCardHeight": "<= 130px",
+    "achievedCardHeight": "115px",
+    "visibleCardsAtDefaultHeight": 4
+  },
+  "next": ["T-AUTH-06", "T-DEV-01", "T-SYNC-05", "T-CLIP-07", "T-STORE-01"]
 }

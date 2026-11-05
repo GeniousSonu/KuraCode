@@ -287,6 +287,133 @@ Storage itself, code hosting, or AI generation. Our moat is **capture quality, c
 | PRIV-5 | Audit log, SSO, and admin controls for organizations                        | P2       |
 | PRIV-6 | Data export and account deletion                                            | P1       |
 
+### 7.13 Authentication & Accounts (AUTH)
+
+| ID     | Requirement                                                                                          | Priority |
+| ------ | ---------------------------------------------------------------------------------------------------- | -------- |
+| AUTH-1 | One-click OAuth 2.0 / OIDC sign-in (Google, GitHub) with PKCE and state/nonce; no implicit flow       | P0       |
+| AUTH-2 | Microsoft and GitLab OAuth providers with exact redirect URI matching                                | P1       |
+| AUTH-3 | Passwordless email magic link and WebAuthn passkeys as no-third-party fallback                       | P1       |
+| AUTH-4 | Account model supporting multiple linked identities per user; link only on verified email            | P1       |
+| AUTH-5 | Rotating refresh tokens with reuse detection; background storage only; secure session revocation     | P0       |
+| AUTH-6 | Account management UI: profile, linked identities, data export, account deletion                     | P1       |
+| AUTH-7 | Local-only use without an account remains 100% functional (PRIV-1 maintained)                        | P0       |
+
+### 7.14 Device Management & Cross-Platform (DEV)
+
+| ID    | Requirement                                                                                          | Priority |
+| ----- | ---------------------------------------------------------------------------------------------------- | -------- |
+| DEV-1 | Device registry: unique installation ID, platform, browser, human name, and last active timestamp    | P0       |
+| DEV-2 | Multi-device management: view active sessions, revoke individual devices or all other devices        | P1       |
+| DEV-3 | Cross-platform extension support: Chrome, Edge, Brave, and Firefox (desktop + Android Firefox)       | P0       |
+| DEV-4 | Responsive PWA for iOS/Android/Desktop with Web Share Target and touch-friendly interface            | P1       |
+
+### 7.15 Real-time Sync & Conflict Resolution (SYNC)
+
+| ID     | Requirement                                                                                          | Priority |
+| ------ | ---------------------------------------------------------------------------------------------------- | -------- |
+| SYNC-1 | Offline-first architecture: local DB is primary source of truth; durable outbox queue                | P0       |
+| SYNC-2 | Real-time transport via WebSocket with SSE/polling fallback; reconnection cursor delta sync          | P0       |
+| SYNC-3 | Hybrid Logical Clocks (HLC) and field-level merge for conflict resolution without silent data loss   | P0       |
+| SYNC-4 | Snippet code edits record immutable version history; deletes propagate as tombstones                | P0       |
+| SYNC-5 | Performance budget: propagation < 2s at p95 online; 10k items initial sync < 30s                    | P0       |
+| SYNC-6 | Selective sync controls: toggles for snippets, settings, and clipboard; pause sync per device        | P1       |
+| SYNC-7 | Multi-tab leader election to prevent duplicate connections and redundant pushes                      | P1       |
+
+### 7.16 Clipboard Hub (CLIP)
+
+| ID     | Requirement                                                                                          | Priority |
+| ------ | ---------------------------------------------------------------------------------------------------- | -------- |
+| CLIP-1 | Clipboard Hub manual "Send to my devices" via hotkey, context menu, popup paste box, or share target | P0       |
+| CLIP-2 | Explicit opt-in consent flow explaining storage, retention, and deletion; disabled by default        | P0       |
+| CLIP-3 | Page copy capture (opt-in) with per-site allow/block lists; strictly disabled in private/incognito   | P1       |
+| CLIP-4 | Pre-upload secret scanner blocking credentials, API keys, tokens, and passwords from syncing         | P0       |
+| CLIP-5 | Configurable retention (default 30 days, range 1h to forever, per-item pin, clear all)              | P1       |
+| CLIP-6 | One-click copy, convert-to-snippet, and full-text search within Clipboard Hub                        | P0       |
+| CLIP-7 | End-to-end encryption (E2EE) mode for clipboard items with client-derived keys                       | P1       |
+
+### 7.17 Persistent Storage, Local Memory & Backups (STORE)
+
+| ID      | Requirement                                                                                          | Priority |
+| ------- | ---------------------------------------------------------------------------------------------------- | -------- |
+| STORE-1 | Persistent local storage in IndexedDB requesting navigator.storage.persist and unlimitedStorage      | P0       |
+| STORE-2 | Cloud store with append-only change log, soft deletes (Trash with 30-day restore), version history   | P0       |
+| STORE-3 | Quota transparency: generous cloud limits, no artificial local cap, clear quota warnings             | P1       |
+| STORE-4 | Rolling automatic local backup snapshots with preview, integrity check, and one-click restore        | P1       |
+| STORE-5 | One-click full export (JSON + Markdown with complete metadata) and corruption repair routine         | P0       |
+
+### 7.18 Enriched Snippet Metadata & Provenance (META)
+
+| ID     | Requirement                                                                                          | Priority |
+| ------ | ---------------------------------------------------------------------------------------------------- | -------- |
+| META-1 | Enriched capture metadata: UTC timestamp, timezone offset, capturing device name, favicon, domain    | P0       |
+| META-2 | Text-fragment locator generation for direct navigation back to exact snippet context on source page  | P0       |
+| META-3 | Locale-aware date/time formatting with Intl.DateTimeFormat, relative hints, and grouped timeline     | P0       |
+| META-4 | URL privacy controls: opt-out of URL sync; auto-strip internal/localhost IPs and query auth tokens   | P0       |
+| META-5 | Snippet edit audit trail: author, device, and timestamp of every modification                        | P1       |
+
+### 7.19 Groups, Categories & Smart Collections (GRP)
+
+| ID    | Requirement                                                                                          | Priority |
+| ----- | ---------------------------------------------------------------------------------------------------- | -------- |
+| GRP-1 | Hierarchical groups (folders) with nesting, custom brand colors, and icons                           | P0       |
+| GRP-2 | Categories (tags with color chips), multi-tagging, and multi-group assignment                        | P0       |
+| GRP-3 | Drag-and-drop organization, bulk actions (tag, move, delete, export)                                 | P1       |
+| GRP-4 | Smart groups: dynamic saved searches by language, tag, source domain, or date range                  | P1       |
+| GRP-5 | Group sync and conflict resolution converging across all user devices                                | P0       |
+
+### 7.20 Quick-Share Codes (CODE)
+
+| ID     | Requirement                                                                                          | Priority |
+| ------ | ---------------------------------------------------------------------------------------------------- | -------- |
+| CODE-1 | 4-digit quick-share codes: cryptographically random, non-sequential, unique among active codes       | P0       |
+| CODE-2 | Short-lived TTL (default 15 minutes, configurable up to 24h) and claim limits (single-claim default)  | P0       |
+| CODE-3 | Security safeguards: IP & account rate limiting, exponential backoff, constant-time compare          | P0       |
+| CODE-4 | Automatic pool widening to 6 digits when active codes exceed 5,000 to prevent collisions             | P1       |
+| CODE-5 | Pre-share privacy & secret scan, license check, option to strip source URLs and private notes        | P0       |
+| CODE-6 | Quick-code receiver UI in extension, web app, and PWA with preview before import                     | P0       |
+
+### 7.21 Workplaces & Organizations (WS)
+
+| ID   | Requirement                                                                                          | Priority |
+| ---- | ---------------------------------------------------------------------------------------------------- | -------- |
+| WS-1 | Workplaces: create, rename, delete (with safety export), switch seamlessly between personal and team | P1       |
+| WS-2 | Strict server-enforced role-based access control (Owner, Admin, Editor, Commenter, Viewer)           | P1       |
+| WS-3 | Cross-workplace isolation: absolute data separation; zero data leakage across workplace boundaries   | P0       |
+| WS-4 | Workplace-specific collections, groups, categories, and audit logging                                | P1       |
+
+### 7.22 Workplace Invitations & Member Management (INV)
+
+| ID    | Requirement                                                                                          | Priority |
+| ----- | ---------------------------------------------------------------------------------------------------- | -------- |
+| INV-1 | Workplace invitations by email, username, or time-limited shareable invite link/code                 | P1       |
+| INV-2 | Clear invitation acceptance screen showing inviter identity, workplace name, and permissions         | P1       |
+| INV-3 | Admin management: resend, revoke, role update, domain auto-join policies, anti-abuse rate limits      | P1       |
+
+### 7.23 Real-time Collaboration & Presence (RT)
+
+| ID   | Requirement                                                                                          | Priority |
+| ---- | ---------------------------------------------------------------------------------------------------- | -------- |
+| RT-1 | Real-time collaboration: changes propagate to all online workplace members in < 2s at p95            | P1       |
+| RT-2 | Live presence indicators (who is viewing/editing) with user toggle to disable presence               | P1       |
+| RT-3 | Non-intrusive live change toasts and one-click copy/paste of workplace snippets                      | P1       |
+| RT-4 | Workplace discussions, line-level notes, suggestion diffs, and approval workflows                    | P1       |
+
+### 7.24 Senior-Engineer UI/UX & Developer Standard (UX)
+
+| ID    | Requirement                                                                                          | Priority |
+| ----- | ---------------------------------------------------------------------------------------------------- | -------- |
+| UX-1  | Compact developer-tool popup redesign: at least 4 collapsed cards visible at default height (<=130px)| P0       |
+| UX-2  | Clear snippet card hierarchy: readable title (no raw code), language pill, favicon/domain, time, copy| P0       |
+| UX-3  | Three-dot secondary menu: Edit, Add to Group, Share, Open Source, Copy attribution, Trash with undo  | P0       |
+| UX-4  | Header: KuraCode logo mark + name, sync status indicator, profile/avatar, settings, workplace switcher| P0       |
+| UX-5  | Compact fixed toolbar: All snippets count, searchable language filter, sort dropdown, +Save clipboard| P0       |
+| UX-6  | Design tokens derived from brand SVG: Inter / JetBrains Mono, 4/8px spacing, <= 2 border levels, AA  | P0       |
+| UX-7  | Reusable component system in packages/ui shared across popup, side panel, options, web app, and PWA  | P0       |
+| UX-8  | Designed states: empty, skeleton loading, search with match highlights, no results, copy toast, error| P0       |
+| UX-9  | Full keyboard navigation (arrows, Enter, C to copy, E to edit, Delete to trash, / search, Esc clear) | P0       |
+| UX-10 | Performance budgets: popup paint < 150ms, search < 100ms at 10k, virtualized 60fps at 50k, save < 300ms| P0       |
+
 ## 8. Key user flows
 
 **Flow A: Quick save (solo).** User selects code, presses the hotkey, a toast confirms "Saved to Inbox." Title, language, and source are auto-filled. Total time under 2 seconds. Later the user opens the side panel, finds it, adds tags.

@@ -1,0 +1,2407 @@
+[
+  {
+    "id": "CAP-1",
+    "name": "One-click capture from web pages (inline button)",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Hovering over <pre> block injects scoped shadow DOM Save button",
+      "2. Clicking Save captures formatted code, title, and URL context",
+      "3. Toast confirms save within 300ms"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts:S3",
+      "e2e/smoke.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-001"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/content/capture.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/smoke.spec.ts",
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "CAP-2",
+    "name": "Hotkey / context-menu capture",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Ctrl+Shift+S / Cmd+Shift+S captures active selection",
+      "2. Context menu 'Save snippet to KuraCode' captures selection",
+      "3. Works on pages without <pre> blocks"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts:S1"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-002"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/background/service-worker.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "CAP-3",
+    "name": "Selection capture preserving code layout",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Multi-line selection preserves indentation tabs/spaces",
+      "2. Line breaks maintained cleanly without spurious spaces"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/cleaner.test.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-003"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/cleaner.ts"
+    ],
+    "tests": [
+      "packages/extension/test/cleaner.test.ts"
+    ]
+  },
+  {
+    "id": "CAP-4",
+    "name": "Clipboard quick save from popup",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Clicking '+ Save from clipboard' parses clipboard content",
+      "2. Creates snippet immediately with auto-detected language and title"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts:S4"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-004"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "CTX-1",
+    "name": "Source URL, page title, and domain provenance",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Captures full URL, normalized domain, and document title",
+      "2. Stores metadata in context object"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts:S1"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-005"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/content/capture.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "CTX-2",
+    "name": "Nearest preceding heading capture",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Identifies closest h1-h6 ancestor or preceding sibling",
+      "2. Uses heading text as title candidate or metadata"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/cleaner.test.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-005"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/content/capture.ts",
+      "packages/extension/src/shared/cleaner.ts"
+    ],
+    "tests": [
+      "packages/extension/test/cleaner.test.ts"
+    ]
+  },
+  {
+    "id": "CTX-4",
+    "name": "Raw text retention",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Stores uncleaned raw copy alongside cleaned code",
+      "2. User can revert or inspect raw text"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/cleaner.test.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-005"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/storage.ts"
+    ],
+    "tests": [
+      "packages/extension/test/cleaner.test.ts"
+    ]
+  },
+  {
+    "id": "CLEAN-1",
+    "name": "Line number and gutter stripping",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Strips leading line numbers from copied code",
+      "2. Strips gutter markers without damaging code contents"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/cleaner.test.ts:gutters"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-006"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/cleaner.ts"
+    ],
+    "tests": [
+      "packages/extension/test/cleaner.test.ts"
+    ]
+  },
+  {
+    "id": "CLEAN-2",
+    "name": "Shell prompt and REPL symbol stripping",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Strips $, #, >, >>> prompts when uniform across commands",
+      "2. Preserves intended code symbols"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/cleaner.test.ts:prompts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-006"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/cleaner.ts"
+    ],
+    "tests": [
+      "packages/extension/test/cleaner.test.ts"
+    ]
+  },
+  {
+    "id": "CLEAN-3",
+    "name": "Language heuristic detection",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Detects language from class names (e.g. language-ts)",
+      "2. Applies token heuristic analysis for common languages"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/language-corpus.test.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-007"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/cleaner.ts"
+    ],
+    "tests": [
+      "packages/extension/test/language-corpus.test.ts"
+    ]
+  },
+  {
+    "id": "FIND-1",
+    "name": "Full-text snippet search",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Searches across title, code, tags, and domain",
+      "2. Sub-100ms response time on local library"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/capture-baseline.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-008"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-baseline.spec.ts"
+    ]
+  },
+  {
+    "id": "FIND-2",
+    "name": "Language and tag filtering",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Filter dropdown by detected languages",
+      "2. Filter by tag chips"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/capture-baseline.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-008"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-baseline.spec.ts"
+    ]
+  },
+  {
+    "id": "FIND-4",
+    "name": "Instant copy to clipboard",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Clicking copy writes exact code to clipboard",
+      "2. Visual checkmark confirmation shown"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts:S6"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-008"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "PRIV-1",
+    "name": "Local-first: works fully offline with no account",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Complete snippet capture, storage, and search function offline",
+      "2. Zero network calls made before user signs in or syncs"
+    ],
+    "status": "HARDENED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts:S11"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-009"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/storage.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "PRIV-2",
+    "name": "Nothing leaves device before explicit opt-in",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Zero telemetry or external analytics network traffic",
+      "2. Network inspection confirms zero outgoing requests"
+    ],
+    "status": "HARDENED",
+    "evidence": [
+      "docs/STORE_POLICY_AUDIT.md",
+      "packages/extension/manifest.json"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-009"
+    ],
+    "sourceFiles": [
+      "packages/extension/manifest.json",
+      "packages/extension/manifest.firefox.json"
+    ],
+    "tests": [
+      "packages/extension/test/manifest-icons.test.ts"
+    ]
+  },
+  {
+    "id": "PRIV-4",
+    "name": "Minimal browser permissions",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Request only necessary permissions (activeTab, storage, contextMenus, clipboardWrite)",
+      "2. Detailed justification documented in store listings and DECISIONS"
+    ],
+    "status": "HARDENED",
+    "evidence": [
+      "docs/STORE_POLICY_AUDIT.md",
+      "store/chrome/en/listing.md"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-009"
+    ],
+    "sourceFiles": [
+      "packages/extension/manifest.json"
+    ],
+    "tests": [
+      "packages/extension/test/manifest-icons.test.ts"
+    ]
+  },
+  {
+    "id": "AUTH-1",
+    "name": "One-click OAuth 2.0 / OIDC sign-in (Google, GitHub)",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. OAuth with PKCE and state/nonce validation (no implicit flow)",
+      "2. Chromium uses chromiumapp.org redirect; Firefox uses moz-extension redirect",
+      "3. Mock OIDC provider in CI verifies flow end-to-end"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:236-254",
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-AUTH-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "AUTH-2",
+    "name": "Microsoft and GitLab OAuth providers",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Supports Microsoft Entra & GitLab OAuth endpoints",
+      "2. Exact redirect URI validation matching registered apps"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/auth.ts",
+      "packages/extension/test/new-modules.test.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-AUTH-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "AUTH-3",
+    "name": "Passwordless email magic link and WebAuthn passkeys",
+    "priority": "P1",
+    "surfaces": [
+      "web",
+      "chrome",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Passwordless sign-in with verified email token",
+      "2. WebAuthn credential registration and authentication"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-AUTH-03"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "AUTH-4",
+    "name": "Multi-identity account linking model",
+    "priority": "P1",
+    "surfaces": [
+      "web",
+      "chrome",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Single user profile links multiple OAuth providers",
+      "2. Only link on verified email match or authenticated ownership proof",
+      "3. Disallow unlinking last remaining auth provider"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-AUTH-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "AUTH-5",
+    "name": "Rotating refresh tokens & background storage",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Short-lived access tokens (15-60m) with rotating refresh tokens",
+      "2. Tokens stored exclusively in extension background storage",
+      "3. Token reuse detection revokes entire compromised session family"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-AUTH-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/auth.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "AUTH-6",
+    "name": "Account management UI & deletion flow",
+    "priority": "P1",
+    "surfaces": [
+      "web",
+      "chrome",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Profile view displaying email, linked identities, active devices",
+      "2. One-click data export in JSON and Markdown",
+      "3. Account deletion with confirmation destroying cloud records"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-AUTH-06"
+    ],
+    "sourceFiles": [
+      "packages/ui/src/components/AccountSettings.tsx"
+    ],
+    "tests": [
+      "packages/extension/test/auth.test.ts"
+    ]
+  },
+  {
+    "id": "AUTH-7",
+    "name": "Local-only functional guarantee without account",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Extension operates at 100% capacity for local storage without sign-in",
+      "2. No blocking modals or forced registration walls"
+    ],
+    "status": "HARDENED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-AUTH-07"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "DEV-1",
+    "name": "Device registry and metadata tracking",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Installation assigns persistent random device ID",
+      "2. Captures device platform, browser family, user-chosen human name",
+      "3. Updates last active timestamp on sync events"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-DEV-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/device.ts"
+    ],
+    "tests": [
+      "packages/extension/test/device.test.ts"
+    ]
+  },
+  {
+    "id": "DEV-2",
+    "name": "Multi-device session management and remote revocation",
+    "priority": "P1",
+    "surfaces": [
+      "web",
+      "chrome",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Settings surfaces active devices list",
+      "2. User can revoke specific device session or all other devices",
+      "3. Revoked device gracefully reverts to offline-local mode without data loss"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-DEV-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/device.ts"
+    ],
+    "tests": [
+      "packages/extension/test/device.test.ts"
+    ]
+  },
+  {
+    "id": "DEV-3",
+    "name": "Cross-platform extension compatibility",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Verified builds for Chromium (Chrome, Edge, Brave) and Firefox",
+      "2. Android Firefox extension compatibility verified"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "scripts/verify.sh",
+      "scripts/package.mjs"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (b62503c)",
+    "ownerTaskIds": [
+      "T-DEV-03"
+    ],
+    "sourceFiles": [
+      "build.mjs",
+      "scripts/package.mjs"
+    ],
+    "tests": [
+      "packages/extension/test/manifest-icons.test.ts",
+      "packages/extension/test/version-consistency.test.ts"
+    ]
+  },
+  {
+    "id": "DEV-4",
+    "name": "Responsive PWA with Web Share Target",
+    "priority": "P1",
+    "surfaces": [
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Web app manifest with standalone display and PWA icons",
+      "2. Web Share Target accepts shared text/code snippets into KuraCode",
+      "3. Offline caching via service worker"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-DEV-04"
+    ],
+    "sourceFiles": [
+      "packages/web/manifest.json",
+      "packages/web/src/sw.ts"
+    ],
+    "tests": [
+      "packages/web/test/pwa.test.ts"
+    ]
+  },
+  {
+    "id": "SYNC-1",
+    "name": "Offline-first durable outbox queue",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. UI writes immediately to local IndexedDB and queues to durable outbox",
+      "2. Offline mutations survive browser restart and tab close",
+      "3. Online reconnection flushes outbox in FIFO order"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:188-206",
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-SYNC-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "SYNC-2",
+    "name": "Real-time transport (WebSocket with SSE/polling fallback)",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Bi-directional WebSocket channel for instant update pushes",
+      "2. Fallback to Server-Sent Events / long-polling on restricted networks",
+      "3. Delta sync from server cursor on reconnect"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/sync-engine.ts",
+      "docs/ARCHITECTURE.md#realtime-transport"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-SYNC-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "SYNC-3",
+    "name": "Hybrid Logical Clocks & field-level merge",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. HLC timestamps establish causality across unsynchronized clocks",
+      "2. Concurrent edits merge field-by-field without data loss",
+      "3. Conflicting field edits surface non-blocking conflict resolution"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:166-186",
+      "packages/extension/src/shared/hlc.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-SYNC-03"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/hlc.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "SYNC-4",
+    "name": "Immutable snippet version history & tombstones",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Code edits create version snapshots preserving past iterations",
+      "2. Deletions propagate as tombstones to prevent resurrecting deleted items"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:208-234",
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-SYNC-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "SYNC-5",
+    "name": "Propagation speed and throughput budgets",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Online cross-device change appears in < 2.0s at p95",
+      "2. Initial sync of 10k snippets completes in < 30s with progress indicators"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-SYNC-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "tests": [
+      "packages/extension/test/sync-perf.test.ts"
+    ]
+  },
+  {
+    "id": "SYNC-6",
+    "name": "Selective sync & per-device pause controls",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. User toggles selective sync for snippets, settings, and clipboard",
+      "2. One-click 'Pause sync on this device' with visible indicator"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-SYNC-06"
+    ],
+    "sourceFiles": [
+      "packages/ui/src/components/SyncSettings.tsx"
+    ],
+    "tests": [
+      "packages/extension/test/sync-engine.test.ts"
+    ]
+  },
+  {
+    "id": "SYNC-7",
+    "name": "Multi-tab leader election",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Multiple open tabs elect single sync leader via BroadcastChannel",
+      "2. Followers receive sync notifications without redundant connections"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-SYNC-07"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/leader-election.ts"
+    ],
+    "tests": [
+      "packages/extension/test/leader-election.test.ts"
+    ]
+  },
+  {
+    "id": "CLIP-1",
+    "name": "Clipboard Hub manual 'Send to my devices'",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Quick send via hotkey, context menu, and popup paste box",
+      "2. Instantly arrives in Clipboard Hub on all signed-in devices",
+      "3. One-click Copy on receiving devices without auto-writing OS clipboard"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/clipboard-hub.ts",
+      "packages/extension/test/new-modules.test.ts:256-293"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CLIP-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CLIP-2",
+    "name": "Explicit opt-in consent flow (disabled by default)",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Clipboard sync is disabled by default",
+      "2. Enabling surfaces clear consent modal detailing storage, retention, and deletion",
+      "3. Verified by privacy e2e ensuring zero clipboard transmission before consent"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:257-260",
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CLIP-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CLIP-3",
+    "name": "Opt-in page copy capture with site allow/block lists",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Automatically captures text copied inside allowed websites",
+      "2. Strictly ignores password fields, sensitive forms, and private/incognito windows",
+      "3. User manages site allowlist and blocklist in settings"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/clipboard-hub.ts",
+      "packages/extension/test/new-modules.test.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CLIP-03"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CLIP-4",
+    "name": "Pre-upload secret scanner for clipboard items",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Scans text for API keys, private keys, tokens, and passwords prior to sync",
+      "2. Flagged secrets are blocked from network transmission with clear user alert",
+      "3. Kept strictly local-only if user acknowledges"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:78-105, 262-270",
+      "packages/extension/src/shared/secret-scanner.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CLIP-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/secret-scanner.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CLIP-5",
+    "name": "Configurable retention & deletion propagation",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Configurable expiry (default 30 days, options: 1h, 24h, 7d, 30d, forever)",
+      "2. Per-item pin protects critical items from auto-pruning",
+      "3. Deleting an item propagates deletion to server and peer devices"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:272-282",
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CLIP-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CLIP-6",
+    "name": "One-click actions & full-text search",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. One-click convert clipboard item into permanent snippet",
+      "2. Search clipboard history with instant filtering"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:284-293",
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CLIP-06"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/clipboard-hub.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CLIP-7",
+    "name": "End-to-End Encryption (E2EE) mode",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Client-side AES-256-GCM encryption with user passphrase derivation",
+      "2. Server stores only encrypted ciphertext blobs",
+      "3. Clear documentation on recovery limitations"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-CLIP-07"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/crypto-e2ee.ts"
+    ],
+    "tests": [
+      "packages/extension/test/crypto-e2ee.test.ts"
+    ]
+  },
+  {
+    "id": "STORE-1",
+    "name": "Persistent local storage via IndexedDB & unlimitedStorage",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Requests navigator.storage.persist() to prevent OS evictions",
+      "2. Manifest declares unlimitedStorage for extension contexts",
+      "3. Graceful fallback with quota warning when nearing limits"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-STORE-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/idb-storage.ts"
+    ],
+    "tests": [
+      "packages/extension/test/storage.test.ts"
+    ]
+  },
+  {
+    "id": "STORE-2",
+    "name": "Cloud store with append-only change log and soft-delete Trash",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Cloud database maintains append-only journal of all operations",
+      "2. Soft deletes move items to Trash with 30-day restore guarantee"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-STORE-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "tests": [
+      "packages/extension/test/storage.test.ts"
+    ]
+  },
+  {
+    "id": "STORE-3",
+    "name": "Quota transparency and usage dashboard",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Shows storage usage breakdown in settings",
+      "2. Generous free tier quotas clearly documented; no artificial local limits"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-STORE-03"
+    ],
+    "sourceFiles": [
+      "packages/ui/src/components/StorageSettings.tsx"
+    ],
+    "tests": [
+      "packages/extension/test/storage.test.ts"
+    ]
+  },
+  {
+    "id": "STORE-4",
+    "name": "Rolling automatic local backup snapshots",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Automated daily snapshots stored in IndexedDB (retaining last 7 snapshots)",
+      "2. One-click preview and restore with pre-restore safety copy"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-STORE-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/backup-manager.ts"
+    ],
+    "tests": [
+      "packages/extension/test/backup.test.ts"
+    ]
+  },
+  {
+    "id": "STORE-5",
+    "name": "Full export (JSON/Markdown) & integrity repair",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Export full library as single structured JSON or bundled Markdown files",
+      "2. SHA-256 integrity checksums detect data corruption",
+      "3. Automated repair recovers uncorrupted items safely"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-STORE-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/import-export.ts"
+    ],
+    "tests": [
+      "packages/extension/test/import-export.test.ts"
+    ]
+  },
+  {
+    "id": "META-1",
+    "name": "Enriched capture metadata (UTC, timezone, device, domain)",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Stores exact capture timestamp in UTC and local timezone offset",
+      "2. Records capturing device name and favicon"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/e2e/scenarios.spec.ts:S1,S3",
+      "packages/extension/src/shared/types.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-META-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/content/capture.ts",
+      "packages/extension/src/shared/types.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "META-2",
+    "name": "Text-fragment locator generation",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Computes #:~:text= URL hash from selected code context",
+      "2. Clicking source link scrolls directly to exact text on supported browsers"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:68-76",
+      "packages/extension/src/shared/text-fragment.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-META-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/text-fragment.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "META-3",
+    "name": "Locale-aware date/time formatting & timeline grouping",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Intl.DateTimeFormat formats dates according to user system locale",
+      "2. Snippet list displays sticky day headers (Today, Yesterday, Earlier)"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:43-66",
+      "packages/extension/src/shared/date-formatter.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-META-03"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/date-formatter.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "META-4",
+    "name": "URL privacy controls & internal host stripping",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Per-library toggle 'don't sync source URLs'",
+      "2. Auto-strips localhost, private IP ranges (10., 192.168.), and query auth tokens"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-META-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/url-privacy.ts"
+    ],
+    "tests": [
+      "packages/extension/test/url-privacy.test.ts"
+    ]
+  },
+  {
+    "id": "META-5",
+    "name": "Snippet edit audit trail",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Records author, device, and timestamp for every modification",
+      "2. Displays audit history in snippet detail view"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-META-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/types.ts"
+    ],
+    "tests": [
+      "packages/extension/test/metadata.test.ts"
+    ]
+  },
+  {
+    "id": "GRP-1",
+    "name": "Hierarchical groups (folders) with colors & icons",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Create, rename, delete, and nest groups up to 3 levels deep",
+      "2. Assign brand palette colors and icons to groups"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/groups.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-GRP-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/groups.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "GRP-2",
+    "name": "Categories and multi-tagging",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Assign snippets to multiple groups and categories",
+      "2. Color-coded category chips with search filtering"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/groups.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-GRP-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/groups.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "GRP-3",
+    "name": "Drag-and-drop & bulk actions",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Drag and drop snippet cards into groups",
+      "2. Multi-select mode with bulk tag, move, and trash actions"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-GRP-03"
+    ],
+    "sourceFiles": [
+      "packages/ui/src/components/SnippetList.tsx"
+    ],
+    "tests": [
+      "packages/extension/test/groups.test.ts"
+    ]
+  },
+  {
+    "id": "GRP-4",
+    "name": "Smart groups (saved searches)",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Create dynamic groups based on query criteria (language, domain, tag)",
+      "2. Evaluates query reactively as snippets are captured"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-GRP-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/groups.ts"
+    ],
+    "tests": [
+      "packages/extension/test/groups.test.ts"
+    ]
+  },
+  {
+    "id": "GRP-5",
+    "name": "Cross-device group sync & convergence",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Group renames, moves, and deletions propagate through sync engine",
+      "2. Converges conflict-free across all devices"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-GRP-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/sync-engine.ts"
+    ],
+    "tests": [
+      "packages/extension/test/groups.test.ts"
+    ]
+  },
+  {
+    "id": "CODE-1",
+    "name": "4-digit quick-share codes generation",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Generates 4-digit cryptographically random code (non-sequential)",
+      "2. Enforces uniqueness across all active codes globally"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:108-118",
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CODE-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CODE-2",
+    "name": "Short-lived TTL & claim limits",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Default 15-minute expiration countdown; selectable up to 24h",
+      "2. Single-claim by default or user-specified N claims",
+      "3. Instant manual revocation"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:126-150",
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CODE-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CODE-3",
+    "name": "Brute-force protection & constant-time validation",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. IP and account rate limiting with exponential lockout after 5 failed attempts",
+      "2. Constant-time code comparison prevents timing attacks",
+      "3. Owner alerted upon repeated guess attempts"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:120-124, 152-163",
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CODE-03"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CODE-4",
+    "name": "Automatic pool widening to 6 digits",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Automatically expands new codes to 6 digits when active codes > 5,000",
+      "2. Seamlessly accepts both 4 and 6 digit codes in receiver UI"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:114-118",
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CODE-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CODE-5",
+    "name": "Pre-share privacy check & metadata stripping",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Secret scanner runs prior to share code creation",
+      "2. Option to strip source URLs and private notes per share"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:78-105",
+      "packages/extension/src/shared/secret-scanner.ts",
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CODE-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "CODE-6",
+    "name": "Quick-code receiver UI & preview",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. 'Enter Code' screen in extension, web app, and PWA",
+      "2. Full snippet preview with author attribution prior to import",
+      "3. One-click copy directly from preview without importing"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:126-150",
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-CODE-06"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/quick-code.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "WS-1",
+    "name": "Workplace workspaces & switcher",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Create, rename, delete workplaces with confirmation and export",
+      "2. Seamless header switcher between personal library and workplaces"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:310-325",
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-WS-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "WS-2",
+    "name": "Role-Based Access Control (RBAC)",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Enforces Owner, Admin, Editor, Commenter, Viewer permission matrix",
+      "2. Guarantees at least one Owner always exists"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:295-309",
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-WS-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "WS-3",
+    "name": "Cross-workplace data isolation",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Total query and storage partition between personal and workplace spaces",
+      "2. Zero leakage in search indices, sync channels, or share codes"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:314-321",
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-WS-03"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts"
+    ]
+  },
+  {
+    "id": "INV-1",
+    "name": "Workplace invitations & join links",
+    "priority": "P1",
+    "surfaces": [
+      "web",
+      "chrome",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. Send invites via email, username, or time-limited link",
+      "2. Invitee sees accept/decline screen displaying inviter and permissions"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-INV-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "tests": [
+      "packages/extension/test/workplaces.test.ts"
+    ]
+  },
+  {
+    "id": "RT-1",
+    "name": "Real-time workplace collaboration & live updates",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Edits propagate to online workplace members in < 2.0s at p95",
+      "2. Non-intrusive notification toasts for new team snippets"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-RT-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/workplaces.ts"
+    ],
+    "tests": [
+      "packages/extension/test/workplaces.test.ts"
+    ]
+  },
+  {
+    "id": "RT-2",
+    "name": "Live presence indicators with privacy toggle",
+    "priority": "P1",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Displays avatars of members currently active in workplace",
+      "2. User can toggle presence visibility off in privacy settings"
+    ],
+    "status": "NOT_STARTED",
+    "evidence": [],
+    "knownGaps": [
+      "Pending implementation"
+    ],
+    "lastVerified": null,
+    "ownerTaskIds": [
+      "T-RT-02"
+    ],
+    "sourceFiles": [
+      "packages/ui/src/components/PresenceBar.tsx"
+    ],
+    "tests": [
+      "packages/extension/test/workplaces.test.ts"
+    ]
+  },
+  {
+    "id": "UX-1",
+    "name": "Compact developer-tool popup redesign (>= 4 visible cards)",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox"
+    ],
+    "acceptanceCriteria": [
+      "1. At least 4 collapsed snippet cards visible at default popup height",
+      "2. Collapsed card height is <= 130px",
+      "3. Max 2 visible border levels; no nested boxes"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "docs/agent/evidence/design/after/after-metrics.json",
+      "docs/agent/evidence/design/after/popup-4-snippets-dark.png"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05 (verified: card height 115px, 4 visible)",
+    "ownerTaskIds": [
+      "T-UX-01"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts",
+      "packages/extension/src/popup/index.html"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-2",
+    "name": "Snippet card hierarchy (readable title, metadata, single copy action)",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Never uses raw code as title; auto-generates readable semantic titles",
+      "2. Context row displays site favicon, domain link, and relative time",
+      "3. Primary Copy button is prominent; checkmark feedback for 1.5s with toast"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/test/new-modules.test.ts:15-41",
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-02"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/auto-title.ts",
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/test/new-modules.test.ts",
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-3",
+    "name": "Three-dot secondary action menu & Trash with 8s undo",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Secondary actions placed in clean 3-dot dropdown menu",
+      "2. Delete moves snippet to Trash and triggers 8s Undo toast",
+      "3. Destructive actions visually separated with semantic danger color"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/library.ts",
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-03"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-4",
+    "name": "Fixed header with sync indicator, account, and workplace switcher",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Height 48-52px with KuraCode logo mark and title",
+      "2. Sync status indicator: Synced, Syncing, Offline, Error with details",
+      "3. Account profile button and settings shortcut"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/popup/index.html",
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-04"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/popup/index.html",
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-5",
+    "name": "Compact search & filter toolbar",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Search input 38-40px with brand accent focus ring; Esc clears",
+      "2. Dropdowns for language and sort; +Save clipboard action button"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/library.ts",
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-05"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-6",
+    "name": "Logo-derived design tokens & typography",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Inter for UI and JetBrains Mono for code; 8px spacing scale",
+      "2. Brand emerald (#00b96c / #08e88a) from SVG master and warm gold accent",
+      "3. All color pairs meet WCAG AA contrast"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "docs/DESIGN.md",
+      "packages/extension/src/popup/index.html"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-06"
+    ],
+    "sourceFiles": [
+      "docs/DESIGN.md",
+      "packages/extension/src/popup/index.html"
+    ],
+    "tests": [
+      "packages/extension/test/manifest-icons.test.ts"
+    ]
+  },
+  {
+    "id": "UX-7",
+    "name": "Reusable UI component library across surfaces",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Shared components in packages/ui reused in popup, sidepanel, web, and PWA",
+      "2. Responsive from 360px popup to wide desktop"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/library.ts",
+      "packages/extension/src/sidepanel/index.html"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-07"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-8",
+    "name": "Comprehensive designed UI states",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. High-fidelity empty states, skeleton loading, search with match highlighting",
+      "2. Action toasts and informative error messages with clear next actions"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "docs/agent/evidence/design/after/popup-empty-state.png",
+      "docs/agent/evidence/design/after/popup-4-snippets-dark.png",
+      "docs/agent/evidence/design/after/popup-4-snippets-light.png",
+      "docs/agent/evidence/design/after/popup-search-results.png",
+      "docs/agent/evidence/design/after/popup-no-results.png"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-08"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-9",
+    "name": "Full keyboard navigation & shortcut support",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Full keyboard navigation: arrow keys move, Enter/C copies, E edits, Del trashes",
+      "2. / focuses search, Esc clears, visible cheat sheet reachable from menu"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "packages/extension/src/shared/library.ts",
+      "packages/extension/e2e/scenarios.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-09"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/scenarios.spec.ts"
+    ]
+  },
+  {
+    "id": "UX-10",
+    "name": "Performance budgets & virtualized list",
+    "priority": "P0",
+    "surfaces": [
+      "chrome",
+      "edge",
+      "firefox",
+      "web"
+    ],
+    "acceptanceCriteria": [
+      "1. Popup paint < 150ms with 10k items",
+      "2. Instant search < 100ms at 10k items",
+      "3. Virtualized rendering maintains smooth 60fps at 50k snippets"
+    ],
+    "status": "VERIFIED",
+    "evidence": [
+      "docs/agent/evidence/design/after/popup-50-snippets.png",
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ],
+    "knownGaps": [],
+    "lastVerified": "2026-11-05",
+    "ownerTaskIds": [
+      "T-UX-10"
+    ],
+    "sourceFiles": [
+      "packages/extension/src/shared/library.ts"
+    ],
+    "tests": [
+      "packages/extension/e2e/capture-redesign.spec.ts"
+    ]
+  }
+]

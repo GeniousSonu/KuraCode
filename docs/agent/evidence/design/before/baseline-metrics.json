@@ -1,0 +1,17 @@
+{
+  "popupDimensions": {
+    "width": 380,
+    "height": 520,
+    "scrollWidth": 380,
+    "scrollHeight": 520
+  },
+  "visibleCardsAtDefaultHeight": {
+    "totalCards": 3,
+    "visibleCount": 3,
+    "cardHeights": [
+      115.296875,
+      115.296875,
+      115.296875
+    ]
+  }
+}
