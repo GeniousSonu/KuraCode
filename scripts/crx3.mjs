@@ -22,7 +22,6 @@ import {
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync, readFileSync, writeFileSync, rmSync } from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 import os from "node:os";
 
