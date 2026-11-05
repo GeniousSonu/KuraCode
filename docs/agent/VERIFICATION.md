@@ -86,3 +86,22 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
   - 10 UI states captured as PNGs in `docs/agent/evidence/design/after/`.
 - Features Registry:
   - 57 features VERIFIED or HARDENED out of 78 total tracked (`pnpm features:report`).
+
+
+## V-11 Automatic "Change -> Verify -> Push -> Release" Pipeline & Anti-Stale Hygiene (2026-11-05)
+
+- Ran: Full pipeline verification (`scripts/clean.sh`, `scripts/verify.sh`, `scripts/package.mjs`, `scripts/version-integrity.ts`, `scripts/verify-release-contents.ts`, `scripts/post-release-smoke.sh`).
+- Result: **All gates green ✔**
+  - Clean Slate Hygiene: `scripts/clean.sh` wipes all `.output`, `dist`, `release`, and `coverage` outputs before building.
+  - Unit & Migration Tests: 56/56 passed (adds `packages/extension/test/upgrade.test.ts` verifying non-destructive N-1 schema migration).
+  - Version Integrity & Anti-Stale: `scripts/version-integrity.ts` passed. Negative test verified catching injected `kuracode-chrome-0.0.9.zip` and forbidden legacy placeholder names with exit code 1.
+  - Release Contents Allow-List: `scripts/verify-release-contents.ts` passed. All 28 files in each store archive match the allow-list; 0 node_modules, 0 .env, 0 fixtures, 0 build leaks.
+  - Post-Release Sandboxed Smoke: `scripts/post-release-smoke.sh` passed. Unpacked Chrome and Firefox zips load in headless Playwright with 100% integrity.
+  - Dry-Run Store Publish: `publish.yml` simulation passed cleanly without credentials, reporting clean missing-secret notices with zero crashes.
+- Evidence Logs Saved:
+  - `docs/agent/evidence/release/version-integrity.log`
+  - `docs/agent/evidence/release/stale-artifact-rejection.log`
+  - `docs/agent/evidence/release/release-contents-audit.log`
+  - `docs/agent/evidence/release/upgrade-test.log`
+  - `docs/agent/evidence/release/post-release-smoke.log`
+  - `docs/agent/evidence/release/publish-dry-run.log`

@@ -1,1 +1,14 @@
+# Check for accidental secret files in git index
+if git diff --cached --name-only | grep -E '\.(env|key|pem|pfx|pkcs12|secret)$'; then
+  echo "Error: Attempting to commit sensitive/secret file!" >&2
+  exit 1
+fi
+
+# Secret scanner for staged diff
+if git diff --cached | grep -E '(AKIA[0-9A-Z]{16}|ghp_[0-9a-zA-Z]{36}|BEGIN (RSA|EC|PRIVATE) KEY)'; then
+  echo "Error: Private credentials or API tokens detected in staged git commit!" >&2
+  exit 1
+fi
+
 pnpm exec lint-staged
+pnpm typecheck

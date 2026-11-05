@@ -1,11 +1,17 @@
 # KuraCode — Code Snippet Capture & Collaboration
 
+[![CI Quality Gate](https://github.com/GeniousSonu/KuraCode/actions/workflows/ci.yml/badge.svg)](https://github.com/GeniousSonu/KuraCode/actions/workflows/ci.yml)
+[![Latest Release](https://img.shields.io/github/v/release/GeniousSonu/KuraCode?color=00b96c)](https://github.com/GeniousSonu/KuraCode/releases/latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 KuraCode is a browser-native snippet memory: capture code from any webpage in
 one action, keep its context (source, date, language, heading), and turn it
 into shareable team knowledge.
 
-> **Name note:** the product is canonically named **KuraCode**. Earlier drafts
-> used the placeholder _SnipHub_; all branding, docs, and code now use KuraCode.
+### Quick Install (Latest Production Release)
+- **Chrome / Edge / Brave:** Download [kuracode-chrome-0.1.0.zip](https://github.com/GeniousSonu/KuraCode/releases/latest) or install from Chrome Web Store.
+- **Firefox:** Download [kuracode-firefox-0.1.0.zip](https://github.com/GeniousSonu/KuraCode/releases/latest) or install from Mozilla Add-ons (AMO).
+- **All Releases & Checksums:** Visit [GitHub Releases (Latest)](https://github.com/GeniousSonu/KuraCode/releases/latest).
 
 ## Source docs
 

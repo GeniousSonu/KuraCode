@@ -79,3 +79,13 @@
 - Quick-Share Codes: 4-digit cryptographically random codes (15-minute default TTL, single-claim default, constant-time comparison, exponential rate-limiting lockout; auto-widening to 6 digits when active pool exceeds 5,000).
 
 
+## #11 Automated "Change -> Verify -> Push -> Release" Pipeline & Anti-Stale Hygiene
+
+- Date: 2026-11-05 | Status: accepted
+- Context: Establishing an uncompromising release engineering pipeline preventing stale or outdated artifacts from leaking into production packages, documentation, or browser store distributions.
+- Key Invariants:
+  1. *Clean Slate Builds (`scripts/clean.sh`):* Every release and ship execution purges `.output`, `dist`, `release`, and test directories prior to building. No incremental or cached outputs are reused.
+  2. *Single-Source Version Integrity (`scripts/version-integrity.ts`):* Binds `package.json`, manifests, `CHANGELOG.md`, and release zip names. Scans all built output to forbid stale version numbers and legacy product names.
+  3. *Release Contents Allow-List (`scripts/verify-release-contents.ts`):* Enforces strict regex allow-listing on zip entries. Blocks `.env`, test fixtures, `node_modules`, and `.map` files with secret tokens.
+  4. *Multi-Store Separation & Review Gates (`publish.yml`):* Isolates Chrome, Edge, and Firefox releases into GitHub Protected Environments requiring manual owner sign-off. Dry-run mode allows complete verification without external store API credentials.
+  5. *Emergency Freeze Switch:* Repository variable `RELEASE_FROZEN` halts release and publish workflows instantly.

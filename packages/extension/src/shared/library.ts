@@ -132,6 +132,34 @@ export async function renderLibrary(
   header.append(headerControls);
   root.append(header);
 
+  // Quiet "What's new" notification on extension version upgrade
+  const currentVersion = "0.1.0";
+  const lastVersion = typeof localStorage !== "undefined" ? localStorage.getItem("kuracode_last_seen_version") : null;
+  if (lastVersion && lastVersion !== currentVersion) {
+    const updateBanner = document.createElement("div");
+    updateBanner.className = "kura-update-banner";
+    updateBanner.setAttribute("role", "status");
+
+    const bannerText = document.createElement("span");
+    const safeAnchor = `v${currentVersion.replace(/\./g, "-")}`;
+    bannerText.innerHTML = `✨ Updated to v${currentVersion} — <a href="https://www.genioussonu.me/extensions/kuracode#${safeAnchor}" target="_blank" rel="noreferrer">What's new</a>`;
+
+    const dismissBtn = document.createElement("button");
+    dismissBtn.type = "button";
+    dismissBtn.className = "kura-update-dismiss";
+    dismissBtn.setAttribute("aria-label", "Dismiss update notice");
+    dismissBtn.textContent = "✕";
+    dismissBtn.addEventListener("click", () => {
+      localStorage.setItem("kuracode_last_seen_version", currentVersion);
+      updateBanner.remove();
+    });
+
+    updateBanner.append(bannerText, dismissBtn);
+    root.append(updateBanner);
+  } else if (!lastVersion && typeof localStorage !== "undefined") {
+    localStorage.setItem("kuracode_last_seen_version", currentVersion);
+  }
+
   // --- 2. SEARCH BAR (Fixed 36px) ---
   const searchWrap = document.createElement("div");
   searchWrap.className = "kura-search-wrap";

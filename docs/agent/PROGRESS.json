@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-05T10:30:00Z",
-  "milestone": "Senior Redesign + Core Auth/Sync/Clipboard Modules VERIFIED",
+  "updated": "2026-11-05T10:45:00Z",
+  "milestone": "Automated Release Pipeline & Anti-Stale Hygiene VERIFIED",
   "features": {
     "total": 78,
     "verified": 53,
@@ -11,18 +11,28 @@
   "gates": {
     "lint": "pass",
     "types": "pass",
-    "unit": "pass (54/54)",
+    "unit": "pass (56/56)",
     "build_chrome": "pass",
     "build_firefox": "pass",
     "web_ext_lint": "pass",
     "e2e": "pass (9/9)",
-    "brand": "pass"
+    "brand": "pass",
+    "version_integrity": "pass",
+    "release_allow_list": "pass",
+    "smoke_release": "pass"
   },
   "packageManager": "pnpm@12.16.1",
   "redesignMetrics": {
     "targetCardHeight": "<= 130px",
     "achievedCardHeight": "115px",
     "visibleCardsAtDefaultHeight": 4
+  },
+  "pipeline": {
+    "ship": "scripts/ship.sh (automated 7-step local gate)",
+    "clean": "scripts/clean.sh (wipes all stale caches & prior zips)",
+    "fast_verify": "scripts/verify-fast.sh (pre-push hook gate)",
+    "freeze_switch": "vars.RELEASE_FROZEN",
+    "environments": ["chrome-web-store", "edge-addons", "firefox-amo"]
   },
   "next": ["T-AUTH-06", "T-DEV-01", "T-SYNC-05", "T-CLIP-07", "T-STORE-01"]
 }

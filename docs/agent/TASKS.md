@@ -36,5 +36,12 @@
 | T-032 | M6        | CLIP-1..6                  | Clipboard Hub manager with secret scanner & retention        | DONE           | yes      | Verified: opt-in default, secret scanning, pin retention       |
 | T-033 | M8        | CODE-1..6                  | 4/6-digit quick share codes with constant-time compare       | DONE           | yes      | Verified: rate limit lockout, single claim, pool auto-widening |
 | T-034 | M9        | WS-1..3                    | Workplaces data model and RBAC permission matrix             | DONE           | yes      | Verified: Owner/Admin/Editor/Viewer role enforcement           |
+| T-035 | M11       | —                          | Local ship pipeline: scripts/ship.sh & scripts/verify-fast.sh| DONE           | yes      | Automated pre-flight, clean, verify, package, commit, push    |
+| T-036 | M11       | —                          | Git hooks (husky pre-commit secret scan + pre-push fast-gate)| DONE           | yes      | Verified in .husky/pre-commit and .husky/pre-push              |
+| T-037 | M11       | —                          | Version integrity & anti-stale validator                     | DONE           | yes      | scripts/version-integrity.ts catches stale files & old names   |
+| T-038 | M11       | —                          | Release archive contents allow-list audit                    | DONE           | yes      | scripts/verify-release-contents.ts ensures clean zip bundles   |
+| T-039 | M11       | —                          | Upgrade and N-1 data migration test suite                    | DONE           | yes      | packages/extension/test/upgrade.test.ts passes (56 unit tests) |
+| T-040 | M11       | —                          | Post-release sandboxed artifact smoke test                   | DONE           | yes      | scripts/post-release-smoke.sh unpacks & loads extension in CI  |
+| T-041 | M11       | —                          | CI workflows: ci.yml, nightly.yml, release.yml, publish.yml  | DONE           | yes      | Protected environments, freeze switch, and dry-run mode ready  |
 
 **Statuses:** TODO / IN_PROGRESS / DONE / DONE_WITH_GAPS / FAILED / BLOCKED / SKIPPED

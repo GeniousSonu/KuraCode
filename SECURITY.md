@@ -12,7 +12,7 @@ Security fixes are provided for the latest release:
 
 ## Reporting a Vulnerability
 
-We take the security of KuraCode (SnipHub) very seriously. If you believe you have discovered a vulnerability or security flaw, **please do not disclose it publicly** via GitHub Issues or discussions.
+We take the security of KuraCode very seriously. If you believe you have discovered a vulnerability or security flaw, **please do not disclose it publicly** via GitHub Issues or discussions.
 
 Instead, please report vulnerabilities privately:
 

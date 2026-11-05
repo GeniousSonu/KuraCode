@@ -28,18 +28,41 @@ const release = path.join(root, "release");
 const rootPkg = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
 const version = rootPkg.version;
 
-await mkdir(release, { recursive: true });
+// Ensure release directory exists and wipe any stale artifacts so ONLY current version exists
+if (fs.existsSync(release)) {
+  const existing = fs.readdirSync(release);
+  for (const f of existing) {
+    fs.rmSync(path.join(release, f), { recursive: true, force: true });
+  }
+} else {
+  await mkdir(release, { recursive: true });
+}
+
+// Fixed date for reproducible builds
+const REPRODUCIBLE_DATE = new Date("2026-01-01T00:00:00.000Z");
 
 function zipDirectory(sourceDir, outPath) {
   return new Promise((resolve, reject) => {
     const output = createWriteStream(outPath);
-    const archive = archiver("zip", { zlib: { level: 9 } });
+    const archive = archiver("zip", {
+      zlib: { level: 9 },
+      forceLocalTime: true,
+    });
 
     output.on("close", () => resolve(archive.pointer()));
     archive.on("error", (err) => reject(err));
 
     archive.pipe(output);
-    archive.directory(sourceDir, false);
+    // Sort directory files for deterministic zip entry order
+    const files = fs.readdirSync(sourceDir, { recursive: true, withFileTypes: true });
+    files.sort((a, b) => a.name.localeCompare(b.name));
+    for (const file of files) {
+      if (file.isFile()) {
+        const fullPath = path.join(file.parentPath || file.path, file.name);
+        const relPath = path.relative(sourceDir, fullPath);
+        archive.file(fullPath, { name: relPath, date: REPRODUCIBLE_DATE });
+      }
+    }
     archive.finalize();
   });
 }
@@ -47,7 +70,10 @@ function zipDirectory(sourceDir, outPath) {
 function zipSourceCode(outPath) {
   return new Promise((resolve, reject) => {
     const output = createWriteStream(outPath);
-    const archive = archiver("zip", { zlib: { level: 9 } });
+    const archive = archiver("zip", {
+      zlib: { level: 9 },
+      forceLocalTime: true,
+    });
 
     output.on("close", () => resolve(archive.pointer()));
     archive.on("error", (err) => reject(err));
@@ -58,6 +84,7 @@ function zipSourceCode(outPath) {
       ignore: [
         "**/node_modules/**",
         "**/.output/**",
+        "**/packages/*/.output/**",
         "**/dist/**",
         "**/release/**",
         "**/.git/**",
@@ -66,7 +93,8 @@ function zipSourceCode(outPath) {
         "**/test-results/**",
       ],
       dot: true,
-    });
+      nodir: true,
+    }, { date: REPRODUCIBLE_DATE });
     archive.finalize();
   });
 }

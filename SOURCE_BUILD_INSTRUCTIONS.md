@@ -1,6 +1,6 @@
 # SOURCE BUILD INSTRUCTIONS FOR MOZILLA AMO REVIEWERS
 
-**Package:** KuraCode (SnipHub)  
+**Package:** KuraCode  
 **Version:** 0.1.0  
 **Repository:** https://github.com/kuracode/kuracode  
 

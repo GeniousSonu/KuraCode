@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # KuraCode verification gate:
-#   install (frozen) -> lint -> typecheck -> unit -> build:chrome ->
-#   build:firefox -> brand check -> web-ext lint -> e2e
+#   install (frozen) -> brand:build -> lint -> typecheck -> unit -> build:chrome ->
+#   build:firefox -> brand check -> version integrity -> release check -> docs freshness ->
+#   web-ext lint -> e2e
 # Usage: ./scripts/verify.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -11,23 +12,35 @@ step() { printf "\n\033[1;36m==> %s\033[0m\n" "$*"; }
 step "Install (frozen lockfile)"
 pnpm install --frozen-lockfile
 
+step "Brand build"
+pnpm brand:build
+
 step "Lint"
 pnpm lint
 
 step "Type-check"
 pnpm typecheck
 
-step "Unit tests"
-pnpm test
-
-step "Build (Chrome)"
+step "Build (Chrome MV3)"
 pnpm build:chrome
 
-step "Build (Firefox)"
+step "Build (Firefox MV3)"
 pnpm build:firefox
+
+step "Unit & Migration tests"
+pnpm test
 
 step "Brand check"
 pnpm brand:check
+
+step "Version Integrity & Stale Artifact Scan"
+node --experimental-strip-types scripts/version-integrity.ts
+
+step "Release & Permissions Gate"
+node --experimental-strip-types scripts/release-check.ts
+
+step "Documentation Freshness & Integrity"
+node --experimental-strip-types scripts/docs-freshness.ts
 
 step "web-ext lint (Firefox output)"
 node scripts/web-ext-lint.mjs packages/extension/.output/firefox-mv3

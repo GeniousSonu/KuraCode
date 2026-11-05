@@ -31,7 +31,7 @@ check "pnpm installed" \
 
 check "Workspace path has no spaces" \
   "! echo \"$PWD\" | grep -q ' '" \
-  "move the project to a path without spaces, e.g. ~/sniphub (cp -r \"$PWD\" ~/sniphub)"
+  "move the project to a path without spaces, e.g. ~/kuracode (cp -r \"$PWD\" ~/kuracode)"
 
 check "esbuild build approved (allowBuilds)" \
   "grep -qE 'esbuild: true' pnpm-workspace.yaml" \

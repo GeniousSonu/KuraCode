@@ -4,7 +4,50 @@ This document tracks items that require human owner intervention, official devel
 
 ---
 
-## 1. Developer Portal Accounts Setup
+## 1. GitHub Repository Protection & Auto-Merge Configuration
+
+To protect `main` while allowing autonomous pull request merging:
+
+### [ ] Task A: Enable Auto-Merge and Branch Deletion
+- **Where to click:** [GitHub Repository > Settings > General](https://github.com/GeniousSonu/KuraCode/settings).
+- **Steps:**
+  1. Under **Pull Requests**, check `[x] Allow auto-merge`.
+  2. Check `[x] Automatically delete head branches`.
+
+### [ ] Task B: Configure Branch Protection for `main`
+- **Where to click:** [GitHub Repository > Settings > Branches > Add branch protection rule](https://github.com/GeniousSonu/KuraCode/settings/branches).
+- **Steps:**
+  1. Branch name pattern: `main`.
+  2. Check `[x] Require a pull request before merging`.
+     - Check `[x] Require approvals` (set to 1).
+     - Check `[x] Dismiss stale pull request approvals when new commits are pushed`.
+  3. Check `[x] Require status checks to pass before merging`.
+     - Check `[x] Require branches to be up to date before merging`.
+     - Search and select required checks:
+       - `Full Quality Gate (Ubuntu Linux)`
+       - `Build Smoke (macos-latest)`
+       - `Build Smoke (windows-latest)`
+  4. Check `[x] Require linear history`.
+  5. Check `[x] Do not allow bypassing the above settings`.
+  6. Click **Save changes**.
+
+### [ ] Task C: Configure Protected Environments for Store Deployments
+- **Where to click:** [GitHub Repository > Settings > Environments](https://github.com/GeniousSonu/KuraCode/settings/environments).
+- **Steps:**
+  Create 3 environments:
+  1. `chrome-web-store` -> Check `[x] Required reviewers` -> Add your GitHub username.
+  2. `edge-addons` -> Check `[x] Required reviewers` -> Add your GitHub username.
+  3. `firefox-amo` -> Check `[x] Required reviewers` -> Add your GitHub username.
+
+### [ ] Task D: Emergency Release Freeze Variable
+- **Where to click:** [GitHub Repository > Settings > Secrets and variables > Actions > Variables](https://github.com/GeniousSonu/KuraCode/settings/variables/actions).
+- **Steps:**
+  - Variable Name: `RELEASE_FROZEN`
+  - Value: `false` (Set to `true` anytime you need an emergency freeze on automated releases).
+
+---
+
+## 2. Developer Portal Accounts Setup
 
 ### [ ] Task 1: Chrome Web Store Developer Registration
 - **Fee:** \$5 USD one-time registration fee.
@@ -24,7 +67,7 @@ This document tracks items that require human owner intervention, official devel
 
 ---
 
-## 2. Cloud Infrastructure & OAuth Provisioning (One-Click Login & Real-Time Sync)
+## 3. Cloud Infrastructure & OAuth Provisioning (One-Click Login & Real-Time Sync)
 
 ### [ ] Task 4: Google Cloud OAuth 2.0 Client ID
 - **Fee:** Free.
@@ -73,7 +116,7 @@ This document tracks items that require human owner intervention, official devel
 
 ---
 
-## 3. GitHub Secrets Setup
+## 4. GitHub Secrets Setup
 
 Once your developer accounts and cloud projects are active, add these secrets to your GitHub repository under **Settings > Secrets and variables > Actions**:
 

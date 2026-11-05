@@ -14,7 +14,7 @@
 ```markdown
 Stop losing valuable code snippets scattered across browser tabs, Slack channels, and scratchpads.
 
-KuraCode (formerly SnipHub) is the local-first, zero-friction snippet memory for developers. It detects code on any webpage, cleans away messy line numbers and terminal prompts, preserves syntax indentation, and remembers exactly where the code came from.
+KuraCode is the local-first, zero-friction snippet memory for developers. It detects code on any webpage, cleans away messy line numbers and terminal prompts, preserves syntax indentation, and remembers exactly where the code came from.
 
 ⚡ KEY FEATURES
 

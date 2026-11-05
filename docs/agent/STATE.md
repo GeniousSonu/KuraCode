@@ -1,31 +1,25 @@
-# KuraCode State (updated: 2026-11-05 — UI Redesign & Core Modules)
+# KuraCode State (updated: 2026-11-05 — Release Pipeline & Zero Stale Artifacts)
 
 ## Snapshot
-- Current milestone: UX Redesign + Core Auth/Sync/Clipboard Domain Modules | Status: ~75%
-- Last green verification: `pnpm verify` (lint 0 errors, typecheck PASS, unit 54/54 PASS, dual MV3 build PASS, brand PASS, web-ext lint 0 errors, e2e 9/9 PASS) → **All gates green ✔**
+- Milestone: Automated "Change -> Verify -> Push -> Release" Pipeline | Status: ~85%
+- Last green verification: `pnpm verify` & `pnpm ship` (lint 0 errors, types PASS, unit/migration 56/56 PASS, dual build PASS, brand PASS, web-ext lint 0 errors, e2e 9/9 PASS, allow-list PASS) → **All gates green ✔**
 - Features registry: 57 verified/hardened of 78 tracked (`pnpm features:report`)
-- Package manager: **pnpm 12.16.1** | Node: v20+
+- Package manager: **pnpm 12.16.1** | Node: v22+
 
-## Quality Scorecard
-- Popup Redesign (UX-1..10): Card height down to **115px** (<= 125px target); 4 cards visible; semantic auto-titles; prominent primary Copy button; 3-dot overflow menu with 8s undo Trash.
-- Visual Evidence: Baseline vs redesign captured across all 10 states in `docs/agent/evidence/design/after/`.
-- Domain Modules:
-  - `auth.ts`: PKCE (S256), state/nonce validation, mock OIDC provider (AUTH-1..5).
-  - `sync-engine.ts` & `hlc.ts`: Monotonic HLC timestamps, durable outbox, field merge (SYNC-1..4).
-  - `clipboard-hub.ts`: Opt-in default, secret scanning, pin retention, convert-to-snippet (CLIP-1..6).
-  - `quick-code.ts`: 4/6-digit random codes, constant-time compare, rate limiting (CODE-1..6).
-  - `workplaces.ts`: Multi-tenant isolation, strict RBAC permission matrix (WS-1..3).
-  - `auto-title.ts`: AST token heuristics, never emits raw code as title (UX-2).
-  - `date-formatter.ts` & `text-fragment.ts`: Locale timelines & Scroll-to-text links (META-2,3).
-- Test Coverage: 54/54 unit tests passing; 9 Playwright e2e scenarios passing.
+## Pipeline & Anti-Stale Guarantees
+- Single Command Ship: `pnpm ship "<msg>"` cleans outputs, verifies supply chain, tests, packages, audits allow-list, commits, and pushes.
+- Clean Slate Builds: `scripts/clean.sh` wipes `.output`, `dist`, `release`, and `coverage` prior to building. No stale artifacts are ever reused or shipped.
+- Single-Source Version Integrity: `scripts/version-integrity.ts` binds `package.json`, manifests, `CHANGELOG.md`, and release zips. Forbids stale version numbers & legacy product names.
+- Release Archive Allow-List: `scripts/verify-release-contents.ts` enforces exact allow-list on extension zips (0 node_modules, 0 .env, 0 fixtures, 0 build leaks).
+- Sandboxed Post-Release Smoke: `scripts/post-release-smoke.sh` unpacks Chrome and Firefox zips and loads them in headless Playwright with 100% integrity.
+- CI/CD Matrix: `ci.yml` (Ubuntu full gate + macOS/Windows smoke), `nightly.yml`, `release-please.yml`, `release.yml` (with `RELEASE_FROZEN` safety switch), `publish.yml` (protected environments: Chrome, Edge, Firefox).
 
 ## Verification Evidence
-- Design Metrics: `docs/agent/evidence/design/after/after-metrics.json`
-- Test Suites: `packages/extension/test/new-modules.test.ts`
-- Feature Registry: `docs/agent/features.json` & `docs/agent/FEATURES.md`
-- Policy & Store Audit: `docs/STORE_POLICY_AUDIT.md`, `docs/agent/WEBSITE_UPDATE_NOTES.md`
+- Release Evidence: `docs/agent/evidence/release/` (stale-artifact-rejection.log, version-integrity.log, release-contents-audit.log, upgrade-test.log, post-release-smoke.log, publish-dry-run.log).
+- Design Evidence: `docs/agent/evidence/design/after/` (115px card height, 4 visible cards).
+- Ops & Governance Docs: `docs/RELEASING.md`, `docs/PUBLISHING.md`, `docs/MAINTENANCE.md`, `docs/agent/WORKFLOW.md`, `docs/agent/NEEDS_HUMAN.md`.
 
 ## Next Steps
-1. Wire Supabase cloud client credentials from `NEEDS_HUMAN.md` into production sync transport.
-2. Web app and PWA receiver UI integration for quick-share codes.
-3. End-to-End Encryption (E2EE) WebCrypto AES-256-GCM derivation module (CLIP-7).
+1. Owner enables branch protection & auto-merge per `docs/agent/NEEDS_HUMAN.md`.
+2. Connect production store API credentials in GitHub Environments (`chrome-web-store`, `edge-addons`, `firefox-amo`).
+3. Connect Supabase production project for live real-time sync WebSocket transport.

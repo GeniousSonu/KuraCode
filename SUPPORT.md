@@ -1,4 +1,4 @@
-# Support for KuraCode (SnipHub)
+# Support for KuraCode
 
 Thank you for using KuraCode! If you encounter issues, have questions, or would like to request features, here is how to get help:
 

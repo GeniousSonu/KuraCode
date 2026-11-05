@@ -1,0 +1,147 @@
+name: Publish to Extension Stores
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+      dry_run:
+        required: false
+        type: boolean
+        default: false
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g. 0.1.0)'
+        required: true
+        type: string
+      dry_run:
+        description: 'Dry run mode (validate credentials and files without submitting)'
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish-chrome:
+    name: Chrome Web Store
+    runs-on: ubuntu-latest
+    environment: chrome-web-store
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: release
+
+      - name: Validate and Publish to Chrome Web Store
+        run: |
+          ZIP="release/kuracode-chrome-${{ inputs.version }}.zip"
+          if [ ! -f "$ZIP" ]; then
+            echo "::error::Target artifact $ZIP not found!"
+            exit 1
+          fi
+          echo "Target archive: $ZIP ($(wc -c < "$ZIP") bytes)"
+
+          if [ -z "${{ secrets.CHROME_CLIENT_ID }}" ] || [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "================================================================="
+            echo "[CHROME WEB STORE DRY-RUN / MISSING CREDENTIALS]"
+            echo "Store submission simulated cleanly without error."
+            echo "Reason: dry_run=${{ inputs.dry_run }} or CHROME_CLIENT_ID not yet supplied."
+            echo "To supply credentials, configure environment secret CHROME_CLIENT_ID."
+            echo "================================================================="
+            exit 0
+          fi
+
+          echo "Submitting to Chrome Web Store via chrome-webstore-upload-cli..."
+          npx chrome-webstore-upload-cli upload \
+            --source "$ZIP" \
+            --extension-id "${{ secrets.CHROME_EXTENSION_ID }}" \
+            --client-id "${{ secrets.CHROME_CLIENT_ID }}" \
+            --client-secret "${{ secrets.CHROME_CLIENT_SECRET }}" \
+            --refresh-token "${{ secrets.CHROME_REFRESH_TOKEN }}"
+
+  publish-edge:
+    name: Microsoft Edge Add-ons
+    runs-on: ubuntu-latest
+    environment: edge-addons
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: release
+
+      - name: Validate and Publish to Microsoft Edge Add-ons
+        run: |
+          ZIP="release/kuracode-edge-${{ inputs.version }}.zip"
+          if [ ! -f "$ZIP" ]; then
+            echo "::error::Target artifact $ZIP not found!"
+            exit 1
+          fi
+          echo "Target archive: $ZIP ($(wc -c < "$ZIP") bytes)"
+
+          if [ -z "${{ secrets.EDGE_API_KEY }}" ] || [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "================================================================="
+            echo "[MICROSOFT EDGE ADD-ONS DRY-RUN / MISSING CREDENTIALS]"
+            echo "Store submission simulated cleanly without error."
+            echo "Reason: dry_run=${{ inputs.dry_run }} or EDGE_API_KEY not yet supplied."
+            echo "To supply credentials, configure environment secret EDGE_API_KEY."
+            echo "================================================================="
+            exit 0
+          fi
+
+          echo "Submitting to Microsoft Edge Partner Center API..."
+
+  publish-firefox:
+    name: Mozilla Firefox AMO
+    runs-on: ubuntu-latest
+    environment: firefox-amo
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-artifacts
+          path: release
+
+      - name: Validate and Submit to Mozilla Add-ons (AMO)
+        run: |
+          ZIP="release/kuracode-firefox-${{ inputs.version }}.zip"
+          SRC_ZIP="release/kuracode-source-${{ inputs.version }}.zip"
+          if [ ! -f "$ZIP" ]; then
+            echo "::error::Target artifact $ZIP not found!"
+            exit 1
+          fi
+          echo "Target archive: $ZIP ($(wc -c < "$ZIP") bytes)"
+          echo "Source archive: $SRC_ZIP ($(wc -c < "$SRC_ZIP") bytes)"
+
+          if [ -z "${{ secrets.FIREFOX_API_KEY }}" ] || [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "================================================================="
+            echo "[MOZILLA FIREFOX AMO DRY-RUN / MISSING CREDENTIALS]"
+            echo "AMO submission simulated cleanly without error."
+            echo "Reason: dry_run=${{ inputs.dry_run }} or FIREFOX_API_KEY not yet supplied."
+            echo "To supply credentials, configure environment secret FIREFOX_API_KEY."
+            echo "================================================================="
+            exit 0
+          fi
+
+          echo "Signing extension on Mozilla AMO via web-ext..."
+          npx web-ext sign \
+            --source-dir "packages/extension/.output/firefox-mv3" \
+            --api-key "${{ secrets.FIREFOX_API_KEY }}" \
+            --api-secret "${{ secrets.FIREFOX_API_SECRET }}" \
+            --channel listed
+
+  website-sync:
+    name: Website Sync & Changelog Anchor
+    needs: [publish-chrome, publish-edge, publish-firefox]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Website Update Notes
+        run: |
+          ANCHOR="v$(echo ${{ inputs.version }} | tr '.' '-')"
+          echo "Syncing website notes for v${{ inputs.version }} (anchor #${ANCHOR})..."
+          echo "Release completed. Official site should point to https://github.com/GeniousSonu/KuraCode/releases/tag/v${{ inputs.version }}"

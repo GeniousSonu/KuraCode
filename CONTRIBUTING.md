@@ -1,6 +1,6 @@
 # Contributing to KuraCode
 
-Thank you for your interest in contributing to KuraCode (SnipHub)! We welcome contributions from developers of all skill levels.
+Thank you for your interest in contributing to KuraCode! We welcome contributions from developers of all skill levels.
 
 ---
 

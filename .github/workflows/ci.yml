@@ -5,8 +5,12 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
-  verify:
+  verify-ubuntu:
+    name: Full Quality Gate (Ubuntu Linux)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,21 +24,82 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - run: pnpm install --frozen-lockfile
+      - name: Install dependencies (frozen)
+        run: pnpm install --frozen-lockfile
 
-      - run: pnpm lint
+      - name: Brand asset regeneration & check
+        run: |
+          pnpm brand:build
+          pnpm brand:check
 
-      - run: pnpm typecheck
+      - name: Lint
+        run: pnpm lint
 
-      - run: pnpm test
+      - name: Type-check
+        run: pnpm typecheck
 
-      - run: pnpm build
+      - name: Unit & Migration tests
+        run: pnpm test
 
-      - run: pnpm brand:check
+      - name: Build dual extensions & web
+        run: pnpm build
 
-      # e2e needs a virtual display for the headed Chromium that loads the extension.
+      - name: Single-source Version Integrity
+        run: node --experimental-strip-types scripts/version-integrity.ts
+
+      - name: Release & Permissions Gate
+        run: node --experimental-strip-types scripts/release-check.ts
+
+      - name: Documentation Freshness Check
+        run: node --experimental-strip-types scripts/docs-freshness.ts
+
+      - name: web-ext lint (Firefox output)
+        run: node scripts/web-ext-lint.mjs packages/extension/.output/firefox-mv3
+
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: e2e
+      - name: Playwright E2E Scenarios & Redesign Measurement
         run: xvfb-run --auto-servernum pnpm --filter @kuracode/extension e2e
+
+      - name: Package Release Archives
+        run: pnpm package
+
+      - name: Verify Release Contents Allow-List
+        run: node --experimental-strip-types scripts/verify-release-contents.ts
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: kuracode-build-artifacts
+          path: release/*
+          retention-days: 7
+          if-no-files-found: error
+
+  smoke-cross-platform:
+    name: Build Smoke (${{ matrix.os }})
+    needs: [verify-ubuntu]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.16.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies (frozen)
+        run: pnpm install --frozen-lockfile
+
+      - name: Cross-platform Build
+        run: |
+          pnpm brand:build
+          pnpm build:chrome
+          pnpm build:firefox

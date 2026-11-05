@@ -47,6 +47,36 @@
         position: relative;
       }
 
+      /* Update Banner */
+      .kura-update-banner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4px 12px;
+        background: rgba(0, 185, 108, 0.12);
+        border-bottom: 1px solid rgba(0, 185, 108, 0.25);
+        font-size: 11px;
+        color: var(--accent-mint);
+        flex-shrink: 0;
+      }
+      .kura-update-banner a {
+        color: var(--accent-mint);
+        text-decoration: underline;
+        font-weight: 500;
+      }
+      .kura-update-dismiss {
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        padding: 0 4px;
+        font-size: 12px;
+        line-height: 1;
+      }
+      .kura-update-dismiss:hover {
+        color: var(--text-primary);
+      }
+
       /* 1. Header (48px Fixed) */
       .kura-header {
         height: 48px;

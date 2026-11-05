@@ -1,1 +1,1 @@
-pnpm typecheck
+bash scripts/verify-fast.sh

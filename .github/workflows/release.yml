@@ -7,21 +7,36 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: 'Dry run (build and test without publishing to stores)'
+        description: 'Dry run (build and test without publishing to store channels)'
         required: true
         type: boolean
         default: true
 
 permissions:
   contents: write
+  issues: write
   id-token: write
 
 jobs:
+  check-freeze:
+    name: Safety Check (Release Freeze)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if release is frozen
+        run: |
+          if [ "${{ vars.RELEASE_FROZEN }}" = "true" ]; then
+            echo "::error::Release pipeline is FROZEN via repository variable RELEASE_FROZEN=true. Aborting release."
+            exit 1
+          fi
+          echo "✔ Release pipeline is active (RELEASE_FROZEN is not true)."
+
   build-and-verify:
-    name: Build & Verify Release Artifacts
+    name: Clean Rebuild & Verification Gate
+    needs: [check-freeze]
     runs-on: ubuntu-latest
     outputs:
       version: ${{ steps.pkg.outputs.version }}
+      is_prerelease: ${{ steps.pkg.outputs.is_prerelease }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -39,18 +54,28 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Full Quality Gate
+      - name: Clean environment (wipe stale outputs)
+        run: bash scripts/clean.sh
+
+      - name: Full Quality Gate from Scratch
+        run: bash scripts/verify.sh
+
+      - name: Package Release Archives & Generate Checksums
         run: |
-          pnpm lint
-          pnpm typecheck
-          pnpm test
+          pnpm package
+          node --experimental-strip-types scripts/verify-release-contents.ts
+          node --experimental-strip-types scripts/version-integrity.ts
 
-      - name: Build & Package All Artifacts
-        run: pnpm release:dry
-
-      - name: Extract Version
+      - name: Extract Version & Prerelease Metadata
         id: pkg
-        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          if [[ "${VERSION}" == *"-"* ]] || [[ "${{ github.ref }}" == *"beta"* ]] || [[ "${{ github.ref }}" == *"rc"* ]]; then
+            echo "is_prerelease=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_prerelease=false" >> $GITHUB_OUTPUT
+          fi
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v4
@@ -59,7 +84,7 @@ jobs:
           path: release/*
           if-no-files-found: error
 
-      - name: Create GitHub Release
+      - name: Create or Update GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
@@ -69,78 +94,26 @@ jobs:
             release/SHA256SUMS.txt
           generate_release_notes: true
           draft: false
-          prerelease: contains(github.ref, 'beta') || contains(github.ref, 'rc')
+          prerelease: ${{ steps.pkg.outputs.is_prerelease == 'true' }}
 
-  publish-chrome:
-    name: Publish Chrome Web Store
-    needs: [build-and-verify]
-    runs-on: ubuntu-latest
-    environment: chrome-web-store
-    steps:
-      - uses: actions/download-artifact@v4
+      - name: Open Issue on Release Build Failure
+        if: failure()
+        uses: actions/github-script@v7
         with:
-          name: release-artifacts
-          path: release
+          script: |
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[RELEASE-BLOCKED] Release verification failed for ${context.ref}`,
+              body: `The automated release build failed one or more verification gates.\n\nWorkflow run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+              labels: ['release', 'security']
+            });
 
-      - name: Publish to Chrome Web Store
-        run: |
-          echo "Checking Chrome credentials..."
-          if [ -z "${{ secrets.CHROME_CLIENT_ID }}" ] || [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
-            echo "[DRY-RUN / NO CREDENTIALS] Chrome Web Store upload simulated successfully."
-            echo "Artifact target: release/kuracode-chrome-${{ needs.build-and-verify.outputs.version }}.zip"
-            exit 0
-          fi
-          echo "Uploading to Chrome Web Store via chrome-webstore-upload-cli..."
-          npx chrome-webstore-upload-cli upload \
-            --source "release/kuracode-chrome-${{ needs.build-and-verify.outputs.version }}.zip" \
-            --extension-id "${{ secrets.CHROME_EXTENSION_ID }}" \
-            --client-id "${{ secrets.CHROME_CLIENT_ID }}" \
-            --client-secret "${{ secrets.CHROME_CLIENT_SECRET }}" \
-            --refresh-token "${{ secrets.CHROME_REFRESH_TOKEN }}"
-
-  publish-edge:
-    name: Publish Microsoft Edge Add-ons
+  publish:
+    name: Publish to Extension Stores
     needs: [build-and-verify]
-    runs-on: ubuntu-latest
-    environment: edge-addons
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: release-artifacts
-          path: release
-
-      - name: Publish to Microsoft Edge Add-ons
-        run: |
-          echo "Checking Edge Add-ons credentials..."
-          if [ -z "${{ secrets.EDGE_API_KEY }}" ] || [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
-            echo "[DRY-RUN / NO CREDENTIALS] Edge Add-ons submission simulated successfully."
-            echo "Artifact target: release/kuracode-edge-${{ needs.build-and-verify.outputs.version }}.zip"
-            exit 0
-          fi
-          echo "Uploading to Edge Partner Center API..."
-
-  publish-firefox:
-    name: Publish Mozilla Firefox AMO
-    needs: [build-and-verify]
-    runs-on: ubuntu-latest
-    environment: firefox-amo
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: release-artifacts
-          path: release
-
-      - name: Submit to Mozilla Add-ons (AMO)
-        run: |
-          echo "Checking Firefox AMO credentials..."
-          if [ -z "${{ secrets.FIREFOX_API_KEY }}" ] || [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
-            echo "[DRY-RUN / NO CREDENTIALS] Mozilla AMO submission simulated successfully."
-            echo "Artifact target: release/kuracode-firefox-${{ needs.build-and-verify.outputs.version }}.zip"
-            echo "Source zip target: release/kuracode-source-${{ needs.build-and-verify.outputs.version }}.zip"
-            exit 0
-          fi
-          npx web-ext sign \
-            --source-dir "packages/extension/.output/firefox-mv3" \
-            --api-key "${{ secrets.FIREFOX_API_KEY }}" \
-            --api-secret "${{ secrets.FIREFOX_API_SECRET }}" \
-            --channel listed
+    uses: ./.github/workflows/publish.yml
+    with:
+      version: ${{ needs.build-and-verify.outputs.version }}
+      dry_run: ${{ github.event.inputs.dry_run == true || needs.build-and-verify.outputs.is_prerelease == 'true' }}
+    secrets: inherit

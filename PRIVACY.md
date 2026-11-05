@@ -1,9 +1,9 @@
-# Privacy Policy for KuraCode (SnipHub)
+# Privacy Policy for KuraCode
 
-**Last Updated:** November 4, 2026  
-**Effective Date:** November 4, 2026
+**Last Updated:** November 5, 2026  
+**Effective Date:** November 5, 2026
 
-KuraCode (formerly referred to as SnipHub) is committed to protecting your privacy. This privacy policy applies to the KuraCode browser extension (Chrome Web Store, Firefox Add-ons, Microsoft Edge Add-ons) and associated web dashboard.
+KuraCode is committed to protecting your privacy. This privacy policy applies to the KuraCode browser extension (Chrome Web Store, Firefox Add-ons, Microsoft Edge Add-ons) and associated web dashboard.
 
 ---
 
