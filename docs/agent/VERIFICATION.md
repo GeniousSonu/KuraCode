@@ -75,7 +75,7 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
 - Result: **All gates green ✔**
   - Lint: 0 errors.
   - Typecheck: 0 errors across `@kuracode/extension` and `@kuracode/web`.
-  - Unit tests: 54/54 passing across 6 test suites (`packages/extension/test/new-modules.test.ts` adds 29 tests for auth, sync, HLC, clipboard hub, secret scanner, quick code, workplaces, and auto-title).
+  - Unit tests: 54/54 passing across 6 test suites (`packages/extension/test/new-modules.test.ts` adds 29 tests for auth, sync, HLC, clipboard hub, secret scanner, quick code, workspaces, and auto-title).
   - Dual build: Both Chrome MV3 (`.output/chrome-mv3`) and Firefox MV3 (`.output/firefox-mv3`) build cleanly.
   - Web-ext lint: 0 errors on Mozilla Firefox manifest.
   - Playwright E2E: 9/9 passing tests.
@@ -105,3 +105,24 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
   - `docs/agent/evidence/release/upgrade-test.log`
   - `docs/agent/evidence/release/post-release-smoke.log`
   - `docs/agent/evidence/release/publish-dry-run.log`
+
+## V-12 Live Bug Fixes (BUG-1..3), Typography Reset, Workspace Isolation & Multi-User Walkthrough (2026-11-05)
+
+- Ran: Full Vitest suite (`pnpm test`), Full Playwright E2E suite (`npm run e2e --workspace @kuracode/extension`), and `pnpm verify:fast`.
+- Result: **All gates green ✔**
+  - Unit Tests: 65/65 passed across 9 test files (100% pass rate).
+    - `packages/extension/test/round-trip-fidelity.test.ts` (5/5 passed): verifies byte-exact multi-line code preservation, relative indent preservation on gutter stripping, CRLF normalization, whitespace round-tripping.
+    - `packages/extension/test/workspace-isolation.test.ts` (4/4 passed): verifies strict data isolation between Personal Space and Workspaces, rapid switching race condition immunity, RBAC permission enforcement, and invite code lifecycle with brute-force lockout.
+  - Browser E2E Tests: 19/19 passed in persistent Chromium browser context:
+    - `packages/extension/e2e/bugs-regression.spec.ts` (3/3 passed):
+      - BUG-1: Settings button opens options page (`chrome.runtime.openOptionsPage()`) and fallback settings modal reliably.
+      - BUG-2: Multi-line code renders properly with wrap toggle, code indentation preserved, and copy writes exact code.
+      - BUG-3: Switching workspaces immediately filters snippets to active workspace tenant.
+    - `packages/extension/e2e/interactive-controls.spec.ts` (3/3 passed): clicks and interacts with every button, search bar, and select in popup, sidepanel, and options with 0 console errors and 0 unhandled rejections.
+    - `packages/extension/e2e/typography.spec.ts` (3/3 passed): validates `document.fonts.check` passes for Inter and JetBrains Mono across all surfaces, with 0 network requests to Google Fonts or external CDNs.
+    - `packages/extension/e2e/two-user-walkthrough.spec.ts` (1/1 passed): User A creates "Frontend Core" workspace, creates multi-line snippet, generates invite code; User B inputs `KURA-9281` into unified code modal, joins workspace, verifies tenant isolation, opens settings, copies code.
+    - Core scenarios: S1, S3 (with post-gutter indent preserved, resolving T-026), S4, S6, S11 all pass.
+  - Evidence Artifacts Generated:
+    - Font verification screenshots: `docs/agent/evidence/design/fonts/popup-fonts.png`, `sidepanel-fonts.png`, `options-fonts.png`.
+    - Walkthrough screenshots: `docs/agent/evidence/walkthrough/01-user-a-workspace-created.png`, `02-user-b-joined.png`, `03-user-b-copied-and-settings.png`.
+  - Reconciled Capabilities: 46 capabilities audited in `docs/agent/RECONCILIATION.md` (43 HARDENED, 3 VERIFIED, 0 NOT_STARTED). Standardized all documentation and UI strings strictly to "Workspace".

@@ -20,6 +20,7 @@ export interface SnippetContext {
 
 export interface Snippet {
   id: string;
+  workspaceId: string | null; // null = Personal Space
   title: string;
   language: string;
   /** Cleaned code (ready to run/copy). */
@@ -30,6 +31,7 @@ export interface Snippet {
   tags: string[];
   collection?: string;
   favorite: boolean;
+  pinned?: boolean;
   context: SnippetContext;
   status: SnippetStatus;
   createdAt: number;

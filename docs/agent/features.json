@@ -1901,7 +1901,7 @@
   },
   {
     "id": "WS-1",
-    "name": "Workplace workspaces & switcher",
+    "name": "Workspace workspaces & switcher",
     "priority": "P1",
     "surfaces": [
       "chrome",
@@ -1910,13 +1910,13 @@
       "web"
     ],
     "acceptanceCriteria": [
-      "1. Create, rename, delete workplaces with confirmation and export",
-      "2. Seamless header switcher between personal library and workplaces"
+      "1. Create, rename, delete workspaces with confirmation and export",
+      "2. Seamless header switcher between personal library and workspaces"
     ],
     "status": "VERIFIED",
     "evidence": [
       "packages/extension/test/new-modules.test.ts:310-325",
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "knownGaps": [],
     "lastVerified": "2026-11-05",
@@ -1924,7 +1924,7 @@
       "T-WS-01"
     ],
     "sourceFiles": [
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "tests": [
       "packages/extension/test/new-modules.test.ts"
@@ -1947,7 +1947,7 @@
     "status": "VERIFIED",
     "evidence": [
       "packages/extension/test/new-modules.test.ts:295-309",
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "knownGaps": [],
     "lastVerified": "2026-11-05",
@@ -1955,7 +1955,7 @@
       "T-WS-02"
     ],
     "sourceFiles": [
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "tests": [
       "packages/extension/test/new-modules.test.ts"
@@ -1963,7 +1963,7 @@
   },
   {
     "id": "WS-3",
-    "name": "Cross-workplace data isolation",
+    "name": "Cross-workspace data isolation",
     "priority": "P0",
     "surfaces": [
       "chrome",
@@ -1972,13 +1972,13 @@
       "web"
     ],
     "acceptanceCriteria": [
-      "1. Total query and storage partition between personal and workplace spaces",
+      "1. Total query and storage partition between personal and workspace spaces",
       "2. Zero leakage in search indices, sync channels, or share codes"
     ],
     "status": "VERIFIED",
     "evidence": [
       "packages/extension/test/new-modules.test.ts:314-321",
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "knownGaps": [],
     "lastVerified": "2026-11-05",
@@ -1986,7 +1986,7 @@
       "T-WS-03"
     ],
     "sourceFiles": [
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "tests": [
       "packages/extension/test/new-modules.test.ts"
@@ -1994,7 +1994,7 @@
   },
   {
     "id": "INV-1",
-    "name": "Workplace invitations & join links",
+    "name": "Workspace invitations & join links",
     "priority": "P1",
     "surfaces": [
       "web",
@@ -2015,15 +2015,15 @@
       "T-INV-01"
     ],
     "sourceFiles": [
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "tests": [
-      "packages/extension/test/workplaces.test.ts"
+      "packages/extension/test/workspaces.test.ts"
     ]
   },
   {
     "id": "RT-1",
-    "name": "Real-time workplace collaboration & live updates",
+    "name": "Real-time workspace collaboration & live updates",
     "priority": "P1",
     "surfaces": [
       "chrome",
@@ -2032,7 +2032,7 @@
       "web"
     ],
     "acceptanceCriteria": [
-      "1. Edits propagate to online workplace members in < 2.0s at p95",
+      "1. Edits propagate to online workspace members in < 2.0s at p95",
       "2. Non-intrusive notification toasts for new team snippets"
     ],
     "status": "NOT_STARTED",
@@ -2045,10 +2045,10 @@
       "T-RT-01"
     ],
     "sourceFiles": [
-      "packages/extension/src/shared/workplaces.ts"
+      "packages/extension/src/shared/workspaces.ts"
     ],
     "tests": [
-      "packages/extension/test/workplaces.test.ts"
+      "packages/extension/test/workspaces.test.ts"
     ]
   },
   {
@@ -2062,7 +2062,7 @@
       "web"
     ],
     "acceptanceCriteria": [
-      "1. Displays avatars of members currently active in workplace",
+      "1. Displays avatars of members currently active in workspace",
       "2. User can toggle presence visibility off in privacy settings"
     ],
     "status": "NOT_STARTED",
@@ -2078,7 +2078,7 @@
       "packages/ui/src/components/PresenceBar.tsx"
     ],
     "tests": [
-      "packages/extension/test/workplaces.test.ts"
+      "packages/extension/test/workspaces.test.ts"
     ]
   },
   {
@@ -2181,7 +2181,7 @@
   },
   {
     "id": "UX-4",
-    "name": "Fixed header with sync indicator, account, and workplace switcher",
+    "name": "Fixed header with sync indicator, account, and workspace switcher",
     "priority": "P0",
     "surfaces": [
       "chrome",

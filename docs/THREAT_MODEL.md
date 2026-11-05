@@ -11,14 +11,14 @@
 1. **User Snippets & Notes:** Intellectual property, code snippets, proprietary algorithms.
 2. **Clipboard Content:** Highly sensitive ephemeral text, potential credentials, copied tokens.
 3. **Session Credentials:** Access tokens, refresh tokens, WebAuthn credentials, OAuth tokens.
-4. **Tenant Data & Workplace Boundaries:** Workplace snippets, member directories, invitation links.
+4. **Tenant Data & Workspace Boundaries:** Workspace snippets, member directories, invitation links.
 5. **Provenance & Source URLs:** User browsing history, intranet/internal domain addresses.
 
 ### 1.2 Trust Boundaries
 - **Boundary A: Host Webpage ↔ Content Script.** Web pages are untrusted and potentially malicious.
 - **Boundary B: Content Script ↔ Background Worker.** Message-passing boundary via `chrome.runtime.sendMessage`.
 - **Boundary C: Client Extension ↔ Cloud API.** Untrusted public network (TLS 1.3 encrypted).
-- **Boundary D: Tenant A ↔ Tenant B (Workplace Isolation).** Cross-tenant database partitions.
+- **Boundary D: Tenant A ↔ Tenant B (Workspace Isolation).** Cross-tenant database partitions.
 
 ---
 
@@ -28,8 +28,8 @@
 | :--- | :--- | :--- |
 | **Malicious Webpage** | Runs arbitrary JavaScript in tab; inspects DOM; attempts window messaging. | Steal clipboard data, exfiltrate extension IDs, spoof capture events. |
 | **Network Eavesdropper** | Observes or tampers with public Wi-Fi traffic. | Intercept tokens, eavesdrop on synced snippets. |
-| **Malicious Tenant / Insider** | Registered workplace member with Viewer or Editor role. | Escalate privileges, access unshared collections, poison sync feed. |
-| **Brute-Force Attacker** | Automated bots scanning public endpoints and quick-share codes. | Guess active share codes, enumerate workplace invites, exhaust API rate limits. |
+| **Malicious Tenant / Insider** | Registered workspace member with Viewer or Editor role. | Escalate privileges, access unshared collections, poison sync feed. |
+| **Brute-Force Attacker** | Automated bots scanning public endpoints and quick-share codes. | Guess active share codes, enumerate workspace invites, exhaust API rate limits. |
 
 ---
 
@@ -70,11 +70,11 @@
   - Generic uniform error messages ("Invalid or expired code") to prevent state enumeration.
   - Automatic expansion to 6 digits if active pool exceeds 5,000 codes.
 
-### 3.6 Cross-Workplace Data Leaks & Role Escalation
-- **Threat:** An Editor in Workplace A queries or mutates snippets belonging to Workplace B.
+### 3.6 Cross-Workspace Data Leaks & Role Escalation
+- **Threat:** An Editor in Workspace A queries or mutates snippets belonging to Workspace B.
 - **Mitigation:**
   - Enforced at database layer using PostgreSQL Row-Level Security (RLS).
-  - Every API route validates `workplace_id` against the authenticated user's verified membership record.
+  - Every API route validates `workspace_id` against the authenticated user's verified membership record.
   - Role escalation attempts (e.g. changing role from Viewer to Admin) rejected by database trigger.
 
 ### 3.7 URL & Internal Secret Leakage

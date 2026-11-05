@@ -27,7 +27,7 @@ interface ModernSnippetV1 {
     domain: string;
     capturedAt: number;
   };
-  workplaceId: string | null;
+  workspaceId: string | null;
   hlcTimestamp: {
     millis: number;
     counter: number;
@@ -65,7 +65,7 @@ function migrateSnippetV0ToV1(legacy: LegacySnippetV0, deviceId: string): Modern
       domain: legacy.url ? new URL(legacy.url).hostname : "",
       capturedAt: legacy.created || Date.now(),
     },
-    workplaceId: null, // Personal space default
+    workspaceId: null, // Personal space default
     hlcTimestamp: ts,
     version: 1,
   };
@@ -99,7 +99,7 @@ describe("Data Migration & Upgrade Compatibility (N-1 to N)", () => {
     expect(migrated[0].tags).toEqual(["math", "utility"]);
     expect(migrated[0].context.sourceUrl).toBe("https://developer.mozilla.org/en-US/docs/Web/JavaScript");
     expect(migrated[0].context.domain).toBe("developer.mozilla.org");
-    expect(migrated[0].workplaceId).toBeNull(); // assigned to personal space
+    expect(migrated[0].workspaceId).toBeNull(); // assigned to personal space
     expect(migrated[0].hlcTimestamp.millis).toBeGreaterThanOrEqual(1700000000000);
     // Semantic auto-title generated for snippet without title
     expect(migrated[0].title).toBe("Javascript add() function");

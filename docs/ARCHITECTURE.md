@@ -140,12 +140,12 @@ Before any clipboard item is saved or pushed to the sync outbox, it passes throu
 
 ---
 
-## 7. Workplaces & Role-Based Access Control (RBAC)
+## 7. Workspaces & Role-Based Access Control (RBAC)
 
 ### 7.1 Tenant Model
-- Every user has an isolated **Personal Space** and optional **Workplaces**.
-- Workplace data is partitioned at the database layer with strict foreign keys and Postgres Row-Level Security (RLS).
-- Zero cross-tenant leakage: queries filter by `workplace_id = auth.current_workplace()`.
+- Every user has an isolated **Personal Space** and optional **Workspaces**.
+- Workspace data is partitioned at the database layer with strict foreign keys and Postgres Row-Level Security (RLS).
+- Zero cross-tenant leakage: queries filter by `workspace_id = auth.current_workspace()`.
 
 ### 7.2 Permission Matrix
 

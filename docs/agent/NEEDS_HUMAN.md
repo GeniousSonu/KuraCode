@@ -110,7 +110,7 @@ To protect `main` while allowing autonomous pull request merging:
        - `https://app.kuracode.dev/**`
        - `moz-extension://**`
   4. Under **SQL Editor**, execute the migration script located at `packages/sync-server/schema.sql` to initialize:
-     - `profiles`, `snippets`, `snippet_versions`, `workplaces`, `workplace_members`, `clipboard_items`, `quick_shares`.
+     - `profiles`, `snippets`, `snippet_versions`, `workspaces`, `workspace_members`, `clipboard_items`, `quick_shares`.
      - Row Level Security (RLS) policies enforcing multi-tenant isolation.
   5. Copy `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` to project secrets.
 

@@ -373,31 +373,31 @@ Storage itself, code hosting, or AI generation. Our moat is **capture quality, c
 | CODE-5 | Pre-share privacy & secret scan, license check, option to strip source URLs and private notes        | P0       |
 | CODE-6 | Quick-code receiver UI in extension, web app, and PWA with preview before import                     | P0       |
 
-### 7.21 Workplaces & Organizations (WS)
+### 7.21 Workspaces & Organizations (WS)
 
 | ID   | Requirement                                                                                          | Priority |
 | ---- | ---------------------------------------------------------------------------------------------------- | -------- |
-| WS-1 | Workplaces: create, rename, delete (with safety export), switch seamlessly between personal and team | P1       |
+| WS-1 | Workspaces: create, rename, delete (with safety export), switch seamlessly between personal and team | P1       |
 | WS-2 | Strict server-enforced role-based access control (Owner, Admin, Editor, Commenter, Viewer)           | P1       |
-| WS-3 | Cross-workplace isolation: absolute data separation; zero data leakage across workplace boundaries   | P0       |
-| WS-4 | Workplace-specific collections, groups, categories, and audit logging                                | P1       |
+| WS-3 | Cross-workspace isolation: absolute data separation; zero data leakage across workspace boundaries   | P0       |
+| WS-4 | Workspace-specific collections, groups, categories, and audit logging                                | P1       |
 
-### 7.22 Workplace Invitations & Member Management (INV)
+### 7.22 Workspace Invitations & Member Management (INV)
 
 | ID    | Requirement                                                                                          | Priority |
 | ----- | ---------------------------------------------------------------------------------------------------- | -------- |
-| INV-1 | Workplace invitations by email, username, or time-limited shareable invite link/code                 | P1       |
-| INV-2 | Clear invitation acceptance screen showing inviter identity, workplace name, and permissions         | P1       |
+| INV-1 | Workspace invitations by email, username, or time-limited shareable invite link/code                 | P1       |
+| INV-2 | Clear invitation acceptance screen showing inviter identity, workspace name, and permissions         | P1       |
 | INV-3 | Admin management: resend, revoke, role update, domain auto-join policies, anti-abuse rate limits      | P1       |
 
 ### 7.23 Real-time Collaboration & Presence (RT)
 
 | ID   | Requirement                                                                                          | Priority |
 | ---- | ---------------------------------------------------------------------------------------------------- | -------- |
-| RT-1 | Real-time collaboration: changes propagate to all online workplace members in < 2s at p95            | P1       |
+| RT-1 | Real-time collaboration: changes propagate to all online workspace members in < 2s at p95            | P1       |
 | RT-2 | Live presence indicators (who is viewing/editing) with user toggle to disable presence               | P1       |
-| RT-3 | Non-intrusive live change toasts and one-click copy/paste of workplace snippets                      | P1       |
-| RT-4 | Workplace discussions, line-level notes, suggestion diffs, and approval workflows                    | P1       |
+| RT-3 | Non-intrusive live change toasts and one-click copy/paste of workspace snippets                      | P1       |
+| RT-4 | Workspace discussions, line-level notes, suggestion diffs, and approval workflows                    | P1       |
 
 ### 7.24 Senior-Engineer UI/UX & Developer Standard (UX)
 
@@ -406,7 +406,7 @@ Storage itself, code hosting, or AI generation. Our moat is **capture quality, c
 | UX-1  | Compact developer-tool popup redesign: at least 4 collapsed cards visible at default height (<=130px)| P0       |
 | UX-2  | Clear snippet card hierarchy: readable title (no raw code), language pill, favicon/domain, time, copy| P0       |
 | UX-3  | Three-dot secondary menu: Edit, Add to Group, Share, Open Source, Copy attribution, Trash with undo  | P0       |
-| UX-4  | Header: KuraCode logo mark + name, sync status indicator, profile/avatar, settings, workplace switcher| P0       |
+| UX-4  | Header: KuraCode logo mark + name, sync status indicator, profile/avatar, settings, workspace switcher| P0       |
 | UX-5  | Compact fixed toolbar: All snippets count, searchable language filter, sort dropdown, +Save clipboard| P0       |
 | UX-6  | Design tokens derived from brand SVG: Inter / JetBrains Mono, 4/8px spacing, <= 2 border levels, AA  | P0       |
 | UX-7  | Reusable component system in packages/ui shared across popup, side panel, options, web app, and PWA  | P0       |

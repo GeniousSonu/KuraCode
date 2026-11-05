@@ -22,13 +22,60 @@ function detectGutter(lines: string[]): boolean {
   return gutter.length / nonEmpty.length >= 0.6;
 }
 
-/** Strip leading line numbers / gutter text (CLEAN-1). */
+/** Strip leading line numbers / gutter text while preserving code indentation (CLEAN-1). */
 export function stripLineNumbers(code: string): string {
   const lines = code.split("\n");
   if (!detectGutter(lines)) return code;
+
+  // Determine baseline post-number whitespace across all gutter lines
+  const gutterLines = lines.filter((l) => /^\s*\d+\s*[.:|]?\s*(\S)/.test(l));
+  let minPadding = Infinity;
+  for (const gl of gutterLines) {
+    const match = gl.match(/^\s*\d+[.:|]?([ \t]*)/);
+    if (match) {
+      minPadding = Math.min(minPadding, match[1].length);
+    }
+  }
+  if (!isFinite(minPadding)) minPadding = 1;
+
   return lines
-    .map((line) => line.replace(/^\s*\d+\s*[.:|]?\s*/, "").replace(/\s+$/, ""))
+    .map((line) => {
+      const match = line.match(/^(\s*\d+[.:|]?)([ \t]*)(.*)$/);
+      if (match) {
+        const postWs = match[2];
+        const remainingIndent = postWs.slice(minPadding);
+        return remainingIndent + match[3];
+      }
+      return line.replace(/\s+$/, "");
+    })
     .join("\n");
+}
+
+/**
+ * Robust DOM text extraction that converts <br>, <tr>, <div>, <p> to newlines
+ * and preserves exact whitespace and indentation.
+ */
+export function extractCodeText(el: HTMLElement): string {
+  if (typeof document === "undefined") {
+    return el.textContent || "";
+  }
+  const clone = el.cloneNode(true) as HTMLElement;
+  clone.querySelectorAll("[data-kuracode-ui], script, style").forEach((n) => n.remove());
+
+  clone.querySelectorAll("br").forEach((br) => {
+    br.replaceWith(document.createTextNode("\n"));
+  });
+
+  clone.querySelectorAll("tr").forEach((tr) => {
+    tr.after(document.createTextNode("\n"));
+  });
+
+  clone.querySelectorAll("div, p, li").forEach((block) => {
+    block.after(document.createTextNode("\n"));
+  });
+
+  const raw = clone.innerText || clone.textContent || "";
+  return raw;
 }
 
 /** Remove terminal prompts, preserving everything else (CLEAN-2). */

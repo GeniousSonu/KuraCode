@@ -116,11 +116,9 @@ export async function s3InlineSave(driver: ScenarioDriver): Promise<void> {
     () => driver.readSnippets(),
     (s) => s.length === 1,
   );
-  // Gutter line numbers are stripped. (stripLineNumbers also flattens the
-  // whitespace that immediately follows a gutter, so the `return` line loses
-  // its leading indent — tracked as a known issue, T-026.)
+  // Gutter line numbers are stripped while relative code indentation is preserved (fixed in BUG-2 / T-026).
   expect(snippets[0].code).toBe(
-    "function greet(name) {\nreturn `Hello, ${name}`;\n}",
+    "function greet(name) {\n  return `Hello, ${name}`;\n}",
   );
   // Raw source retained.
   expect(snippets[0].raw).toContain("1 ");

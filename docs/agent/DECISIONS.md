@@ -89,3 +89,25 @@
   3. *Release Contents Allow-List (`scripts/verify-release-contents.ts`):* Enforces strict regex allow-listing on zip entries. Blocks `.env`, test fixtures, `node_modules`, and `.map` files with secret tokens.
   4. *Multi-Store Separation & Review Gates (`publish.yml`):* Isolates Chrome, Edge, and Firefox releases into GitHub Protected Environments requiring manual owner sign-off. Dry-run mode allows complete verification without external store API credentials.
   5. *Emergency Freeze Switch:* Repository variable `RELEASE_FROZEN` halts release and publish workflows instantly.
+
+
+## #12 Standardize Terminology to "Workspace" and Reconcile Cross-Tenant Isolation
+
+- Date: 2026-11-05 | Status: accepted
+- Context: Early drafts intermittently used "workplace" vs "workspace". The product standard is strictly **Workspace** across all UI strings, code interfaces, tests, documentation, and website notes.
+- Invariants:
+  1. *Naming:* All code types, UI labels, buttons, switcher menus, database columns, and docs use "Workspace" (`Workspace`, `workspaceId`, `WorkspaceMember`, `WorkspaceRole`, `WorkspaceManager`).
+  2. *Data Scoping:* Personal Space is modeled as `workspaceId: null`. Team workspaces use unique prefixed IDs (`ws_<timestamp>_<hash>`).
+  3. *Zero Cross-Tenant Leakage:* All queries, searches, counts, sync subscriptions, and clipboard captures are strictly filtered by `workspaceId`. Switching workspaces immediately purges in-flight query tokens and updates UI views.
+  4. *Join & Code Entry:* A unified "Enter a code or link" modal supports 4-digit quick codes, 6-digit workspace invites, and deep link URLs (`/join/<code>`) with rate-limiting and lockout protection.
+
+
+## #13 Typography Reset: Bundled Inter + JetBrains Mono (OFL, Zero Remote Requests)
+
+- Date: 2026-11-05 | Status: accepted
+- Context: Eliminating generic fallback fonts and "AI-slop" default styling without violating Apple SF Pro licensing or Chrome/Firefox Web Store remote code restrictions.
+- Decision:
+  1. *UI Font:* **Inter** (SIL Open Font License 1.1), bundled as local WOFF2, subsetted to Latin/Latin-Ext. Fallback stack: `system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`.
+  2. *Monospace Font:* **JetBrains Mono** (OFL / Apache 2.0), bundled as local WOFF2, with tabular numbers (`tnum`) and developer-optimized punctuation.
+  3. *Zero External Font Calls:* All `@font-face` definitions point to local extension packages (`fonts/`). No Google Fonts or CDN requests.
+  4. *Styling System:* Pure CSS variables derived from KuraCode emerald design tokens (`#00b96c`), 4px/8px baseline rhythm, restrained depth via tonal background layers (`#0c0d10`, `#14171c`, `#1c2027`), no glowing gradients, no emojis as icons, and strict 120-180ms motion with `prefers-reduced-motion` support.

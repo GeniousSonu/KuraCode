@@ -63,6 +63,23 @@ Provide these exact justifications on the website FAQ and in the Chrome/Firefox/
 ### 4 Key Value Props:
 1. **High-Density Compact Popup:** Fits 4+ code snippets at a glance without clutter. Semantic titles automatically generated from AST tokens (no more ambiguous raw code titles).
 2. **One-Click Primary Action:** Prominent 1-click copy with animated checkmark feedback. Secondary actions neatly organized in a 3-dot overflow menu with 8-second undo Trash.
-3. **4-Digit Quick Share:** Share any snippet between machines or with teammates in 2 seconds using temporary 4-digit cryptographic codes. Constant-time validation with rate-limiting.
+3. **4-Digit Quick Share & Team Workspaces:** Share any snippet in 2 seconds via temporary 4-digit codes, or collaborate in team Workspaces with strict tenant isolation and 6-digit invite codes (`KURA-xxxx`).
 4. **Smart Clipboard Hub:** Opt-in scratchpad for cross-machine snippets with on-device secret scanning that prevents accidental leakage of API keys.
+
+---
+
+## 5. Workspaces, Typography & Code Viewer Enhancements
+
+### 5.1 Workspaces & Unified Join Entry (`/join/<code>`)
+- Update the documentation and FAQ to refer strictly to **Workspaces** (not workplaces).
+- Direct join links (`https://www.genioussonu.me/extensions/kuracode/join/<code>`) automatically preview the workspace name, inviter, and role before confirming.
+- Brute-force protection locks out automated guessing after 5 failed attempts.
+
+### 5.2 Zero-Tracking Bundled Typography
+- Emphasize in the privacy FAQ that KuraCode bundles local open-licensed fonts (Inter for UI, JetBrains Mono for code).
+- **Zero requests to Google Fonts or third-party CDNs.** Complete offline privacy and compliance with GDPR/German font ruling standards.
+
+### 5.3 Responsive Code Viewer & Copy Fidelity
+- Code previews support user-toggleable Word Wrap (`white-space: pre-wrap`) and optional non-selectable line numbers.
+- Copying always produces byte-exact code matching the original text without line number contamination.
 

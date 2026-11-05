@@ -93,7 +93,28 @@ KuraCode's visual identity derives directly from its geometric mark:
 
 ## 3. Typography & Spacing Scales
 
-### 3.1 Type Scale
+### 3.1 Bundled Offline Typography & Decision Matrix
+To eliminate generic default fonts (Arial/Helvetica/Times/Segoe) and comply with privacy regulations (zero remote Google Fonts calls) while respecting Apple SF Pro licensing:
+- **UI Font:** **Inter** (OFL 1.1, bundled as subsetted WOFF2 in `fonts/inter-*.woff2`).
+- **Code Font:** **JetBrains Mono** (OFL / Apache 2.0, bundled as subsetted WOFF2 in `fonts/jetbrains-mono-*.woff2`).
+- **Font Stack:**
+  - `font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;`
+  - `font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;`
+- **Typographic Tuning:**
+  - `font-feature-settings: "tnum" 1, "cv05" 1;` (tabular numbers for dates, counts, line numbers).
+  - UI Line Height: 1.45–1.5; Code Line Height: 1.5–1.6.
+  - Optical sizes, zero faux bold or faux italic.
+  - Runtime verification: `document.fonts.check` passes in automated Playwright tests with 0 external requests.
+  - Evidence screenshots saved in `docs/agent/evidence/design/fonts/`.
+
+### 3.2 Anti AI-Slop Design Audit & Invariants
+- **No Emojis as Icons:** All UI icons are hand-crafted SVG elements matching KuraCode's 1.5px stroke geometry.
+- **No Gradient Blobs or Neon Glows:** Restrained tonal background hierarchy (`#0c0d10` base, `#14171c` surface, `#1a1e24` elevated).
+- **No Exaggerated Pill Stacking:** Consistent 4px / 8px / 12px radius scale.
+- **Microcopy:** Sentence case, concise, human, and actionable (e.g. "Enter Invite Code or Link", "Copied to clipboard").
+- **Motion:** Strictly 120–180ms functional transitions respecting `@media (prefers-reduced-motion: reduce)`.
+
+### 3.3 Type Scale
 - **UI Font Family:** `Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`
 - **Code Font Family:** `"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace`
 - **Scale:**

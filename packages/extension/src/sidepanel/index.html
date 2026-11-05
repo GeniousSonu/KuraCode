@@ -2,14 +2,48 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>KuraCode — Snippets</title>
+    <title>KuraCode Side Panel</title>
     <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/inter-regular.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('fonts/inter-medium.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('fonts/inter-semibold.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/jetbrains-mono-regular.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('fonts/jetbrains-mono-medium.woff2') format('woff2');
+      }
+
       :root {
         --brand-primary: #00b96c;
         --brand-light: #08e88a;
-        --brand-glow: rgba(0, 185, 108, 0.2);
-        --accent-action: #e6b55c;
-        --accent-action-hover: #f0c273;
+        --accent-mint: #00b96c;
         --bg-app: #0c0d10;
         --bg-surface: #14171c;
         --bg-surface-elevated: #1a1e24;
@@ -22,11 +56,11 @@
         --text-muted: #64748b;
         --color-success: #00b96c;
         --color-danger: #ef4444;
-        --radius-sm: 6px;
+        --radius-sm: 4px;
         --radius-md: 8px;
         --radius-lg: 12px;
-        --font-ui: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        --font-code: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        --font-ui: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-code: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       }
       * {
         box-sizing: border-box;
@@ -34,47 +68,19 @@
       html, body {
         margin: 0;
         padding: 0;
-        height: 100%;
         background: var(--bg-app);
         color: var(--text-primary);
-        font: 400 13px/1.4 var(--font-ui);
+        font: 400 13px/1.45 var(--font-ui);
+        font-feature-settings: "tnum" 1, "cv05" 1;
         -webkit-font-smoothing: antialiased;
+        width: 100%;
+        height: 100%;
       }
       #app, .kura-app {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        height: 100%;
         position: relative;
-      }
-
-      /* Update Banner */
-      .kura-update-banner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 4px 12px;
-        background: rgba(0, 185, 108, 0.12);
-        border-bottom: 1px solid rgba(0, 185, 108, 0.25);
-        font-size: 11px;
-        color: var(--accent-mint);
-        flex-shrink: 0;
-      }
-      .kura-update-banner a {
-        color: var(--accent-mint);
-        text-decoration: underline;
-        font-weight: 500;
-      }
-      .kura-update-dismiss {
-        background: transparent;
-        border: none;
-        color: var(--text-muted);
-        cursor: pointer;
-        padding: 0 4px;
-        font-size: 12px;
-        line-height: 1;
-      }
-      .kura-update-dismiss:hover {
-        color: var(--text-primary);
       }
 
       /* 1. Header (48px Fixed) */
@@ -83,10 +89,11 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 16px;
+        padding: 0 12px;
         background: var(--bg-surface);
         border-bottom: 1px solid var(--border-subtle);
         flex-shrink: 0;
+        position: relative;
       }
       .kura-brand {
         display: flex;
@@ -94,346 +101,369 @@
         gap: 8px;
       }
       .kura-logo-icon {
-        width: 18px;
-        height: 18px;
+        width: 22px;
+        height: 22px;
         flex-shrink: 0;
       }
       .kura-brand-name {
-        font-weight: 600;
         font-size: 14px;
-        letter-spacing: -0.015em;
+        font-weight: 600;
+        letter-spacing: -0.01em;
         color: var(--text-primary);
       }
       .kura-header-controls {
         display: flex;
         align-items: center;
         gap: 6px;
+        position: relative;
       }
+
+      /* Sync Badge */
       .kura-sync-badge {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 4px;
-        font-size: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-        color: var(--text-muted);
-        padding: 2px 6px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.04);
+        gap: 5px;
+        padding: 2px 7px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 500;
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-secondary);
       }
       .kura-sync-dot {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: var(--color-success);
+        background: var(--text-muted);
       }
+      .kura-sync-badge.synced .kura-sync-dot {
+        background: var(--brand-primary);
+      }
+
+      /* Header Buttons */
       .kura-header-btn {
         background: transparent;
-        border: 1px solid var(--border-subtle);
+        border: 1px solid transparent;
         color: var(--text-secondary);
         border-radius: var(--radius-sm);
         padding: 4px 8px;
-        font-size: 11px;
+        font: 500 12px var(--font-ui);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        transition: border-color 0.15s, color 0.15s;
+        gap: 4px;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
       }
       .kura-header-btn:hover {
-        border-color: var(--border-default);
+        background: var(--bg-surface-elevated);
         color: var(--text-primary);
+        border-color: var(--border-subtle);
       }
-      .kura-icon-btn {
-        width: 26px;
-        height: 26px;
-        padding: 0;
-        justify-content: center;
-        font-size: 13px;
+      .kura-header-btn.kura-icon-btn {
+        padding: 5px;
+      }
+      .kura-header-btn.kura-icon-btn svg {
+        display: block;
       }
 
-      /* 2. Search Bar (36px Fixed) */
-      .kura-search-wrap {
-        padding: 8px 16px;
-        background: var(--bg-surface);
-        position: relative;
+      /* Workspace Dropdown */
+      .kura-ws-dropdown {
+        position: absolute;
+        top: 42px;
+        right: 40px;
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-md);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        padding: 4px;
+        min-width: 180px;
+        z-index: 50;
+      }
+      .kura-ws-dropdown.hidden {
+        display: none;
+      }
+      .kura-ws-item {
+        width: 100%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        padding: 6px 10px;
+        background: transparent;
+        border: none;
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        font: 400 12px var(--font-ui);
+        cursor: pointer;
+        text-align: left;
+      }
+      .kura-ws-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .kura-ws-item.active {
+        font-weight: 600;
+        color: var(--brand-primary);
+      }
+      .kura-ws-item.action {
+        color: var(--text-secondary);
+        font-size: 11.5px;
+      }
+
+      /* 2. Search (Fixed 36px) */
+      .kura-search-wrap {
+        height: 36px;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        background: var(--bg-surface);
+        border-bottom: 1px solid var(--border-subtle);
+        gap: 8px;
         flex-shrink: 0;
       }
       .kura-search-icon {
-        position: absolute;
-        left: 24px;
-        font-size: 12px;
         color: var(--text-muted);
-        pointer-events: none;
+        display: flex;
+        align-items: center;
       }
       .kura-search-input {
-        width: 100%;
-        height: 34px;
-        background: var(--bg-app);
-        border: 1px solid var(--border-subtle);
-        border-radius: var(--radius-md);
-        padding: 0 10px 0 28px;
-        color: var(--text-primary);
-        font: 400 12.5px var(--font-ui);
+        flex: 1;
+        background: transparent;
+        border: none;
         outline: none;
-        transition: border-color 0.15s, box-shadow 0.15s;
-      }
-      .kura-search-input:focus {
-        border-color: var(--border-focus);
-        box-shadow: 0 0 0 2px var(--brand-glow);
+        color: var(--text-primary);
+        font: 400 12px var(--font-ui);
       }
       .kura-search-input::placeholder {
         color: var(--text-muted);
       }
 
-      /* 3. Compact Toolbar */
+      /* 3. Toolbar (Fixed 32px) */
       .kura-toolbar {
+        height: 32px;
         display: flex;
         align-items: center;
-        gap: 6px;
-        padding: 6px 16px 8px;
+        padding: 0 10px;
         background: var(--bg-surface);
         border-bottom: 1px solid var(--border-subtle);
+        gap: 6px;
         flex-shrink: 0;
       }
       .kura-scope-count {
         font-size: 11px;
+        font-weight: 500;
         color: var(--text-muted);
-        white-space: nowrap;
-      }
-      .kura-dropdown-wrap {
-        flex: 1;
-        min-width: 0;
+        margin-right: auto;
       }
       .kura-select {
-        width: 100%;
-        height: 26px;
-        background: var(--bg-app);
+        background: var(--bg-surface-elevated);
         border: 1px solid var(--border-subtle);
-        border-radius: var(--radius-sm);
         color: var(--text-secondary);
         font: 400 11px var(--font-ui);
-        padding: 0 6px;
-        outline: none;
-        cursor: pointer;
-      }
-      .kura-sort-select {
-        width: 110px;
-      }
-      .kura-save-clip-btn {
-        background: transparent;
-        border: 1px solid var(--brand-primary);
-        color: var(--brand-light);
+        padding: 2px 6px;
         border-radius: var(--radius-sm);
-        padding: 0 8px;
-        height: 26px;
+        outline: none;
+      }
+      .ghost-btn {
+        background: transparent;
+        border: 1px solid var(--border-subtle);
+        color: var(--text-secondary);
+        border-radius: var(--radius-sm);
+        padding: 2px 6px;
         font: 500 11px var(--font-ui);
         cursor: pointer;
-        white-space: nowrap;
-        transition: background 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
       }
-      .kura-save-clip-btn:hover {
-        background: var(--brand-glow);
+      .ghost-btn:hover {
+        background: var(--bg-surface-elevated);
+        color: var(--text-primary);
+      }
+      .ghost-btn.active {
+        background: rgba(0, 185, 108, 0.12);
+        border-color: var(--brand-primary);
+        color: var(--brand-primary);
       }
 
-      /* 4. Scrollable Timeline List */
+      /* 4. Timeline List */
       .kura-list {
         flex: 1;
         overflow-y: auto;
-        padding: 8px 16px 16px;
+        padding: 8px 10px 24px;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 8px;
       }
       .kura-timeline-header {
         font-size: 10px;
         font-weight: 600;
         letter-spacing: 0.05em;
         color: var(--text-muted);
-        margin: 6px 0 2px;
-        position: sticky;
-        top: 0;
-        background: var(--bg-app);
-        padding: 2px 0;
-        z-index: 2;
+        padding: 6px 2px 2px;
       }
 
-      /* Compact Snippet Card (Target height: <= 125px) */
+      /* Snippet Card */
       .kura-card {
         background: var(--bg-surface);
         border: 1px solid var(--border-subtle);
         border-radius: var(--radius-md);
-        padding: 6px 9px;
+        padding: 8px 10px;
         display: flex;
         flex-direction: column;
-        gap: 3px;
+        gap: 4px;
         position: relative;
         transition: border-color 0.15s, background 0.15s;
-        outline: none;
       }
-      .kura-card:hover, .kura-card:focus-visible {
+      .kura-card:hover {
         border-color: var(--border-default);
-        background: var(--bg-surface-elevated);
       }
-      .kura-card:focus-visible {
-        box-shadow: 0 0 0 1px var(--border-focus);
+      .kura-card.pinned {
+        border-left: 3px solid var(--brand-primary);
       }
-
-      /* Row 1: Identity */
       .kura-card-identity {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 6px;
       }
       .kura-card-title {
-        margin: 0;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 600;
         color: var(--text-primary);
-        flex: 1;
-        min-width: 0;
+        margin: 0;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        flex: 1;
       }
       .kura-lang-pill {
-        font-size: 9.5px;
+        font-size: 10px;
         font-weight: 500;
-        color: var(--brand-light);
-        background: rgba(0, 185, 108, 0.12);
-        border: 1px solid rgba(0, 185, 108, 0.25);
-        border-radius: var(--radius-sm);
-        padding: 0 4px;
-        white-space: nowrap;
+        padding: 1px 6px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-secondary);
         text-transform: lowercase;
       }
-      .kura-card-menu-btn {
+      .kura-card-pin-btn, .kura-card-menu-btn {
         background: transparent;
         border: none;
         color: var(--text-muted);
-        font-size: 13px;
-        padding: 1px 4px;
-        border-radius: var(--radius-sm);
         cursor: pointer;
-        line-height: 1;
+        padding: 2px 4px;
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
       }
-      .kura-card-menu-btn:hover {
+      .kura-card-pin-btn:hover, .kura-card-menu-btn:hover {
         color: var(--text-primary);
-        background: rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.06);
       }
-
-      /* Dropdown Menu */
+      .kura-card-pin-btn.active {
+        color: var(--brand-primary);
+      }
       .kura-card-menu-dropdown {
         position: absolute;
-        top: 24px;
-        right: 6px;
-        background: #181c22;
+        top: 28px;
+        right: 8px;
+        background: var(--bg-surface-elevated);
         border: 1px solid var(--border-default);
-        border-radius: var(--radius-md);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        border-radius: var(--radius-sm);
         padding: 4px;
-        z-index: 10;
-        display: flex;
-        flex-direction: column;
+        z-index: 30;
         min-width: 140px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
       }
       .kura-card-menu-dropdown.hidden {
         display: none;
       }
       .kura-menu-item {
+        width: 100%;
+        padding: 5px 8px;
         background: transparent;
         border: none;
-        color: var(--text-secondary);
-        font: 400 11px var(--font-ui);
-        padding: 5px 7px;
+        border-radius: 3px;
+        color: var(--text-primary);
+        font: 400 11.5px var(--font-ui);
         text-align: left;
-        border-radius: var(--radius-sm);
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 6px;
       }
       .kura-menu-item:hover {
-        background: rgba(255, 255, 255, 0.06);
-        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.08);
       }
       .kura-menu-item.danger {
         color: var(--color-danger);
       }
-      .kura-menu-item.danger:hover {
-        background: rgba(239, 68, 68, 0.12);
-      }
       .kura-menu-divider {
         height: 1px;
         background: var(--border-subtle);
-        margin: 3px 0;
+        margin: 4px 0;
       }
 
-      /* Row 2: Context */
+      /* Context row */
       .kura-card-context {
         display: flex;
         align-items: center;
         gap: 5px;
-        font-size: 10.5px;
+        font-size: 11px;
         color: var(--text-muted);
-        line-height: 1;
       }
-      .kura-domain-link {
-        color: var(--text-muted);
+      .kura-source-link {
+        color: var(--text-secondary);
         text-decoration: none;
-        max-width: 170px;
+        max-width: 140px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        transition: color 0.15s;
       }
-      .kura-domain-link:hover {
-        color: var(--text-secondary);
+      .kura-source-link:hover {
         text-decoration: underline;
       }
-      .kura-time-relative {
-        white-space: nowrap;
-      }
 
-      /* Row 3: Code Preview (Max 3 lines, <= 36px) */
+      /* Code Preview */
       .kura-card-code {
-        margin: 1px 0 2px;
-        padding: 4px 6px;
+        margin: 4px 0 6px;
+        padding: 6px 8px;
         background: var(--bg-code);
         border: 1px solid var(--border-subtle);
         border-radius: var(--radius-sm);
-        font: 400 11px/1.32 var(--font-code);
-        color: var(--text-primary);
-        white-space: pre;
-        overflow-x: auto;
+        font: 400 11.5px/1.5 var(--font-code);
+        color: #e2e8f0;
+        tab-size: 2;
+        max-height: 72px;
         overflow-y: hidden;
-        max-height: 38px;
+        overflow-x: auto;
+        position: relative;
+        transition: max-height 0.15s ease;
+      }
+      .kura-card-code.wrap {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .kura-card-code.no-wrap {
+        white-space: pre;
       }
       .kura-card-code.expanded {
-        max-height: 300px;
+        max-height: 400px;
         overflow-y: auto;
       }
 
-      /* Row 4: Primary Copy Button & Actions */
+      /* Card Bottom */
       .kura-card-bottom {
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
       .kura-primary-copy-btn {
-        height: 24px;
         background: rgba(255, 255, 255, 0.06);
         border: 1px solid var(--border-subtle);
         color: var(--text-primary);
         border-radius: var(--radius-sm);
-        padding: 0 8px;
+        padding: 4px 10px;
         font: 500 11px var(--font-ui);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 4px;
-        transition: background 0.15s, border-color 0.15s, color 0.15s;
+        gap: 5px;
+        transition: background 0.15s, border-color 0.15s;
       }
       .kura-primary-copy-btn:hover {
         background: rgba(255, 255, 255, 0.12);
@@ -448,7 +478,7 @@
         background: transparent;
         border: none;
         color: var(--text-muted);
-        font: 400 10px var(--font-ui);
+        font: 400 11px var(--font-ui);
         cursor: pointer;
         padding: 2px 4px;
       }
@@ -456,46 +486,202 @@
         color: var(--text-secondary);
       }
 
+      /* Modals */
+      .kura-modal-backdrop {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(2px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+        padding: 16px;
+      }
+      .kura-modal {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-lg);
+        width: 100%;
+        max-width: 380px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .kura-modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+      .kura-modal-header h3 {
+        margin: 0;
+        font-size: 13.5px;
+        font-weight: 600;
+      }
+      .kura-modal-close {
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .kura-modal-body {
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .kura-input-row {
+        display: flex;
+        gap: 6px;
+      }
+      .kura-join-input, .kura-input {
+        flex: 1;
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-sm);
+        padding: 6px 10px;
+        color: var(--text-primary);
+        font: 400 12px var(--font-ui);
+        outline: none;
+      }
+      .kura-join-input:focus, .kura-input:focus {
+        border-color: var(--border-focus);
+      }
+      .kura-preview-card {
+        background: var(--bg-surface-elevated);
+        border: 1px solid rgba(0, 185, 108, 0.3);
+        border-radius: var(--radius-sm);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .kura-preview-badge {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--brand-primary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .kura-preview-title {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .kura-preview-sub {
+        font-size: 11px;
+        color: var(--text-secondary);
+      }
+      .kura-code-error {
+        font-size: 11.5px;
+        color: var(--color-danger);
+      }
+      .kura-btn {
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--border-default);
+        color: var(--text-primary);
+        font: 500 12px var(--font-ui);
+        padding: 6px 12px;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+      }
+      .kura-btn-primary {
+        background: var(--brand-primary);
+        border-color: var(--brand-primary);
+        color: #fff;
+      }
+      .kura-btn-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* Skeleton Cards */
+      .kura-skeleton-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .kura-skeleton-line {
+        height: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        animation: pulse 1.2s infinite ease-in-out;
+      }
+      .kura-skeleton-line.short {
+        width: 45%;
+      }
+      .kura-skeleton-box {
+        height: 48px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 4px;
+        animation: pulse 1.2s infinite ease-in-out;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.8; }
+      }
+
       /* Empty State */
       .kura-empty-state {
-        flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 32px 16px;
-        gap: 6px;
+        padding: 36px 16px;
+        gap: 8px;
       }
       .kura-empty-icon {
-        font-size: 32px;
         color: var(--text-muted);
-        opacity: 0.25;
-        margin-bottom: 4px;
+        opacity: 0.4;
       }
       .kura-empty-title {
         margin: 0;
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 600;
-        color: var(--text-primary);
       }
       .kura-empty-sub {
         margin: 0;
-        font-size: 12px;
+        font-size: 11.5px;
         color: var(--text-muted);
-        max-width: 250px;
         line-height: 1.45;
       }
 
-      /* Toast Notification */
+      /* Cheat sheet */
+      .kura-cheat-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-bottom: 1px solid var(--border-subtle);
+        font-size: 11.5px;
+      }
+      .kura-cheat-row kbd {
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--border-default);
+        border-radius: 3px;
+        padding: 2px 5px;
+        font-family: var(--font-code);
+        font-size: 11px;
+      }
+
+      /* Toast */
       .kura-toast {
         position: absolute;
-        bottom: 16px;
+        bottom: 12px;
         left: 50%;
         transform: translateX(-50%);
-        background: #1b2026;
+        background: var(--bg-surface-elevated);
         border: 1px solid var(--border-default);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
         border-radius: var(--radius-md);
         padding: 6px 12px;
         font-size: 12px;
@@ -503,10 +689,8 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        z-index: 20;
-        pointer-events: auto;
+        z-index: 40;
         white-space: nowrap;
-        animation: toast-in 0.2s ease-out;
       }
       .kura-toast.hidden {
         display: none;
@@ -514,36 +698,19 @@
       .kura-toast.success {
         border-color: var(--brand-primary);
       }
-      .kura-toast.danger {
-        border-color: var(--color-danger);
-      }
       .kura-toast-undo {
         background: transparent;
-        border: 1px solid var(--accent-action);
-        color: var(--accent-action);
-        border-radius: 4px;
+        border: 1px solid var(--brand-primary);
+        color: var(--brand-primary);
+        border-radius: 3px;
         padding: 2px 6px;
         font-size: 10.5px;
-        font-weight: 600;
         cursor: pointer;
-      }
-      @keyframes toast-in {
-        from { opacity: 0; transform: translate(-50%, 8px); }
-        to { opacity: 1; transform: translate(-50%, 0); }
-      }
-
-      /* Scrollbar */
-      .kura-list::-webkit-scrollbar {
-        width: 6px;
-      }
-      .kura-list::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
       }
     </style>
   </head>
   <body>
     <div id="app"></div>
-    <script src="./sidepanel.js"></script>
+    <script src="sidepanel.js"></script>
   </body>
 </html>

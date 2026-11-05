@@ -1,10 +1,18 @@
-# KuraCode State (updated: 2026-11-05 — Release Pipeline & Zero Stale Artifacts)
+# KuraCode State (updated: 2026-11-05 — Live Bugs Fixed, Typography Reset, Workspaces & Join Flow)
 
 ## Snapshot
-- Milestone: Automated "Change -> Verify -> Push -> Release" Pipeline | Status: ~85%
-- Last green verification: `pnpm verify` & `pnpm ship` (lint 0 errors, types PASS, unit/migration 56/56 PASS, dual build PASS, brand PASS, web-ext lint 0 errors, e2e 9/9 PASS, allow-list PASS) → **All gates green ✔**
+- Milestone: Live Bug Fixes (BUG-1..3), Typography Reset, Workspaces & Join Flow | Status: 100% COMPLETE & VERIFIED
+- Last green verification: `pnpm verify:fast`, `pnpm test` (65/65 unit PASS), Playwright E2E (19/19 PASS), `pnpm verify` & `pnpm ship` → **All gates green ✔**
 - Features registry: 57 verified/hardened of 78 tracked (`pnpm features:report`)
 - Package manager: **pnpm 12.16.1** | Node: v22+
+
+## Recent Accomplishments
+1. **BUG-1 Fixed:** Options page registered in manifests, built to `.output/*/options.html`, wired to `chrome.runtime.openOptionsPage()`, interactive audit clean across popup, sidepanel, options.
+2. **BUG-2 Fixed:** DOM text extraction converts block boundaries to `\n`; `stripLineNumbers` preserves relative indentation; CSS `.kura-card-code` updated with `white-space: pre-wrap; overflow-wrap: anywhere;` and surface-persisted Word Wrap toggle.
+3. **BUG-3 Fixed:** Snippets partitioned by `workspaceId`; `WorkspaceManager` with active workspace persistence, skeleton loading, and query token invalidation to eliminate race conditions.
+4. **Typography Reset:** Locally bundled Inter & JetBrains Mono WOFF2 fonts; 0 Google Fonts or external CDN requests (offline-first & store compliant).
+5. **Unified Join Flow & Walkthrough:** One modal for 4-digit codes, 6-digit invites (`KURA-9281`), and URLs with rate-limiting lockout; 2-user collaboration walkthrough passing in Playwright.
+6. **Infrastructure & Reconciliation:** Documented $0/mo free-tier stack in `docs/INFRASTRUCTURE.md`; audited 46 capabilities in `docs/agent/RECONCILIATION.md`; standardized strictly to "Workspace".
 
 ## Pipeline & Anti-Stale Guarantees
 - Single Command Ship: `pnpm ship "<msg>"` cleans outputs, verifies supply chain, tests, packages, audits allow-list, commits, and pushes.

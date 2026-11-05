@@ -62,7 +62,7 @@ async function save(name: string, buf: Buffer) {
   const file = path.join(OUT, name);
   await fs.promises.mkdir(path.dirname(file), { recursive: true });
   await fs.promises.writeFile(file, buf);
-  console.log(`  ✓ ${name} (${buf.length} B)`);
+  console.info(`  ✓ ${name} (${buf.length} B)`);
 }
 
 /** Minimal ICO packer (Vista+ PNG-compressed entries). */
@@ -92,7 +92,7 @@ function packIco(entries: { data: Buffer; size: number }[]): Buffer {
 
 async function build() {
   await fs.promises.rm(OUT, { recursive: true, force: true });
-  console.log("KuraCode brand generation → brand/generated/");
+  console.info("KuraCode brand generation → brand/generated/");
 
   // ---- Extension manifest + action toolbar icons (square, transparent) ----
   for (const size of [16, 32, 48, 96, 128]) {
@@ -174,7 +174,7 @@ async function build() {
   await save("docs/logo-light.svg", tightMaster);
   await save("docs/logo-dark.svg", tightMaster);
 
-  console.log("done.");
+  console.info("done.");
 }
 
 build().catch((err) => {

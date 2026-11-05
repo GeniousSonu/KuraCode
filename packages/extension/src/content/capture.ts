@@ -5,8 +5,8 @@
  * on detected code blocks, and listens for the hotkey / context-menu capture
  * request forwarded by the background service worker.
  */
-import { cleanCode, detectLanguage, nearestHeading } from "../shared/cleaner";
-import { makeSnippet, saveSnippet } from "../shared/storage";
+import { cleanCode, detectLanguage, extractCodeText, nearestHeading } from "../shared/cleaner";
+import { getActiveWorkspace, makeSnippet, saveSnippet } from "../shared/storage";
 import {
   MSG_CAPTURE_SELECTION,
   type CaptureSelectionMessage,
@@ -63,6 +63,7 @@ async function persistSnippet(
   context: SnippetContext,
 ): Promise<void> {
   const cleaned = cleanCode(raw);
+  const activeWorkspace = await getActiveWorkspace();
   await saveSnippet(
     makeSnippet({
       title: autoTitle(cleaned),
@@ -70,6 +71,7 @@ async function persistSnippet(
       raw,
       language,
       context,
+      workspaceId: activeWorkspace,
     }),
   );
 }
@@ -110,7 +112,7 @@ async function captureElement(
   btn: HTMLButtonElement,
 ): Promise<void> {
   const codeEl = pre.querySelector("code");
-  const raw = (codeEl ?? pre).innerText ?? pre.textContent ?? "";
+  const raw = extractCodeText(codeEl ?? pre);
   if (!raw.trim()) return;
   const language = detectLanguage(codeEl ?? pre, raw);
   const context = buildContext(pre);

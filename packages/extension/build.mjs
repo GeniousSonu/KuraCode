@@ -34,6 +34,7 @@ const entries = {
   content: path.join(src, "content", "capture.ts"),
   popup: path.join(src, "popup", "main.ts"),
   sidepanel: path.join(src, "sidepanel", "main.ts"),
+  options: path.join(src, "options", "main.ts"),
 };
 
 const options = {
@@ -59,6 +60,10 @@ async function copyStatic() {
     recursive: true,
     force: true,
   });
+  await cp(path.join(root, "fonts"), path.join(out, "fonts"), {
+    recursive: true,
+    force: true,
+  });
   const manifestSrc =
     target === "firefox"
       ? path.join(root, "manifest.firefox.json")
@@ -72,6 +77,11 @@ async function copyStatic() {
   await cp(
     path.join(src, "sidepanel", "index.html"),
     path.join(out, "sidepanel.html"),
+    { force: true },
+  );
+  await cp(
+    path.join(src, "options", "index.html"),
+    path.join(out, "options.html"),
     { force: true },
   );
 }

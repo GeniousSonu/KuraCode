@@ -31,6 +31,14 @@
 - `docs/agent/NEEDS_HUMAN.md`: Click-by-click instructions for branch protection, auto-merge, environments, and freeze variable.
 - `README.md`: Added CI quality gate badge, release badge, license badge, and direct download links to the latest release assets.
 
+### 5. Live Bug Fixes (BUG-1, BUG-2, BUG-3) & UI Reset
+- **BUG-1 (Settings button does nothing):** Added `options_ui: { page: "options.html", open_in_tab: true }` to manifests, built dedicated `src/options/` page, wired in-popup settings dialog fallback, attached click/keyboard (`Enter`/`Space`) and shortcut (`Alt+S` / `Cmd+,`) listeners to `chrome.runtime.openOptionsPage()`. Audited all controls in popup, sidepanel, and options with 0 errors (`e2e/interactive-controls.spec.ts`).
+- **BUG-2 (Copied snippet shows on one line only):** Rewrote DOM extraction (`extractCodeText`) to preserve newlines at `<br>`, `<div>`, `<p>`, `<tr>` boundaries; upgraded `stripLineNumbers` to calculate baseline gutter padding and preserve relative code indentation (resolving T-026); updated CSS `.kura-card-code` to `white-space: pre-wrap; overflow-wrap: anywhere;` with expandable height; added surface-persisted Word Wrap toggle (`.kura-wrap-toggle`); verified 100% round-trip fidelity in unit tests (`test/round-trip-fidelity.test.ts`) and Playwright E2E (`e2e/bugs-regression.spec.ts`).
+- **BUG-3 (Switching workspaces does not change snippets shown):** Added `workspaceId: string | null` to Snippet schema; partitioned `listSnippets(workspaceId)`; rebuilt `WorkspaceManager` with active workspace persistence, skeleton loading states, and async query token cancellation to prevent race conditions during rapid switching. Verified in `test/workspace-isolation.test.ts` and `e2e/bugs-regression.spec.ts`.
+- **Typography & Visual Reset:** Installed `@fontsource/inter` and `@fontsource/jetbrains-mono`, bundled optimized WOFF2 font files locally in `packages/extension/fonts/` and `packages/web/public/fonts/`; strictly 0 Google Fonts or external CDN requests; verified via `e2e/typography.spec.ts` with font screenshots in `docs/agent/evidence/design/fonts/`.
+- **Unified Join Flow & Multi-User Collaboration:** Implemented unified "Enter a code or link" modal accepting 4-digit quick codes, 6-digit workspace invites (`KURA-9281`), and join URLs with rate-limiting brute-force lockout (5 attempts). Verified complete User A $\rightarrow$ Invite $\rightarrow$ User B $\rightarrow$ Sync $\rightarrow$ Settings walkthrough in `e2e/two-user-walkthrough.spec.ts` with 3 screenshots in `docs/agent/evidence/walkthrough/`.
+- **Infrastructure & Reconciliation:** Documented complete $0/mo free-tier production stack in `docs/INFRASTRUCTURE.md` (Cloudflare Pages/Workers/Turnstile, Supabase Postgres 16/Auth/Realtime, Upstash Redis, Resend); audited 46 capabilities in `docs/agent/RECONCILIATION.md`; standardized all UI and docs strictly to "Workspace".
+
 ## Verification Evidence Saved
 - `docs/agent/evidence/release/version-integrity.log`
 - `docs/agent/evidence/release/stale-artifact-rejection.log`
@@ -38,6 +46,12 @@
 - `docs/agent/evidence/release/upgrade-test.log`
 - `docs/agent/evidence/release/post-release-smoke.log`
 - `docs/agent/evidence/release/publish-dry-run.log`
+- `docs/agent/evidence/design/fonts/popup-fonts.png`
+- `docs/agent/evidence/design/fonts/sidepanel-fonts.png`
+- `docs/agent/evidence/design/fonts/options-fonts.png`
+- `docs/agent/evidence/walkthrough/01-user-a-workspace-created.png`
+- `docs/agent/evidence/walkthrough/02-user-b-joined.png`
+- `docs/agent/evidence/walkthrough/03-user-b-copied-and-settings.png`
 
 ## What Is Next
 1. Owner configures GitHub repository settings (branch protection & auto-merge) per `docs/agent/NEEDS_HUMAN.md`.

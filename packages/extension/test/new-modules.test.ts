@@ -8,7 +8,7 @@ import { HybridLogicalClock } from "../src/shared/hlc";
 import { SyncEngine } from "../src/shared/sync-engine";
 import { generatePKCE, validateOAuthCallback } from "../src/shared/auth";
 import { ClipboardHubManager } from "../src/shared/clipboard-hub";
-import { canPerformAction, WorkplaceManager } from "../src/shared/workplaces";
+import { canPerformAction, WorkspaceManager } from "../src/shared/workspaces";
 import { makeSnippet } from "../src/shared/storage";
 
 describe("KuraCode Core Architecture & Domain Modules", () => {
@@ -292,7 +292,7 @@ describe("KuraCode Core Architecture & Domain Modules", () => {
     });
   });
 
-  describe("Workplaces & RBAC (WS-1..WS-3)", () => {
+  describe("Workspaces & RBAC (WS-1..WS-3)", () => {
     it("enforces strict role-based permission matrix", () => {
       expect(canPerformAction("owner", "delete")).toBe(true);
       expect(canPerformAction("owner", "transfer_ownership")).toBe(true);
@@ -307,11 +307,11 @@ describe("KuraCode Core Architecture & Domain Modules", () => {
       expect(canPerformAction("viewer", "edit")).toBe(false);
     });
 
-    it("maintains separate workplace instances", () => {
-      const mgr = new WorkplaceManager();
-      expect(mgr.getActiveWorkplaceId()).toBeNull(); // Personal space
+    it("maintains separate workspace instances", () => {
+      const mgr = new WorkspaceManager();
+      expect(mgr.getActiveWorkspaceId()).toBeNull(); // Personal space
 
-      const ws = mgr.createWorkplace("Core Engineering", {
+      const ws = mgr.createWorkspace("Core Engineering", {
         id: "usr-1",
         email: "alice@company.com",
         name: "Alice",
@@ -319,8 +319,8 @@ describe("KuraCode Core Architecture & Domain Modules", () => {
       expect(ws.name).toBe("Core Engineering");
       expect(ws.members[0].role).toBe("owner");
 
-      mgr.setActiveWorkplaceId(ws.id);
-      expect(mgr.getActiveWorkplaceId()).toBe(ws.id);
+      mgr.setActiveWorkspaceId(ws.id);
+      expect(mgr.getActiveWorkspaceId()).toBe(ws.id);
     });
   });
 });

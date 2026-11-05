@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>KuraCode Settings</title>
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/inter-regular.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('fonts/inter-medium.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url('fonts/inter-semibold.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('fonts/jetbrains-mono-regular.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'JetBrains Mono';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url('fonts/jetbrains-mono-medium.woff2') format('woff2');
+      }
+
+      :root {
+        --brand-primary: #00b96c;
+        --brand-primary-hover: #009d5b;
+        --brand-surface: rgba(0, 185, 108, 0.1);
+        --bg-app: #0c0d10;
+        --bg-surface: #14171c;
+        --bg-surface-elevated: #1c2027;
+        --bg-code: #0e1014;
+        --border-subtle: rgba(255, 255, 255, 0.08);
+        --border-default: rgba(255, 255, 255, 0.12);
+        --border-focus: #00b96c;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+        --color-success: #00b96c;
+        --color-danger: #ef4444;
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+        --font-ui: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-code: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-app);
+        color: var(--text-primary);
+        font: 400 13px/1.5 var(--font-ui);
+        font-feature-settings: "tnum" 1, "cv05" 1;
+        -webkit-font-smoothing: antialiased;
+      }
+      .kura-options-container {
+        max-width: 680px;
+        margin: 40px auto;
+        padding: 0 24px 60px;
+      }
+      .kura-options-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: 32px;
+      }
+      .kura-options-logo {
+        width: 32px;
+        height: 32px;
+      }
+      .kura-options-title {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+      .kura-options-subtitle {
+        font-size: 13px;
+        color: var(--text-secondary);
+        margin: 2px 0 0;
+      }
+      .kura-section {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        padding: 20px 24px;
+        margin-bottom: 24px;
+      }
+      .kura-section-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .kura-setting-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+      .kura-setting-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .kura-setting-row:first-of-type {
+        padding-top: 0;
+      }
+      .kura-setting-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .kura-setting-label {
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+      .kura-setting-desc {
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+      select, input[type="text"] {
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--border-default);
+        color: var(--text-primary);
+        font: 400 13px var(--font-ui);
+        padding: 6px 10px;
+        border-radius: var(--radius-sm);
+        outline: none;
+      }
+      select:focus, input[type="text"]:focus {
+        border-color: var(--border-focus);
+      }
+      .kura-btn {
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--border-default);
+        color: var(--text-primary);
+        font: 500 13px var(--font-ui);
+        padding: 6px 14px;
+        border-radius: var(--radius-sm);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .kura-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--text-secondary);
+      }
+      .kura-btn-primary {
+        background: var(--brand-primary);
+        border-color: var(--brand-primary);
+        color: #fff;
+      }
+      .kura-btn-primary:hover {
+        background: var(--brand-primary-hover);
+      }
+      .kura-btn-danger {
+        color: var(--color-danger);
+        border-color: rgba(239, 68, 68, 0.3);
+      }
+      .kura-btn-danger:hover {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: var(--color-danger);
+      }
+      /* Toggle switch */
+      .kura-switch {
+        position: relative;
+        display: inline-block;
+        width: 38px;
+        height: 22px;
+      }
+      .kura-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .kura-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: var(--bg-surface-elevated);
+        border: 1px solid var(--border-default);
+        transition: .2s;
+        border-radius: 22px;
+      }
+      .kura-slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: var(--text-secondary);
+        transition: .2s;
+        border-radius: 50%;
+      }
+      input:checked + .kura-slider {
+        background-color: var(--brand-primary);
+        border-color: var(--brand-primary);
+      }
+      input:checked + .kura-slider:before {
+        transform: translateX(16px);
+        background-color: #fff;
+      }
+      .kura-toast {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        padding: 8px 16px;
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--brand-primary);
+        color: var(--text-primary);
+        border-radius: var(--radius-md);
+        font-size: 13px;
+        font-weight: 500;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        pointer-events: none;
+      }
+      .kura-toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="kura-options-container">
+      <header class="kura-options-header">
+        <img class="kura-options-logo" src="icons/icon-48.png" alt="KuraCode Logo" />
+        <div>
+          <h1 class="kura-options-title">KuraCode Settings</h1>
+          <p class="kura-options-subtitle">Preferences, Workspaces, and Privacy</p>
+        </div>
+      </header>
+
+      <section class="kura-section">
+        <h2 class="kura-section-title">Code Viewer & Rendering</h2>
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Wrap Long Lines (Default)</span>
+            <span class="kura-setting-desc">Wrap code lines responsively to fit card width without horizontal scrolling</span>
+          </div>
+          <label class="kura-switch">
+            <input type="checkbox" id="setting-wrap" checked />
+            <span class="kura-slider"></span>
+          </label>
+        </div>
+
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Tab Size</span>
+            <span class="kura-setting-desc">Number of spaces rendered per tab stop</span>
+          </div>
+          <select id="setting-tab-size">
+            <option value="2">2 spaces</option>
+            <option value="4">4 spaces</option>
+          </select>
+        </div>
+
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Line Numbers</span>
+            <span class="kura-setting-desc">Display line numbers in viewer (never included when copying)</span>
+          </div>
+          <label class="kura-switch">
+            <input type="checkbox" id="setting-line-numbers" />
+            <span class="kura-slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="kura-section">
+        <h2 class="kura-section-title">Privacy & Security</h2>
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">On-Device Secret Scanning</span>
+            <span class="kura-setting-desc">Warn before saving snippets containing API keys, private tokens, or credentials</span>
+          </div>
+          <label class="kura-switch">
+            <input type="checkbox" id="setting-secret-scan" checked />
+            <span class="kura-slider"></span>
+          </label>
+        </div>
+
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Strip Sensitive URL Parameters</span>
+            <span class="kura-setting-desc">Omit auth tokens and tracking query parameters from source URLs</span>
+          </div>
+          <label class="kura-switch">
+            <input type="checkbox" id="setting-strip-urls" checked />
+            <span class="kura-slider"></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="kura-section">
+        <h2 class="kura-section-title">Diagnostics & Support</h2>
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Export Diagnostic Bundle</span>
+            <span class="kura-setting-desc">Generates sanitized diagnostic telemetry (0 code contents) for troubleshooting</span>
+          </div>
+          <button type="button" class="kura-btn" id="btn-export-diagnostics">Export Diagnostics</button>
+        </div>
+
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Report a Problem</span>
+            <span class="kura-setting-desc">Opens GitHub Issues with pre-filled environment details</span>
+          </div>
+          <button type="button" class="kura-btn" id="btn-report-issue">Open Issue</button>
+        </div>
+      </section>
+
+      <section class="kura-section">
+        <h2 class="kura-section-title">Data & Storage</h2>
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Export All Snippets</span>
+            <span class="kura-setting-desc">Download a complete JSON backup of your personal library</span>
+          </div>
+          <button type="button" class="kura-btn" id="btn-export-data">Backup JSON</button>
+        </div>
+
+        <div class="kura-setting-row">
+          <div class="kura-setting-info">
+            <span class="kura-setting-label">Clear All Local Data</span>
+            <span class="kura-setting-desc">Erase snippets and settings stored in this browser</span>
+          </div>
+          <button type="button" class="kura-btn kura-btn-danger" id="btn-clear-data">Clear Data</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="toast" class="kura-toast">Settings saved</div>
+    <script src="options.js"></script>
+  </body>
+</html>
+
