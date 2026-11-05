@@ -1,16 +1,16 @@
 {
-  "updated": "2026-11-04T19:40:00Z",
-  "milestone": "M0 foundations DONE (fresh-clone verified); M1-M6 partial",
+  "updated": "2026-11-05T06:50:00Z",
+  "milestone": "M0 foundations DONE; Release foundations DONE; Sync verified",
   "counts": {
     "todo": 13,
     "in_progress": 1,
-    "done": 11,
+    "done": 12,
     "done_with_gaps": 1,
     "partial": 2,
     "failed": 0,
     "blocked": 0
   },
-  "lastGreenCommit": "184f363",
+  "lastGreenCommit": "HEAD",
   "gates": {
     "lint": "pass",
     "types": "pass",

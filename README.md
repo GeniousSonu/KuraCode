@@ -133,6 +133,28 @@ pnpm typecheck
 pnpm dev:web
 ```
 
+## Working across two computers
+
+To maintain seamless progress without losing work or creating diverged branches when switching between home and work machines:
+
+1. **Start of session**:
+   ```bash
+   pnpm sync
+   ```
+   Safely fetches remotes, checks incoming/outgoing commits, autostashes uncommitted work, pulls with rebase, ensures dependencies are installed (`pnpm install --frozen-lockfile`), builds brand assets, and runs quick verification (`lint`, `typecheck`, `test`).
+
+2. **End of session**:
+   ```bash
+   pnpm finish
+   ```
+   Runs full verification (`pnpm verify`), scans for uncommitted secrets, checks git status, and pushes commits cleanly to the remote branch so work is never stranded on one machine.
+
+3. **Golden rules**:
+   - Never leave uncommitted work at the end of the day.
+   - Always push your branch before leaving.
+   - Never commit secret files (`.env`, credentials, private keys).
+   - If conflicts arise, rebase locally, preserve the intent of both machines, verify, and push.
+
 ## Reporting to the PRD
 
 Requirement IDs from the PRD are referenced in the code comments and the table

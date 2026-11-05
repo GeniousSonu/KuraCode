@@ -23,6 +23,8 @@
     "package": "pnpm build:chrome && pnpm build:firefox && node scripts/package.mjs",
     "verify": "bash scripts/verify.sh",
     "doctor": "bash scripts/doctor.sh",
+    "sync": "bash scripts/sync.sh",
+    "finish": "bash scripts/finish-session.sh",
     "prepare": "husky",
     "version:sync": "node --experimental-strip-types scripts/sync-version.ts",
     "release:check": "node --experimental-strip-types scripts/release-check.ts",

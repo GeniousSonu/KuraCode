@@ -58,3 +58,11 @@
   `browser_specific_settings.gecko.id`). Keeping `dist/` for one target hid the
   Firefox gap and broke fresh clones (`e2e/extension.ts` pointed at the old
   `dist/`).
+
+## #9 Multi-machine sync & Firefox data collection permissions reconciliation
+
+- Date: 2026-11-05 | Status: accepted
+- Context: Rebased local packaging commits on top of home commit `f42caba` (`origin/main`).
+- Conflict: `packages/extension/manifest.firefox.json` conflicted between `strict_min_version: 115.0` (home, supporting Firefox ESR) with `data_collection_permissions: { required: ["none"] }` vs `140.0` with `type: "none"`.
+- Resolution: Adopted the official Mozilla AMO schema conforming format `{ required: ["none"] }` and retained `115.0` ESR compatibility, passing `web-ext lint` with 0 errors and verifying through target manifest assertions.
+

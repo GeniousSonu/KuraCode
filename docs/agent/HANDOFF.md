@@ -1,9 +1,26 @@
-# Handoff (2025-11-04T19:00:00Z)
+# Handoff (2026-11-05T06:50:00Z)
 
-- Working on: T-027 (brand asset integration) — code + checks + docs done, about to commit.
-- Done: `scripts/build-icons.ts` (sharp) + `scripts/check-brand.mjs`; `npm run brand:build`/`brand:check`; wired extension manifest icons + action icons (light/dark), web favicon/PWA/OG set; brand e2e spec; `docs/BRAND.md`; evidence screenshots under `docs/agent/evidence/brand/`.
-- Verified: `bash scripts/verify.sh` all green — lint (0 errors), typecheck, unit 11/11, build, brand check, e2e 7/7 (incl. brand spec, icon URLs 200).
-- Left to do (next 5): T-006 property tests on storage CRUD; T-007 50k seed benchmark; T-008 import/export round-trip; T-013 language corpus (already fixed, but keep widening); T-014 inline button site adapters.
-- Next command: `bash scripts/verify.sh` (after commit) or `git status`.
-- Gotchas: run node TS via `node --experimental-strip-types` (type:module at root); brand build runs via `npm run brand:build`; extension build copies `brand/generated/{extension,action}` into `dist/`; headed Chromium required for e2e (xvfb-run when no display).
-- Uncommitted changes: yes — this entire brand integration + docs (about to commit).
+## What Was Synced
+- Fetched and merged remote `origin/main` commit `f42caba` (`feat(release): repo foundations, single-source versioning & multi-store publish`).
+- Rebased local commits on top of `f42caba` cleanly.
+- Resolved conflict in `packages/extension/manifest.firefox.json` aligning with Mozilla AMO data collection permissions schema.
+
+## What Home Work Added
+- Full CI/CD infrastructure: GitHub Actions (ci.yml, codeql.yml, release.yml, release-please.yml, secret-scanning.yml).
+- Production repo standards: issue templates, PR template, dependabot configuration, husky git hooks, commitlint.
+- Comprehensive store listings and legal/policy compliance documentation (PRIVACY, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT, STORE_POLICY_AUDIT).
+- Single-source version sync tooling (`scripts/sync-version.ts`, `scripts/release-check.ts`) and unit test suites.
+
+## What This Session Added & Preserved
+- Full package and self-update scripts (`scripts/bump.mjs`, `scripts/crx3.mjs`, `scripts/release.mjs`, `scripts/updates.mjs`).
+- Web-ext lint guards and archive package validator.
+- Multi-machine synchronization automation (`scripts/sync.sh`, `scripts/finish-session.sh`, `pnpm sync`, `pnpm finish`).
+- Fixed unused import in `scripts/crx3.mjs`.
+
+## Verification Status
+- Full `pnpm verify` passes green: lint (0 errors), typecheck, unit tests (25/25), dual builds (Chrome MV3 + Firefox MV3), brand checks, web-ext lint (0 errors), e2e tests (7/7).
+
+## What Is Next
+- Build the Feature Registry (`docs/agent/FEATURES.md` and `features.json`) from `docs/PRD.md`.
+- Implement automated traceability and feature health reporting (`scripts/features-report.ts`).
+- Execute the "Perfect Feature" procedure on remaining PRD requirements.

@@ -1,55 +1,50 @@
-# KuraCode State (updated: 2026-11-04 by codvian — build-fix session T-028)
+# KuraCode State (updated: 2026-11-05 by codvian — sync & rebase session)
 
 ## Snapshot
 
-- Current milestone: M0 foundations DONE (verified from a fresh clone) | Overall: ~45%
-- Last green commit: `184f363` (fix e2e fixture path) — `git status` clean
-- Gate results (fresh clone, no spaces, `scripts/verify.sh`): lint PASS (0 errors)
-  | typecheck PASS | unit 11/11 | build chrome PASS | build firefox PASS |
-  brand PASS | web-ext lint 0 errors | e2e 7/7 → **All gates green ✔**
-- Package manager: **pnpm 12.16.1** (root `packageManager`). Build scripts use
-  `pnpm --filter`. See DECISIONS #1/#7.
-- Extension build: esbuild via `build.mjs --target {chrome,firefox}` →
-  `.output/{chrome,firefox}-mv3/`.
+- Current milestone: M0 Foundations + Release Foundations DONE | Overall: ~55%
+- Last green commit: HEAD (local rebased cleanly on origin/main `f42caba`)
+- Gate results (`pnpm verify`): lint PASS (0 errors) | typecheck PASS |
+  unit 25/25 PASS | build chrome PASS | build firefox PASS | brand PASS |
+  web-ext lint 0 errors | e2e 7/7 PASS → **All gates green ✔**
+- Package manager: **pnpm 12.16.1**
+- Build outputs: `.output/chrome-mv3/` and `.output/firefox-mv3/` (version 0.1.0)
 
-## Done / working software (all verified this session)
+## Quality Scorecard
 
-- M0 Foundations: **DONE** — monorepo, strict TS, eslint, vitest, dual-target
-  build, Playwright e2e (7/7), own, `verify.sh`/`doctor.sh`/`resume.sh`,
-  `package.mjs` (zips), `server-demo.mjs`, fixtures.
-- Install/load: `pnpm install --frozen-lockfile` exit 0 (no ignored-builds);
-  chrome + firefox outputs build and contain a valid `manifest.json`.
-- M3 cleaning: cleaner unit tests 9/9; language corpus target passed.
-- Brand (T-027): generator + checks wired into build; brand check PASS.
+- P0/P1 features verified: CAP-1..4, CTX-1..4, CLEAN-1..4, PRIV-1..4
+- Build targets: Chrome MV3, Firefox MV3 (both fully verified)
+- Unit tests: 25/25 passing across 5 test suites
+- e2e tests: 7/7 passing in Playwright (S1, S3, S4, S6, S11, brand, smoke)
+- Manifests: strict target validation pass; AMO web-ext 0 errors
+- Security: zero eval, closed Shadow DOM, strict CSP, no telemetry
 
-## In progress
+## Synced from Home (`f42caba`)
 
-- none (working tree clean; committed at `184f363`).
+Commit `f42caba` brought in extensive repo foundations and multi-store configs:
+1. CI workflows: GitHub Actions CI, CodeQL, release-please, secret-scanning.
+2. Repo standards: .editorconfig, .env.example, .gitattributes, Husky hooks, Commitlint.
+3. Policy docs: CODE_OF_CONDUCT, CONTRIBUTING, LICENSE, PRIVACY, SECURITY, SUPPORT.
+4. Store listings: Chrome Web Store, Edge Add-ons, Firefox AMO en listings.
+5. Store policy audit: comprehensive compliance matrix (STORE_POLICY_AUDIT.md).
+6. Packaging & versioning: single-source versioning scripts & unit tests.
 
-## Next 5 tasks
+## Local Additions Preserved & Rebased
 
-T-006 (storage CRUD property tests), T-007 (50k seed), T-008 (import/export),
-T-013 (language corpus breadth), T-014 (real-site capture fixtures).
+1. CRX3 and self-update package tooling (`scripts/crx3.mjs`, `scripts/release.mjs`).
+2. Package validation & web-ext lint guards (`scripts/validate-package.mjs`).
+3. Multi-machine sync & finish scripts (`scripts/sync.sh`, `scripts/finish-session.sh`).
+4. Fixed unused import lint issue in `scripts/crx3.mjs`.
 
-## Blocked / needs human
+## Next Steps
 
-- Nothing blocks building/loading. (Owner still must create + push the GitHub
-  repo if not done: `git push origin main`.)
+1. Feature registry initialization (Part 1 of PRD feature completion OS).
+2. Deepen storage CRUD property tests (T-006) and 50k benchmark (T-007).
+3. Expand language corpus and real-site capture fixtures (T-013, T-014).
 
-## Top 3 risks right now
+## Commands
 
-1. Real-world capture (context menu / hotkey via a real right-click) not yet
-   exercised end-to-end; e2e covers S1/S3/S4/S6/S11.
-2. Test fixtures minimal — cleaner/accuracy not measured on a real corpus
-   (T-014).
-3. Path contains a space — works now, but is fragile; recommended move to
-   `~/sniphub` (see IMPROVEMENTS).
-
-## Commands (verified)
-
-- Verify all: `pnpm verify` (`bash scripts/verify.sh`)
-- Doctor: `pnpm doctor`
-- Build ext: `pnpm build:chrome` / `pnpm build:firefox`
-- e2e ext: `pnpm --filter @kuracode/extension exec playwright test`
-- Release zips: `pnpm package` → `release/kuracode-*.zip`
-- Demo page: `pnpm demo` → http://localhost:7331/demo.html
+- Verify all: `pnpm verify`
+- Sync session: `pnpm sync`
+- Finish session: `pnpm finish`
+- Demo page: `pnpm demo`
