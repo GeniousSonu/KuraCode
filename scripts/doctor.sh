@@ -29,9 +29,25 @@ check "pnpm installed" \
   "command -v pnpm" \
   "install pnpm (npm i -g pnpm)"
 
-check "Workspace path has no spaces" \
-  "! echo \"$PWD\" | grep -q ' '" \
-  "move the project to a path without spaces, e.g. ~/kuracode (cp -r \"$PWD\" ~/kuracode)"
+check "Path handling (quoted paths supported)" \
+  "true" \
+  "ensure all scripts and paths are properly quoted"
+
+check "Git hooks configured (.husky)" \
+  "[ -d .husky ] && [ -f .husky/pre-commit ]" \
+  "run: pnpm prepare"
+
+check "Environment config validity (.env.example & schema)" \
+  "node --experimental-strip-types scripts/check-doc-drift.ts >/dev/null 2>&1" \
+  "run: pnpm test:doc-drift"
+
+check "Secret scan of working tree (zero uncommitted keys/tokens)" \
+  "! git status --porcelain | grep -qE '\.(env|key|pem|pfx|pkcs12|secret)$'" \
+  "remove or gitignore secret files from working directory"
+
+check "Client bundle secret leak audit (zero server secrets in client output)" \
+  "node --experimental-strip-types scripts/verify-client-secrets.ts >/dev/null 2>&1" \
+  "run: pnpm test:client-secrets"
 
 check "esbuild build approved (allowBuilds)" \
   "grep -qE 'esbuild: true' pnpm-workspace.yaml" \

@@ -126,3 +126,20 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
     - Font verification screenshots: `docs/agent/evidence/design/fonts/popup-fonts.png`, `sidepanel-fonts.png`, `options-fonts.png`.
     - Walkthrough screenshots: `docs/agent/evidence/walkthrough/01-user-a-workspace-created.png`, `02-user-b-joined.png`, `03-user-b-copied-and-settings.png`.
   - Reconciled Capabilities: 46 capabilities audited in `docs/agent/RECONCILIATION.md` (43 HARDENED, 3 VERIFIED, 0 NOT_STARTED). Standardized all documentation and UI strings strictly to "Workspace".
+
+## V-13 Credential-Ready Architecture for External Services & Verification Suite (2026-11-05)
+
+- Ran: Full quality verification suite (`pnpm verify`), Vitest test suite across all workspace packages (`pnpm test`), Doctor (`pnpm doctor`), Secret Scan test, Client bundle leak audit, and Doc drift test.
+- Result: **All gates green ✔**
+  - Unit Tests: 104/104 passed across 13 test files (100% pass rate):
+    - `packages/config/test/config.test.ts` (7/7 passed): schema validation, dynamic capability states, secret scanner, dynamic redirect URIs.
+    - `packages/adapters/test/adapters.test.ts` (19/19 passed): circuit breaker, retry backoff, OAuth, database, mailer, ratelimiter, captcha, Sentry error reporter, UptimeRobot, Store publishers (Chrome, Edge, Firefox).
+    - `packages/adapters/test/capability-flip.test.ts` (8/8 passed): capability state transitions from disabled/missing to enabled upon credential provision.
+    - `packages/adapters/test/rls-policies.test.ts` (4/4 passed): database migration parsing, RLS enabling on all 10 tables, and multi-tenant security definer helpers.
+    - `packages/api/test/api.test.ts` (7/7 passed): healthz, readyz, heartbeat, capabilities endpoint, mock OIDC endpoints, mock mail catcher inbox, turnstile verify stub.
+    - `packages/extension/test/*` (56/56 passed): new-modules, round-trip fidelity, workspace isolation, upgrade migrations, cleaner, storage.
+  - Browser E2E Tests: 19/19 passed in persistent Chromium context.
+  - Client Bundle Secret Leak Audit: `scripts/verify-client-secrets.ts` confirmed 0 server secrets present in extension and web dist bundles.
+  - Planted Secret Negative Test: `scripts/test-planted-secret.ts` verified scanner catches high-entropy tokens and private keys with nonzero exit code.
+  - Doctor Diagnostic: `scripts/doctor.sh` passed 13/13 checks cleanly.
+  - Single-Command Dev Server: `scripts/dev-full.mjs` orchestrates mock OIDC, mail catcher, API, and demo server with graceful signal termination.

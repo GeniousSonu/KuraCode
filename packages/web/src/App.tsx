@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { SetupWizard } from './SetupWizard';
 
 interface Snippet {
   id: string;
@@ -52,6 +53,7 @@ function EmptyState() {
 export default function App() {
   const [query, setQuery] = useState('');
   const [language, setLanguage] = useState('all');
+  const [showSetup, setShowSetup] = useState(false);
 
   const languages = useMemo(() => {
     return Array.from(new Set(SAMPLE_SNIPPETS.map((s) => s.language))).sort();
@@ -73,12 +75,23 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <div className="brand">KuraCode</div>
-        <button className="primary-btn" type="button">
-          + New snippet
-        </button>
+        <div style={{ display: "flex", gap: "8px" }}>
+          <button
+            className="ghost-btn"
+            type="button"
+            onClick={() => setShowSetup(!showSetup)}
+            style={{ fontSize: "12px" }}
+          >
+            {showSetup ? "Hide Setup Wizard" : "Service Capabilities"}
+          </button>
+          <button className="primary-btn" type="button">
+            + New snippet
+          </button>
+        </div>
       </header>
 
       <main className="content">
+        {showSetup && <SetupWizard />}
         <div className="toolbar">
           <input
             className="search"

@@ -49,5 +49,6 @@
 | T-045 | M5        | UX-1..10                   | Typography & visual reset: bundled Inter & JetBrains Mono    | DONE           | yes      | 0 remote fonts; 100% offline; e2e/typography.spec.ts passed   |
 | T-046 | M8        | INV-1..3                   | Unified Join Flow modal (4-digit, 6-digit, link) & rate limit| DONE           | yes      | e2e/two-user-walkthrough.spec.ts passed with 3 screenshots     |
 | T-047 | M11       | —                          | Reconcile all capabilities & document free-tier cloud infra   | DONE           | yes      | docs/agent/RECONCILIATION.md + docs/INFRASTRUCTURE.md         |
+| T-048 | M11       | CRED-1..10                 | Make KuraCode credential-ready for all 10 external services   | DONE           | yes      | packages/config + adapters + api + migrations + setup guides   |
 
 **Statuses:** TODO / IN_PROGRESS / DONE / DONE_WITH_GAPS / FAILED / BLOCKED / SKIPPED

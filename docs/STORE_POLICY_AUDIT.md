@@ -72,3 +72,19 @@ This document provides a comprehensive policy self-audit verifying that KuraCode
 ### Microsoft Edge Add-ons (Microsoft Partner Center)
 - [x] Full Chromium MV3 parity.
 - [x] Microsoft Partner Center developer agreement compliant.
+
+---
+
+## 7. Third-Party Data Processors & Privacy Disclosures
+
+To comply with Google Chrome Web Store, Edge Add-ons, and Mozilla AMO privacy disclosure mandates, the following sub-processors may be used only when the user explicitly enables cloud sync or visits the web dashboard:
+
+| Service Provider | Role / Capability | Data Received | Safeguards / Privacy Policy Invariant |
+| :--- | :--- | :--- | :--- |
+| **Supabase** | Cloud DB & Auth | User ID, email, workspace snippets | Protected by Row-Level Security; 0 data sent in local-only mode |
+| **Cloudflare** | CDN, DNS, Turnstile | IP address, challenge tokens | Turnstile receives 0 snippet code or user identity data |
+| **Resend** | Transactional Email | Recipient email, invite links | Encrypted in transit; emails queued only upon user request |
+| **Sentry** | Error Tracking (Web/API only) | Exception stack traces | **Strictly excluded from extension.** Automatic regex PII & snippet scrubber |
+| **Upstash Redis** | Rate Limiting | Hashed IP counters, share code keys | **Never stores snippet content.** Keys expire automatically via TTL |
+| **UptimeRobot** | Health Monitoring | HTTP GET `/healthz` pings | Zero user, code, or personal data transmitted |
+| **OAuth Providers** (GitHub, Google, GitLab, Microsoft) | Single Sign-On | Auth code, user email, profile name | Minimal requested scopes (`read:user`, `openid`, `email` only) |

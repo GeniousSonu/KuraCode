@@ -39,6 +39,14 @@
 - **Unified Join Flow & Multi-User Collaboration:** Implemented unified "Enter a code or link" modal accepting 4-digit quick codes, 6-digit workspace invites (`KURA-9281`), and join URLs with rate-limiting brute-force lockout (5 attempts). Verified complete User A $\rightarrow$ Invite $\rightarrow$ User B $\rightarrow$ Sync $\rightarrow$ Settings walkthrough in `e2e/two-user-walkthrough.spec.ts` with 3 screenshots in `docs/agent/evidence/walkthrough/`.
 - **Infrastructure & Reconciliation:** Documented complete $0/mo free-tier production stack in `docs/INFRASTRUCTURE.md` (Cloudflare Pages/Workers/Turnstile, Supabase Postgres 16/Auth/Realtime, Upstash Redis, Resend); audited 46 capabilities in `docs/agent/RECONCILIATION.md`; standardized all UI and docs strictly to "Workspace".
 
+### 6. External Services Credential-Ready Architecture (CRED-1..10)
+- **Configuration & Secret Isolation (`packages/config`):** Zod schemas strictly partition public build-time values, server secrets, and CI secrets. Client bundle secret scanner guarantees 0 server keys leak into client artifacts. Dynamic capability evaluation categorizes 16 services as `ENABLED`, `DISABLED_MISSING_CONFIG`, `DISABLED_BY_OWNER`, or `DEGRADED`.
+- **Zero-SDK Vendor Independence & Resilient Adapters (`packages/adapters`):** All external integrations implemented via standard Web fetch with circuit breakers, timeouts, retry with jitter, and capability auto-detection. Includes full local mocks for offline development without internet access or credentials.
+- **Database Migrations & Multi-Tenant RLS (`supabase/`):** 10 tables in plain SQL with row-level security enabled and verified across Personal Space and Workspaces.
+- **Edge API & Mock Provider (`packages/api`):** Edge service providing `/healthz`, `/readyz`, `/heartbeat`, `/api/capabilities`, local mock OIDC provider, and mock mail catcher inbox.
+- **Developer Tooling & Interactive UI:** Added `pnpm setup:status`, `pnpm setup:test <service>`, `pnpm setup:env`, `pnpm secrets:gh`, `pnpm dev:full`, and interactive `SetupWizard` in the web application.
+- **Documentation & Setup Guides (`docs/setup/`):** Complete per-service setup manuals (`01-github.md` through `10-stores.md`, `11-secret-hygiene.md`, `redirect-uris.md`, `docs/SETUP.md`).
+
 ## Verification Evidence Saved
 - `docs/agent/evidence/release/version-integrity.log`
 - `docs/agent/evidence/release/stale-artifact-rejection.log`

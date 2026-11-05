@@ -106,7 +106,22 @@ This document defines the production hosting, database, authentication, real-tim
 
 ---
 
-## 3. Secret Management & Compliance Rules
+## 4. Fallback Behavior & Graceful Degradation Matrix
+
+KuraCode guarantees uninterrupted core functionality even when external cloud services are unconfigured, offline, or at their free-tier limits:
+
+| Service / Capability | Missing or Quota Reached State | Active Fallback Strategy | User-Facing Message in UI / API |
+| :--- | :--- | :--- | :--- |
+| **Supabase (`db.cloud`)** | Missing keys / 500MB DB full | Switches to browser local storage / IndexedDB with full JSON export | *"Cloud sync unavailable. Operating in local-only offline mode; all snippets are saved securely on this device."* |
+| **Realtime (`realtime`)** | 200 concurrent connections reached | Durable mutation outbox queue with exponential backoff polling | *"Live sync paused. Local changes are queued and will sync when connection restores."* |
+| **Upstash Redis (`ratelimit.redis`)** | 10k daily command limit reached | In-memory sliding window or PostgreSQL counter table | *"Rate limit operational (local fallback active). System functioning normally."* |
+| **Resend (`email.send`)** | 100 emails/day limit reached | Direct invitation link copying (no email dispatched) | *"Email delivery reached daily quota. An invite link has been generated for you to copy directly."* |
+| **Magic Links (`auth.magiclink`)** | Resend unavailable | Disabled; prompts user to sign in with OAuth or use offline mode | *"Magic link sign-in unavailable. Please use GitHub or Google sign-in, or continue offline."* |
+| **Cloudflare Turnstile (`captcha`)** | 1M challenge quota reached | Strict IP rate limiting and exponential lockout | *"Security verification operating in strict rate-limiting mode."* |
+| **Sentry (`errors.sentry`)** | 5,000 monthly errors reached | Local structured logging; exportable diagnostic bundle from Settings | *"Error reporting running locally. Diagnostic bundle available in Settings."* |
+| **UptimeRobot (`uptime.status`)** | Unconfigured | Internal `/healthz` and `/readyz` HTTP liveness probes | *"Status reported via internal health endpoints."* |
+| **Store APIs (`store.*`)** | API credentials absent in CI | Dry-run validation only; produces validated signed release archives | *"[DRY_RUN] Artifacts packaged cleanly for manual store upload."* |
+
 
 1. **Zero Repository Secrets:** No real tokens, private keys, or API keys are ever committed to git.
 2. **Local Dry-Run Support:** When running without cloud secrets, the application automatically uses local-first mode:

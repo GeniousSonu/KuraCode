@@ -13,8 +13,8 @@
     "dev:chrome": "pnpm --filter @kuracode/extension dev:chrome",
     "dev:firefox": "pnpm --filter @kuracode/extension dev:firefox",
     "lint": "eslint .",
-    "test": "pnpm --filter @kuracode/extension test",
-    "typecheck": "pnpm --filter @kuracode/extension typecheck && pnpm --filter @kuracode/web typecheck",
+    "test": "pnpm --filter @kuracode/config test && pnpm --filter @kuracode/adapters test && pnpm --filter @kuracode/api test && pnpm --filter @kuracode/extension test",
+    "typecheck": "pnpm --filter @kuracode/config typecheck && pnpm --filter @kuracode/adapters typecheck && pnpm --filter @kuracode/api typecheck && pnpm --filter @kuracode/extension typecheck && pnpm --filter @kuracode/web typecheck",
     "dev:extension": "pnpm --filter @kuracode/extension dev",
     "dev:web": "pnpm --filter @kuracode/web dev",
     "package:extension": "pnpm --filter @kuracode/extension package",
@@ -25,12 +25,21 @@
     "verify": "bash scripts/verify.sh",
     "verify:fast": "bash scripts/verify-fast.sh",
     "ship": "bash scripts/ship.sh",
+    "setup:status": "node --experimental-strip-types scripts/setup-status.ts",
+    "setup:test": "node --experimental-strip-types scripts/setup-test.ts",
+    "setup:env": "node --experimental-strip-types scripts/setup-env.ts",
+    "secrets:gh": "node --experimental-strip-types scripts/github-secrets.ts",
+    "dev:full": "node scripts/dev-full.mjs",
+    "test:secret-scan": "node --experimental-strip-types scripts/test-planted-secret.ts",
+    "test:client-secrets": "node --experimental-strip-types scripts/verify-client-secrets.ts",
+    "test:doc-drift": "node --experimental-strip-types scripts/check-doc-drift.ts",
     "test:version-integrity": "node --experimental-strip-types scripts/version-integrity.ts",
     "test:release-contents": "node --experimental-strip-types scripts/verify-release-contents.ts",
     "test:docs-freshness": "node --experimental-strip-types scripts/docs-freshness.ts",
     "test:upgrade": "pnpm --filter @kuracode/extension test upgrade.test.ts",
     "test:smoke-release": "bash scripts/post-release-smoke.sh",
     "features:report": "node --experimental-strip-types scripts/features-report.ts",
+    "features:build": "node --experimental-strip-types scripts/build-features-registry.ts",
     "doctor": "bash scripts/doctor.sh",
     "sync": "bash scripts/sync.sh",
     "finish": "bash scripts/finish-session.sh",
@@ -50,6 +59,8 @@
     "@eslint/js": "^10.0.1",
     "@fontsource/inter": "^5.3.0",
     "@fontsource/jetbrains-mono": "^5.3.0",
+    "@kuracode/adapters": "workspace:*",
+    "@kuracode/config": "workspace:*",
     "archiver": "^7.0.1",
     "eslint": "^10.14.0",
     "globals": "^17.14.0",
@@ -58,11 +69,15 @@
     "lint-staged": "^17.6.0",
     "sharp": "^0.35.5",
     "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0",
     "web-ext": "^10.8.0"
   },
   "lint-staged": {
     "*.{ts,tsx,mjs,js}": [
       "eslint --fix"
     ]
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
   }
 }

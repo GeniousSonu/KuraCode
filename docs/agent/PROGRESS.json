@@ -1,17 +1,17 @@
 {
-  "updated": "2026-11-05T13:42:00Z",
-  "milestone": "Bug Fixes (BUG-1..3), Typography Reset, Workspaces & Join Flow VERIFIED",
+  "updated": "2026-11-05T14:30:00Z",
+  "milestone": "External Services Credential-Ready Architecture (CRED-1..10) VERIFIED",
   "features": {
-    "total": 78,
-    "verified": 53,
+    "total": 88,
+    "verified": 63,
     "hardened": 4,
     "not_started": 21
   },
   "lastGreenCommit": "HEAD",
   "gates": {
     "lint": "pass (0 errors, 0 warnings)",
-    "types": "pass",
-    "unit": "pass (65/65)",
+    "types": "pass (5 packages)",
+    "unit": "pass (104/104)",
     "build_chrome": "pass",
     "build_firefox": "pass",
     "web_ext_lint": "pass",
@@ -20,6 +20,8 @@
     "version_integrity": "pass",
     "release_allow_list": "pass",
     "smoke_release": "pass",
+    "client_secret_scan": "pass",
+    "doctor": "pass (13/13)",
     "interactive_controls_audit": "pass (0 errors)",
     "typography_check": "pass (0 external fonts)"
   },

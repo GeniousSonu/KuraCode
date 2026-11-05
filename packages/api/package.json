@@ -1,0 +1,23 @@
+{
+  "name": "@kuracode/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "KuraCode local dev, mock OIDC, mail catcher, and edge API",
+  "main": "./src/server.ts",
+  "scripts": {
+    "start": "node src/server.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@kuracode/config": "workspace:*",
+    "@kuracode/adapters": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  }
+}
+

@@ -58,7 +58,7 @@ CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if [ -n "$(git status --porcelain)" ]; then
   echo "Staging all validated code, tests, docs, and state changes..."
-  git add docs packages scripts package.json CHANGELOG.md .github .husky store README.md 2>/dev/null || true
+  git add docs packages scripts package.json CHANGELOG.md .github .husky store README.md supabase .env.example 2>/dev/null || true
   git add -u
   git commit -m "$COMMIT_MSG"
   echo "✔ Changes committed with Conventional Commit: '$COMMIT_MSG'"

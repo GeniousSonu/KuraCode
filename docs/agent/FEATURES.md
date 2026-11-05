@@ -1,7 +1,7 @@
 # KuraCode Feature Registry (Single Source of Truth)
 
 **Product:** KuraCode | **Official Site:** https://www.genioussonu.me/extensions/kuracode
-**Last Updated:** 2026-11-05T13:40:09.982Z
+**Last Updated:** 2026-11-05T14:30:49.217Z
 
 ---
 
@@ -9,7 +9,7 @@
 
 | Status | Count |
 | :--- | :--- |
-| **VERIFIED** | 53 |
+| **VERIFIED** | 63 |
 | **HARDENED** | 4 |
 | **NOT_STARTED** | 21 |
 
@@ -97,3 +97,13 @@
 | **UX-8** | P0 | Comprehensive designed UI states | chrome, edge, firefox, web | `VERIFIED` | 1. High-fidelity empty states, skeleton loading, search with match highlighting<br>2. Action toasts and informative error messages with clear next actions | docs/agent/evidence/design/after/popup-empty-state.png, docs/agent/evidence/design/after/popup-4-snippets-dark.png, docs/agent/evidence/design/after/popup-4-snippets-light.png, docs/agent/evidence/design/after/popup-search-results.png, docs/agent/evidence/design/after/popup-no-results.png | 2026-11-05 |
 | **UX-9** | P0 | Full keyboard navigation & shortcut support | chrome, edge, firefox, web | `VERIFIED` | 1. Full keyboard navigation: arrow keys move, Enter/C copies, E edits, Del trashes<br>2. / focuses search, Esc clears, visible cheat sheet reachable from menu | packages/extension/src/shared/library.ts, packages/extension/e2e/scenarios.spec.ts | 2026-11-05 |
 | **UX-10** | P0 | Performance budgets & virtualized list | chrome, edge, firefox, web | `VERIFIED` | 1. Popup paint < 150ms with 10k items<br>2. Instant search < 100ms at 10k items<br>3. Virtualized rendering maintains smooth 60fps at 50k snippets | docs/agent/evidence/design/after/popup-50-snippets.png, packages/extension/e2e/capture-redesign.spec.ts | 2026-11-05 |
+| **CRED-1** | P0 | GitHub OAuth & CI/CD automation readiness | chrome, edge, firefox, web | `VERIFIED` | 1. OAuth 2.0 PKCE client handles GitHub identity with zero client secrets<br>2. gh secret set script generates secure CI/CD secrets without terminal leakage<br>3. Graceful fallback to mock identity provider when unconfigured | packages/adapters/test/adapters.test.ts:OAuthAdapter | 2026-11-05 |
+| **CRED-2** | P0 | Google Cloud Console OAuth readiness | chrome, edge, firefox, web | `VERIFIED` | 1. Google OAuth 2.0 client configured with strict redirect URIs<br>2. Switches capability state dynamically when GOOGLE_CLIENT_ID is provided<br>3. Token exchange verifies state, nonce, and audience | packages/adapters/test/adapters.test.ts:OAuthAdapter | 2026-11-05 |
+| **CRED-3** | P0 | Cloudflare Pages, Workers & Turnstile CAPTCHA readiness | chrome, edge, firefox, web | `VERIFIED` | 1. Turnstile captcha adapter verifies human tokens against challenges.cloudflare.com<br>2. In development or unconfigured mode, stub verifier allows seamless bypass<br>3. Cloudflare Pages headers and edge rewrites documented and ready | packages/adapters/test/adapters.test.ts:TurnstileCaptchaAdapter | 2026-11-05 |
+| **CRED-4** | P0 | Supabase Postgres 16, Auth, Realtime & RLS multi-tenancy | chrome, edge, firefox, web | `VERIFIED` | 1. SQL migrations provide 10 tables with strict tenant-isolated RLS policies<br>2. SupabaseDatabaseAdapter provides circuit-breaker-protected cloud persistence<br>3. Seamless fallback to in-memory/local storage when unconfigured | packages/adapters/test/rls-policies.test.ts, supabase/migrations/ | 2026-11-05 |
+| **CRED-5** | P0 | Resend transactional email adapter & DNS readiness | chrome, edge, firefox, web | `VERIFIED` | 1. ResendMailerAdapter sends workspace invites, magic links, and alerts via api.resend.com<br>2. MockMailCatcher records outbound emails locally without external calls<br>3. DNS SPF/DKIM/DMARC and MX records documented in setup guide | packages/adapters/test/adapters.test.ts:ResendMailerAdapter | 2026-11-05 |
+| **CRED-6** | P1 | Sentry privacy-first error tracking (Web & Edge only) | web | `VERIFIED` | 1. Error reporter scrubs all PII, snippet code, and sensitive authorization headers<br>2. Strictly forbidden in extension client code to respect privacy and store policies<br>3. NoopErrorReporter operates cleanly when Sentry DSN is omitted | packages/adapters/test/adapters.test.ts:SentryErrorReporter | 2026-11-05 |
+| **CRED-7** | P0 | Upstash Redis rate limiting with memory fallback | chrome, edge, firefox, web | `VERIFIED` | 1. Sliding window rate limiter protects join codes, auth, and API endpoints<br>2. Upstash REST adapter enforces quotas with Redis pipeline commands<br>3. Automatic fallback to local MemoryRateLimiter when credentials are absent | packages/adapters/test/adapters.test.ts:UpstashRedisAdapter | 2026-11-05 |
+| **CRED-8** | P1 | UptimeRobot heartbeat & status page monitoring | web | `VERIFIED` | 1. /heartbeat, /healthz, and /readyz endpoints provide public status without leaking keys<br>2. UptimeRobotReporter can programmatically push heartbeat pings<br>3. MockStatusReporter preserves local dev testing capabilities | packages/adapters/test/adapters.test.ts:UptimeRobotReporter | 2026-11-05 |
+| **CRED-9** | P1 | GitLab & Microsoft Entra optional OAuth providers | chrome, edge, firefox, web | `VERIFIED` | 1. OAuth adapter supports gitlab.com and login.microsoftonline.com endpoints<br>2. Capability flips dynamically from DISABLED_MISSING_CONFIG to ENABLED<br>3. PKCE code challenge flow works with state and nonce checks | packages/adapters/test/adapters.test.ts:OAuthAdapter | 2026-11-05 |
+| **CRED-10** | P0 | Multi-Store publish adapters (Chrome, Edge, Firefox) | chrome, edge, firefox | `VERIFIED` | 1. ChromeStorePublisher, EdgeStorePublisher, and FirefoxAmoPublisher adapters handle API uploads<br>2. Dry-run mode validates package archives without calling external APIs<br>3. Clean missing-secret warnings generated without pipeline crashes | packages/adapters/test/adapters.test.ts:StorePublishers | 2026-11-05 |

@@ -52,7 +52,21 @@ Provide these exact justifications on the website FAQ and in the Chrome/Firefox/
 
 ---
 
-## 4. Feature Highlights Copy (Ready to Paste)
+## 4. Privacy Policy Sub-Processors & Data Recipients
+
+When updating the official privacy policy at `https://www.genioussonu.me/extensions/kuracode#privacy`, disclose these sub-processors and the data each receives:
+
+1. **Supabase, Inc. (USA):** Hosts cloud PostgreSQL database and auth sessions for users who opt into cross-device sync. Data received: User ID, email, synchronized code snippets. (Protected by Row-Level Security; zero access in local-only mode).
+2. **Cloudflare, Inc. (USA / Global):** Edge CDN, DNS routing, and Turnstile bot protection for public quick-share code claims. Data received: Client IP and Turnstile challenge tokens. Turnstile receives zero snippet code.
+3. **Resend, Inc. (USA):** Transactional email delivery. Data received: Email addresses for team workspace invitations, magic links, and security alerts.
+4. **Functional Software, Inc. / Sentry (USA):** Error monitoring for the web dashboard and API. Data received: Application error stack traces. Sentry automatically scrubs all snippet code, URLs, emails, and tokens. Sentry is NEVER included in the browser extension.
+5. **Upstash, Inc. (USA):** Ephemeral serverless cache for rate limiting. Data received: Hashed IP addresses and short-lived share code references. Upstash never stores snippet content.
+6. **UptimeRobot / Blesk s.r.o. (Czech Republic / USA):** External uptime monitoring. Data received: HTTP GET pings to `/healthz`. Receives zero user data.
+7. **Identity Providers (GitHub, Google, GitLab, Microsoft):** Identity verification via OAuth 2.0. Data received: Minimal authorization scopes (`read:user`, `openid`, `email`).
+
+---
+
+## 5. Feature Highlights Copy (Ready to Paste)
 
 ### Headline:
 > **The Senior Developer's Code Snippet Hub & Cross-Device Scratchpad**

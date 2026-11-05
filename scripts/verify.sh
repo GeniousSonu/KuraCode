@@ -41,6 +41,11 @@ node --experimental-strip-types scripts/release-check.ts
 
 step "Documentation Freshness & Integrity"
 node --experimental-strip-types scripts/docs-freshness.ts
+node --experimental-strip-types scripts/check-doc-drift.ts
+
+step "Client Bundle Secret Leak & Negative Detection Gate"
+node --experimental-strip-types scripts/test-planted-secret.ts
+node --experimental-strip-types scripts/verify-client-secrets.ts
 
 step "web-ext lint (Firefox output)"
 node scripts/web-ext-lint.mjs packages/extension/.output/firefox-mv3

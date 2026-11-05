@@ -20,6 +20,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Rebuilt `WorkspaceManager` with active workspace persistence, skeleton loading, and query token invalidation to prevent switching race conditions.
 
 ### Added
+- **External Services Credential-Ready Architecture (`packages/config`, `packages/adapters`, `packages/api`):**
+  - Type-safe configuration schemas strictly separating public client values, server-only secrets, and CI/CD secrets.
+  - Zero-SDK resilient service adapters (OAuth, Supabase Postgres, Resend, Upstash Redis, Cloudflare Turnstile, Sentry, UptimeRobot, Chrome/Edge/Firefox Store publishers) with circuit breakers, timeouts, retry backoff, and 100% offline local mocks.
+  - Plain SQL database migrations (`supabase/migrations/`) with Row-Level Security on 10 tables enforcing strict tenant isolation.
+  - Single-command local dev orchestration (`pnpm dev:full`) providing mock OIDC, mail catcher inbox, API server, and demo web app.
+  - Developer setup tooling: `pnpm setup:status`, `pnpm setup:test <service>`, `pnpm setup:env`, `pnpm secrets:gh`, `pnpm test:secret-scan`, `pnpm test:client-secrets`, `pnpm test:doc-drift`, and `pnpm doctor` (13/13 passing).
+  - In-app interactive `SetupWizard` displaying live capability states with zero secret leakage.
+  - 12 comprehensive setup guides under `docs/setup/` and master index in `docs/SETUP.md`.
 - **Typography & Visual Identity Reset:**
   - Bundled Inter and JetBrains Mono WOFF2 font files locally in `packages/extension/fonts/` and `packages/web/public/fonts/`.
   - Zero external font calls or Google Fonts CDN requests for total offline compliance.

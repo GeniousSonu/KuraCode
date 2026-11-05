@@ -37,6 +37,7 @@ const REQUIRED_DOCS = [
   "docs/agent/FEATURES.md",
   "docs/agent/HANDOFF.md",
   "docs/agent/NEEDS_HUMAN.md",
+  "docs/SETUP.md",
 ];
 
 // 1. Verify existence of required core documentation

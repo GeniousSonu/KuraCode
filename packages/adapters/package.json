@@ -1,0 +1,21 @@
+{
+  "name": "@kuracode/adapters",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "KuraCode resilient vendor service adapters and offline mocks",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@kuracode/config": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.9"
+  }
+}
+

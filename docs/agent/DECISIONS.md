@@ -111,3 +111,15 @@
   2. *Monospace Font:* **JetBrains Mono** (OFL / Apache 2.0), bundled as local WOFF2, with tabular numbers (`tnum`) and developer-optimized punctuation.
   3. *Zero External Font Calls:* All `@font-face` definitions point to local extension packages (`fonts/`). No Google Fonts or CDN requests.
   4. *Styling System:* Pure CSS variables derived from KuraCode emerald design tokens (`#00b96c`), 4px/8px baseline rhythm, restrained depth via tonal background layers (`#0c0d10`, `#14171c`, `#1c2027`), no glowing gradients, no emojis as icons, and strict 120-180ms motion with `prefers-reduced-motion` support.
+
+
+## #14 Credential-Ready Architecture for External Services & Zero-Account Resilience
+
+- Date: 2026-11-05 | Status: accepted
+- Context: Making KuraCode ready for 10 external services (GitHub, Google Cloud, Cloudflare, Supabase, Resend, Sentry, Upstash Redis, UptimeRobot, GitLab/Microsoft, Stores) so the owner can add accounts and keys one by one later, switching features on dynamically with zero code changes.
+- Decision:
+  1. *Zero Fake Credentials / Offline First:* Never fake a secret, never call external networks with placeholder values. In the unconfigured state, every system gracefully defaults to a local mock or in-memory fallback.
+  2. *Strict Configuration Partitioning (`packages/config`):* Public client variables, server-only secrets, and CI/CD secrets are isolated using Zod schemas. Public values never contain secret keys. Bundle build audits (`verify-client-secrets.ts`) fail the build if server tokens leak into client bundles.
+  3. *Vendor SDK Independence (`packages/adapters`):* No vendor-specific SDK bloat. Standard fetch API with circuit breakers, timeouts, retry backoff with jitter, and capability-flipping.
+  4. *Multi-Tenant Database Migrations:* Plain SQL migrations in `supabase/migrations/` with 10 tables and Row-Level Security (RLS) guaranteeing total isolation between Personal Space and Workspaces.
+  5. *Diagnostic Tooling & Zero Leakage:* CLI tools (`pnpm setup:status`, `pnpm setup:test`, `pnpm setup:env`, `pnpm secrets:gh`, `pnpm dev:full`) never print secret values to stdout or logs. Interactive `SetupWizard` UI exposes capability status without exposing tokens.
