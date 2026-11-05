@@ -65,3 +65,4 @@ Provide these exact justifications on the website FAQ and in the Chrome/Firefox/
 2. **One-Click Primary Action:** Prominent 1-click copy with animated checkmark feedback. Secondary actions neatly organized in a 3-dot overflow menu with 8-second undo Trash.
 3. **4-Digit Quick Share:** Share any snippet between machines or with teammates in 2 seconds using temporary 4-digit cryptographic codes. Constant-time validation with rate-limiting.
 4. **Smart Clipboard Hub:** Opt-in scratchpad for cross-machine snippets with on-device secret scanning that prevents accidental leakage of API keys.
+

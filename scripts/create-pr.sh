@@ -31,3 +31,4 @@ else
   echo "To open this PR manually: visit https://github.com/GeniousSonu/KuraCode/pull/new/$BRANCH"
   echo "To enable auto-merge in GitHub: Settings > General > 'Allow auto-merge'."
 fi
+

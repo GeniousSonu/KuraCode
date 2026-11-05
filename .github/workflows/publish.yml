@@ -145,3 +145,4 @@ jobs:
           ANCHOR="v$(echo ${{ inputs.version }} | tr '.' '-')"
           echo "Syncing website notes for v${{ inputs.version }} (anchor #${ANCHOR})..."
           echo "Release completed. Official site should point to https://github.com/GeniousSonu/KuraCode/releases/tag/v${{ inputs.version }}"
+

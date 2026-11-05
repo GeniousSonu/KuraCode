@@ -23,3 +23,4 @@ echo "5. Version Integrity"
 node --experimental-strip-types scripts/version-integrity.ts
 
 printf "\n\033[1;32m✔ Fast pre-push verification green!\033[0m\n\n"
+

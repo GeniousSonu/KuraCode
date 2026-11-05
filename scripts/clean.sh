@@ -21,3 +21,4 @@ rm -rf packages/extension/playwright-report
 mkdir -p release
 
 echo "✔ Clean completed cleanly. No stale artifacts remain."
+

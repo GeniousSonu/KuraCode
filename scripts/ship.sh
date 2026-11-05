@@ -72,3 +72,4 @@ git push origin "$CURRENT_BRANCH"
 printf "\n\033[1;32m============================================================\033[0m\n"
 printf "\033[1;32m    ✔ KURACODE SHIP PIPELINE COMPLETED SUCCESSFULLY!        \033[0m\n"
 printf "\033[1;32m============================================================\033[0m\n\n"
+

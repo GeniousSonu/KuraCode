@@ -58,3 +58,4 @@ else
 fi
 
 printf "\n\033[1;32m✔ Post-release artifact smoke test passed with 100%% integrity!\033[0m\n\n"
+

@@ -34,3 +34,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Multi-Store Extension Packaging:**
   - Automated release packages for Chrome MV3, Microsoft Edge Add-ons, and Mozilla Firefox AMO.
   - Clean `web-ext lint` with zero errors and CycloneDX SBOM generation.
+
