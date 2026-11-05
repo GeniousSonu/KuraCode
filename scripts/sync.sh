@@ -55,3 +55,4 @@ pnpm typecheck
 pnpm test
 
 echo "✔ Sync completed successfully!"
+

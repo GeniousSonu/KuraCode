@@ -51,3 +51,4 @@ bash scripts/finish-session.sh --dry-run
   - For generated files or lockfiles (`pnpm-lock.yaml`), accept the incoming version and run `pnpm install`.
   - Re-run `pnpm verify`.
   - Log the conflict and resolution in `docs/agent/DECISIONS.md`.
+
