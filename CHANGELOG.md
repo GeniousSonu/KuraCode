@@ -4,6 +4,29 @@ All notable changes to KuraCode will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0](https://github.com/GeniousSonu/KuraCode/compare/kuracode-v0.1.0...kuracode-v0.2.0) (2026-11-06)
+
+
+### Features
+
+* **core:** make KuraCode credential-ready with config layer and adapters ([e9bb3b3](https://github.com/GeniousSonu/KuraCode/commit/e9bb3b36b3ebb4990cf4cdf25d9ebc38fdf09406))
+* **design:** fix defects D1-D14 and redesign popup with zero-border typography ([e6d545d](https://github.com/GeniousSonu/KuraCode/commit/e6d545d0a5024410e8364897d528dbf86b549c9c))
+* **M6:** brand asset integration — generator, sizes, wiring, checks [T-027] ([ad9a60e](https://github.com/GeniousSonu/KuraCode/commit/ad9a60e240471b16a86423c0911c846f253ecec5))
+* **pipeline:** automated release engineering pipeline and anti-stale hygiene ([bc0aa9b](https://github.com/GeniousSonu/KuraCode/commit/bc0aa9b2407ac93deb75bcae2d28faeafe172557))
+* **release:** full packaging + self-update system [T-029] ([df9dcda](https://github.com/GeniousSonu/KuraCode/commit/df9dcdaf535750a54a2dc6a7f95075e857e01a25))
+* **release:** repo foundations, single-source versioning & multi-store publish ([f42caba](https://github.com/GeniousSonu/KuraCode/commit/f42cabae4003b264faf06b6532f4ef4037906ac0))
+* **ui:** senior popup redesign, auth/sync/clipboard core modules & feature registry ([26531c2](https://github.com/GeniousSonu/KuraCode/commit/26531c29b1da3f5ff22f5f6ed3f22d44eff2d1b2))
+
+
+### Bug Fixes
+
+* **build:** pnpm install + dual chrome/firefox build targets + verify/doctor/demo, package scripts [T-028] ([e8f37d8](https://github.com/GeniousSonu/KuraCode/commit/e8f37d88544c363f3128fcd2d87d60c0b3901e36))
+* **core:** fix bugs BUG-1..3, reset typography, and isolate workspaces ([4fd2868](https://github.com/GeniousSonu/KuraCode/commit/4fd2868e0f216fecfcef9ffabfc2bbdb9dc41b8d))
+* **e2e:** point extension fixture at .output/chrome-mv3 (was stale ../dist) [T-028] ([184f363](https://github.com/GeniousSonu/KuraCode/commit/184f3630cdb38c4d84f5db93c832b262fc5c5494))
+* **lint:** remove unused fileURLToPath import in crx3.mjs ([9009d7f](https://github.com/GeniousSonu/KuraCode/commit/9009d7fbd212d8d1d66daeb050a9190072ae5b5f))
+* **release:** guard web-ext lint against Chrome target, regenerate artifacts [T-030] ([d9213a3](https://github.com/GeniousSonu/KuraCode/commit/d9213a315af72ff621c8aef1038b2fb9dc237da7))
+* **release:** use inflateRawSync in package validator [T-029] ([50bdda0](https://github.com/GeniousSonu/KuraCode/commit/50bdda082fc6bbe93029f5fe02f1cd5537faa9d6))
+
 ## [0.2.0] - 2026-11-06
 
 ### Added
@@ -125,4 +148,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Multi-Store Extension Packaging:**
   - Automated release packages for Chrome MV3, Microsoft Edge Add-ons, and Mozilla Firefox AMO.
   - Clean `web-ext lint` with zero errors and CycloneDX SBOM generation.
-
