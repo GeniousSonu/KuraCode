@@ -15,6 +15,10 @@ test("Two-User Collaboration & Workspace Walkthrough (User A -> Invite -> User B
 
   // --- STAGE 1: USER A CREATES WORKSPACE & SAVES MULTI-LINE SNIPPET ---
   await page.goto(urlOf(id, "popup.html"));
+  await page.evaluate(async () => {
+    await chrome.storage.local.clear();
+  });
+  await page.reload();
   await page.waitForLoadState("domcontentloaded");
 
   // Open Workspace switcher and click Create Workspace

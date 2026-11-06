@@ -45,6 +45,77 @@ export function formatRelativeTime(timestamp: number): string {
 
 export type TimelineBucket = "Today" | "Yesterday" | "This week" | "Earlier";
 
+/**
+ * Formats exact timestamp per KuraCode D10 spec:
+ * - "3:42 PM" for today
+ * - "Yesterday 6:10 PM" for yesterday
+ * - "5 Nov, 3:42 PM" for earlier dates
+ */
+export function formatExactTime(timestamp: number, locale = "en-US"): string {
+  const d = new Date(timestamp);
+  const now = new Date();
+
+  const isToday =
+    d.getDate() === now.getDate() &&
+    d.getMonth() === now.getMonth() &&
+    d.getFullYear() === now.getFullYear();
+
+  const yesterday = new Date(now);
+  yesterday.setDate(now.getDate() - 1);
+  const isYesterday =
+    d.getDate() === yesterday.getDate() &&
+    d.getMonth() === yesterday.getMonth() &&
+    d.getFullYear() === yesterday.getFullYear();
+
+  const timeStr = d.toLocaleTimeString(locale, {
+    hour: "numeric",
+    minute: "2-digit",
+  });
+
+  if (isToday) {
+    return timeStr;
+  }
+  if (isYesterday) {
+    return `Yesterday ${timeStr}`;
+  }
+
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const day = d.getDate();
+  const month = months[d.getMonth()];
+
+  if (d.getFullYear() === now.getFullYear()) {
+    return `${day} ${month}, ${timeStr}`;
+  }
+
+  return `${day} ${month} ${d.getFullYear()}, ${timeStr}`;
+}
+
+/**
+ * Returns full tooltip metadata string: full local date, time, timezone, and capturing device.
+ */
+export function formatTimestampTooltip(
+  timestamp: number,
+  device?: string,
+  locale = "en-US"
+): string {
+  const d = new Date(timestamp);
+  const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
+  const dateStr = d.toLocaleDateString(locale, {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+  const timeStr = d.toLocaleTimeString(locale, {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+
+  const base = `${dateStr} at ${timeStr} (${tz})`;
+  return device ? `${base} • Device: ${device}` : base;
+}
+
 export function getTimelineBucket(timestamp: number): TimelineBucket {
   const now = new Date();
 

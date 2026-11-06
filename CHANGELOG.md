@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-11-05
 
 ### Fixed
+- **Defects D1–D14 (Popup Redesign & Zero-Border Fixes):**
+  - **D1 (Toolbar wrapping):** Restructured into 3 fixed rows (header 48px, search 56px, chips 40px); passes responsive tests across 320px–420px and 100%–150% zoom without horizontal overflow.
+  - **D2 (Border clutter):** Enforced zero-border design system with strictly $\le 3$ visible borders per view (measured: 2 borders).
+  - **D3 (Duplicate text):** Suppressed redundant auto-titles on prose paragraphs and single-word items; rendered cleanly in a single clamped title line.
+  - **D4 (Prose vs code misclassification):** Implemented natural language sentence detector (`isProseText`) and tightened SQL statement regex patterns.
+  - **D5 (Duplicate `+` button):** Eliminated header `+` button; limited trailing header controls to 3; single primary `+` button in search row.
+  - **D6 (Search placeholder):** Standardized placeholder to `"Search snippets"`, added `/` keyboard hint, wired `Esc` to clear.
+  - **D7 (Nested scrollbars):** Removed inner scroll containers; `.kura-list` is the single scrollable view.
+  - **D8 (Copy hit target):** Enlarged Copy button to 28px visual / 32px hit-target.
+  - **D9 (Pin icon):** Replaced star/pin placeholder with dedicated thumbtack SVG icon.
+  - **D10 (Provenance line):** Added 14px offline SVG globe favicon, stripped `www.` prefix, and exact timestamp tooltip.
+  - **D11 (Language casing):** Standardized proper canonical casing (`TypeScript`, `Python`, `HTML`, `SQL`, `Dockerfile`, etc.).
+  - **D12 (Color discipline):** Green brand accent reserved strictly for primary interactive states, active chips, and sync OK dot.
+  - **D13 (Word wrap persistence):** Word wrap toggle persisted across sessions, default ON.
+  - **D14 (Typographic contrast):** Tuned text tokens to meet WCAG AA $\ge 4.5:1$ contrast ratio.
 - **BUG-1 (Settings button does nothing):**
   - Registered `options_ui: { page: "options.html", open_in_tab: true }` in Chrome and Firefox manifests.
   - Implemented standalone options page in `src/options/` with keyboard navigation and shortcut support (`Alt+S` / `Cmd+,`).

@@ -6,6 +6,7 @@ const dist = fileURLToPath(new URL(".output/chrome-mv3", import.meta.url));
 export default defineConfig({
   testDir: "./e2e",
   timeout: 60_000,
+  workers: 1,
   retries: 1,
   webServer: {
     command: "node e2e/server.mjs",

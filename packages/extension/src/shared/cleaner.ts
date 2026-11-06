@@ -184,9 +184,10 @@ const LANGUAGE_CONTENT: [RegExp, string, number][] = [
   [/vec!/, "rust", 95],
   [/\bVec</, "rust", 94],
   [/\s+->\s+\w+/, "rust", 88],
-  // ---- SQL ----
-  [/^\s*(?:SELECT|INSERT|UPDATE|DELETE|CREATE|DROP|ALTER)\b/im, "sql", 98],
-  [/\bFROM\s+\w+(\s+(?:WHERE|JOIN))?/i, "sql", 95],
+// ---- SQL ----
+  [/^\s*SELECT\b[\s\S]+\bFROM\b/im, "sql", 98],
+  [/^\s*(?:INSERT\s+INTO|CREATE\s+TABLE|ALTER\s+TABLE|DROP\s+TABLE|DELETE\s+FROM|UPDATE\s+\w+\s+SET|WITH\s+\w+\s+AS)\b/im, "sql", 98],
+  [/\bFROM\s+[a-zA-Z0-9_]+\s+(WHERE|JOIN|GROUP\s+BY|ORDER\s+BY)\b/i, "sql", 95],
   // ---- Bash ----
   [/^\s*#!\s*\S*(?:bash|sh|zsh)/, "bash", 100],
   [
@@ -213,6 +214,83 @@ const LANGUAGE_CONTENT: [RegExp, string, number][] = [
   [/^[ \t]*[.#]?[\w-]+\s*\{/m, "css", 97],
 ];
 
+const COMMON_ENGLISH_WORDS = new Set([
+  "the", "be", "to", "of", "and", "a", "in", "that", "have", "i",
+  "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
+  "this", "but", "his", "by", "from", "they", "we", "say", "her",
+  "she", "or", "an", "will", "my", "one", "all", "would", "there",
+  "their", "what", "so", "up", "out", "if", "about", "who", "get",
+  "which", "go", "me", "when", "make", "can", "like", "time", "no",
+  "just", "him", "know", "take", "people", "into", "year", "your",
+  "good", "some", "could", "them", "see", "other", "than", "then",
+  "now", "look", "only", "come", "its", "over", "think", "also",
+  "back", "after", "use", "two", "how", "our", "work", "first",
+  "well", "way", "even", "new", "want", "because", "any", "these",
+  "give", "day", "most", "us", "is", "are", "was", "were", "has",
+  "had", "been", "designed", "created", "scale", "storage", "please",
+  "thanks", "notes", "summary", "check", "documentation", "guide",
+  "meeting", "report", "overview", "agenda", "feature", "features",
+  "update", "reminder", "findings", "investigating", "announced"
+]);
+
+/**
+ * Classifies whether text is natural language prose vs source code (D4).
+ */
+export function isProseText(text: string): boolean {
+  const trimmed = text.trim();
+  if (!trimmed) return true;
+
+  // Single word or simple title without code syntax (like "Feature")
+  if (/^[a-zA-Z0-9_\s-]+$/.test(trimmed) && trimmed.split(/\s+/).length <= 2 && trimmed.length < 35) {
+    // If it mentions an explicit language name in a short hint (e.g. "python example"), not prose
+    if (/\b(python|typescript|javascript|bash|shell|rust|golang|csharp|php|ruby|swift|kotlin|dockerfile)\b/i.test(trimmed)) {
+      return false;
+    }
+    // Unless it's an explicit code statement
+    if (!/^(const|let|var|def|fn|func|class|package|import)\b/.test(trimmed)) {
+      return true;
+    }
+  }
+
+  // Strong code delimiters that do not occur in natural prose
+  const hasStrongCodeDelimiters =
+    /[;{}][\r\n]/.test(trimmed) ||
+    /=>/.test(trimmed) ||
+    /\b(function|def|fn|class|struct|interface|const|let|var|package|pub|fmt\.|System\.out|console\.log)\b/.test(trimmed) ||
+    /<\/[a-zA-Z0-9]+>/.test(trimmed) ||
+    /^\s*(SELECT\b[\s\S]+\bFROM|INSERT\s+INTO|CREATE\s+TABLE|DELETE\s+FROM|UPDATE\s+\w+\s+SET)\b/im.test(trimmed);
+
+  if (hasStrongCodeDelimiters) {
+    return false;
+  }
+
+  // Tokenize words
+  const words = trimmed.toLowerCase().match(/\b[a-z]{2,}\b/g) || [];
+  if (words.length === 0) return true;
+
+  let stopWordCount = 0;
+  for (const w of words) {
+    if (COMMON_ENGLISH_WORDS.has(w)) {
+      stopWordCount++;
+    }
+  }
+
+  const stopWordRatio = stopWordCount / words.length;
+  const hasSentencePunctuation = /[.!?](\s+|$)/.test(trimmed);
+
+  // If >= 18% stop words and sentence punctuation, or >= 25% stop words overall
+  if ((words.length >= 4 && stopWordRatio >= 0.16 && hasSentencePunctuation) || (words.length >= 5 && stopWordRatio >= 0.24)) {
+    return true;
+  }
+
+  // Markdown prose headers or bullet lists
+  if (/^#{1,6}\s+[A-Z]/m.test(trimmed) && stopWordRatio >= 0.12) {
+    return true;
+  }
+
+  return false;
+}
+
 function detectContentLanguage(text: string): string | undefined {
   let best = 0;
   let found: string | undefined;
@@ -232,17 +310,31 @@ export function detectLanguage(
   text = "",
   fallback = "text",
 ): string {
-  const source = [
+  // 1. Element class and data attributes
+  const elSource = [
     element?.getAttribute("class") ?? "",
     element?.getAttribute("data-lang") ?? "",
     element?.getAttribute("data-language") ?? "",
     element?.getAttribute("lang") ?? "",
-    text,
   ].join(" ");
 
   for (const [re, lang] of LANGUAGE_HINTS) {
-    if (re.test(source)) return lang;
+    if (re.test(elSource)) return lang;
   }
+
+  // 2. Prose classification (D4): if text is natural prose, classify as "text"
+  if (isProseText(text)) {
+    return fallback;
+  }
+
+  // 3. Short explicit text hints (e.g. "python example")
+  if (text.length < 50) {
+    for (const [re, lang] of LANGUAGE_HINTS) {
+      if (re.test(text)) return lang;
+    }
+  }
+
+  // 4. Content heuristics
   return detectContentLanguage(text) ?? fallback;
 }
 

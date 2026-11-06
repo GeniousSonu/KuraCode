@@ -47,7 +47,37 @@
 - **Developer Tooling & Interactive UI:** Added `pnpm setup:status`, `pnpm setup:test <service>`, `pnpm setup:env`, `pnpm secrets:gh`, `pnpm dev:full`, and interactive `SetupWizard` in the web application.
 - **Documentation & Setup Guides (`docs/setup/`):** Complete per-service setup manuals (`01-github.md` through `10-stores.md`, `11-secret-hygiene.md`, `redirect-uris.md`, `docs/SETUP.md`).
 
+### 7. Senior Developer Popup Redesign & Defect Fixes (D1–D14)
+- **Zero-Border Design System:** Enforced a strict border budget ($\le 3$ borders per screen; measured 2). Removed all card borders, relying on subtle tonal surfaces and spacing.
+- **Header & Toolbar Restructuring:**
+  - Fixed 48px header with logo, workspace switcher, and strictly $\le 3$ trailing controls (sync dot, settings, account).
+  - 56px search row with `"Search snippets"` placeholder, `/` key hint, `Esc` to clear, and a single primary `+` button (`#btn-save-clip`).
+  - 40px chip track ("All", "Code", "Text", "Pinned") and filter popover.
+- **Defects Fixed (D1–D14):**
+  - D1: Layout passes across 320px–420px, 100%–150% zoom, and +40% pseudo-localization without overflow.
+  - D2: Eliminated card border clutter (measured: 2 visible borders).
+  - D3: Suppressed duplicate auto-title for prose and single-word items.
+  - D4: Heuristic accurately separates English prose from code with 0% error rate.
+  - D5: Max 3 trailing header controls and exactly 1 plus button in view.
+  - D6: Standardized search bar placeholder and keyboard hints.
+  - D7: Single scrollable list: only `.kura-list` scrolls; zero nested scrollbars.
+  - D8: Action cluster provides 28px visual / 32px hit-target Copy button and More menu dropdown.
+  - D9: Dedicated thumbtack SVG icon for pinning.
+  - D10: Provenance line with 14px offline SVG globe favicon, stripped domain, exact timestamp tooltip, and plain text language label.
+  - D11: Proper-case language casing (`TypeScript`, `Python`, `HTML`, `SQL`, `Dockerfile`, etc.).
+  - D12: Green brand accent reserved strictly for primary interactive states.
+  - D13: Word wrap toggle persisted across sessions, default ON.
+  - D14: Full WCAG AA $\ge 4.5:1$ contrast compliance across all text tokens.
+- **Visual Proof Screenshots:** Saved in `docs/agent/evidence/design/after/`.
+
 ## Verification Evidence Saved
+- `docs/agent/evidence/design/reported/popup-before.png`
+- `docs/agent/evidence/design/after/popup-after-default.png`
+- `docs/agent/evidence/design/after/popup-after-light.png`
+- `docs/agent/evidence/design/after/popup-after-code-truncated.png`
+- `docs/agent/evidence/design/after/popup-after-320px.png`
+- `docs/agent/evidence/design/after/popup-after-420px.png`
+- `docs/agent/evidence/design/after/popup-after-zoom150.png`
 - `docs/agent/evidence/release/version-integrity.log`
 - `docs/agent/evidence/release/stale-artifact-rejection.log`
 - `docs/agent/evidence/release/release-contents-audit.log`

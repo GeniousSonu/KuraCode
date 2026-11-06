@@ -16,6 +16,8 @@ export interface SnippetContext {
   surroundingText?: string;
   /** License hint detected from the page (LIC-2). */
   licenseHint?: string;
+  /** Origin device identifier or label */
+  device?: string;
 }
 
 export interface Snippet {

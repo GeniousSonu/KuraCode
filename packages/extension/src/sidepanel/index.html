@@ -43,17 +43,15 @@
       :root {
         --brand-primary: #00b96c;
         --brand-light: #08e88a;
-        --accent-mint: #00b96c;
         --bg-app: #0c0d10;
         --bg-surface: #14171c;
         --bg-surface-elevated: #1a1e24;
-        --bg-code: #0e1014;
+        --bg-code: #08090b;
         --border-subtle: rgba(255, 255, 255, 0.08);
-        --border-default: rgba(255, 255, 255, 0.12);
         --border-focus: #00b96c;
         --text-primary: #f1f5f9;
         --text-secondary: #94a3b8;
-        --text-muted: #64748b;
+        --text-muted: #7b8da5;
         --color-success: #00b96c;
         --color-danger: #ef4444;
         --radius-sm: 4px;
@@ -68,28 +66,32 @@
       html, body {
         margin: 0;
         padding: 0;
+        width: 100%;
+        height: 100%;
         background: var(--bg-app);
         color: var(--text-primary);
         font: 400 13px/1.45 var(--font-ui);
         font-feature-settings: "tnum" 1, "cv05" 1;
         -webkit-font-smoothing: antialiased;
-        width: 100%;
-        height: 100%;
+        overflow: hidden;
       }
       #app, .kura-app {
         display: flex;
         flex-direction: column;
         height: 100%;
         position: relative;
+        overflow: hidden;
       }
 
       /* 1. Header (48px Fixed) */
       .kura-header {
         height: 48px;
+        min-height: 48px;
+        max-height: 48px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 12px;
+        padding: 0 16px;
         background: var(--bg-surface);
         border-bottom: 1px solid var(--border-subtle);
         flex-shrink: 0;
@@ -99,84 +101,55 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        min-width: 0;
+        flex: 1;
+        margin-right: 8px;
+        position: relative;
       }
       .kura-logo-icon {
         width: 22px;
         height: 22px;
         flex-shrink: 0;
       }
-      .kura-brand-name {
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: -0.01em;
-        color: var(--text-primary);
-      }
-      .kura-header-controls {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        position: relative;
-      }
-
-      /* Sync Badge */
-      .kura-sync-badge {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 2px 7px;
-        border-radius: 12px;
-        font-size: 11px;
-        font-weight: 500;
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--text-secondary);
-      }
-      .kura-sync-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--text-muted);
-      }
-      .kura-sync-badge.synced .kura-sync-dot {
-        background: var(--brand-primary);
-      }
-
-      /* Header Buttons */
-      .kura-header-btn {
-        background: transparent;
-        border: 1px solid transparent;
-        color: var(--text-secondary);
-        border-radius: var(--radius-sm);
-        padding: 4px 8px;
-        font: 500 12px var(--font-ui);
-        cursor: pointer;
+      .kura-ws-btn {
         display: inline-flex;
         align-items: center;
-        gap: 4px;
-        transition: background 0.15s, color 0.15s, border-color 0.15s;
-      }
-      .kura-header-btn:hover {
-        background: var(--bg-surface-elevated);
+        gap: 6px;
+        padding: 4px 8px;
+        border-radius: var(--radius-sm);
+        background: transparent;
+        border: none;
         color: var(--text-primary);
-        border-color: var(--border-subtle);
+        font-size: 13px;
+        font-weight: 600;
+        font-family: var(--font-ui);
+        cursor: pointer;
+        min-width: 0;
+        max-width: 170px;
+        transition: background 140ms;
       }
-      .kura-header-btn.kura-icon-btn {
-        padding: 5px;
+      .kura-ws-btn:hover {
+        background: rgba(255, 255, 255, 0.06);
       }
-      .kura-header-btn.kura-icon-btn svg {
-        display: block;
+      .kura-ws-btn:focus-visible {
+        outline: 2px solid var(--border-focus);
+        outline-offset: 1px;
       }
-
-      /* Workspace Dropdown */
+      .kura-ws-btn span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
       .kura-ws-dropdown {
         position: absolute;
-        top: 42px;
-        right: 40px;
+        top: 40px;
+        left: 30px;
         background: var(--bg-surface-elevated);
-        border: 1px solid var(--border-default);
+        border: 1px solid var(--border-subtle);
         border-radius: var(--radius-md);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         padding: 4px;
-        min-width: 180px;
+        min-width: 190px;
         z-index: 50;
       }
       .kura-ws-dropdown.hidden {
@@ -187,7 +160,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 6px 10px;
+        padding: 7px 10px;
         background: transparent;
         border: none;
         border-radius: var(--radius-sm);
@@ -208,181 +181,524 @@
         font-size: 11.5px;
       }
 
-      /* 2. Search (Fixed 36px) */
-      .kura-search-wrap {
-        height: 36px;
+      .kura-header-controls {
         display: flex;
         align-items: center;
-        padding: 0 10px;
-        background: var(--bg-surface);
-        border-bottom: 1px solid var(--border-subtle);
         gap: 8px;
         flex-shrink: 0;
       }
+      .kura-sync-dot-btn {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        border-radius: var(--radius-sm);
+        padding: 0;
+      }
+      .kura-sync-dot-btn:focus-visible {
+        outline: 2px solid var(--border-focus);
+      }
+      .kura-sync-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--brand-primary);
+        display: inline-block;
+      }
+      .kura-sync-dot.syncing {
+        background: #f59e0b;
+        animation: kuraPulse 1.5s infinite;
+      }
+      .kura-sync-dot.offline {
+        background: var(--color-danger);
+      }
+      @keyframes kuraPulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.4; transform: scale(0.85); }
+      }
+      .kura-header-btn {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        border-radius: var(--radius-sm);
+        padding: 0;
+        transition: color 140ms, background 140ms;
+      }
+      .kura-header-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-primary);
+      }
+      .kura-header-btn:focus-visible {
+        outline: 2px solid var(--border-focus);
+        outline-offset: 1px;
+      }
+      .kura-header-btn.danger:hover {
+        color: var(--color-danger);
+      }
+      .kura-header-btn.active {
+        color: var(--brand-primary);
+      }
+
+      /* 2. Search Row (56px Fixed) */
+      .kura-search-row {
+        height: 56px;
+        min-height: 56px;
+        max-height: 56px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: var(--bg-app);
+        flex-shrink: 0;
+      }
+      .kura-search-input-wrap {
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
       .kura-search-icon {
+        position: absolute;
+        left: 12px;
         color: var(--text-muted);
+        pointer-events: none;
         display: flex;
         align-items: center;
       }
       .kura-search-input {
-        flex: 1;
-        background: transparent;
+        width: 100%;
+        height: 40px;
+        padding: 0 34px 0 36px;
+        background: var(--bg-surface-elevated);
         border: none;
-        outline: none;
+        border-radius: var(--radius-md);
         color: var(--text-primary);
-        font: 400 12px var(--font-ui);
+        font: 400 13px var(--font-ui);
+        outline: none;
+        transition: outline 140ms;
       }
       .kura-search-input::placeholder {
         color: var(--text-muted);
       }
+      .kura-search-input:focus-visible {
+        outline: 2px solid var(--border-focus);
+        outline-offset: -1px;
+      }
+      .kura-search-keyhint {
+        position: absolute;
+        right: 12px;
+        font-size: 11px;
+        font-family: var(--font-code);
+        color: var(--text-secondary);
+        background: rgba(255, 255, 255, 0.06);
+        padding: 2px 6px;
+        border-radius: 4px;
+        pointer-events: none;
+      }
+      .kura-primary-save-btn {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: var(--radius-md);
+        background: var(--brand-primary);
+        border: none;
+        color: #0c0d10;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 140ms;
+      }
+      .kura-primary-save-btn:hover {
+        opacity: 0.9;
+      }
+      .kura-primary-save-btn:focus-visible {
+        outline: 2px solid var(--text-primary);
+        outline-offset: 2px;
+      }
 
-      /* 3. Toolbar (Fixed 32px) */
-      .kura-toolbar {
-        height: 32px;
+      /* 3. Filter Row (40px Fixed, Never Wraps) */
+      .kura-filter-row {
+        height: 40px;
+        min-height: 40px;
+        max-height: 40px;
         display: flex;
         align-items: center;
-        padding: 0 10px;
-        background: var(--bg-surface);
+        justify-content: space-between;
+        padding: 0 16px;
+        background: var(--bg-app);
         border-bottom: 1px solid var(--border-subtle);
-        gap: 6px;
         flex-shrink: 0;
+        gap: 8px;
+        position: relative;
       }
-      .kura-scope-count {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--text-muted);
-        margin-right: auto;
+      .kura-chips-scroll {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        flex: 1;
+        white-space: nowrap;
       }
-      .kura-select {
-        background: var(--bg-surface-elevated);
-        border: 1px solid var(--border-subtle);
+      .kura-chips-scroll::-webkit-scrollbar {
+        display: none;
+      }
+      .kura-chip {
+        height: 26px;
+        padding: 0 10px;
+        border-radius: 13px;
+        background: var(--bg-surface);
+        border: none;
         color: var(--text-secondary);
-        font: 400 11px var(--font-ui);
-        padding: 2px 6px;
-        border-radius: var(--radius-sm);
-        outline: none;
-      }
-      .ghost-btn {
-        background: transparent;
-        border: 1px solid var(--border-subtle);
-        color: var(--text-secondary);
-        border-radius: var(--radius-sm);
-        padding: 2px 6px;
-        font: 500 11px var(--font-ui);
+        font: 500 12px var(--font-ui);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
         gap: 4px;
+        transition: background 140ms, color 140ms;
+        flex-shrink: 0;
       }
-      .ghost-btn:hover {
+      .kura-chip:hover {
         background: var(--bg-surface-elevated);
         color: var(--text-primary);
       }
-      .ghost-btn.active {
-        background: rgba(0, 185, 108, 0.12);
-        border-color: var(--brand-primary);
+      .kura-chip:focus-visible {
+        outline: 2px solid var(--border-focus);
+      }
+      .kura-chip.active {
+        background: var(--brand-primary);
+        color: #0c0d10;
+        font-weight: 600;
+      }
+      .kura-chip-count {
+        font-size: 11px;
+        opacity: 0.8;
+        font-variant-numeric: tabular-nums;
+      }
+      .kura-view-filter-btn {
+        height: 28px;
+        width: 28px;
+        min-width: 28px;
+        border-radius: var(--radius-sm);
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 0;
+      }
+      .kura-view-filter-btn:hover {
+        background: var(--bg-surface);
+        color: var(--text-primary);
+      }
+      .kura-view-filter-btn:focus-visible {
+        outline: 2px solid var(--border-focus);
+      }
+      .kura-view-filter-btn.has-filters {
         color: var(--brand-primary);
       }
+      .kura-filter-badge {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--brand-primary);
+      }
 
-      /* 4. Timeline List */
-      .kura-list {
-        flex: 1;
-        overflow-y: auto;
-        padding: 8px 10px 24px;
+      /* Popovers */
+      .kura-popover {
+        position: absolute;
+        top: 36px;
+        right: 16px;
+        z-index: 50;
+        background: var(--bg-surface-elevated);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        padding: 12px;
+        min-width: 200px;
         display: flex;
         flex-direction: column;
         gap: 8px;
       }
-      .kura-timeline-header {
-        font-size: 10px;
+      .kura-popover.hidden {
+        display: none;
+      }
+      .kura-popover-title {
+        font-size: 12px;
         font-weight: 600;
-        letter-spacing: 0.05em;
+        color: var(--text-primary);
+        margin-bottom: 2px;
+      }
+      .kura-popover-section-label {
+        font-size: 11px;
+        font-weight: 600;
         color: var(--text-muted);
-        padding: 6px 2px 2px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 4px;
+      }
+      .kura-popover-options {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        max-height: 140px;
+        overflow-y: auto;
+      }
+      .kura-popover-opt {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 8px;
+        background: transparent;
+        border: none;
+        border-radius: var(--radius-sm);
+        color: var(--text-secondary);
+        font: 400 12px var(--font-ui);
+        cursor: pointer;
+        text-align: left;
+      }
+      .kura-popover-opt:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text-primary);
+      }
+      .kura-popover-opt.selected {
+        font-weight: 600;
+        color: var(--brand-primary);
+      }
+      .kura-popover-toggle-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 6px;
+        border-top: 1px solid var(--border-subtle);
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+      .kura-toggle-switch {
+        padding: 2px 8px;
+        border-radius: 10px;
+        background: var(--bg-surface);
+        border: none;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--text-muted);
+      }
+      .kura-toggle-switch.on {
+        background: var(--brand-primary);
+        color: #0c0d10;
+      }
+      .kura-popover-clear-btn {
+        margin-top: 4px;
+        padding: 5px;
+        border-radius: var(--radius-sm);
+        background: transparent;
+        border: none;
+        color: var(--color-danger);
+        font: 500 11.5px var(--font-ui);
+        cursor: pointer;
+        text-align: center;
+      }
+      .kura-popover-clear-btn:hover {
+        background: rgba(239, 68, 68, 0.1);
       }
 
-      /* Snippet Card */
-      .kura-card {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-subtle);
-        border-radius: var(--radius-md);
-        padding: 8px 10px;
+      /* 4. List (The ONLY scroll area in the popup) */
+      .kura-list {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background: var(--bg-app);
+        position: relative;
+      }
+      .kura-group-header {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        background: var(--bg-app);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+
+      /* Row Anatomy (Zero card borders per D2 - grouped by background tone and whitespace alone) */
+      .kura-row {
+        padding: 9px 14px;
+        border: none;
+        background: var(--bg-app);
+        cursor: pointer;
+        transition: background 120ms ease-out;
+        outline: none;
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 4px;
-        position: relative;
-        transition: border-color 0.15s, background 0.15s;
       }
-      .kura-card:hover {
-        border-color: var(--border-default);
+      .kura-row:hover {
+        background: var(--bg-surface);
       }
-      .kura-card.pinned {
-        border-left: 3px solid var(--brand-primary);
+      .kura-row:focus-visible {
+        outline: 2px solid var(--border-focus);
+        outline-offset: -2px;
+        z-index: 1;
       }
-      .kura-card-identity {
+
+      /* Line 1: Title & Actions */
+      .kura-row-line-1 {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 10px;
+        min-width: 0;
+      }
+      .kura-row-title-wrap {
+        flex: 1;
+        min-width: 0;
         display: flex;
         align-items: center;
         gap: 6px;
       }
-      .kura-card-title {
+      .kura-pin-indicator {
+        color: var(--brand-primary);
+        flex-shrink: 0;
+      }
+      .kura-row-title {
         font-size: 13px;
         font-weight: 600;
+        line-height: 18px;
         color: var(--text-primary);
-        margin: 0;
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
-        flex: 1;
+        margin: 0;
       }
-      .kura-lang-pill {
-        font-size: 10px;
-        font-weight: 500;
-        padding: 1px 6px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.06);
+      .kura-row-prose {
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 19px;
         color: var(--text-secondary);
-        text-transform: lowercase;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        word-break: break-word;
+        overflow-wrap: anywhere;
       }
-      .kura-card-pin-btn, .kura-card-menu-btn {
+      .kura-row-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0;
+        margin-top: -2px;
+        position: relative;
+      }
+      .kura-action-copy-btn {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        min-height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-sm);
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: 0;
+        transition: color 120ms, background 120ms;
+      }
+      .kura-action-copy-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-primary);
+      }
+      .kura-action-copy-btn:focus-visible {
+        outline: 2px solid var(--border-focus);
+      }
+      .kura-action-copy-btn.done {
+        color: var(--brand-primary);
+      }
+      .kura-action-more-btn {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        min-height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-sm);
         background: transparent;
         border: none;
         color: var(--text-muted);
         cursor: pointer;
-        padding: 2px 4px;
-        border-radius: var(--radius-sm);
-        display: flex;
-        align-items: center;
+        padding: 0;
+        opacity: 0;
+        transition: opacity 120ms, color 120ms;
       }
-      .kura-card-pin-btn:hover, .kura-card-menu-btn:hover {
+      .kura-row:hover .kura-action-more-btn,
+      .kura-row:focus-within .kura-action-more-btn {
+        opacity: 1;
+      }
+      .kura-action-more-btn:hover {
+        background: rgba(255, 255, 255, 0.08);
         color: var(--text-primary);
-        background: rgba(255, 255, 255, 0.06);
       }
-      .kura-card-pin-btn.active {
-        color: var(--brand-primary);
+      .kura-action-more-btn:focus-visible {
+        outline: 2px solid var(--border-focus);
+        opacity: 1;
       }
-      .kura-card-menu-dropdown {
+
+      /* Action Dropdown Menu */
+      .kura-menu-dropdown {
         position: absolute;
-        top: 28px;
-        right: 8px;
+        top: 30px;
+        right: 0;
         background: var(--bg-surface-elevated);
-        border: 1px solid var(--border-default);
-        border-radius: var(--radius-sm);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-md);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
         padding: 4px;
-        z-index: 30;
-        min-width: 140px;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        min-width: 170px;
+        z-index: 40;
       }
-      .kura-card-menu-dropdown.hidden {
+      .kura-menu-dropdown.hidden {
         display: none;
       }
       .kura-menu-item {
         width: 100%;
-        padding: 5px 8px;
+        padding: 6px 10px;
         background: transparent;
         border: none;
         border-radius: 3px;
         color: var(--text-primary);
-        font: 400 11.5px var(--font-ui);
+        font: 400 12px var(--font-ui);
         text-align: left;
         cursor: pointer;
       }
@@ -398,127 +714,378 @@
         margin: 4px 0;
       }
 
-      /* Context row */
-      .kura-card-context {
+      /* Line 2: Meta */
+      .kura-row-meta {
         display: flex;
         align-items: center;
-        gap: 5px;
-        font-size: 11px;
+        gap: 6px;
+        font-size: 11.5px;
+        line-height: 16px;
         color: var(--text-muted);
+        min-width: 0;
+        font-variant-numeric: tabular-nums;
       }
-      .kura-source-link {
-        color: var(--text-secondary);
-        text-decoration: none;
-        max-width: 140px;
+      .kura-meta-favicon {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        border-radius: 2px;
+      }
+      .kura-meta-domain {
+        color: var(--text-muted);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        max-width: 140px;
       }
-      .kura-source-link:hover {
-        text-decoration: underline;
+      .kura-meta-sep {
+        color: var(--text-muted);
+        opacity: 0.6;
+      }
+      .kura-meta-time {
+        white-space: nowrap;
+      }
+      .kura-meta-lang {
+        white-space: nowrap;
+        color: var(--text-secondary);
+        font-weight: 500;
       }
 
-      /* Code Preview */
-      .kura-card-code {
-        margin: 4px 0 6px;
-        padding: 6px 8px;
-        background: var(--bg-code);
-        border: 1px solid var(--border-subtle);
-        border-radius: var(--radius-sm);
-        font: 400 11.5px/1.5 var(--font-code);
-        color: #e2e8f0;
-        tab-size: 2;
-        max-height: 72px;
-        overflow-y: hidden;
-        overflow-x: auto;
+      /* Line 3: Recessed Code Preview */
+      .kura-code-preview-wrap {
         position: relative;
-        transition: max-height 0.15s ease;
+        margin-top: 2px;
       }
-      .kura-card-code.wrap {
+      .kura-code-preview {
+        background: var(--bg-code);
+        border-radius: 6px;
+        border: none;
+        padding: 8px 10px;
+        font-family: var(--font-code);
+        font-size: 12px;
+        line-height: 18px;
+        color: var(--text-secondary);
+        margin: 0;
+        max-height: 54px;
+        overflow: hidden;
+        position: relative;
+      }
+      .kura-code-preview.wrap {
         white-space: pre-wrap;
         overflow-wrap: anywhere;
       }
-      .kura-card-code.no-wrap {
+      .kura-code-preview.no-wrap {
         white-space: pre;
       }
-      .kura-card-code.expanded {
-        max-height: 400px;
-        overflow-y: auto;
+      .kura-preview-fade {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 22px;
+        background: linear-gradient(to bottom, transparent, var(--bg-code));
+        pointer-events: none;
+      }
+      .kura-show-more-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 4px;
+        font-size: 11.5px;
+        font-weight: 500;
+        color: var(--brand-primary);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .kura-show-more-btn:hover {
+        text-decoration: underline;
       }
 
-      /* Card Bottom */
-      .kura-card-bottom {
+      /* Slide-In Detail View */
+      .kura-detail-view {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-app);
+        display: flex;
+        flex-direction: column;
+        z-index: 30;
+        animation: kuraSlideIn 140ms ease-out;
+      }
+      .kura-detail-view.hidden {
+        display: none;
+      }
+      @keyframes kuraSlideIn {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
+      }
+      .kura-detail-header {
+        height: 48px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 0 16px;
+        background: var(--bg-surface);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-shrink: 0;
       }
-      .kura-primary-copy-btn {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid var(--border-subtle);
-        color: var(--text-primary);
+      .kura-detail-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: transparent;
+        border: none;
+        color: var(--text-secondary);
+        font: 500 12.5px var(--font-ui);
+        cursor: pointer;
+        padding: 4px 6px;
         border-radius: var(--radius-sm);
-        padding: 4px 10px;
-        font: 500 11px var(--font-ui);
+      }
+      .kura-detail-back-btn:hover {
+        color: var(--text-primary);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .kura-detail-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 180px;
+      }
+      .kura-detail-header-actions {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .kura-detail-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .kura-detail-content {
+        background: var(--bg-surface);
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: var(--text-primary);
+        margin: 0;
+        overflow-x: auto;
+      }
+      .kura-detail-content.code {
+        font-family: var(--font-code);
+        background: var(--bg-code);
+      }
+      .kura-detail-content.prose {
+        font-family: var(--font-ui);
+        white-space: pre-wrap;
+      }
+      .kura-detail-content.wrap {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .kura-detail-content.no-wrap {
+        white-space: pre;
+      }
+      .kura-detail-actions-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .kura-btn {
+        height: 32px;
+        padding: 0 12px;
+        border-radius: var(--radius-sm);
+        background: var(--bg-surface-elevated);
+        border: none;
+        color: var(--text-secondary);
+        font: 500 12px var(--font-ui);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        gap: 5px;
-        transition: background 0.15s, border-color 0.15s;
+        justify-content: center;
+        transition: background 140ms, color 140ms;
       }
-      .kura-primary-copy-btn:hover {
+      .kura-btn:hover {
         background: rgba(255, 255, 255, 0.12);
-        border-color: var(--border-default);
+        color: var(--text-primary);
       }
-      .kura-primary-copy-btn.done {
-        background: rgba(0, 185, 108, 0.15);
-        border-color: var(--brand-primary);
-        color: var(--brand-light);
+      .kura-btn-primary {
+        background: var(--brand-primary);
+        color: #0c0d10;
+        font-weight: 600;
       }
-      .kura-expand-btn {
+      .kura-btn-primary:hover {
+        opacity: 0.9;
+        background: var(--brand-primary);
+      }
+      .kura-detail-meta-panel {
+        background: var(--bg-surface);
+        border-radius: 8px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .kura-detail-meta-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        gap: 10px;
+      }
+      .meta-label {
+        color: var(--text-muted);
+      }
+      .meta-value {
+        color: var(--text-secondary);
+      }
+      .meta-value.link {
+        color: var(--brand-primary);
+        text-decoration: none;
+      }
+      .kura-detail-lang-select {
+        background: var(--bg-surface-elevated);
+        border: none;
+        border-radius: var(--radius-sm);
+        color: var(--text-primary);
+        font: 500 11.5px var(--font-ui);
+        padding: 3px 6px;
+      }
+
+      /* Empty & Skeleton States */
+      .kura-empty-state {
+        padding: 48px 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .kura-empty-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 22px;
+        background: var(--bg-surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+      }
+      .kura-empty-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0;
+      }
+      .kura-empty-sub {
+        font-size: 12px;
+        line-height: 1.5;
+        color: var(--text-secondary);
+        margin: 0;
+        max-width: 280px;
+      }
+      .kura-skeleton-row {
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border-subtle);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .kura-skeleton-line {
+        height: 12px;
+        background: var(--bg-surface);
+        border-radius: 4px;
+        width: 80%;
+      }
+      .kura-skeleton-line.short {
+        width: 45%;
+      }
+
+      /* Toasts */
+      .kura-toast {
+        position: absolute;
+        bottom: 16px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg-surface-elevated);
+        border-radius: 20px;
+        padding: 6px 14px;
+        font-size: 12px;
+        font-weight: 500;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 60;
+        white-space: nowrap;
+        transition: opacity 140ms ease-out, transform 140ms ease-out;
+      }
+      .kura-toast.hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, 10px);
+      }
+      .kura-toast.visible {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      .kura-toast.success { color: var(--color-success); }
+      .kura-toast.danger { color: var(--color-danger); }
+      .kura-toast.info { color: var(--text-primary); }
+      .kura-toast.warning { color: #f59e0b; }
+      .kura-toast-undo {
         background: transparent;
         border: none;
-        color: var(--text-muted);
-        font: 400 11px var(--font-ui);
+        color: var(--brand-primary);
+        font-weight: 600;
         cursor: pointer;
-        padding: 2px 4px;
-      }
-      .kura-expand-btn:hover {
-        color: var(--text-secondary);
+        padding: 0;
+        text-decoration: underline;
       }
 
       /* Modals */
       .kura-modal-backdrop {
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(2px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 100;
-        padding: 16px;
+        backdrop-filter: blur(2px);
       }
       .kura-modal {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-default);
+        background: var(--bg-surface-elevated);
         border-radius: var(--radius-lg);
-        width: 100%;
-        max-width: 380px;
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+        width: 320px;
+        padding: 16px;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        gap: 12px;
       }
       .kura-modal-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px 14px;
-        border-bottom: 1px solid var(--border-subtle);
       }
       .kura-modal-header h3 {
         margin: 0;
-        font-size: 13.5px;
+        font-size: 14px;
         font-weight: 600;
       }
       .kura-modal-close {
@@ -529,183 +1096,38 @@
         font-size: 14px;
       }
       .kura-modal-body {
-        padding: 14px;
         display: flex;
         flex-direction: column;
         gap: 10px;
       }
-      .kura-input-row {
-        display: flex;
-        gap: 6px;
-      }
-      .kura-join-input, .kura-input {
-        flex: 1;
-        background: var(--bg-surface-elevated);
-        border: 1px solid var(--border-default);
+      .kura-input {
+        width: 100%;
+        height: 36px;
+        padding: 0 10px;
+        background: var(--bg-surface);
+        border: none;
         border-radius: var(--radius-sm);
-        padding: 6px 10px;
         color: var(--text-primary);
-        font: 400 12px var(--font-ui);
+        font: 400 13px var(--font-ui);
         outline: none;
       }
-      .kura-join-input:focus, .kura-input:focus {
-        border-color: var(--border-focus);
+      .kura-input:focus-visible {
+        outline: 2px solid var(--border-focus);
       }
-      .kura-preview-card {
-        background: var(--bg-surface-elevated);
-        border: 1px solid rgba(0, 185, 108, 0.3);
-        border-radius: var(--radius-sm);
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-      .kura-preview-badge {
-        font-size: 10px;
-        font-weight: 600;
-        color: var(--brand-primary);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-      .kura-preview-title {
-        font-size: 12.5px;
-        font-weight: 600;
-        color: var(--text-primary);
-      }
-      .kura-preview-sub {
-        font-size: 11px;
-        color: var(--text-secondary);
-      }
-      .kura-code-error {
-        font-size: 11.5px;
-        color: var(--color-danger);
-      }
-      .kura-btn {
-        background: var(--bg-surface-elevated);
-        border: 1px solid var(--border-default);
-        color: var(--text-primary);
-        font: 500 12px var(--font-ui);
-        padding: 6px 12px;
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-      }
-      .kura-btn-primary {
-        background: var(--brand-primary);
-        border-color: var(--brand-primary);
-        color: #fff;
-      }
-      .kura-btn-primary:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-
-      /* Skeleton Cards */
-      .kura-skeleton-card {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-subtle);
-        border-radius: var(--radius-md);
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .kura-skeleton-line {
-        height: 12px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 4px;
-        animation: pulse 1.2s infinite ease-in-out;
-      }
-      .kura-skeleton-line.short {
-        width: 45%;
-      }
-      .kura-skeleton-box {
-        height: 48px;
-        background: rgba(255, 255, 255, 0.04);
-        border-radius: 4px;
-        animation: pulse 1.2s infinite ease-in-out;
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 0.4; }
-        50% { opacity: 0.8; }
-      }
-
-      /* Empty State */
-      .kura-empty-state {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 36px 16px;
-        gap: 8px;
-      }
-      .kura-empty-icon {
-        color: var(--text-muted);
-        opacity: 0.4;
-      }
-      .kura-empty-title {
-        margin: 0;
-        font-size: 14px;
-        font-weight: 600;
-      }
-      .kura-empty-sub {
-        margin: 0;
-        font-size: 11.5px;
-        color: var(--text-muted);
-        line-height: 1.45;
-      }
-
-      /* Cheat sheet */
-      .kura-cheat-row {
+      .kura-setting-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 6px 0;
-        border-bottom: 1px solid var(--border-subtle);
-        font-size: 11.5px;
       }
-      .kura-cheat-row kbd {
-        background: var(--bg-surface-elevated);
-        border: 1px solid var(--border-default);
-        border-radius: 3px;
-        padding: 2px 5px;
-        font-family: var(--font-code);
-        font-size: 11px;
-      }
-
-      /* Toast */
-      .kura-toast {
-        position: absolute;
-        bottom: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--bg-surface-elevated);
-        border: 1px solid var(--border-default);
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-        border-radius: var(--radius-md);
-        padding: 6px 12px;
-        font-size: 12px;
+      .kura-setting-label {
+        font-size: 13px;
+        font-weight: 500;
         color: var(--text-primary);
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        z-index: 40;
-        white-space: nowrap;
       }
-      .kura-toast.hidden {
-        display: none;
-      }
-      .kura-toast.success {
-        border-color: var(--brand-primary);
-      }
-      .kura-toast-undo {
-        background: transparent;
-        border: 1px solid var(--brand-primary);
-        color: var(--brand-primary);
-        border-radius: 3px;
-        padding: 2px 6px;
-        font-size: 10.5px;
-        cursor: pointer;
+      .kura-setting-desc {
+        font-size: 11px;
+        color: var(--text-muted);
       }
     </style>
   </head>

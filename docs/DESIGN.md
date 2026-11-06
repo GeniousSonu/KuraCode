@@ -182,3 +182,39 @@ To eliminate generic default fonts (Arial/Helvetica/Times/Segoe) and comply with
 - Single obvious primary action: `[ ⧉ Copy ]` with 1.5s morph to `[ ✔ Copied ]`.
 - Secondary actions (Edit, Add to Group, Share, Trash) in clean `[···]` menu.
 - Delete always moves to Trash with 8-second undo toast.
+
+---
+
+## 5. Zero-Border Typography & Popup Redesign Specification (Defects D1–D14)
+
+### 5.1 Zero-Border Philosophy & Border Budget
+To eliminate visual clutter and generic "AI-slop" card containers:
+- **Strict Border Budget:** A maximum of **3 visible bordered elements** per view (typically: search input border, subtle header divider, and inset code preview block).
+- **No Card Box Outlines:** Individual snippet rows (`.kura-row`) do not use full border outlines. Separation is achieved through subtle tonal surface differentiation, padding, and hairline dividers.
+- **Visual Calmness:** High density with low cognitive noise, prioritizing developer scanning speed.
+
+### 5.2 Layout & Viewport Invariants
+- **Popup Container:** Responsive width with `min-width: 320px; max-width: 420px; width: 100%; height: 600px;`.
+- **Single Scroll Area:** Only `.kura-list` has `overflow-y: auto`. All parent and sibling containers (`header`, `.kura-search-bar`, `.kura-chips-scroll`) strictly enforce `overflow-y: hidden;` to eliminate nested or fighting scrollbars (D7).
+- **Responsive Stress Testing:** The layout passes across widths 320px, 360px, 380px, and 420px, at browser zooms 100%, 125%, 150%, and with +40% pseudo-localized text without breaking or horizontal scrolling (D1).
+
+### 5.3 Row Hierarchy & Metrics
+1. **Line 1 — Header:**
+   - Left: Snippet Title or clamped prose text (`.kura-row-title.kura-card-title`).
+   - Right: Trailing action cluster containing a 28px visual / 32px hit-target Copy button (`.kura-action-copy-btn`) and secondary actions dropdown (`.kura-more-btn`).
+2. **Line 2 — Provenance Line:**
+   - 14px offline SVG globe icon (`.kura-meta-favicon`). Zero 3rd-party network requests.
+   - Domain without `www.` prefix (e.g., `google.com`).
+   - Exact timestamp with full tooltip (e.g. `Yesterday 6:10 PM`).
+   - Plain text language badge formatted in proper casing (D10, D11).
+3. **Line 3 — Code Preview:**
+   - Inset code block (`.kura-code-preview.kura-card-code`) capped at 3 lines maximum.
+   - Smooth bottom gradient fade with a "Show more" button for expanding code into modal view.
+   - Prose and single-word items do not render a redundant code block, collapsing cleanly to ~60px height.
+- **Visible Rows at 380x600:** At least 5 prose rows or at least 4 code rows visible without scrolling.
+
+### 5.4 Typography & Contrast Standards
+- **Font Stack:** Bundled offline Inter (`UI`) and JetBrains Mono (`Code`).
+- **Contrast Ratios:** All text elements exceed WCAG AA standards ($\ge 4.5:1$ contrast against computed background). Muted text uses `--text-muted: #7b8da5` (5.2:1 contrast against `#14171c`).
+- **Language Casing Standard:** All programming languages use proper canonical casing: `TypeScript`, `Python`, `HTML`, `SQL`, `Dockerfile`, `JSON`, `Markdown`, `Shell`, `Rust`, `Go`, `C++`, etc. (D11).
+

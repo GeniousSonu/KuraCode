@@ -4,6 +4,8 @@
  * Analyzes language syntax and meaningful tokens to construct concise, professional titles.
  */
 
+import { isProseText } from "./cleaner";
+
 interface TitleRule {
   pattern: RegExp;
   formatter: (match: RegExpMatchArray, lang: string) => string;
@@ -68,23 +70,28 @@ export function generateReadableTitle(
   code: string,
   language: string = "text",
   headingContext?: string
-): { title: string; isAuto: boolean } {
+): { title: string; isAuto: boolean; isUntitled?: boolean } {
   if (headingContext && headingContext.trim().length > 3) {
     const cleanHeading = headingContext.trim().replace(/^#+\s*/, "").slice(0, 60);
-    return { title: cleanHeading, isAuto: false };
+    return { title: cleanHeading, isAuto: false, isUntitled: false };
   }
 
   const trimmed = code.trim();
   if (!trimmed) {
-    return { title: `${capitalize(language)} snippet`, isAuto: true };
+    return { title: "", isAuto: true, isUntitled: true };
   }
 
   // Match against rules
   for (const rule of COMMON_RULES) {
     const match = trimmed.match(rule.pattern);
     if (match) {
-      return { title: rule.formatter(match, language), isAuto: true };
+      return { title: rule.formatter(match, language), isAuto: true, isUntitled: false };
     }
+  }
+
+  // D3: If content is prose or single-word / short phrase, do not generate a title that repeats content
+  if (language === "text" || isProseText(trimmed) || trimmed.split(/\s+/).length <= 2) {
+    return { title: "", isAuto: true, isUntitled: true };
   }
 
   // Fallback: extract first meaningful line (strip comments, symbols)
@@ -99,11 +106,12 @@ export function generateReadableTitle(
       .replace(/\s+/g, " ")
       .trim()
       .slice(0, 48);
-    if (sanitized.length > 4) {
-      return { title: `${capitalize(language)}: ${sanitized}`, isAuto: true };
+    if (sanitized === trimmed || sanitized.length <= 4) {
+      return { title: "", isAuto: true, isUntitled: true };
     }
+    return { title: `${capitalize(language)}: ${sanitized}`, isAuto: true, isUntitled: false };
   }
 
-  return { title: `${capitalize(language)} code example`, isAuto: true };
+  return { title: `${capitalize(language)} code example`, isAuto: true, isUntitled: false };
 }
 

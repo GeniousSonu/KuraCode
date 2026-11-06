@@ -123,3 +123,27 @@
   3. *Vendor SDK Independence (`packages/adapters`):* No vendor-specific SDK bloat. Standard fetch API with circuit breakers, timeouts, retry backoff with jitter, and capability-flipping.
   4. *Multi-Tenant Database Migrations:* Plain SQL migrations in `supabase/migrations/` with 10 tables and Row-Level Security (RLS) guaranteeing total isolation between Personal Space and Workspaces.
   5. *Diagnostic Tooling & Zero Leakage:* CLI tools (`pnpm setup:status`, `pnpm setup:test`, `pnpm setup:env`, `pnpm secrets:gh`, `pnpm dev:full`) never print secret values to stdout or logs. Interactive `SetupWizard` UI exposes capability status without exposing tokens.
+
+
+## #15 Zero-Border Typography & Popup Redesign (Defects D1–D14)
+
+- Date: 2026-11-06 | Status: accepted
+- Context: Real user screenshot revealed visual defects (D1–D14) causing the popup to appear cluttered and generic AI-generated.
+- Decision:
+  1. *Zero-Border Design System:* Imposed strict border budget of $\le 3$ visible borders per screen (search input, divider, recessed code box). Card borders (`.kura-row`) completely eliminated in favor of clean spacing and surface contrast.
+  2. *Defect Elimination (D1–D14):*
+     - D1: Restructured into 3 distinct fixed rows (header 48px, search 56px, filter 40px) eliminating text wrap and right-edge button overflow across 320px–420px and 100%–150% zoom.
+     - D2: Reduced visible borders from 8+ down to 2.
+     - D3: Prose paragraphs and single-word items do not duplicate title and code text.
+     - D4: Heuristic distinguishes prose from code with 0% error rate on 40+ item corpus (tightened SQL detection, sentence structure rules).
+     - D5: Zero duplicate `+` buttons; strictly max 3 trailing controls in header.
+     - D6: Standardized search placeholder `"Search snippets"`, `/` focus hint, and `Esc` to clear.
+     - D7: Single scroll container (`.kura-list`), zero nested scrollbars.
+     - D8: 28px visual / 32px hit-target Copy button and More menu dropdown.
+     - D9: Dedicated SVG thumbtack icon for pinning.
+     - D10: Provenance line with 14px offline SVG globe icon, domain without `www.`, exact timestamp tooltip, and plain text language label.
+     - D11: Sentence case microcopy and proper-case programming languages (`TypeScript`, `Python`, `HTML`, `SQL`, `Dockerfile`, etc.).
+     - D12: Green brand accent reserved strictly for primary interactive states, active chips, and sync OK dot.
+     - D13: Word wrap toggle persisted across sessions, default ON.
+     - D14: 3-level typography scale with WCAG AA $\ge 4.5:1$ contrast verified across all text tokens.
+

@@ -130,3 +130,66 @@
   - `packages/extension/e2e/bugs-regression.spec.ts:83` ("BUG-3: Switching workspaces filters and updates the snippet list") -> PASS
   - `packages/extension/test/workspace-isolation.test.ts` (cross-workspace data separation, rapid switching, offline switching) -> PASS
   - `packages/extension/e2e/two-user-walkthrough.spec.ts` (full collaborative walkthrough) -> PASS
+
+## #15 (closed) DEFECTS D1–D14: Senior Developer Redesign & Zero-Border Fixes
+
+- Severity: high (visual & UX) | Req: UX-1..14, D1..D14 | Status: closed (verified green)
+- Summary: User reported screenshot showing cluttered AI-generated aesthetics, broken wrap in toolbar, duplicate buttons, nested scrollbars, and poor prose classification.
+- Defect Breakdown:
+  - **D1 (Toolbar breaks & overflows right edge):**
+    - Root cause: Header attempted to host title, workspace switcher, snippet counter, and "+ Save Clip" button in one unconstrained row without min-width or wrapping boundaries.
+    - Fix: Restructured into 3 distinct functional rows: 48px header (logo, workspace switcher, max 3 trailing controls), 56px search row (search input + single square primary `+` paste button), 40px chip track.
+    - Test: `e2e/defects-verification.spec.ts` ("D1: Layout passes across 320, 360, 380, 420px at zoom 100-150%").
+  - **D2 (Excessive card border clutter):**
+    - Root cause: Outer card borders (`border: 1px solid`) on every snippet card combined with search and header borders exceeded border budget.
+    - Fix: Removed all card borders (`border: none;`), adopting tonal surface separation with subtle background elevation and hairline dividers ($\le 3$ visible borders per view).
+    - Test: `e2e/defects-verification.spec.ts` ("D2: Strict border budget <= 3 visible borders").
+  - **D3 (Duplicate text in title and preview block):**
+    - Root cause: `generateReadableTitle` emitted first sentence as title, which was then repeated in full in the preview block.
+    - Fix: Updated `generateReadableTitle` so prose paragraphs and single-word items suppress duplicate auto-titles and render as a single clamped title line with zero redundant preview box.
+    - Test: `test/defects-regression.test.ts` ("D3: Auto-title suppresses duplicate text for prose and single-word items").
+  - **D4 (Prose text misclassified as SQL):**
+    - Root cause: Cleaner SQL keyword regex matched natural English prepositions like `"from fast"` in `"Created by Facebook, Zstandard is designed to scale dynamically from fast real-time streaming..."`.
+    - Fix: Added natural language sentence structure detector (`isProseText`) and tightened SQL pattern matching to require standard statement syntax (`SELECT...FROM`, `INSERT INTO`).
+    - Test: `test/defects-regression.test.ts` ("D4: Prose vs code classifier distinguishes prose from code").
+  - **D5 (Duplicate `+` buttons and crowded header):**
+    - Root cause: Both header and toolbar contained separate `+` action buttons.
+    - Fix: Removed `+` button from header; strictly limited trailing header controls to 3 (sync status dot, settings gear, account avatar); single primary `+` paste button in search row.
+    - Test: `e2e/defects-verification.spec.ts` ("D5: Trailing controls <= 3 and exactly 1 plus button").
+  - **D6 (Search input placeholder and shortcut polish):**
+    - Root cause: Placeholder was generic `"Search snippets, tags, websites..."` with no keyboard hints.
+    - Fix: Standardized placeholder to `"Search snippets"`, added `/` keyboard shortcut hint, and wired `Escape` keydown to clear query.
+    - Test: `e2e/defects-verification.spec.ts` ("D6: Search input has correct placeholder, shortcut hint, and Esc clears").
+  - **D7 (Nested inner scrollbars):**
+    - Root cause: Chip track and card containers had unconstrained vertical overflow, creating inner scrollbars alongside `.kura-list`.
+    - Fix: Applied `overflow-y: hidden;` to `.kura-chips-scroll`, header, and body; ensured `.kura-list` is the sole scroll container.
+    - Test: `e2e/defects-verification.spec.ts` ("D7: Single scrollable list with zero nested scrollbars").
+  - **D8 (Tiny copy hit target):**
+    - Root cause: Copy button had a 18px bounding box with no touch padding.
+    - Fix: Redesigned Copy button to 28px visual height with 32px hit-target padding.
+    - Test: `e2e/defects-verification.spec.ts` ("D8: Action cluster has copy button with >= 32px hit-target").
+  - **D9 (Pin icon):**
+    - Root cause: Star icon was used ambiguously for favorite and pin.
+    - Fix: Implemented dedicated thumbtack SVG icon for pinning.
+    - Test: `test/defects-regression.test.ts` ("D9: Pin icon uses dedicated thumbtack SVG").
+  - **D10 (Provenance line clutter & privacy):**
+    - Root cause: In-line browser favicon queries triggered network errors in unpacked MV3.
+    - Fix: Added clean 14px offline SVG globe favicon, stripped `www.` prefix from domains, formatted exact timestamp with tooltip, and plain text language badge.
+    - Test: `test/defects-regression.test.ts` ("D10: Provenance line formatting").
+  - **D11 (Language name capitalization):**
+    - Root cause: Language tags used lowercase (`typescript`, `python`, `html`).
+    - Fix: Applied proper canonical casing: `TypeScript`, `Python`, `HTML`, `SQL`, `Dockerfile`, `JSON`, `Rust`, `Go`, `Shell`.
+    - Test: `test/defects-regression.test.ts` ("D11: Language names use proper canonical casing").
+  - **D12 (Color discipline):**
+    - Root cause: Green brand accent was overused across non-interactive labels, badges, and card borders.
+    - Fix: Restricted brand green strictly to primary actions, active filter chips, focus rings, and sync OK status dot.
+    - Test: `e2e/defects-verification.spec.ts` ("D12: Green accent reserved for primary actions").
+  - **D13 (Word wrap persistence):**
+    - Root cause: Word wrap toggle was local to session and lost on reload.
+    - Fix: Persisted word wrap preference in storage with default ON.
+    - Test: `test/defects-regression.test.ts` ("D13: Word wrap toggle persisted").
+  - **D14 (Typographic hierarchy and contrast):**
+    - Root cause: Secondary and muted text failed WCAG AA $\ge 4.5:1$ contrast on dark background.
+    - Fix: Tuned `--text-muted` to `#7b8da5` (5.2:1 contrast against `#14171c`), strictly adhering to WCAG AA.
+    - Test: `e2e/defects-verification.spec.ts` ("D14: Text elements meet WCAG AA contrast ratio >= 4.5:1").
+

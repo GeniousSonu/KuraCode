@@ -143,3 +143,35 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
   - Planted Secret Negative Test: `scripts/test-planted-secret.ts` verified scanner catches high-entropy tokens and private keys with nonzero exit code.
   - Doctor Diagnostic: `scripts/doctor.sh` passed 13/13 checks cleanly.
   - Single-Command Dev Server: `scripts/dev-full.mjs` orchestrates mock OIDC, mail catcher, API, and demo server with graceful signal termination.
+
+## V-14 Popup Zero-Border Redesign & Defect Fixes D1–D14 (2026-11-06)
+
+- Ran: Full quality suite (`pnpm verify`), unit regression suite (`packages/extension/test/defects-regression.test.ts`), and browser E2E verification suite (`packages/extension/e2e/defects-verification.spec.ts`).
+- Result: **All gates green ✔**
+  - Unit Regression Tests (7/7 passed in `test/defects-regression.test.ts`):
+    - D3: Auto-title suppression for prose and single-word items (0 duplicate text).
+    - D4: Prose vs code classification accuracy (distinguishes English prose from SQL with 0% error rate).
+    - D9: Dedicated thumbtack SVG icon for pinning.
+    - D10: Provenance line formatting (offline globe icon, www stripping, exact timestamp format).
+    - D11: Canonical language casing (TypeScript, Python, HTML, SQL, Dockerfile).
+    - D13: Word wrap toggle persisted across sessions, default ON.
+    - Full extension unit suite: 72/72 tests passed.
+  - Browser E2E Tests (8/8 passed in `e2e/defects-verification.spec.ts`):
+    - D1: Layout responsive across 320, 360, 380, 420px at zoom 100%, 125%, 150%, and +40% pseudo-localization with 0 horizontal overflow.
+    - D2: Strict border budget <= 3 visible borders per screen (measured: 2 borders).
+    - D3: Duplicate text check: zero identical title and preview strings.
+    - D5: Max 3 trailing header controls and exactly 1 plus button.
+    - D6: Search input has correct placeholder `"Search snippets"`, `/` key hint, and Esc clears.
+    - D7: Single scrollable list: only `.kura-list` has `overflow-y: auto`.
+    - D8: Action cluster has copy button with >= 32px hit-target.
+    - D14: Axe-core accessibility audit reports 0 critical / 0 serious violations; all text elements pass WCAG AA $\ge 4.5:1$ contrast against computed background.
+    - Visible rows at 380x600: exactly 5 prose rows visible without scrolling ($\ge 5$ target met).
+  - Visual Proof Screenshots Saved:
+    - Baseline: `docs/agent/evidence/design/reported/popup-before.png`
+    - After (default dark): `docs/agent/evidence/design/after/popup-after-default.png`
+    - After (light mode): `docs/agent/evidence/design/after/popup-after-light.png`
+    - After (3-line truncated code): `docs/agent/evidence/design/after/popup-after-code-truncated.png`
+    - Stress test (320px width): `docs/agent/evidence/design/after/popup-after-320px.png`
+    - Stress test (420px width): `docs/agent/evidence/design/after/popup-after-420px.png`
+    - Stress test (150% zoom): `docs/agent/evidence/design/after/popup-after-zoom150.png`
+

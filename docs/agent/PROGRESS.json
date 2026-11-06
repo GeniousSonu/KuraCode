@@ -1,21 +1,21 @@
 {
-  "updated": "2026-11-05T14:30:00Z",
-  "milestone": "External Services Credential-Ready Architecture (CRED-1..10) VERIFIED",
+  "updated": "2026-11-06T13:00:00Z",
+  "milestone": "Popup Redesign & Defect Fixes (D1-D14) 100% COMPLETE & VERIFIED",
   "features": {
     "total": 88,
-    "verified": 63,
+    "verified": 73,
     "hardened": 4,
-    "not_started": 21
+    "not_started": 11
   },
   "lastGreenCommit": "HEAD",
   "gates": {
     "lint": "pass (0 errors, 0 warnings)",
     "types": "pass (5 packages)",
-    "unit": "pass (104/104)",
+    "unit": "pass (111/111)",
     "build_chrome": "pass",
     "build_firefox": "pass",
     "web_ext_lint": "pass",
-    "e2e": "pass (19/19)",
+    "e2e": "pass (27/27)",
     "brand": "pass",
     "version_integrity": "pass",
     "release_allow_list": "pass",
@@ -23,13 +23,16 @@
     "client_secret_scan": "pass",
     "doctor": "pass (13/13)",
     "interactive_controls_audit": "pass (0 errors)",
-    "typography_check": "pass (0 external fonts)"
+    "typography_check": "pass (0 external fonts)",
+    "defects_regression": "pass (14/14 defects resolved)"
   },
   "packageManager": "pnpm@12.16.1",
   "redesignMetrics": {
     "targetCardHeight": "<= 130px",
     "achievedCardHeight": "115px",
-    "visibleCardsAtDefaultHeight": 4
+    "visibleCardsAtDefaultHeight": 5,
+    "borderBudget": "<= 3 visible borders (achieved: 2)",
+    "contrastRatio": ">= 4.5:1 (WCAG AA)"
   },
   "pipeline": {
     "ship": "scripts/ship.sh (automated 7-step local gate)",

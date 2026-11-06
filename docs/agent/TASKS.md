@@ -50,5 +50,6 @@
 | T-046 | M8        | INV-1..3                   | Unified Join Flow modal (4-digit, 6-digit, link) & rate limit| DONE           | yes      | e2e/two-user-walkthrough.spec.ts passed with 3 screenshots     |
 | T-047 | M11       | —                          | Reconcile all capabilities & document free-tier cloud infra   | DONE           | yes      | docs/agent/RECONCILIATION.md + docs/INFRASTRUCTURE.md         |
 | T-048 | M11       | CRED-1..10                 | Make KuraCode credential-ready for all 10 external services   | DONE           | yes      | packages/config + adapters + api + migrations + setup guides   |
+| T-049 | M5        | UX-1..14, D1..D14          | Popup zero-border redesign and defect fixes D1-D14            | DONE           | yes      | Regression tests in test/defects-regression.test.ts & e2e/defects-verification.spec.ts |
 
 **Statuses:** TODO / IN_PROGRESS / DONE / DONE_WITH_GAPS / FAILED / BLOCKED / SKIPPED
