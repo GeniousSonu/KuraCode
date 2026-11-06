@@ -127,9 +127,9 @@ if (fs.existsSync(sourcePath)) {
   const srcList = execFileSync("unzip", ["-Z", "-1", sourcePath], { encoding: "utf8" });
   const srcEntries = srcList.split("\n").filter((e) => e.trim().length > 0);
   
-  // Verify source archive does not leak node_modules, build outputs, or env files
+  // Verify source archive does not leak node_modules, build outputs, or actual env files (.env.example is allowed)
   const badSrc = srcEntries.filter((e) =>
-    /node_modules|\.output|\.env|\.git\/objects/i.test(e)
+    /node_modules|\.output|\/dist\/|\.git\/objects/i.test(e) || /(^|\/)\.env($|\.(?!example))/i.test(e)
   );
   if (badSrc.length > 0) {
     error(`AMO Source zip contains forbidden items: ${badSrc.slice(0, 5).join(", ")}`);
