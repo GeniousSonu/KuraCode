@@ -1,7 +1,7 @@
 # KuraCode Feature Registry (Single Source of Truth)
 
-**Product:** KuraCode | **Official Site:** https://www.genioussonu.me/extensions/kuracode
-**Last Updated:** 2026-11-05T14:30:49.217Z
+**Product:** KuraCode | **Official Site:** https://www.genioussonu.me/extensions/kuracode  
+**Target Release:** v0.2.0 | **Last Updated:** 2026-11-06T14:00:00Z
 
 ---
 

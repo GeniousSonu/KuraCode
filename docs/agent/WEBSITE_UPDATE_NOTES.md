@@ -1,7 +1,13 @@
 # KuraCode Official Website & Landing Page Update Notes
 **Canonical URL:** `https://www.genioussonu.me/extensions/kuracode`  
-**Target Release:** v0.1.0 (Senior Redesign, Accounts, Real-time Sync & Clipboard Hub)  
+**Target Release:** v0.2.0 (Zero-Border Redesign, Real-time Sync, Workspaces & Credential Architecture)  
 **Date:** November 2026  
+**Changelog Anchor:** `#v0-2-0`  
+**Direct Download Links:**
+- Chromium (Chrome/Edge/Brave): `https://github.com/GeniousSonu/KuraCode/releases/latest/download/kuracode-chrome-0.2.0.zip`
+- Firefox: `https://github.com/GeniousSonu/KuraCode/releases/latest/download/kuracode-firefox-0.2.0.zip`
+- Source Code (AMO): `https://github.com/GeniousSonu/KuraCode/releases/latest/download/kuracode-source-0.2.0.zip`
+- Checksums: `https://github.com/GeniousSonu/KuraCode/releases/latest/download/SHA256SUMS.txt`
 
 ---
 
@@ -11,11 +17,12 @@ Replace previous baseline assets with the newly captured high-fidelity evidence 
 
 | Screenshot Asset | Target Section | Dimensions / Description |
 | :--- | :--- | :--- |
-| `popup-4-snippets-dark.png` | Hero Section (Primary Dark Theme) | 380×520px: Showcases compact 115px cards, semantic titles ("React useEffect hook", "Recursive CTE query"), primary emerald copy button, 3-dot menu, and sync status badge. |
-| `popup-4-snippets-light.png` | Theme Showcase (Light Theme) | 380×520px: Demonstrates light theme palette (`#f8fafc` background, crisp borders, WCAG AA emerald accent `#00b96c`). |
-| `popup-50-snippets.png` | Performance / Infinite Scroll Section | 380×520px: Proves silky 60fps scrolling and instant filtering across 50+ saved snippets. |
-| `popup-search-results.png` | Instant Search & Filtering | 380×520px: Shows multi-term instant filtering with matching substring highlights. |
-| `sidepanel-redesign.png` | Side Panel Parity Feature | 420×720px: Demonstrates side panel mode for long-session coding and multi-tasking alongside editor. |
+| `popup-after-default.png` | Hero Section (Zero-Border Dark Theme) | 380×600px: Zero-border typography, 48px header, 56px search, 40px chips, 115px cards, 32px hit-target copy button, and offline globe favicon. |
+| `popup-after-light.png` | Theme Showcase (Light Theme) | 380×600px: High-contrast light palette (`#f8fafc` base, `#ffffff` surface, WCAG AA emerald accent `#00b96c`). |
+| `popup-after-code-truncated.png` | Code Preview & Clamp Section | 380×600px: Inset 3-line code preview with bottom gradient fade and "Show more" modal expansion button. |
+| `popup-after-320px.png` | Mobile / Responsive Stress Section | 320×600px: Stress-tested minimum width rendering with zero text wrap and zero horizontal scroll. |
+| `popup-after-420px.png` | Wide Viewport Showcase | 420×600px: Wide viewport display matching side panel and large popup configurations. |
+| `popup-after-zoom150.png` | Accessibility Section | 380×600px: Rendered at 150% browser zoom with full WCAG AA contrast compliance ($\ge 4.5:1$). |
 
 ---
 

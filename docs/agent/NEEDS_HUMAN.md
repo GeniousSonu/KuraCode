@@ -122,9 +122,9 @@ Whenever you add environment variables for a service in `.env.local` or GitHub A
 ### Step 12: Extension Store Accounts & Automated Publishing
 - **Guide:** [docs/setup/10-stores.md](../setup/10-stores.md)
 - Initial release packages are ready in `release/`:
-  - `release/kuracode-chrome-0.1.0.zip`
-  - `release/kuracode-edge-0.1.0.zip`
-  - `release/kuracode-firefox-0.1.0.zip`
+  - `release/kuracode-chrome-0.2.0.zip`
+  - `release/kuracode-edge-0.2.0.zip`
+  - `release/kuracode-firefox-0.2.0.zip`
 - Upload initial version manually to each store.
 - Add store API keys into GitHub Environments (`chrome-web-store`, `edge-addons`, `firefox-amo`) via `pnpm secrets:gh`.
 - **Commands to verify:** `pnpm setup:test chrome`, `pnpm setup:test edge`, `pnpm setup:test firefox`

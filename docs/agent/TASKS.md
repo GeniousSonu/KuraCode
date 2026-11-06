@@ -51,5 +51,6 @@
 | T-047 | M11       | —                          | Reconcile all capabilities & document free-tier cloud infra   | DONE           | yes      | docs/agent/RECONCILIATION.md + docs/INFRASTRUCTURE.md         |
 | T-048 | M11       | CRED-1..10                 | Make KuraCode credential-ready for all 10 external services   | DONE           | yes      | packages/config + adapters + api + migrations + setup guides   |
 | T-049 | M5        | UX-1..14, D1..D14          | Popup zero-border redesign and defect fixes D1-D14            | DONE           | yes      | Regression tests in test/defects-regression.test.ts & e2e/defects-verification.spec.ts |
+| T-050 | M11       | REL-1..5                   | Bump version to v0.2.0, clean rebuild, and anti-stale audit   | DONE           | yes      | scripts/bump-version.ts, test/version-consistency.test.ts, scripts/version-integrity.ts |
 
 **Statuses:** TODO / IN_PROGRESS / DONE / DONE_WITH_GAPS / FAILED / BLOCKED / SKIPPED

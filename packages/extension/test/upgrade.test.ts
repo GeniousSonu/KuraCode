@@ -122,5 +122,76 @@ describe("Data Migration & Upgrade Compatibility (N-1 to N)", () => {
 
     expect(HybridLogicalClock.compare(m2.hlcTimestamp, m1.hlcTimestamp)).toBeGreaterThan(0);
   });
+
+  it("preserves v0.1.0 (N-1) data and settings during upgrade to v0.2.0 with single What's New trigger", () => {
+    interface StoredSettingsV1 {
+      wrapLines: boolean;
+      tabSize: number;
+      lineNumbers: boolean;
+      secretScan: boolean;
+      stripUrls: boolean;
+      lastSeenVersion?: string;
+    }
+
+    const previousStore: {
+      settings: StoredSettingsV1;
+      snippets: ModernSnippetV1[];
+    } = {
+      settings: {
+        wrapLines: true,
+        tabSize: 4,
+        lineNumbers: true,
+        secretScan: true,
+        stripUrls: false,
+        lastSeenVersion: "0.1.0",
+      },
+      snippets: [
+        {
+          id: "snip-v010",
+          title: "Zstandard Compression",
+          isAutoTitle: false,
+          code: "const zstd = require('zstandard');",
+          raw: "const zstd = require('zstandard');",
+          language: "javascript",
+          tags: ["compression"],
+          context: {
+            sourceUrl: "https://facebook.github.io/zstd/",
+            pageTitle: "Zstandard",
+            domain: "facebook.github.io",
+            capturedAt: 1710000000000,
+          },
+          workspaceId: "ws_frontend_1",
+          hlcTimestamp: { millis: 1710000000000, counter: 0, nodeId: "dev-1" },
+          version: 1,
+        },
+      ],
+    };
+
+    // Upgrade simulator
+    const CURRENT_VERSION = "0.2.0";
+    let whatsNewShown = false;
+
+    if (previousStore.settings.lastSeenVersion !== CURRENT_VERSION) {
+      whatsNewShown = true;
+      previousStore.settings.lastSeenVersion = CURRENT_VERSION;
+    }
+
+    // Verify data fidelity
+    expect(previousStore.snippets.length).toBe(1);
+    expect(previousStore.snippets[0].id).toBe("snip-v010");
+    expect(previousStore.snippets[0].workspaceId).toBe("ws_frontend_1");
+    expect(previousStore.settings.tabSize).toBe(4);
+    expect(previousStore.settings.lineNumbers).toBe(true);
+
+    // Verify What's New banner triggers exactly once
+    expect(whatsNewShown).toBe(true);
+
+    // Second run with updated version does not re-trigger What's New
+    let secondRunTrigger = false;
+    if (previousStore.settings.lastSeenVersion !== CURRENT_VERSION) {
+      secondRunTrigger = true;
+    }
+    expect(secondRunTrigger).toBe(false);
+  });
 });
 

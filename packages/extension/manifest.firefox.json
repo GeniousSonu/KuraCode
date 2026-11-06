@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "KuraCode — Snippet Capture & Collaboration",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Capture code from any page in one click, with its context intact — and turn it into shareable team knowledge.",
   "icons": {
     "16": "icons/icon-16.png",

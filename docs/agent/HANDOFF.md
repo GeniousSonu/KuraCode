@@ -70,6 +70,12 @@
   - D14: Full WCAG AA $\ge 4.5:1$ contrast compliance across all text tokens.
 - **Visual Proof Screenshots:** Saved in `docs/agent/evidence/design/after/`.
 
+### 8. Minor Release v0.2.0 Clean Rebuild & Verification
+- **Canonical Version Sync (v0.2.0):** Single source of truth propagated from root `package.json` to all 5 workspace packages, Chrome and Firefox manifests, version constants (`EXTENSION_VERSION`, `WEB_APP_VERSION`, `API_SERVER_VERSION`), options page diagnostics fallback, and `CHANGELOG.md`.
+- **Anti-Stale Enforcement:** Clean rebuild purged all prior build and test directories. `scripts/version-integrity.ts` verified 0 stale version strings (`0.0.1`, `0.0.9`, `0.1.0`) across all built artifacts.
+- **Release Packages:** Generated `kuracode-chrome-0.2.0.zip` (314 KB), `kuracode-edge-0.2.0.zip` (314 KB), `kuracode-firefox-0.2.0.zip` (315 KB), `kuracode-source-0.2.0.zip` (11.8 MB), `kuracode-sbom-0.2.0.json`, and `SHA256SUMS.txt`.
+- **Reproducibility & Post-Release Smoke:** Unpacked source archive into isolated clean directory and verified reproducible build; unpacked release archives and verified in headless Playwright smoke tests.
+
 ## Verification Evidence Saved
 - `docs/agent/evidence/design/reported/popup-before.png`
 - `docs/agent/evidence/design/after/popup-after-default.png`

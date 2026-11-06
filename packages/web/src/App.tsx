@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { SetupWizard } from './SetupWizard';
+import { WEB_APP_VERSION } from './version';
 
 interface Snippet {
   id: string;
@@ -149,6 +150,10 @@ export default function App() {
           </div>
         )}
       </main>
+
+      <footer className="footer" style={{ textAlign: "center", padding: "16px", color: "var(--text-muted, #7b8da5)", fontSize: "12px", borderTop: "1px solid var(--border-subtle, rgba(255,255,255,0.08))", marginTop: "24px" }}>
+        <span>KuraCode v{WEB_APP_VERSION} · Offline-first developer snippet library</span>
+      </footer>
     </div>
   );
 }

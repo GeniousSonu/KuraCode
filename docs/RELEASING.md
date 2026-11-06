@@ -62,7 +62,7 @@ If an unexpected vulnerability, breaking upstream API change, or policy inquiry 
 
 | Store Channel | Rollback Capability | Required Owner Action |
 | :--- | :--- | :--- |
-| **Chrome Web Store** | Staged rollout halt / Immediate update | In Developer Console, halt staged rollout if $< 100\%$. If fully published, deploy immediate patch release (e.g. `v0.1.1`). |
+| **Chrome Web Store** | Staged rollout halt / Immediate update | In Developer Console, halt staged rollout if $< 100\%$. If fully published, deploy immediate patch release (e.g. `v0.2.1`). |
 | **Microsoft Edge Add-ons** | Revert to previous package | Select previous approved submission in Partner Center and click "Revert", or submit hotfix patch. |
 | **Mozilla Firefox AMO** | Version disabling | Open Developer Hub > Manage Versions > Select compromised version > Click "Disable Version". AMO immediately rolls users back to the previous active version. |
 
@@ -73,12 +73,12 @@ If an unexpected vulnerability, breaking upstream API change, or policy inquiry 
 When a critical bug in production requires an immediate fix:
 1. **Checkout from Production Tag:**
    ```bash
-   git checkout -b hotfix/v0.1.1 tags/v0.1.0
+   git checkout -b hotfix/v0.2.1 tags/v0.2.0
    ```
 2. **Apply Minimal Fix and Bump Patch Version:**
    ```bash
    # Make code fix, then bump patch version across all manifests:
-   node scripts/sync-version.ts 0.1.1
+   pnpm bump patch
    ```
 3. **Verify Locally:**
    ```bash

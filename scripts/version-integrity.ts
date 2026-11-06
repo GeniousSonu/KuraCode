@@ -20,7 +20,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 
 const FORBIDDEN_NAMES = [/sniphub/i];
-const STALE_VERSIONS = ["0.0.1", "0.0.2", "0.0.5", "0.0.8", "0.0.9", "0.0.0"];
+const STALE_VERSIONS = ["0.0.1", "0.0.2", "0.0.5", "0.0.8", "0.0.9", "0.0.0", "0.1.0"];
 
 let errors = 0;
 const error = (msg: string) => {
@@ -54,6 +54,9 @@ checkJsonVersion("packages/extension/package.json", "Extension package.json");
 checkJsonVersion("packages/extension/manifest.json", "Chrome manifest.json");
 checkJsonVersion("packages/extension/manifest.firefox.json", "Firefox manifest.firefox.json");
 checkJsonVersion("packages/web/package.json", "Web app package.json");
+checkJsonVersion("packages/config/package.json", "Config package.json");
+checkJsonVersion("packages/adapters/package.json", "Adapters package.json");
+checkJsonVersion("packages/api/package.json", "API package.json");
 
 // 3. Validate CHANGELOG.md top entry
 const changelogPath = path.join(ROOT, "CHANGELOG.md");

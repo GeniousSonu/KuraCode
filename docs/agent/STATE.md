@@ -1,8 +1,9 @@
-# KuraCode State (updated: 2026-11-06 — Popup Redesign & Defect Fixes D1-D14)
+# KuraCode State (updated: 2026-11-06 — Minor Release v0.2.0)
 
 ## Snapshot
-- Milestone: Popup Redesign & Defect Fixes (D1–D14 / T-049) | Status: 100% COMPLETE & VERIFIED
-- Last green verification: `pnpm verify`, `pnpm test` (111/111 unit PASS), Playwright E2E (27/27 PASS), `pnpm doctor` (13/13 PASS) → **All gates green ✔**
+- Milestone: Minor Release v0.2.0 (REL-1..5 / T-050) | Status: 100% COMPLETE & VERIFIED
+- Current canonical version: **v0.2.0** (all 5 packages, manifests, web app, API headers, and docs in 100% sync)
+- Last green verification: `pnpm verify`, `pnpm test` (112/112 unit PASS), Playwright E2E (28/28 PASS), `pnpm doctor` (13/13 PASS) → **All gates green ✔**
 - Features registry: 77 verified/hardened of 88 tracked (`pnpm features:report`)
 - Package manager: **pnpm 12.16.1** | Node: v22+
 

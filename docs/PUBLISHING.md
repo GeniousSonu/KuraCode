@@ -44,12 +44,12 @@ To enable GitHub Actions store publishing, add the following secrets in your rep
 
 ## 3. First-Time Manual Submission Walkthrough
 
-For the very first release (`v0.1.0`), browser stores require a human developer to establish the store listing draft manually:
+For the initial store submission (`v0.2.0`), browser stores require a human developer to establish the store listing draft manually:
 
 ### 1. Chrome Web Store
 1. Log into the [Chrome Web Store Developer Dashboard](https://chrome.google.com/webstore/devconsole).
 2. Click **Add new item**.
-3. Upload `release/kuracode-chrome-0.1.0.zip`.
+3. Upload `release/kuracode-chrome-0.2.0.zip`.
 4. Copy text from `store/chrome/en/listing.md` into the Title, Description, and Category fields.
 5. Upload visual assets:
    - Icon: `brand/generated/store/chrome-web-store-128.png`
@@ -61,7 +61,7 @@ For the very first release (`v0.1.0`), browser stores require a human developer 
 ### 2. Microsoft Edge Add-ons
 1. Log into [Microsoft Partner Center](https://partner.microsoft.com/dashboard/microsoftedge).
 2. Click **Create new extension**.
-3. Upload `release/kuracode-edge-0.1.0.zip`.
+3. Upload `release/kuracode-edge-0.2.0.zip`.
 4. Copy listing copy from `store/edge/en/listing.md`.
 5. Upload icon: `brand/generated/store/edge-300.png`.
 6. Paste certification test notes into the Notes field.
@@ -71,8 +71,8 @@ For the very first release (`v0.1.0`), browser stores require a human developer 
 1. Log into [AMO Developer Hub](https://addons.mozilla.org/developers/).
 2. Click **Submit a New Add-on**.
 3. Select **On this site (Listed)**.
-4. Upload `release/kuracode-firefox-0.1.0.zip`.
+4. Upload `release/kuracode-firefox-0.2.0.zip`.
 5. When prompted *"Does your add-on contain minified, concatenated or generated code?"*, select **YES**.
-6. Upload `release/kuracode-source-0.1.0.zip` as the source archive.
+6. Upload `release/kuracode-source-0.2.0.zip` as the source archive.
 7. Provide the contents of `SOURCE_BUILD_INSTRUCTIONS.md` in the notes box.
 8. Submit for review.

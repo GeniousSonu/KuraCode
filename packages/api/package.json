@@ -1,6 +1,6 @@
 {
   "name": "@kuracode/api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "KuraCode local dev, mock OIDC, mail catcher, and edge API",
@@ -20,4 +20,3 @@
     "vitest": "^2.1.9"
   }
 }
-

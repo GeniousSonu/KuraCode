@@ -1,6 +1,6 @@
 {
   "name": "kuracode",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "KuraCode — code snippet capture & collaboration (Chrome extension + web app).",
@@ -44,6 +44,7 @@
     "sync": "bash scripts/sync.sh",
     "finish": "bash scripts/finish-session.sh",
     "prepare": "husky",
+    "bump": "node --experimental-strip-types scripts/bump-version.ts",
     "version:sync": "node --experimental-strip-types scripts/sync-version.ts",
     "release:check": "node --experimental-strip-types scripts/release-check.ts",
     "release:dry": "pnpm version:sync && pnpm build && pnpm brand:check && pnpm test && pnpm release:check && node scripts/package.mjs"

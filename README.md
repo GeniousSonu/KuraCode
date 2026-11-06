@@ -9,8 +9,8 @@ one action, keep its context (source, date, language, heading), and turn it
 into shareable team knowledge.
 
 ### Quick Install (Latest Production Release)
-- **Chrome / Edge / Brave:** Download [kuracode-chrome-0.1.0.zip](https://github.com/GeniousSonu/KuraCode/releases/latest) or install from Chrome Web Store.
-- **Firefox:** Download [kuracode-firefox-0.1.0.zip](https://github.com/GeniousSonu/KuraCode/releases/latest) or install from Mozilla Add-ons (AMO).
+- **Chrome / Edge / Brave:** Download [Latest Chromium Release (.zip)](https://github.com/GeniousSonu/KuraCode/releases/latest) or install from Chrome Web Store.
+- **Firefox:** Download [Latest Firefox Release (.zip)](https://github.com/GeniousSonu/KuraCode/releases/latest) or install from Mozilla Add-ons (AMO).
 - **All Releases & Checksums:** Visit [GitHub Releases (Latest)](https://github.com/GeniousSonu/KuraCode/releases/latest).
 
 ## Source docs

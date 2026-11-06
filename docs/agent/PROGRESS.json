@@ -1,6 +1,7 @@
 {
-  "updated": "2026-11-06T13:00:00Z",
-  "milestone": "Popup Redesign & Defect Fixes (D1-D14) 100% COMPLETE & VERIFIED",
+  "updated": "2026-11-06T14:00:00Z",
+  "version": "0.2.0",
+  "milestone": "Minor Release v0.2.0 Clean Rebuild & Verification 100% COMPLETE",
   "features": {
     "total": 88,
     "verified": 73,
@@ -11,11 +12,11 @@
   "gates": {
     "lint": "pass (0 errors, 0 warnings)",
     "types": "pass (5 packages)",
-    "unit": "pass (111/111)",
+    "unit": "pass (112/112)",
     "build_chrome": "pass",
     "build_firefox": "pass",
     "web_ext_lint": "pass",
-    "e2e": "pass (27/27)",
+    "e2e": "pass (28/28)",
     "brand": "pass",
     "version_integrity": "pass",
     "release_allow_list": "pass",
@@ -23,6 +24,10 @@
     "client_secret_scan": "pass",
     "doctor": "pass (13/13)",
     "interactive_controls_audit": "pass (0 errors)",
+    "typography_check": "pass (0 external fonts)",
+    "defects_regression": "pass (14/14 defects resolved)",
+    "version_consistency": "pass (all surfaces at v0.2.0)"
+  },
     "typography_check": "pass (0 external fonts)",
     "defects_regression": "pass (14/14 defects resolved)"
   },

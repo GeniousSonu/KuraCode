@@ -4,35 +4,80 @@ All notable changes to KuraCode will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0] - 2026-11-05
+## [0.2.0] - 2026-11-06
+
+### Added
+- **One-Click Sign-In & Multi-Identity Account Architecture (`AUTH-1..AUTH-5`):**
+  - OAuth 2.0 / OIDC with PKCE and state/nonce validation for Google, GitHub, Microsoft, and GitLab.
+  - Browser-native identity redirects (`chromiumapp.org` on Chromium, `moz-extension` on Firefox).
+  - Background rotating refresh token storage with automatic session reuse revocation.
+  - Offline local-first guarantee: 100% of local storage features work with zero accounts or network access.
+- **Real-Time Cross-Device Sync Engine (`SYNC-1..SYNC-4`):**
+  - Offline-first durable outbox queue with FIFO replay upon reconnection.
+  - Monotonic Hybrid Logical Clock (HLC) tracking causality across unsynchronized distributed devices.
+  - Non-destructive field-level merge algorithm resolving concurrent snippet edits without data loss.
+  - Immutable snippet version history and soft-delete tombstones.
+- **Workspaces & Collaboration (`WS-1..WS-3`, `INV-1`):**
+  - Multi-tenant workspace spaces with strict storage and query partitioning (`workspaceId`).
+  - Role-Based Access Control (RBAC) enforcing Owner, Admin, Editor, and Viewer permission levels.
+  - Unified join modal accepting 4-digit quick-codes, 6-digit workspace invites, and deep link URLs.
+  - Brute-force rate-limiting lockout protecting join attempts.
+- **Clipboard Hub (`CLIP-1..CLIP-6`):**
+  - Cross-device clipboard sharing with strict opt-in consent (disabled by default).
+  - Configurable retention periods (1h, 24h, 7d, 30d, forever) with per-item pinning.
+  - Instant one-click promotion of clipboard entries to permanent library snippets.
+- **Quick-Share Codes (`CODE-1..CODE-6`):**
+  - 4-digit non-sequential cryptographically secure quick-share codes with 15-minute default TTL.
+  - Constant-time code validation preventing timing side-channel attacks.
+  - Automatic pool expansion to 6 digits when active codes exceed 5,000.
+- **External Services Credential-Ready Architecture (`CRED-1..CRED-10`):**
+  - Zero-SDK resilient service adapters (OAuth, Supabase Postgres, Resend, Upstash Redis, Cloudflare Turnstile, Sentry, UptimeRobot, Chrome/Edge/Firefox Store publishers) with circuit breakers, timeouts, retry backoff, and 100% offline local mocks.
+  - Plain SQL database migrations (`supabase/migrations/`) with Row-Level Security on 10 tables enforcing tenant isolation.
+  - Single-command dev orchestration (`pnpm dev:full`) and interactive `SetupWizard` dashboard.
+- **Offline Typography:**
+  - Bundled Inter and JetBrains Mono WOFF2 font files locally in `packages/extension/fonts/` and `packages/web/public/fonts/`.
+  - Zero external font calls or Google Fonts CDN requests.
+
+### Changed
+- **Zero-Border Developer Redesign (`UX-1..UX-14`):**
+  - Enforced a strict border budget of $\le 3$ visible bordered elements per view (measured: 2 borders).
+  - Card outer borders eliminated in favor of clean spacing and subtle tonal surface separation.
+  - Layout restructured into 3 responsive fixed-height rows: 48px header, 56px search row, and 40px chip track.
+  - Responsive design passing across 320px, 360px, 380px, 420px widths, 100%–150% browser zoom, and +40% pseudo-localization without overflow.
+  - Standardized all UI strings, types, and documentation strictly to "Workspace".
 
 ### Fixed
-- **Defects D1–D14 (Popup Redesign & Zero-Border Fixes):**
-  - **D1 (Toolbar wrapping):** Restructured into 3 fixed rows (header 48px, search 56px, chips 40px); passes responsive tests across 320px–420px and 100%–150% zoom without horizontal overflow.
-  - **D2 (Border clutter):** Enforced zero-border design system with strictly $\le 3$ visible borders per view (measured: 2 borders).
-  - **D3 (Duplicate text):** Suppressed redundant auto-titles on prose paragraphs and single-word items; rendered cleanly in a single clamped title line.
-  - **D4 (Prose vs code misclassification):** Implemented natural language sentence detector (`isProseText`) and tightened SQL statement regex patterns.
-  - **D5 (Duplicate `+` button):** Eliminated header `+` button; limited trailing header controls to 3; single primary `+` button in search row.
-  - **D6 (Search placeholder):** Standardized placeholder to `"Search snippets"`, added `/` keyboard hint, wired `Esc` to clear.
+- **Defects D1–D14 (Popup Visual & Interaction Fixes):**
+  - **D1 (Toolbar wrapping):** Eliminated text wrap and right-edge button overflow across widths 320px–420px.
+  - **D2 (Border clutter):** Reduced visible borders from 8+ down to 2.
+  - **D3 (Duplicate text):** Auto-title suppression for prose paragraphs and single-word items; rendered cleanly in a single clamped title line without redundant code boxes.
+  - **D4 (Prose vs code misclassification):** Implemented natural language sentence detector (`isProseText`) and tightened SQL pattern matching to achieve 0% misclassification.
+  - **D5 (Duplicate `+` button):** Removed header `+` button; limited trailing controls to 3; single primary `+` button in search row.
+  - **D6 (Search placeholder):** Standardized placeholder to `"Search snippets"`, added `/` keyboard hint, wired `Esc` to clear query.
   - **D7 (Nested scrollbars):** Removed inner scroll containers; `.kura-list` is the single scrollable view.
   - **D8 (Copy hit target):** Enlarged Copy button to 28px visual / 32px hit-target.
   - **D9 (Pin icon):** Replaced star/pin placeholder with dedicated thumbtack SVG icon.
   - **D10 (Provenance line):** Added 14px offline SVG globe favicon, stripped `www.` prefix, and exact timestamp tooltip.
   - **D11 (Language casing):** Standardized proper canonical casing (`TypeScript`, `Python`, `HTML`, `SQL`, `Dockerfile`, etc.).
   - **D12 (Color discipline):** Green brand accent reserved strictly for primary interactive states, active chips, and sync OK dot.
-  - **D13 (Word wrap persistence):** Word wrap toggle persisted across sessions, default ON.
+  - **D13 (Word wrap persistence):** Word wrap toggle persisted across sessions, defaulting to ON.
   - **D14 (Typographic contrast):** Tuned text tokens to meet WCAG AA $\ge 4.5:1$ contrast ratio.
-- **BUG-1 (Settings button does nothing):**
-  - Registered `options_ui: { page: "options.html", open_in_tab: true }` in Chrome and Firefox manifests.
-  - Implemented standalone options page in `src/options/` with keyboard navigation and shortcut support (`Alt+S` / `Cmd+,`).
-  - Added in-popup settings dialog fallback and wired click/keydown handlers to `chrome.runtime.openOptionsPage()`.
-- **BUG-2 (Copied snippet shows on one line only):**
-  - Upgraded DOM tree extractor (`extractCodeText`) to preserve newline separation at `<br>`, `<div>`, `<p>`, `<tr>` block boundaries.
-  - Upgraded `stripLineNumbers` to detect baseline gutter whitespace and preserve relative code indentation.
-  - Updated CSS `.kura-card-code` to `white-space: pre-wrap; overflow-wrap: anywhere;` with surface-persisted Word Wrap toggle and non-selectable line numbers.
-- **BUG-3 (Switching workspaces does not filter snippets):**
-  - Added `workspaceId: string | null` to Snippet schema; partitioned `listSnippets(workspaceId)`.
-  - Rebuilt `WorkspaceManager` with active workspace persistence, skeleton loading, and query token invalidation to prevent switching race conditions.
+- **BUG-1 (Settings button does nothing):** Registered `options_ui` in manifests, implemented standalone `options.html` page, and wired fallback settings dialog.
+- **BUG-2 (Copied snippet shows on one line only):** Preserved newlines at `<br>`, `<div>`, `<p>`, `<tr>` block boundaries; preserved post-gutter code indentation; updated CSS to `white-space: pre-wrap;`.
+- **BUG-3 (Switching workspaces does not filter snippets):** Scoped snippet storage by `workspaceId`, added active workspace persistence, and eliminated switching race conditions.
+
+### Security
+- Integrated Shannon entropy pre-upload secret scanner blocking sensitive API tokens, private keys, and passwords from network sync.
+- Implemented client bundle secret leak scanner (`scripts/verify-client-secrets.ts`) guaranteeing zero server secrets leak into client bundles.
+- Strict Content Security Policy (CSP) with zero remote code execution, zero external fonts, and zero inline event handlers.
+
+## [0.1.0] - 2026-11-05 (superseded by 0.2.0)
+
+### Added
+- Initial project architecture and single-source versioning system.
+- Playwright E2E testing harness for Chromium and Firefox.
+- Brand asset generator producing deterministic multi-size icons from master SVG.
+
 
 ### Added
 - **External Services Credential-Ready Architecture (`packages/config`, `packages/adapters`, `packages/api`):**

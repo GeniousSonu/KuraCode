@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Export Diagnostics (sanitized, 0 code)
   document.getElementById("btn-export-diagnostics")?.addEventListener("click", async () => {
     const snippets = await listAllSnippets();
-    const manifest = chrome.runtime?.getManifest ? chrome.runtime.getManifest() : { version: "0.1.0" };
+    const manifest = chrome.runtime?.getManifest ? chrome.runtime.getManifest() : { version: "0.2.0" };
     const bundle = {
       app: "KuraCode",
       version: manifest.version,
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Report Problem
   document.getElementById("btn-report-issue")?.addEventListener("click", () => {
-    const manifest = chrome.runtime?.getManifest ? chrome.runtime.getManifest() : { version: "0.1.0" };
+    const manifest = chrome.runtime?.getManifest ? chrome.runtime.getManifest() : { version: "0.2.0" };
     const issueBody = encodeURIComponent(
       `### Problem Description\n\n[Describe what happened]\n\n### Environment\n- KuraCode Version: ${manifest.version}\n- Browser: ${navigator.userAgent}\n`
     );

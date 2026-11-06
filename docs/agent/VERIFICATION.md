@@ -175,3 +175,25 @@ Not currently possible until later phases: steps 7–8 (backend), Firefox/Safari
     - Stress test (420px width): `docs/agent/evidence/design/after/popup-after-420px.png`
     - Stress test (150% zoom): `docs/agent/evidence/design/after/popup-after-zoom150.png`
 
+## V-15 Minor Release v0.2.0 Clean Rebuild, Packaging & Anti-Stale Verification (2026-11-06)
+
+- Ran: Full quality verification suite (`pnpm verify`), Vitest test suite across all 5 workspace packages (`pnpm test`), Doctor (`pnpm doctor`), packaging (`pnpm package`), release allow-list audit (`scripts/verify-release-contents.ts`), version integrity (`scripts/version-integrity.ts`), post-release smoke test (`scripts/post-release-smoke.sh`), and source-build reproducibility test.
+- Result: **All gates green ✔**
+  - Version Consistency:
+    - Root `package.json`, `packages/extension/package.json`, `packages/web/package.json`, `packages/config/package.json`, `packages/adapters/package.json`, `packages/api/package.json`, `manifest.json`, `manifest.firefox.json`, version constants, and `CHANGELOG.md` top entry all match `0.2.0` exactly.
+    - Verified by `packages/extension/test/version-consistency.test.ts` (7/7 passed).
+  - Clean Slate Rebuild & Anti-Stale Enforcement:
+    - `scripts/clean.sh` wiped all `.output`, `dist`, and `release/` directories prior to building.
+    - `scripts/version-integrity.ts` verified zero presence of stale version strings (`0.0.1`, `0.0.9`, `0.1.0`) or legacy product names in built manifests, code, and zip archives.
+  - Release Artifacts & Allow-List Audit:
+    - Generated `kuracode-chrome-0.2.0.zip` (314,971 B), `kuracode-edge-0.2.0.zip` (314,971 B), `kuracode-firefox-0.2.0.zip` (315,057 B), `kuracode-source-0.2.0.zip` (11,852,504 B), and `kuracode-sbom-0.2.0.json` (167 B).
+    - `scripts/verify-release-contents.ts` audited all entries in Chrome, Edge, and Firefox zips against strict allow-list: 0 node_modules, 0 .env, 0 tests/fixtures, 0 secret tokens.
+  - Sandboxed Post-Release Smoke:
+    - `scripts/post-release-smoke.sh` unpacked Chrome and Firefox archives into sandboxed temp directory and loaded extension in headless Playwright Chromium: 100% pass.
+  - Source-Build Reproducibility:
+    - Clean extraction of `kuracode-source-0.2.0.zip` into isolated `/tmp/kuracode-source-rebuild` built brand assets and Firefox MV3 package successfully without errors.
+  - Upgrade & N-1 Data Compatibility:
+    - Verified non-destructive upgrade from v0.1.0 to v0.2.0 preserving personal and workspace snippets, settings, and one-time "What's new" notification trigger.
+  - Mozilla `web-ext lint`: 0 errors on `.output/firefox-mv3`.
+
+

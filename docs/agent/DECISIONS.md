@@ -147,3 +147,15 @@
      - D13: Word wrap toggle persisted across sessions, default ON.
      - D14: 3-level typography scale with WCAG AA $\ge 4.5:1$ contrast verified across all text tokens.
 
+
+## #16 Minor Version Release: v0.2.0
+
+- Date: 2026-11-06 | Status: accepted
+- Context: Substantial feature expansion since initial v0.1.0 baseline: OAuth/OIDC accounts with PKCE, durable real-time sync with HLC, workspace isolation with RBAC, Clipboard Hub with secret scanner, 4/6-digit cryptographic quick-share codes, credential-ready architecture for 10 external services, offline bundled typography, zero-border redesign, and resolution of defects D1–D14 and bugs BUG-1..3.
+- Decision:
+  1. *Version Target:* Bump to next minor version `0.2.0` with patch reset to 0, strictly higher than previous `0.1.0`.
+  2. *Single-Source Propagation:* Implemented `scripts/bump-version.ts` and enhanced `scripts/sync-version.ts` to automatically propagate the canonical version from root `package.json` to all 5 workspace packages, Chrome and Firefox manifests, version constants, API response headers, and web app footer.
+  3. *Environment Override Support:* Supported `KURACODE_VERSION=<x.y.z>` environment variable override for automated CI/CD and release pipelines.
+  4. *Anti-Stale Enforcement:* Added `0.1.0` to `STALE_VERSIONS` in `scripts/version-integrity.ts`. All release archives and SHA256SUMS.txt must strictly reference only `0.2.0`.
+
+

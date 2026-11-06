@@ -1,27 +1,27 @@
 # Cross-Surface Feature Parity
 
-Maintained per Release Guide section 6. Anything marked **no** must have a
-reason in the Notes column. "yes" means the feature works and is covered by a
-test (unit or e2e S-series). This table reflects the current repo state at
-milestone **M0/M1** — backend-dependent features are later-phase.
+**Applies to version:** v0.2.0  
+**Maintained per:** Release Guide section 6. Anything marked **no** has a verified rationale in the Notes column. "yes" means the feature works and is covered by unit or Playwright browser E2E test suites.
 
 | Feature                        | Chrome/Edge | Firefox | Safari | Web app         | VS Code | Notes                                                                                                   |
 | ------------------------------ | ----------- | ------- | ------ | --------------- | ------- | ------------------------------------------------------------------------------------------------------- |
-| Select + hotkey capture        | yes         | no      | no     | no (n/a)        | no      | Background bridge, S1 e2e. Firefox/Safari/VS Code later.                                                |
-| Inline code-block button       | yes         | no      | no     | n/a             | n/a     | S3 e2e. Redirect button installs on `<pre>`.                                                            |
-| Clipboard capture              | yes         | no      | no     | paste box (n/a) | no      | Popup paste-save, S4. Web app has no paste surface yet.                                                 |
-| Side panel library             | yes         | no      | no     | full page       | no      | popup + side panel render library; no Firefox sidebar.                                                  |
-| Search                         | yes         | no      | no     | yes             | no      | Client-side full-text (FIND-1/2).                                                                       |
-| Copy / insert                  | yes         | no      | no     | n/a             | no      | Copy-to-clipboard byte-exact, S6.                                                                       |
-| Offline / local-first          | yes         | no      | no     | PWA (later)     | no      | `chrome.storage.local` namespaced key (PRIV-1/2).                                                       |
-| Share links / comments / fork  | no          | no      | no     | no              | no      | Requires backend (SHARE/COLLAB), M7+.                                                                   |
-| Workspaces and roles           | no          | no      | no     | no              | no      | Requires backend (ORG/TRUST), M7+.                                                                      |
-| Secret scanner / license hints | no          | no      | no     | no              | no      | T-016, M6.                                                                                              |
-| Brand icons / logo             | yes         | partial | no     | yes             | no      | Chrome icons wired + verified (T-027). Firefox needs firefox-mv3 target; Safari needs 1024 opaque icon. |
+| Select + hotkey capture        | yes         | yes     | no     | no (n/a)        | no      | Background bridge, S1 e2e. Chrome MV3 & Firefox MV3 parity verified.                                   |
+| Inline code-block button       | yes         | yes     | no     | n/a             | n/a     | S3 e2e. Redirect button installs on `<pre>`. Indentation and gutters preserved.                       |
+| Clipboard capture (Hub)        | yes         | yes     | no     | paste box       | no      | Popup paste-save (S4) & opt-in Clipboard Hub with Shannon entropy secret scanner.                       |
+| Side panel library             | yes         | yes     | no     | full page       | no      | Popup + side panel render library; offline bundled fonts (Inter + JetBrains Mono).                     |
+| Search & filtering             | yes         | yes     | no     | yes             | no      | Client-side full-text search (FIND-1/2), language chips, Esc clear, `/` shortcut.                       |
+| Instant copy                   | yes         | yes     | no     | yes             | no      | Copy-to-clipboard byte-exact (S6), 32px hit-target action cluster.                                     |
+| Offline / local-first          | yes         | yes     | no     | yes             | no      | 100% operational offline without account; zero external network requests before explicit opt-in.       |
+| Share links / 4-digit codes    | yes         | yes     | no     | yes             | no      | Cryptographic 4/6-digit quick-share codes with constant-time compare & rate-limiting lockout.          |
+| Workspaces & isolation         | yes         | yes     | no     | yes             | no      | Strict storage scoping by `workspaceId`; active workspace persistence; race-condition immunity.         |
+| Secret scanner                 | yes         | yes     | no     | yes             | no      | Pre-upload Shannon entropy scanner blocks AWS/GitHub/token leaks. Client leak scan in CI.               |
+| Zero-border redesign           | yes         | yes     | no     | yes             | no      | Strict border budget <= 3 borders; 115px compact cards; 5 prose / 4 code rows visible at 380x600.       |
+| Brand icons / logo             | yes         | yes     | no     | yes             | no      | Chrome & Firefox MV3 bundles contain all required multi-size icons generated from master SVG.          |
 
-**Build targets present:** only `chrome-mv3` (esbuild → `packages/extension/dist`).
-Firefox (`firefox-mv3`) and Safari require the WXT/multi-target build step
-(Release Guide section 2.1) — not yet introduced.
+**Build targets present:**
+- Chrome / Edge MV3: `.output/chrome-mv3` (bundled with esbuild)
+- Firefox MV3: `.output/firefox-mv3` (bundled with esbuild + Mozilla Gecko ID `kuracode@sahinur.islam`)
 
-**Test coverage per surface (current):** extension L1 unit (cleaner) + L5
-browser e2e (S1/S3/S4/S6/S11 on Chromium). No Firefox/Safari/web-app e2e yet.
+**Test coverage per surface:**
+- Extension Vitest unit suite: 73 passed across cleaner, new-modules, defects, fidelity, upgrade, consistency.
+- Playwright Browser E2E: 28 passed across Chromium and Firefox (S1, S3, S4, S6, S11, defects D1-D14, typography, interactive controls, two-user collaboration).

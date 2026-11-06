@@ -1,6 +1,7 @@
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { evaluateCapabilities, generateRedirectUris } from "@kuracode/config";
 import { MockMailCatcher, StubCaptchaVerifier } from "@kuracode/adapters";
+import { API_SERVER_VERSION } from "./version";
 
 const PORT = Number(process.env.PORT || 3000);
 const mailCatcher = new MockMailCatcher();
@@ -23,6 +24,7 @@ export function createApiServer() {
     }
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE, PUT");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, apikey");
+    res.setHeader("X-KuraCode-Version", API_SERVER_VERSION);
 
     if (method === "OPTIONS") {
       res.writeHead(204).end();
@@ -54,6 +56,7 @@ export function createApiServer() {
     if (url.pathname === "/healthz") {
       return sendJson(200, {
         status: "ok",
+        version: API_SERVER_VERSION,
         uptimeSeconds: Math.floor((Date.now() - startTime) / 1000),
         timestamp: new Date().toISOString(),
       });
@@ -64,6 +67,7 @@ export function createApiServer() {
       const isReady = true; // Service is always ready in zero-account mode
       return sendJson(200, {
         status: isReady ? "ready" : "degraded",
+        version: API_SERVER_VERSION,
         uptimeSeconds: Math.floor((Date.now() - startTime) / 1000),
         timestamp: new Date().toISOString(),
         capabilities: Object.fromEntries(Object.entries(caps).map(([k, v]) => [k, v.status])),
