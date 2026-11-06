@@ -68,35 +68,12 @@ function zipDirectory(sourceDir, outPath) {
 }
 
 function zipSourceCode(outPath) {
-  return new Promise((resolve, reject) => {
-    const output = createWriteStream(outPath);
-    const archive = archiver("zip", {
-      zlib: { level: 9 },
-      forceLocalTime: true,
-    });
-
-    output.on("close", () => resolve(archive.pointer()));
-    archive.on("error", (err) => reject(err));
-
-    archive.pipe(output);
-    archive.glob("**/*", {
-      cwd: root,
-      ignore: [
-        "**/node_modules/**",
-        "**/.output/**",
-        "**/packages/*/.output/**",
-        "**/dist/**",
-        "**/release/**",
-        "**/.git/**",
-        "**/.env*",
-        "**/coverage/**",
-        "**/test-results/**",
-      ],
-      dot: true,
-      nodir: true,
-    }, { date: REPRODUCIBLE_DATE });
-    archive.finalize();
+  // Use git archive for a guaranteed clean archive of committed source tree
+  execFileSync("git", ["archive", "--format=zip", "-o", outPath, "HEAD"], {
+    cwd: root,
+    stdio: "pipe",
   });
+  return fs.statSync(outPath).size;
 }
 
 function sha256File(filePath) {
