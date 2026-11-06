@@ -15,8 +15,8 @@
     "@kuracode/adapters": "workspace:*"
   },
   "devDependencies": {
-    "@types/node": "^22.7.5",
-    "typescript": "^5.6.3",
-    "vitest": "^2.1.9"
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
   }
 }
